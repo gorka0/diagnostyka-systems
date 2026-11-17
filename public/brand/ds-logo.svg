@@ -3,8 +3,8 @@
   <line x1="2.0" y1="29.5" x2="172.0" y2="29.5" stroke="#898685" stroke-width="1.0" shape-rendering="crispEdges" />
   <line x1="29.5" y1="1.5" x2="29.5" y2="57.5" stroke="#898685" stroke-width="1.0" shape-rendering="crispEdges" />
 
-  <!-- Geometric Orange D (complete character D) -->
-  <path d="M 2.5 5.0 L 22.0 5.0 C 31.5 5.0 38.5 14.5 38.5 29.5 C 38.5 44.5 31.5 54.0 22.0 54.0 L 2.5 54.0 L 2.5 40.0 L 13.5 40.0 C 13.5 46.5 17.5 49.0 22.0 49.0 C 27.5 49.0 32.5 42.0 32.5 29.5 C 32.5 17.0 27.5 10.0 22.0 10.0 C 17.5 10.0 13.5 12.5 13.5 19.0 L 2.5 19.0 L 2.5 5.0 Z" fill="#ED9D16" />
+  <!-- Geometric Orange D (authentic 2004 geometry: solid top-left stem, open bottom-left quadrant) -->
+  <path d="M 2.5 5.0 L 22.0 5.0 C 31.5 5.0 38.5 14.5 38.5 29.5 C 38.5 44.5 31.5 54.0 13.5 54.0 L 13.5 44.0 C 21.5 44.0 28.5 38.0 28.5 29.5 C 28.5 21.0 21.5 15.0 13.5 15.0 L 13.5 29.5 L 2.5 29.5 Z" fill="#ED9D16" />
 
   <!-- Authentic 2-arc S measurement curves (exact forward orientation, separate overlapping arcs) -->
   <!-- Arc 1 (Upper): from (45.3, 16.2) over top (29.5, 4.1) through (13.5, 17.5) to vertical axis (29.5, 37.5) -->
