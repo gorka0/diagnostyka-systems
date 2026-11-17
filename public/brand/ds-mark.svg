@@ -1,11 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60">
-  <g id="ds-mark" transform="translate(0.5, 0)">
-    <path d="M 2.5 5.0 L 22.0 5.0 C 31.5 5.0 38.5 14.5 38.5 29.5 L 29.5 29.5 C 29.5 19.5 22.5 14.0 13.5 14.0 L 13.5 29.5 L 2.5 29.5 Z" fill="#EE9D16" />
-    <path d="M 29.5 29.5 L 38.5 29.5 C 38.5 39.5 31.5 49.5 14.0 54.0 C 14.0 45.0 21.0 40.0 29.5 29.5 Z" fill="#EE9D16" />
-    <line x1="2.0" y1="29.5" x2="57.0" y2="29.5" stroke="#898685" stroke-width="1.0" shape-rendering="crispEdges" />
-    <line x1="29.5" y1="1.5" x2="29.5" y2="57.5" stroke="#898685" stroke-width="1.0" shape-rendering="crispEdges" />
-    <path d="M 13.5 21.0 C 13.5 10.0 20.0 4.0 29.5 4.0 C 39.0 4.0 46.5 10.0 46.5 17.5 C 46.5 24.5 38.0 27.5 29.5 29.5 C 21.0 31.5 13.5 34.5 13.5 42.0 C 13.5 49.0 20.0 54.5 29.5 54.5 C 39.0 54.5 46.5 49.0 46.5 41.5 C 46.5 38.0 43.5 35.5 39.5 35.5" fill="none" stroke="#5A5654" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" />
-    <circle cx="4.5" cy="50.5" r="3.2" fill="none" stroke="#EE9D16" stroke-width="0.75" />
-    <text x="4.5" y="52.0" font-family="'Inter', Arial, sans-serif" font-size="3.8" font-weight="700" fill="#EE9D16" text-anchor="middle">R</text>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60" fill="none">
+  <line x1="2.0" y1="29.5" x2="58.0" y2="29.5" stroke="#898685" stroke-width="1.0" shape-rendering="crispEdges" />
+  <line x1="29.5" y1="1.5" x2="29.5" y2="57.5" stroke="#898685" stroke-width="1.0" shape-rendering="crispEdges" />
+  <path d="M 2.5 5.0 L 22.0 5.0 C 31.5 5.0 38.5 14.5 38.5 29.5 C 38.5 44.5 31.5 54.0 22.0 54.0 L 2.5 54.0 L 2.5 40.0 L 13.5 40.0 C 13.5 46.5 17.5 49.0 22.0 49.0 C 27.5 49.0 32.5 42.0 32.5 29.5 C 32.5 17.0 27.5 10.0 22.0 10.0 C 17.5 10.0 13.5 12.5 13.5 19.0 L 2.5 19.0 L 2.5 5.0 Z" fill="#ED9D16" />
+  <path d="M 45.3 16.2 C 45.3 9.0 38.2 4.1 29.5 4.1 C 20.8 4.1 13.5 9.2 13.5 17.5 C 13.5 24.5 18.5 33.5 29.5 37.5" fill="none" stroke="#5A5654" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" />
+  <path d="M 29.5 21.5 C 40.5 25.5 45.5 34.5 45.5 41.5 C 45.5 49.8 38.2 54.9 29.5 54.9 C 20.8 54.9 13.5 50.0 13.5 42.8" fill="none" stroke="#5A5654" stroke-width="1.15" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="4.5" cy="50.5" r="3.2" stroke="#ED9D16" stroke-width="0.75" />
+  <path d="M 3.4 52.0 L 3.4 49.0 L 4.6 49.0 C 5.1 49.0 5.4 49.2 5.4 49.6 C 5.4 50.0 5.1 50.2 4.6 50.2 L 3.9 50.2 M 4.3 50.2 L 5.5 52.0" stroke="#ED9D16" stroke-width="0.6" stroke-linecap="round" stroke-linejoin="round" />
 </svg>
