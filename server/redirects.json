@@ -1,0 +1,518 @@
+[
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/",
+    "fromPath": "/",
+    "toPath": "/",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/o-nas.html",
+    "fromPath": "/o-nas.html",
+    "toPath": "/o-nas",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/o-nas/o-firmie.html",
+    "fromPath": "/o-nas/o-firmie.html",
+    "toPath": "/o-nas",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/o-nas/certyfikaty.html",
+    "fromPath": "/o-nas/certyfikaty.html",
+    "toPath": "/o-nas",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/o-nas/partnerzy.html",
+    "fromPath": "/o-nas/partnerzy.html",
+    "toPath": "/o-nas",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/oferta.html",
+    "fromPath": "/oferta.html",
+    "toPath": "/oferta",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty.html",
+    "fromPath": "/produkty.html",
+    "toPath": "/produkty",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/nowosci.html",
+    "fromPath": "/produkty/nowosci.html",
+    "toPath": "/produkty/nowosci",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/wywazarki-do-kol.html",
+    "fromPath": "/produkty/wywazarki-do-kol.html",
+    "toPath": "/produkty/wywazarki-do-kol",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/demontazownice.html",
+    "fromPath": "/produkty/demontazownice.html",
+    "toPath": "/produkty/demontazownice",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/geometria.html",
+    "fromPath": "/produkty/geometria.html",
+    "toPath": "/produkty/geometria",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/serwis-klimatyzacji.html",
+    "fromPath": "/produkty/serwis-klimatyzacji.html",
+    "toPath": "/serwis",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/linie-diagnostyczne.html",
+    "fromPath": "/produkty/linie-diagnostyczne.html",
+    "toPath": "/produkty/linie-diagnostyczne",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki.html",
+    "toPath": "/urzadzenia-oem",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe.html",
+    "fromPath": "/produkty/pojazdy-ciezarowe.html",
+    "toPath": "/produkty/pojazdy-ciezarowe",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/produkty-uzywane.html",
+    "fromPath": "/produkty/produkty-uzywane.html",
+    "toPath": "/produkty-uzywane",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/serwis.html",
+    "fromPath": "/serwis.html",
+    "toPath": "/serwis",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/serwis/zgloszenie-serwisowe.html",
+    "fromPath": "/serwis/zgloszenie-serwisowe.html",
+    "toPath": "/serwis/zgloszenie",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/realizacje.html",
+    "fromPath": "/realizacje.html",
+    "toPath": "/realizacje",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/publikacje.html",
+    "fromPath": "/publikacje.html",
+    "toPath": "/publikacje",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/kontakt.html",
+    "fromPath": "/kontakt.html",
+    "toPath": "/kontakt",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/realizacje/16-cum-szymacha.html",
+    "fromPath": "/realizacje/16-cum-szymacha.html",
+    "toPath": "/realizacje",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/realizacje/15-vw-watarski.html",
+    "fromPath": "/realizacje/15-vw-watarski.html",
+    "toPath": "/realizacje",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/realizacje/12-bmw-sikora.html",
+    "fromPath": "/realizacje/12-bmw-sikora.html",
+    "toPath": "/realizacje",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/publikacje/18-rentownosc-ogumienia.html",
+    "fromPath": "/publikacje/18-rentownosc-ogumienia.html",
+    "toPath": "/publikacje/rentownosc-ogumienia",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/publikacje/17-wademecum-warsztatu-samochodowego.html",
+    "fromPath": "/publikacje/17-wademecum-warsztatu-samochodowego.html",
+    "toPath": "/publikacje/vademecum-warsztatu-samochodowego",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/cookies.html",
+    "fromPath": "/cookies.html",
+    "toPath": "/polityka-prywatnosci",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/ml-1800-8r.html",
+    "fromPath": "/ml-1800-8r.html",
+    "toPath": "/produkty/geometria/ml-1800-8r",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/ml-easy-3d.html",
+    "fromPath": "/ml-easy-3d.html",
+    "toPath": "/produkty/geometria/ml-easy-3d",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/nowosci/tester-ustawienia-swiatel-beissbarth-mld-815-77-86-detail.html",
+    "fromPath": "/produkty/nowosci/tester-ustawienia-swiatel-beissbarth-mld-815-77-86-detail.html",
+    "toPath": "/produkty/nowosci/tester-ustawienia-swiatel-beissbarth-mld-815-77-86-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-lcd-aw-detail.html",
+    "fromPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-lcd-aw-detail.html",
+    "toPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-lcd-aw-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-touch-awlp-detail.html",
+    "fromPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-touch-awlp-detail.html",
+    "toPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-touch-awlp-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-lcd-awl-detail.html",
+    "fromPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-lcd-awl-detail.html",
+    "toPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-lcd-awl-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-lcd-awlp-detail.html",
+    "fromPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-lcd-awlp-detail.html",
+    "toPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-lcd-awlp-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-touch-awl-detail.html",
+    "fromPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-touch-awl-detail.html",
+    "toPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-touch-awl-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/demontazownice/ms-500-demontazownica-beissbarth-serii-g-frame-detail.html",
+    "fromPath": "/produkty/demontazownice/ms-500-demontazownica-beissbarth-serii-g-frame-detail.html",
+    "toPath": "/produkty/demontazownice/ms-500-demontazownica-beissbarth-serii-g-frame-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/demontazownice/ms-530-demontazownica-beissbarth-serii-g-frame-detail.html",
+    "fromPath": "/produkty/demontazownice/ms-530-demontazownica-beissbarth-serii-g-frame-detail.html",
+    "toPath": "/produkty/demontazownice/ms-530-demontazownica-beissbarth-serii-g-frame-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/demontazownice/ms-530-v1-demontazownica-beissbarth-serii-g-frame-detail.html",
+    "fromPath": "/produkty/demontazownice/ms-530-v1-demontazownica-beissbarth-serii-g-frame-detail.html",
+    "toPath": "/produkty/demontazownice/ms-530-v1-demontazownica-beissbarth-serii-g-frame-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/demontazownice/ms-630-demontazownica-beissbarth-serii-g-frame-detail.html",
+    "fromPath": "/produkty/demontazownice/ms-630-demontazownica-beissbarth-serii-g-frame-detail.html",
+    "toPath": "/produkty/demontazownice/ms-630-demontazownica-beissbarth-serii-g-frame-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/demontazownice/ms-630-v1-demontazownica-beissbarth-serii-g-frame-detail.html",
+    "fromPath": "/produkty/demontazownice/ms-630-v1-demontazownica-beissbarth-serii-g-frame-detail.html",
+    "toPath": "/produkty/demontazownice/ms-630-v1-demontazownica-beissbarth-serii-g-frame-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
+    "fromPath": "/produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
+    "toPath": "/produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-640-detail.html",
+    "fromPath": "/produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-640-detail.html",
+    "toPath": "/produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-640-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-600-detail.html",
+    "fromPath": "/produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-600-detail.html",
+    "toPath": "/produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-600-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/vag.html",
+    "toPath": "/urzadzenia-oem",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/mercedes.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/mercedes.html",
+    "toPath": "/urzadzenia-oem",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/bmw.html",
+    "toPath": "/urzadzenia-oem",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/toyota.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/toyota.html",
+    "toPath": "/urzadzenia-oem",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe.html",
+    "fromPath": "/produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe.html",
+    "toPath": "/produkty/pojazdy-ciezarowe",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe.html",
+    "fromPath": "/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe.html",
+    "toPath": "/produkty/pojazdy-ciezarowe",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/geometria-ciezarowe.html",
+    "fromPath": "/produkty/pojazdy-ciezarowe/geometria-ciezarowe.html",
+    "toPath": "/produkty/pojazdy-ciezarowe",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/produkty-uzywane/geometria-beissbarth-ml-1800-8r2017-01-13-08-15-53_-detail.html",
+    "fromPath": "/produkty/produkty-uzywane/geometria-beissbarth-ml-1800-8r2017-01-13-08-15-53_-detail.html",
+    "toPath": "/produkty/produkty-uzywane/geometria-beissbarth-ml-1800-8r2017-01-13-08-15-53_-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/produkty-uzywane/geometria-beissbarth-microline-4000-windows-detail.html",
+    "fromPath": "/produkty/produkty-uzywane/geometria-beissbarth-microline-4000-windows-detail.html",
+    "toPath": "/produkty/produkty-uzywane/geometria-beissbarth-microline-4000-windows-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/produkty-uzywane/geometria-beissbarth-microline-4600-detail.html",
+    "fromPath": "/produkty/produkty-uzywane/geometria-beissbarth-microline-4600-detail.html",
+    "toPath": "/produkty/produkty-uzywane/geometria-beissbarth-microline-4600-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/produkty-uzywane/linia-diagnostyczna-beissbarth-stl-7000-detail.html",
+    "fromPath": "/produkty/produkty-uzywane/linia-diagnostyczna-beissbarth-stl-7000-detail.html",
+    "toPath": "/produkty/produkty-uzywane/linia-diagnostyczna-beissbarth-stl-7000-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/realizacje/11-bmw-dynamic-torun.html",
+    "fromPath": "/realizacje/11-bmw-dynamic-torun.html",
+    "toPath": "/realizacje",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/realizacje/10-bmw-dobrzanscy-krakow.html",
+    "fromPath": "/realizacje/10-bmw-dobrzanscy-krakow.html",
+    "toPath": "/realizacje",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6279-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/vag/vas-6279-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/vas-6279-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6360-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/vag/vas-6360-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/vas-6360-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6595-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/vag/vas-6595-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/vas-6595-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6602-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/vag/vas-6602-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/vas-6602-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6603-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/vag/vas-6603-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/vas-6603-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6651-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/vag/vas-6651-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/vas-6651-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6767-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/vag/vas-6767-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/vas-6767-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6783-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/vag/vas-6783-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/vas-6783-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/mercedes/ml-81r-tech-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/mercedes/ml-81r-tech-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/ml-81r-tech-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/mercedes/ml-81-tech-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/mercedes/ml-81-tech-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/ml-81-tech-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/mercedes/wywaarka-beissbarth-mt-848-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/mercedes/wywaarka-beissbarth-mt-848-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/wywaarka-beissbarth-mt-848-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/mercedes/wywazarka-beissbarth-mt-868adt-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/mercedes/wywazarka-beissbarth-mt-868adt-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/wywazarka-beissbarth-mt-868adt-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/mercedes/bd-620-pc-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/mercedes/bd-620-pc-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/bd-620-pc-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/kds-ii-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/bmw/kds-ii-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/kds-ii-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/geometria-beissbarth-kds-3d-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/bmw/geometria-beissbarth-kds-3d-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/geometria-beissbarth-kds-3d-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-825d-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/bmw/mt-825d-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/mt-825d-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-825d2013-06-24-13-39-54_-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/bmw/mt-825d2013-06-24-13-39-54_-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/mt-825d2013-06-24-13-39-54_-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-848ad-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/bmw/mt-848ad-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/mt-848ad-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-868adt2013-06-24-13-41-37_-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/bmw/mt-868adt2013-06-24-13-41-37_-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/mt-868adt2013-06-24-13-41-37_-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/ms-65-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/bmw/ms-65-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/ms-65-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/ms-680-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/bmw/ms-680-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/ms-680-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/toyota/easy-3d-oem-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/toyota/easy-3d-oem-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/easy-3d-oem-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/toyota/bd-640-toyota-detail.html",
+    "fromPath": "/produkty/urzadzenia-dla-marki/toyota/bd-640-toyota-detail.html",
+    "toPath": "/produkty/urzadzenia-oem/bd-640-toyota-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe/wywazarka-beissbarth-mt-788-detail.html",
+    "fromPath": "/produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe/wywazarka-beissbarth-mt-788-detail.html",
+    "toPath": "/produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-788-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe/wywazarka-beissbarth-mt-795t-detail.html",
+    "fromPath": "/produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe/wywazarka-beissbarth-mt-795t-detail.html",
+    "toPath": "/produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-795t-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-70-detail.html",
+    "fromPath": "/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-70-detail.html",
+    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-70-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-beissbarth-ms-75-detail.html",
+    "fromPath": "/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-beissbarth-ms-75-detail.html",
+    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-beissbarth-ms-75-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-78-detail.html",
+    "fromPath": "/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-78-detail.html",
+    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-78-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-80-detail.html",
+    "fromPath": "/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-80-detail.html",
+    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-80-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/geometria-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
+    "fromPath": "/produkty/pojazdy-ciezarowe/geometria-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
+    "toPath": "/produkty/pojazdy-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail",
+    "statusCode": 301
+  }
+]

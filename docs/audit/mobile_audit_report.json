@@ -1,0 +1,622 @@
+{
+  "overflow_issues": [
+    {
+      "viewport": "360",
+      "path": "/",
+      "scrollWidth": 401,
+      "innerWidth": 360,
+      "offenders": [
+        {
+          "tag": "SPAN",
+          "id": "",
+          "className": "text-[#8C959F]",
+          "right": 401,
+          "width": 58
+        }
+      ]
+    },
+    {
+      "viewport": "390",
+      "path": "/",
+      "scrollWidth": 421,
+      "innerWidth": 390,
+      "offenders": [
+        {
+          "tag": "SPAN",
+          "id": "",
+          "className": "text-[#8C959F]",
+          "right": 421,
+          "width": 58
+        }
+      ]
+    },
+    {
+      "viewport": "414",
+      "path": "/",
+      "scrollWidth": 437,
+      "innerWidth": 414,
+      "offenders": [
+        {
+          "tag": "SPAN",
+          "id": "",
+          "className": "text-[#8C959F]",
+          "right": 437,
+          "width": 58
+        }
+      ]
+    }
+  ],
+  "input_font_size_issues": [
+    {
+      "viewport": "360",
+      "path": "/produkty",
+      "smallInputs": [
+        {
+          "name": "Szukaj urządzenia (np. Q.Lign, ML 8, MT 788, VAS, G-Frame)...",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        }
+      ]
+    },
+    {
+      "viewport": "360",
+      "path": "/serwis/zgloszenie",
+      "smallInputs": [
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "osoba",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "typUrzadzenia",
+          "fontSize": "14px",
+          "tag": "SELECT"
+        },
+        {
+          "name": "model",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "opisUsterki",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "360",
+      "path": "/kontakt",
+      "smallInputs": [
+        {
+          "name": "imieNazwisko",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "tematProdukt",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "wiadomosc",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "390",
+      "path": "/produkty",
+      "smallInputs": [
+        {
+          "name": "Szukaj urządzenia (np. Q.Lign, ML 8, MT 788, VAS, G-Frame)...",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        }
+      ]
+    },
+    {
+      "viewport": "390",
+      "path": "/serwis/zgloszenie",
+      "smallInputs": [
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "osoba",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "typUrzadzenia",
+          "fontSize": "14px",
+          "tag": "SELECT"
+        },
+        {
+          "name": "model",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "opisUsterki",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "390",
+      "path": "/kontakt",
+      "smallInputs": [
+        {
+          "name": "imieNazwisko",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "tematProdukt",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "wiadomosc",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "414",
+      "path": "/produkty",
+      "smallInputs": [
+        {
+          "name": "Szukaj urządzenia (np. Q.Lign, ML 8, MT 788, VAS, G-Frame)...",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        }
+      ]
+    },
+    {
+      "viewport": "414",
+      "path": "/serwis/zgloszenie",
+      "smallInputs": [
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "osoba",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "typUrzadzenia",
+          "fontSize": "14px",
+          "tag": "SELECT"
+        },
+        {
+          "name": "model",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "opisUsterki",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "414",
+      "path": "/kontakt",
+      "smallInputs": [
+        {
+          "name": "imieNazwisko",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "tematProdukt",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "wiadomosc",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "768",
+      "path": "/produkty",
+      "smallInputs": [
+        {
+          "name": "Szukaj urządzenia (np. Q.Lign, ML 8, MT 788, VAS, G-Frame)...",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        }
+      ]
+    },
+    {
+      "viewport": "768",
+      "path": "/serwis/zgloszenie",
+      "smallInputs": [
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "osoba",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "typUrzadzenia",
+          "fontSize": "14px",
+          "tag": "SELECT"
+        },
+        {
+          "name": "model",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "opisUsterki",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "768",
+      "path": "/kontakt",
+      "smallInputs": [
+        {
+          "name": "imieNazwisko",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "tematProdukt",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "wiadomosc",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "1024",
+      "path": "/produkty",
+      "smallInputs": [
+        {
+          "name": "Szukaj urządzenia (np. Q.Lign, ML 8, MT 788, VAS, G-Frame)...",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        }
+      ]
+    },
+    {
+      "viewport": "1024",
+      "path": "/serwis/zgloszenie",
+      "smallInputs": [
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "osoba",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "typUrzadzenia",
+          "fontSize": "14px",
+          "tag": "SELECT"
+        },
+        {
+          "name": "model",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "opisUsterki",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "1024",
+      "path": "/kontakt",
+      "smallInputs": [
+        {
+          "name": "imieNazwisko",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "tematProdukt",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "wiadomosc",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "landscape_844x390",
+      "path": "/produkty",
+      "smallInputs": [
+        {
+          "name": "Szukaj urządzenia (np. Q.Lign, ML 8, MT 788, VAS, G-Frame)...",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        }
+      ]
+    },
+    {
+      "viewport": "landscape_844x390",
+      "path": "/serwis/zgloszenie",
+      "smallInputs": [
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "osoba",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "typUrzadzenia",
+          "fontSize": "14px",
+          "tag": "SELECT"
+        },
+        {
+          "name": "model",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "opisUsterki",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "landscape_844x390",
+      "path": "/kontakt",
+      "smallInputs": [
+        {
+          "name": "imieNazwisko",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "tematProdukt",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "wiadomosc",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    }
+  ],
+  "touch_target_issues": [],
+  "tel_mailto_issues": [],
+  "hamburger_tests": [
+    {
+      "button_info": {
+        "ariaLabel": "Otwórz menu nawigacji",
+        "width": 44,
+        "height": 44,
+        "is44px": true
+      },
+      "open_success": true,
+      "body_locked": false,
+      "close_success": true
+    }
+  ],
+  "screenshots": [
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\homepage_360.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\category_geometria_360.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\product_qlign_360.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\ticket_360.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\contact_360.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\homepage_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\category_geometria_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\product_qlign_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\ticket_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\contact_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\menu_opened_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\homepage_768.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\category_geometria_768.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\product_qlign_768.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\ticket_768.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\contact_768.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\homepage_1024.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\category_geometria_1024.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\product_qlign_1024.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\ticket_1024.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\contact_1024.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\homepage_landscape_844x390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\category_geometria_landscape_844x390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\product_qlign_landscape_844x390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\ticket_landscape_844x390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\contact_landscape_844x390.png"
+  ]
+}

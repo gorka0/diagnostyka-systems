@@ -1,0 +1,7 @@
+# Robots.txt for Diagnostyka-Systems s.c. (beissbarth-service.pl)
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /server/
+
+Sitemap: https://www.beissbarth-service.pl/sitemap.xml

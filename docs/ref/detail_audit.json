@@ -1,0 +1,47 @@
+{
+  "total_details": 50,
+  "issues": [
+    {
+      "url": "https://www.beissbarth-service.pl/produkty/nowosci/tester-ustawienia-swiatel-beissbarth-mld-815-77-86-detail.html",
+      "title": "Nowości : Urządzenie do pomiaru geometrii Q.Lign T.41",
+      "type": "URL_TITLE_MISMATCH",
+      "details": "URL zawiera \"tester-ustawienia-swiatel-beissbarth-mld-815-77-86-detail.html\", ale tytuł i treść to \"Urządzenie do pomiaru geometrii Q.Lign T.41\"."
+    },
+    {
+      "url": "https://www.beissbarth-service.pl/produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
+      "title": "Geometria Beissbarth ML 8 R TECH AWB",
+      "type": "CONTENT_MISMATCH",
+      "details": "Tytuł i URL wskazują na Geometria ML 8 R TECH AWB, lecz treść zawiera opis Q.Lign Compact."
+    },
+    {
+      "url": "https://www.beissbarth-service.pl/produkty/produkty-uzywane/geometria-beissbarth-ml-1800-8r2017-01-13-08-15-53_-detail.html",
+      "title": "Produkty używane : Geometria Beissbarth ML 1800-8R",
+      "type": "DUPLICATE_URL_TIMESTAMP",
+      "details": "Zdublowany wpis w CMS z timestampem w URL: https://www.beissbarth-service.pl/produkty/produkty-uzywane/geometria-beissbarth-ml-1800-8r2017-01-13-08-15-53_-detail.html"
+    },
+    {
+      "url": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-825d2013-06-24-13-39-54_-detail.html",
+      "title": "BMW : MT 825D",
+      "type": "DUPLICATE_URL_TIMESTAMP",
+      "details": "Zdublowany wpis w CMS z timestampem w URL: https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-825d2013-06-24-13-39-54_-detail.html"
+    },
+    {
+      "url": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-868adt2013-06-24-13-41-37_-detail.html",
+      "title": "BMW : MT 868ADT",
+      "type": "DUPLICATE_URL_TIMESTAMP",
+      "details": "Zdublowany wpis w CMS z timestampem w URL: https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-868adt2013-06-24-13-41-37_-detail.html"
+    },
+    {
+      "url": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-78-detail.html",
+      "title": "Demontażownice : Demontażownica Servomat MS 78",
+      "type": "EMPTY_PAGE",
+      "details": "Podstrona demontażownicy MS 78 nie posiada opisu ani danych technicznych."
+    },
+    {
+      "url": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/geometria-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
+      "title": "Geometria Beissbarth ML 8 R TECH AWB",
+      "type": "CONTENT_MISMATCH",
+      "details": "Tytuł i URL wskazują na Geometria ML 8 R TECH AWB, lecz treść zawiera opis Q.Lign Compact."
+    }
+  ]
+}

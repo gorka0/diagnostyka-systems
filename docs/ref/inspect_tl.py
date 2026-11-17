@@ -1,0 +1,18 @@
+from PIL import Image
+import numpy as np
+
+img = Image.open('d:/home/strony/diagnostyka-systems/docs/ref/mark_4x_crop.png')
+arr = np.array(img)
+
+def get_pts(x_min, x_max, y_min, y_max):
+    pts = []
+    for y in range(int(y_min*4), int(y_max*4)):
+        for x in range(int(x_min*4), int(x_max*4)):
+            r, g, b = [int(v) for v in arr[y, x][:3]]
+            if max(r, g, b) - min(r, g, b) < 30 and 40 < (r + g + b) / 3 < 180:
+                pts.append((x / 4.0, y / 4.0))
+    return pts
+
+tl_pts = get_pts(13, 28.5, 4.5, 28.5)
+for p in tl_pts[::10]:
+    print(f"TL pt: x={p[0]:.2f}, y={p[1]:.2f}")

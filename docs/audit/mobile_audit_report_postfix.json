@@ -1,0 +1,312 @@
+{
+  "overflow_issues": [],
+  "input_font_size_issues": [
+    {
+      "viewport": "768",
+      "path": "/produkty",
+      "smallInputs": [
+        {
+          "name": "Szukaj urządzenia (np. Q.Lign, ML 8, MT 788, VAS, G-Frame)...",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        }
+      ]
+    },
+    {
+      "viewport": "768",
+      "path": "/serwis/zgloszenie",
+      "smallInputs": [
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "osoba",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "typUrzadzenia",
+          "fontSize": "14px",
+          "tag": "SELECT"
+        },
+        {
+          "name": "model",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "opisUsterki",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "768",
+      "path": "/kontakt",
+      "smallInputs": [
+        {
+          "name": "imieNazwisko",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "tematProdukt",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "wiadomosc",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "1024",
+      "path": "/produkty",
+      "smallInputs": [
+        {
+          "name": "Szukaj urządzenia (np. Q.Lign, ML 8, MT 788, VAS, G-Frame)...",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        }
+      ]
+    },
+    {
+      "viewport": "1024",
+      "path": "/serwis/zgloszenie",
+      "smallInputs": [
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "osoba",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "typUrzadzenia",
+          "fontSize": "14px",
+          "tag": "SELECT"
+        },
+        {
+          "name": "model",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "opisUsterki",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "1024",
+      "path": "/kontakt",
+      "smallInputs": [
+        {
+          "name": "imieNazwisko",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "tematProdukt",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "wiadomosc",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "landscape_844x390",
+      "path": "/produkty",
+      "smallInputs": [
+        {
+          "name": "Szukaj urządzenia (np. Q.Lign, ML 8, MT 788, VAS, G-Frame)...",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        }
+      ]
+    },
+    {
+      "viewport": "landscape_844x390",
+      "path": "/serwis/zgloszenie",
+      "smallInputs": [
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "osoba",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "typUrzadzenia",
+          "fontSize": "14px",
+          "tag": "SELECT"
+        },
+        {
+          "name": "model",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "opisUsterki",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    },
+    {
+      "viewport": "landscape_844x390",
+      "path": "/kontakt",
+      "smallInputs": [
+        {
+          "name": "imieNazwisko",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "firma",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "email",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "telefon",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "tematProdukt",
+          "fontSize": "14px",
+          "tag": "INPUT"
+        },
+        {
+          "name": "wiadomosc",
+          "fontSize": "14px",
+          "tag": "TEXTAREA"
+        }
+      ]
+    }
+  ],
+  "touch_target_issues": [],
+  "tel_mailto_issues": [],
+  "hamburger_tests": [
+    {
+      "button_info": {
+        "ariaLabel": "Otwórz menu nawigacji",
+        "width": 44,
+        "height": 44,
+        "is44px": true
+      },
+      "open_success": true,
+      "body_locked": true,
+      "close_success": true
+    }
+  ],
+  "screenshots": [
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\homepage_360.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\category_geometria_360.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\product_ml1800_360.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\ticket_360.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\contact_360.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\homepage_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\category_geometria_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\product_ml1800_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\ticket_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\contact_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\menu_opened_390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\homepage_768.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\category_geometria_768.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\product_ml1800_768.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\ticket_768.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\contact_768.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\homepage_1024.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\category_geometria_1024.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\product_ml1800_1024.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\ticket_1024.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\contact_1024.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\homepage_landscape_844x390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\category_geometria_landscape_844x390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\product_ml1800_landscape_844x390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\ticket_landscape_844x390.png",
+    "d:\\home\\strony\\diagnostyka-systems\\docs\\audit\\screenshots\\post_fix\\contact_landscape_844x390.png"
+  ]
+}

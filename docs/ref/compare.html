@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<style>
+  body {
+    margin: 0;
+    padding: 30px;
+    background: #F6F8FA;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    color: #1F2328;
+  }
+  h1 { font-size: 20px; margin-bottom: 24px; font-weight: 600; }
+  .grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; max-width: 900px; }
+  .card {
+    background: #FFFFFF;
+    border: 1px solid #D0D7DE;
+    border-radius: 4px;
+    padding: 16px;
+  }
+  .card-title {
+    font-size: 13px;
+    font-weight: 600;
+    color: #57606A;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .preview {
+    background: #FFFFFF;
+    border: 1px dashed #E1E4E8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  .preview-dark {
+    background: #1F2328;
+    border: 1px dashed #30363D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+  img { display: block; }
+</style>
+</head>
+<body>
+  <h1>Audyt wizualny: Wektor SVG vs Oryginał (Diagnostyka-Systems)</h1>
+
+  <div class="grid">
+    <div class="card">
+      <div class="card-title">1. Oryginał (Raster 172x60)</div>
+      <div class="preview">
+        <img src="logo-ref.png" width="172" height="60" />
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">2. Nowy SVG Wektor (172x60)</div>
+      <div class="preview">
+        <img src="../../public/brand/ds-logo.svg" width="172" height="60" />
+      </div>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top: 24px;">
+    <div class="card">
+      <div class="card-title">3. Oryginał 4x Zoom (Piksele referencyjne)</div>
+      <div class="preview">
+        <img src="logo-ref-4x.png" width="344" height="120" />
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">4. SVG 4x Zoom (Wektor ostre krawędzie)</div>
+      <div class="preview">
+        <img src="../../public/brand/ds-logo.svg" width="344" height="120" />
+      </div>
+    </div>
+  </div>
+
+  <div class="grid" style="margin-top: 24px;">
+    <div class="card">
+      <div class="card-title">5. Sam Znak (ds-mark.svg)</div>
+      <div class="preview">
+        <img src="../../public/brand/ds-mark.svg" width="60" height="60" />
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-title">6. Wersja Mono Light na ciemne tło (ds-logo-mono-light.svg)</div>
+      <div class="preview-dark">
+        <img src="../../public/brand/ds-logo-mono-light.svg" width="172" height="60" />
+      </div>
+    </div>
+  </div>
+</body>
+</html>

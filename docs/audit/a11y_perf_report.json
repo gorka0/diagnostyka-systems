@@ -1,0 +1,456 @@
+{
+  "homepage": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Urządzenia diagnostyczne i serwis dla warsztatów i stacji ko"
+      },
+      {
+        "level": "H2",
+        "text": "System do pomiaru geometrii kół ML 8 ROC!"
+      },
+      {
+        "level": "H2",
+        "text": "Kategorie produktów"
+      },
+      {
+        "level": "H3",
+        "text": "Wyważarki do kół"
+      },
+      {
+        "level": "H3",
+        "text": "Demontażownice"
+      },
+      {
+        "level": "H3",
+        "text": "Geometria"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 411,
+    "loadTimeMs": 413
+  },
+  "about": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Diagnostyka-Systems s.c."
+      },
+      {
+        "level": "H2",
+        "text": "Precyzja pomiaru i niezawodny serwis dla profesjonalistów"
+      },
+      {
+        "level": "H2",
+        "text": "Główne obszary kompetencji"
+      },
+      {
+        "level": "H2",
+        "text": "Historia i kamienie milowe"
+      },
+      {
+        "level": "H3",
+        "text": "Powstanie firmy"
+      },
+      {
+        "level": "H3",
+        "text": "Autoryzacja Beissbarth GmbH"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 62,
+    "loadTimeMs": 63
+  },
+  "offer": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Oferta dla SKP, ASO i warsztatów"
+      },
+      {
+        "level": "H3",
+        "text": "Stanowiska kontroli geometrii kół 3D i CCD"
+      },
+      {
+        "level": "H3",
+        "text": "Rolkowe linie diagnostyczne i ścieżki zdrowia"
+      },
+      {
+        "level": "H3",
+        "text": "Aparatura do montażu i wyważania kół"
+      },
+      {
+        "level": "H3",
+        "text": "Obsługa kół pojazdów ciężarowych i maszyn"
+      },
+      {
+        "level": "H3",
+        "text": "Stacje obsługi klimatyzacji Valeo i Robinair"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 65,
+    "loadTimeMs": 66
+  },
+  "products": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Katalog urządzeń diagnostycznych"
+      },
+      {
+        "level": "H3",
+        "text": "Urządzenia OEM (BMW, VAG, Mercedes, Toyota)"
+      },
+      {
+        "level": "H3",
+        "text": "Sprzęt używany z pisemną gwarancją"
+      },
+      {
+        "level": "H2",
+        "text": "Główne działy urządzeń warsztatowych\n(9 kategorii)"
+      },
+      {
+        "level": "H3",
+        "text": "Wyważarki do kół"
+      },
+      {
+        "level": "H3",
+        "text": "Demontażownice"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 62,
+    "loadTimeMs": 63
+  },
+  "category_geometria": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Geometria"
+      },
+      {
+        "level": "H3",
+        "text": "Geometria Microline 8 ROC"
+      },
+      {
+        "level": "H3",
+        "text": "Geometria Beissbarth ML EASY 3D"
+      },
+      {
+        "level": "H3",
+        "text": "Geometria Beissbarth ML 8 R TECH AWB"
+      },
+      {
+        "level": "H3",
+        "text": "Adres do korespondencji i serwisu"
+      },
+      {
+        "level": "H3",
+        "text": "Infolinia i specjaliści"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 64,
+    "loadTimeMs": 65
+  },
+  "product_qlign": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Urządzenie nie zostało odnalezione"
+      },
+      {
+        "level": "H3",
+        "text": "Adres do korespondencji i serwisu"
+      },
+      {
+        "level": "H3",
+        "text": "Infolinia i specjaliści"
+      },
+      {
+        "level": "H3",
+        "text": "Szybkie linki"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 62,
+    "loadTimeMs": 63
+  },
+  "oem": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Urządzenia OEM dla ASO"
+      },
+      {
+        "level": "H3",
+        "text": "VAS 6279"
+      },
+      {
+        "level": "H3",
+        "text": "VAS 6360"
+      },
+      {
+        "level": "H3",
+        "text": "VAS 6595"
+      },
+      {
+        "level": "H3",
+        "text": "VAS 6602"
+      },
+      {
+        "level": "H3",
+        "text": "VAS 6603"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 73,
+    "loadTimeMs": 74
+  },
+  "used": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Urządzenia używane po remoncie kapitalnym"
+      },
+      {
+        "level": "H3",
+        "text": "Pisemna gwarancja techniczna"
+      },
+      {
+        "level": "H3",
+        "text": "Fabryczny remont kapitalny"
+      },
+      {
+        "level": "H3",
+        "text": "Certyfikat kalibracji i dopuszczenie"
+      },
+      {
+        "level": "H3",
+        "text": "Geometria Beissbarth ML 1800-8R"
+      },
+      {
+        "level": "H3",
+        "text": "Geometria Beissbarth Microline 4000"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 67,
+    "loadTimeMs": 68
+  },
+  "service": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Autoryzowany serwis urządzeń warsztatowych"
+      },
+      {
+        "level": "H2",
+        "text": "Potrzebujesz pilnej naprawy lub kalibracji maszyny?"
+      },
+      {
+        "level": "H3",
+        "text": "Naprawy gwarancyjne i pogwarancyjne"
+      },
+      {
+        "level": "H3",
+        "text": "Okresowe kalibracje pod wymogi ITS / SKP"
+      },
+      {
+        "level": "H3",
+        "text": "Generalne remonty i regeneracja maszyn"
+      },
+      {
+        "level": "H3",
+        "text": "Modernizacja geometrii Microline do Windows"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 65,
+    "loadTimeMs": 66
+  },
+  "ticket": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Zgłoszenie serwisowe Beissbarth / Valeo"
+      },
+      {
+        "level": "H3",
+        "text": "1. DANE ZGŁASZAJĄCEGO"
+      },
+      {
+        "level": "H3",
+        "text": "2. URZĄDZENIE I OPIS USTERKI"
+      },
+      {
+        "level": "H4",
+        "text": "PILNA AWARIA? ZADZWOŃ BEZPOŚREDNIO"
+      },
+      {
+        "level": "H3",
+        "text": "Adres do korespondencji i serwisu"
+      },
+      {
+        "level": "H3",
+        "text": "Infolinia i specjaliści"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 84,
+    "loadTimeMs": 85
+  },
+  "realizations": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Wdrożenia w ASO i stacjach kontroli"
+      },
+      {
+        "level": "H3",
+        "text": "BMW Sikora"
+      },
+      {
+        "level": "H3",
+        "text": "VW Wątarski"
+      },
+      {
+        "level": "H3",
+        "text": "CUM Szymacha"
+      },
+      {
+        "level": "H3",
+        "text": "BMW Dynamic Toruń"
+      },
+      {
+        "level": "H3",
+        "text": "BMW Dobrzańscy Kraków"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 63,
+    "loadTimeMs": 64
+  },
+  "publications": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Publikacje branżowe i poradniki"
+      },
+      {
+        "level": "H3",
+        "text": "Rentowność ogumienia"
+      },
+      {
+        "level": "H3",
+        "text": "Vademecum warsztatu samochodowego"
+      },
+      {
+        "level": "H3",
+        "text": "Adres do korespondencji i serwisu"
+      },
+      {
+        "level": "H3",
+        "text": "Infolinia i specjaliści"
+      },
+      {
+        "level": "H3",
+        "text": "Szybkie linki"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 64,
+    "loadTimeMs": 65
+  },
+  "contact": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Siedziba, magazyn i doradztwo techniczne"
+      },
+      {
+        "level": "H3",
+        "text": "Informacja techniczna"
+      },
+      {
+        "level": "H3",
+        "text": "Informacja handlowa"
+      },
+      {
+        "level": "H3",
+        "text": "Specjalista ds. Beissbarth"
+      },
+      {
+        "level": "H3",
+        "text": "Specjalista ds. klimatyzacji Valeo"
+      },
+      {
+        "level": "H2",
+        "text": "Napisz do nas"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 64,
+    "loadTimeMs": 65
+  },
+  "privacy": {
+    "h1Count": 1,
+    "headingsSample": [
+      {
+        "level": "H1",
+        "text": "Polityka prywatności i plików cookies"
+      },
+      {
+        "level": "H2",
+        "text": "1. Administrator Danych Osobowych"
+      },
+      {
+        "level": "H2",
+        "text": "2. Cele i podstawy prawne przetwarzania danych"
+      },
+      {
+        "level": "H2",
+        "text": "3. Okres przechowywania danych osobowych"
+      },
+      {
+        "level": "H2",
+        "text": "4. Odbiorcy danych osobowych"
+      },
+      {
+        "level": "H2",
+        "text": "5. Prawa przysługujące osobom, których dane dotyczą"
+      }
+    ],
+    "missingAltImgs": [],
+    "unnamedInteractives": [],
+    "domLoadedMs": 78,
+    "loadTimeMs": 79
+  }
+}
