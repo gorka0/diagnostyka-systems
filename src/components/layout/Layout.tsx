@@ -2,6 +2,7 @@ import React, { useLayoutEffect, useEffect } from 'react';
 import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Header } from './Header';
 import { Footer } from './Footer';
+import { CookieBanner } from '@/components/cookies/CookieBanner';
 import { COMPANY_DATA } from '@/data/company';
 import { LABELS } from '@/config/labels';
 import { cleanTelHref } from '@/utils/typography';
@@ -31,7 +32,10 @@ export const Layout: React.FC = () => {
   const isHome = pathname === '/';
 
   return (
-    <div className="min-h-[100dvh] flex flex-col bg-background text-foreground pb-[76px] lg:pb-0">
+    <div className="min-h-[100dvh] flex flex-col bg-background text-foreground pb-[76px] lg:pb-0 [--mobile-bar-h:calc(44px+1.25rem+env(safe-area-inset-bottom))] lg:[--mobile-bar-h:0px]">
+      {/* 1. Baner zgód na cookies (pierwszy w drzewie DOM dla klawiatury i a11y, fixed na dole) */}
+      <CookieBanner policyHref="/polityka-prywatnosci" />
+
       <Header />
       <main className={`flex-1 ${isHome ? 'pt-0' : 'pt-20'}`}>
         <Outlet />

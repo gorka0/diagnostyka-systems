@@ -6,9 +6,17 @@ import { COMPANY_DATA } from '@/data/company';
 import { formatPhoneWithNbsp, cleanTelHref } from '@/utils/typography';
 import { ContactForm } from '@/components/forms/ContactForm';
 import { MapPin, ExternalLink, MousePointer2 } from 'lucide-react';
+import { useConsent, save as saveConsent } from '@/components/cookies/consent';
 
 export const ContactPage: React.FC = () => {
-  const [mapLoaded, setMapLoaded] = useState(false);
+  const { categories } = useConsent();
+  const [userLoadedMap, setUserLoadedMap] = useState(false);
+  const mapLoaded = categories.external || userLoadedMap;
+
+  const handleActivateMap = () => {
+    setUserLoadedMap(true);
+    saveConsent({ ...categories, external: true });
+  };
 
   // 4 numery bezpośrednie z company.ts
   const directPhones = [
@@ -190,8 +198,8 @@ export const ContactPage: React.FC = () => {
           <div
             id="contact-map"
             tabIndex={!mapLoaded ? 0 : undefined}
-            onFocus={() => setMapLoaded(true)}
-            onMouseEnter={() => setMapLoaded(true)}
+            onFocus={handleActivateMap}
+            onMouseEnter={handleActivateMap}
             aria-label={!mapLoaded ? 'Obszar mapy dojazdu. Najedź kursorem myszy na desktopie lub kliknij przycisk na telefonie, aby załadować interaktywną mapę.' : undefined}
             className={`aspect-[21/9] min-h-[300px] w-full rounded-[16px] overflow-hidden border border-surface-border bg-background-subtle flex flex-col items-center justify-center relative transition-colors ${
               !mapLoaded ? 'hover:border-accent/40 focus:outline-none focus:ring-2 focus:ring-accent/40' : ''
@@ -221,7 +229,7 @@ export const ContactPage: React.FC = () => {
                 <div className="sm:hidden pt-2">
                   <button
                     type="button"
-                    onClick={() => setMapLoaded(true)}
+                    onClick={handleActivateMap}
                     className="h-11 px-6 text-[14px] font-semibold text-foreground bg-white border border-surface-border rounded-[10px] shadow-sm active:bg-gray-100 transition-colors inline-flex items-center gap-2"
                   >
                     <MapPin className="w-4 h-4 text-accent-text" />

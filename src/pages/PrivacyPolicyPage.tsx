@@ -3,6 +3,7 @@ import { Container } from '@/components/ui/Container';
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
 import { Seo } from '@/components/common/Seo';
 import { COMPANY_DATA } from '@/data/company';
+import { openCookieSettings } from '@/components/cookies/consent';
 
 export const PrivacyPolicyPage: React.FC = () => {
   return (
@@ -140,7 +141,16 @@ export const PrivacyPolicyPage: React.FC = () => {
                 </p>
                 <div className="p-4 bg-background-subtle border border-surface-border rounded-[8px]">
                   <strong className="text-foreground block mb-1">Interaktywna mapa dojazdu Google Maps:</strong>
-                  Mapa lokalizacji w zakładce Kontakt nie pobiera danych ani plików cookies firmy trzeciej (Google) w sposób automatyczny podczas ładowania podstrony. Zewnętrzny iframe mapy ładowany jest wyłącznie po świadomym kliknięciu przez użytkownika przycisku <em>„Załaduj mapę na stronie”</em>. Alternatywnie dostępny jest bezpośredni odnośnik otwierający trasę w aplikacji Google Maps w nowej karcie.
+                  Mapa lokalizacji w zakładce Kontakt nie pobiera danych ani plików cookies firmy trzeciej (Google) w sposób automatyczny podczas ładowania podstrony. Zewnętrzny iframe mapy ładowany jest wyłącznie po świadomym kliknięciu przez użytkownika przycisku <em>„Załaduj mapę na stronie”</em> lub wyrażeniu zgody w banerze cookies. Alternatywnie dostępny jest bezpośredni odnośnik otwierający trasę w aplikacji Google Maps w nowej karcie.
+                </div>
+                <div className="pt-2">
+                  <button
+                    type="button"
+                    onClick={openCookieSettings}
+                    className="h-10 px-5 rounded-[8px] bg-foreground text-white font-semibold text-[14px] hover:bg-foreground/90 transition-colors inline-flex items-center gap-2 cursor-pointer shadow-xs"
+                  >
+                    Zmień preferencje plików cookie
+                  </button>
                 </div>
               </div>
             </section>

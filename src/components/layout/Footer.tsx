@@ -4,6 +4,7 @@ import { Logo } from '@/components/brand/Logo';
 import { COMPANY_DATA } from '@/data/company';
 import { LABELS } from '@/config/labels';
 import { formatPolishTypography, formatPhoneWithNbsp, cleanTelHref } from '@/utils/typography';
+import { openCookieSettings } from '@/components/cookies/consent';
 
 export const Footer: React.FC = () => {
   // Szybkie linki (maksymalnie 6 kluczowych pozycji z menu)
@@ -99,10 +100,19 @@ export const Footer: React.FC = () => {
               <li className="pt-2">
                 <Link
                   to="/polityka-prywatnosci"
-                  className="text-[14px] text-white/60 hover:text-white underline underline-offset-2 transition-colors"
+                  className="text-[14px] text-white/60 hover:text-white underline underline-offset-2 transition-colors block"
                 >
                   {LABELS.footer.privacyPolicy}
                 </Link>
+              </li>
+              <li>
+                <button
+                  type="button"
+                  onClick={openCookieSettings}
+                  className="text-[14px] text-white/60 hover:text-white underline underline-offset-2 transition-colors cursor-pointer block text-left"
+                >
+                  Ustawienia plików cookie
+                </button>
               </li>
             </ul>
           </div>
