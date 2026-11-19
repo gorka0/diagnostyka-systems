@@ -94,7 +94,7 @@ export const HomePage: React.FC = () => {
       />
 
       {/* 1. NOWE HERO (CIEMNA SEKCJA GRAPHITE-900) */}
-      <section className="relative bg-graphite-900 text-white overflow-hidden pt-28 sm:pt-36 lg:pt-40 pb-28 sm:pb-36 lg:pb-44">
+      <section className="relative bg-graphite-900 text-white overflow-hidden pt-28 sm:pt-36 lg:pt-40 pb-16 sm:pb-20 lg:pb-24">
         {/* Wzór siatki pomiarowej Crosshair (6% krycia) */}
         <div aria-hidden="true" className="absolute inset-0 text-white opacity-[0.06] pointer-events-none">
           <Crosshair size={64} />
@@ -110,10 +110,10 @@ export const HomePage: React.FC = () => {
           }}
         />
 
-        <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Lewa kolumna (kol. 1-6): Treść, CTA i Fakty */}
-            <div className="lg:col-span-6 space-y-6">
+        <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 space-y-10 sm:space-y-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+            {/* Lewa kolumna (kol. 1-8): Treść i CTA */}
+            <div className="lg:col-span-8 space-y-6">
               {/* Eyebrow: 15 px z małą pomarańczową kropką */}
               <div className="flex items-center gap-2.5 text-[15px] font-normal text-white/80">
                 <span className="w-2 h-2 rounded-full bg-accent-light shrink-0" />
@@ -121,12 +121,12 @@ export const HomePage: React.FC = () => {
               </div>
 
               {/* H1: 56-72 px, tracking -0.02em, interlinia 1.05, biały */}
-              <h1 className="text-[38px] sm:text-[50px] lg:text-[58px] xl:text-[64px] font-semibold text-white tracking-[-0.02em] leading-[1.05] text-balance">
+              <h1 className="text-[36px] sm:text-[48px] lg:text-[54px] xl:text-[58px] font-semibold text-white tracking-[-0.02em] leading-[1.08] text-balance">
                 Sprzęt diagnostyczny i serwis Beissbarth dla warsztatów i stacji kontroli pojazdów
               </h1>
 
-              {/* 1 zdanie opisu, 18-20 px, rgba(255,255,255,.72), max 52 znaki */}
-              <p className="text-[18px] lg:text-[20px] text-white/72 leading-relaxed max-w-[52ch] text-pretty">
+              {/* 1 zdanie opisu, 18-20 px, rgba(255,255,255,.72), max 56 znaków */}
+              <p className="text-[17px] sm:text-[19px] lg:text-[20px] text-white/75 leading-relaxed max-w-[56ch] text-pretty">
                 {formatPolishTypography(
                   'Siedziba i magazyn w Lisim Ogonie k. Bydgoszczy. Obsługujemy SKP, ASO i serwisy w całej Polsce.'
                 )}
@@ -151,71 +151,69 @@ export const HomePage: React.FC = () => {
                   {LABELS.cta.serviceTicket}
                 </Button>
               </div>
+            </div>
 
-              {/* Rząd 3 faktów dużymi cyframi, oddzielonych pionową hairline */}
-              <div className="pt-8 border-t border-white/12 grid grid-cols-3 gap-4 sm:gap-6">
+            {/* Prawa kolumna (kol. 9-12): 3 fakty w pionie z delikatnym rozdzieleniem */}
+            <div className="lg:col-span-4 lg:border-l lg:border-white/12 lg:pl-8 pt-4 lg:pt-0">
+              <div className="grid grid-cols-3 lg:grid-cols-1 gap-4 sm:gap-6">
                 <div className="space-y-1">
-                  <span className="text-[28px] sm:text-[42px] font-semibold text-white tabular-nums tracking-tight block">
+                  <span className="text-[26px] sm:text-[36px] lg:text-[40px] font-semibold text-white tabular-nums tracking-tight block">
                     2004
                   </span>
-                  <span className="text-[14px] sm:text-[15px] text-white/72 block leading-snug">
+                  <span className="text-[13px] sm:text-[14px] text-white/72 block leading-snug">
                     założenie firmy
                   </span>
                 </div>
-                <div className="border-l border-white/12 pl-4 sm:pl-6 space-y-1">
-                  <span className="text-[28px] sm:text-[42px] font-semibold text-white tabular-nums tracking-tight block">
+                <div className="border-l border-white/12 pl-4 sm:pl-6 lg:border-l-0 lg:pl-0 lg:border-t lg:border-white/12 lg:pt-4 space-y-1">
+                  <span className="text-[26px] sm:text-[36px] lg:text-[40px] font-semibold text-white tabular-nums tracking-tight block">
                     2005
                   </span>
-                  <span className="text-[14px] sm:text-[15px] text-white/72 block leading-snug">
+                  <span className="text-[13px] sm:text-[14px] text-white/72 block leading-snug">
                     autoryzacja Beissbarth
                   </span>
                 </div>
-                <div className="border-l border-white/12 pl-4 sm:pl-6 space-y-1">
-                  <span className="text-[28px] sm:text-[42px] font-semibold text-white tabular-nums tracking-tight block">
+                <div className="border-l border-white/12 pl-4 sm:pl-6 lg:border-l-0 lg:pl-0 lg:border-t lg:border-white/12 lg:pt-4 space-y-1">
+                  <span className="text-[26px] sm:text-[36px] lg:text-[40px] font-semibold text-white tabular-nums tracking-tight block">
                     2007
                   </span>
-                  <span className="text-[14px] sm:text-[15px] text-white/72 block leading-snug">
+                  <span className="text-[13px] sm:text-[14px] text-white/72 block leading-snug">
                     uprawnienia ITS dla SKP
                   </span>
                 </div>
               </div>
             </div>
+          </div>
 
-            {/* Prawa kolumna (kol. 7-12): Duże zdjęcie w proporcji 4:5 z narożnikami i chipem */}
-            <div className="lg:col-span-6 relative">
-              <div className="relative mx-auto max-w-[480px] lg:max-w-none">
-                {/* Narożniki-nawiasy pomarańczowe (16 px) */}
-                <CornerBrackets size={16} color="#F5A524" />
+          {/* Panoramiczne zdjęcie siedziby i floty w poziomie bez ucinania (naturalne proporcje 948/258) */}
+          <div className="relative w-full">
+            <CornerBrackets size={16} color="#F5A524" />
 
-                {/* Zdjęcie siedziby / panel hero w proporcji 4:5 na desktopie, 4:3 na mobile */}
-                <div className="relative aspect-[4/3] sm:aspect-[4/5] w-full rounded-[16px] overflow-hidden border border-white/12 bg-graphite-800 shadow-2xl">
-                  <picture className="w-full h-full block">
-                    <source srcSet="/images/budynek-firmy-lisi-ogon.webp" type="image/webp" />
-                    <img
-                      src="/images/budynek-firmy-lisi-ogon.jpg"
-                      alt="Siedziba i centrum serwisowe Diagnostyka-Systems w Lisim Ogonie"
-                      className="w-full h-full object-cover"
-                      {...({ fetchpriority: 'high' } as any)}
-                      loading="eager"
-                      decoding="async"
-                    />
-                  </picture>
+            <div className="relative aspect-[948/258] w-full rounded-[16px] overflow-hidden border border-white/12 bg-graphite-800 shadow-2xl">
+              <picture className="w-full h-full block">
+                <source srcSet="/images/budynek-firmy-lisi-ogon.webp" type="image/webp" />
+                <img
+                  src="/images/budynek-firmy-lisi-ogon.jpg"
+                  alt="Siedziba, magazyn i flota serwisowa Diagnostyka-Systems w Lisim Ogonie k. Bydgoszczy"
+                  className="w-full h-full object-cover object-center"
+                  {...({ fetchpriority: 'high' } as any)}
+                  loading="eager"
+                  decoding="async"
+                />
+              </picture>
 
-                  {/* Chip 'Lisi Ogon k. Bydgoszczy' w lewym dolnym rogu (backdrop-filter blur z fallbackiem) */}
-                  <div className="absolute bottom-4 left-4 z-20 flex items-center gap-2 px-3.5 py-2 rounded-[8px] bg-graphite-900/85 backdrop-blur-md border border-white/15 text-white/90 text-[14px] font-medium shadow-lg select-none">
-                    <MapPin className="w-4 h-4 text-accent-light shrink-0" />
-                    <span>Lisi Ogon k. Bydgoszczy</span>
-                  </div>
-                </div>
+              {/* Chip 'Lisi Ogon k. Bydgoszczy' w lewym dolnym rogu */}
+              <div className="absolute bottom-2.5 left-2.5 sm:bottom-4 sm:left-4 z-20 flex items-center gap-1.5 sm:gap-2 px-2.5 sm:px-3.5 py-1 sm:py-2 rounded-[8px] bg-graphite-900/85 backdrop-blur-md border border-white/15 text-white/90 text-[11px] sm:text-[13px] font-medium shadow-lg select-none">
+                <MapPin className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-accent-light shrink-0" />
+                <span>Lisi Ogon k. Bydgoszczy</span>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* 2. AKTUALNA PROMOCJA (BIAŁA KARTA NACHODZĄCA NA HERO Z CIENIEM) */}
+      {/* 2. AKTUALNA PROMOCJA (BIAŁA KARTA PONIŻEJ HERO) */}
       {activePromo && (
-        <section className="relative z-20 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 -mt-16 md:-mt-20 mb-16 md:mb-24">
+        <section className="relative z-20 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:mt-14 mb-16 md:mb-24">
           <div className="bg-white rounded-[16px] border border-surface-border p-6 sm:p-8 lg:p-10 shadow-[0_24px_60px_rgba(20,23,26,0.18)]">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Lewa: Zdjęcie produktu */}

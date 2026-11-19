@@ -173,7 +173,7 @@ export const PageHero: React.FC<PageHeroProps> = ({
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full aspect-[4/3] object-cover object-center block"
+                    className="w-full aspect-[948/258] object-cover object-center block"
                     loading="eager"
                   />
                 </div>
