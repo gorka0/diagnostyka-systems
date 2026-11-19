@@ -306,14 +306,28 @@ Adres zwrotny (Reply-To): ${email}
 Wiadomość wygenerowana automatycznie z formularza beissbarth.pl
 `;
 
+  // Nadawca wiadomości (MAIL FROM) - musi należeć do uwierzytelnionego konta SMTP (np. formularz@beissbarth-service.pl),
+  // inaczej serwer pocztowy (home.pl) odrzuca wysyłkę z błędem 553 (Sender address rejected: not owned by user).
+  const smtpUser = process.env.SMTP_USER || 'formularz@beissbarth-service.pl';
+  const customFrom = process.env.SMTP_FROM;
+  const isCustomDomainSender =
+    customFrom &&
+    (customFrom.includes('@beissbarth-service.pl') || customFrom.includes('@beissbarth.pl'));
+  const senderEmail = isCustomDomainSender ? customFrom : smtpUser;
+  const fromHeader = `"Diagnostyka-Systems" <${senderEmail}>`;
+
   try {
     const transport = getMailTransport();
     await transport.sendMail({
-      from: process.env.SMTP_FROM || `"Diagnostyka-Systems" <${targetEmail}>`,
+      from: fromHeader,
       to: targetEmail,
       replyTo: email,
       subject,
       text: textContent,
+      envelope: {
+        from: senderEmail,
+        to: targetEmail,
+      },
     });
   } catch (mailError) {
     console.error('[handleContactMessage sendMail error]:', mailError);
