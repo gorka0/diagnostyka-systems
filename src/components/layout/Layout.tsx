@@ -38,21 +38,23 @@ export const Layout: React.FC = () => {
       </main>
       <Footer />
 
-      {/* Cienki dolny pasek akcji na mobile (zabezpieczony safe-area iOS) */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-surface-border px-4 py-3 flex items-center gap-3 pb-[calc(0.75rem+env(safe-area-inset-bottom))]">
+      {/* Cienki dolny pasek akcji na mobile (zabezpieczony safe-area iOS, równy grid 50/50 bez rozjeżdżania) */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-sm border-t border-surface-border px-3.5 py-2.5 grid grid-cols-2 gap-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))]">
         <a
           href={cleanTelHref(COMPANY_DATA.phones.techInfo.raw)}
-          className="flex-1 h-11 px-4 inline-flex items-center justify-center gap-2 text-[15px] font-semibold text-foreground bg-white border border-surface-border rounded-[10px] active:bg-background-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground select-none"
+          className="w-full h-11 px-2.5 inline-flex items-center justify-center gap-1.5 sm:gap-2 text-[14px] font-semibold text-foreground bg-white border border-surface-border rounded-[10px] active:bg-background-subtle focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground select-none whitespace-nowrap overflow-hidden shadow-2xs"
         >
           <Phone className="w-4 h-4 text-foreground-secondary shrink-0" />
-          <span>{LABELS.cta.callNow}</span>
+          <span className="whitespace-nowrap">{LABELS.cta.callNow}</span>
         </a>
         <Link
           to="/serwis/zgloszenie"
-          className="flex-1 h-11 px-4 inline-flex items-center justify-center gap-2 text-[15px] font-semibold text-foreground bg-accent border border-[#D98908]/40 rounded-[10px] active:bg-accent-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground select-none"
+          className="w-full h-11 px-2.5 inline-flex items-center justify-center gap-1.5 sm:gap-2 text-[13px] sm:text-[14px] font-semibold text-foreground bg-accent border border-[#D98908]/40 rounded-[10px] active:bg-accent-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground select-none whitespace-nowrap overflow-hidden shadow-2xs"
         >
           <Wrench className="w-4 h-4 text-foreground shrink-0" />
-          <span className="truncate">{LABELS.cta.serviceTicket}</span>
+          <span className="font-semibold text-[14px] whitespace-nowrap">
+            Zgłoszenie<span className="hidden min-[430px]:inline"> serwisowe</span>
+          </span>
         </Link>
       </div>
     </div>
