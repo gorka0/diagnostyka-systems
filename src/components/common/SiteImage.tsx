@@ -42,6 +42,11 @@ export const SiteImage: React.FC<SiteImageProps> = ({
 
   const ratio = (aspectRatio || spec.aspectRatio || '4/3') as string;
 
+  // Obliczenie wymiarów do atrybutów width i height (zapobieganie CLS)
+  const [dimWidth, dimHeight] = (spec.dimensions || '1200×900')
+    .split(/[x×]/)
+    .map((v) => parseInt(v.trim(), 10) || undefined);
+
   // Proporcje CSS
   const aspectMap: Record<string, string> = {
     '16/9': 'aspect-video',
@@ -79,10 +84,13 @@ export const SiteImage: React.FC<SiteImageProps> = ({
           <img
             src={spec.path}
             alt={props.alt || spec.alt}
+            width={props.width || dimWidth || 1200}
+            height={props.height || dimHeight || 900}
             onError={() => setLoadError(true)}
             className={`w-full h-full ${fitClass} transition-opacity duration-150`}
             loading={priority ? 'eager' : 'lazy'}
             decoding="async"
+            {...({ fetchpriority: priority ? 'high' : 'low' } as any)}
             {...props}
           />
         </picture>

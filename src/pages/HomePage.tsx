@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Seo } from '@/components/common/Seo';
-import { getLocalBusinessJsonLd } from '@/utils/seo';
+import { getHomepageJsonLd } from '@/utils/seo';
 import { Button } from '@/components/ui/Button';
 import { SiteImage } from '@/components/common/SiteImage';
 import { Crosshair, CornerBrackets } from '@/components/ui/MeasurementMarks';
@@ -90,7 +90,7 @@ export const HomePage: React.FC = () => {
         title="Beissbarth serwis Bydgoszcz – Urządzenia diagnostyczne i wyposażenie SKP | Diagnostyka-Systems"
         description="Autoryzowany dystrybutor i Beissbarth serwis Bydgoszcz: geometria kół 3D, linie diagnostyczne SKP, wyważarki, demontażownice. Siedziba: Lisi Ogon."
         canonicalPath="/"
-        jsonLd={getLocalBusinessJsonLd()}
+        jsonLd={getHomepageJsonLd()}
       />
 
       {/* 1. NOWE HERO (CIEMNA SEKCJA GRAPHITE-900) */}
@@ -194,6 +194,8 @@ export const HomePage: React.FC = () => {
                 <img
                   src="/images/budynek-firmy-lisi-ogon.jpg"
                   alt="Siedziba, magazyn i flota serwisowa Diagnostyka-Systems w Lisim Ogonie k. Bydgoszczy"
+                  width={948}
+                  height={258}
                   className="w-full h-full object-cover object-center"
                   {...({ fetchpriority: 'high' } as any)}
                   loading="eager"

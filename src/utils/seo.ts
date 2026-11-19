@@ -58,6 +58,55 @@ export function getLocalBusinessJsonLd() {
   };
 }
 
+export function getHomepageJsonLd() {
+  return [
+    getLocalBusinessJsonLd(),
+    {
+      '@type': 'WebSite',
+      '@id': `${BASE_URL}/#website`,
+      'url': BASE_URL,
+      'name': 'Diagnostyka-Systems s.c. - Beissbarth Polska',
+      'description': 'Autoryzowany dystrybutor i serwis urządzeń diagnostycznych Beissbarth w Polsce.',
+      'publisher': {
+        '@id': `${BASE_URL}/#localbusiness`,
+      },
+      'potentialAction': {
+        '@type': 'SearchAction',
+        'target': {
+          '@type': 'EntryPoint',
+          'urlTemplate': `${BASE_URL}/produkty?q={search_term_string}`,
+        },
+        'query-input': 'required name=search_term_string',
+      },
+      'inLanguage': 'pl-PL',
+    },
+    {
+      '@type': 'Organization',
+      '@id': `${BASE_URL}/#organization`,
+      'name': COMPANY_DATA.name,
+      'legalName': COMPANY_DATA.legalAddress.companyName,
+      'url': BASE_URL,
+      'logo': `${BASE_URL}/brand/ds-logo.svg`,
+      'contactPoint': [
+        {
+          '@type': 'ContactPoint',
+          'telephone': '+48 507 073 918',
+          'contactType': 'technical support',
+          'areaServed': 'PL',
+          'availableLanguage': 'Polish',
+        },
+        {
+          '@type': 'ContactPoint',
+          'telephone': '+48 507 073 919',
+          'contactType': 'sales',
+          'areaServed': 'PL',
+          'availableLanguage': 'Polish',
+        },
+      ],
+    },
+  ];
+}
+
 export function getProductJsonLd(product: ProductItem, categoryName?: string) {
   const photoUrl = `${BASE_URL}/images/${product.slug}.jpg`;
   const productUrl = `${BASE_URL}/produkty/${product.categorySlug}/${product.slug}`;
@@ -168,12 +217,39 @@ export function getArticleJsonLd(pub: PublicationItem) {
   };
 }
 
-export function getCollectionJsonLd(title: string, description: string, path: string) {
-  return {
+export function getCollectionJsonLd(
+  title: string,
+  description: string,
+  path: string,
+  items?: Array<{ name: string; url: string; image?: string }>
+) {
+  const collection: Record<string, any> = {
     '@context': 'https://schema.org',
     '@type': 'CollectionPage',
     'name': title,
     'description': description,
     'url': `${BASE_URL}${path.startsWith('/') ? path : '/' + path}`,
   };
+
+  if (items && items.length > 0) {
+    collection.mainEntity = {
+      '@type': 'ItemList',
+      'numberOfItems': items.length,
+      'itemListElement': items.map((it, idx) => ({
+        '@type': 'ListItem',
+        'position': idx + 1,
+        'name': it.name,
+        'url': it.url.startsWith('http') ? it.url : `${BASE_URL}${it.url.startsWith('/') ? it.url : '/' + it.url}`,
+        ...(it.image
+          ? {
+              'image': it.image.startsWith('http')
+                ? it.image
+                : `${BASE_URL}${it.image.startsWith('/') ? it.image : '/' + it.image}`,
+            }
+          : {}),
+      })),
+    };
+  }
+
+  return collection;
 }

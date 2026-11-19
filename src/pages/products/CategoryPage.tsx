@@ -225,7 +225,12 @@ export const CategoryPage: React.FC = () => {
         jsonLd={getCollectionJsonLd(
           category.name,
           category.description,
-          `/produkty/${category.slug}`
+          `/produkty/${category.slug}`,
+          categoryProductsWithMeta.map(({ product }) => ({
+            name: product.name,
+            url: `/produkty/${category.slug}/${product.slug}`,
+            image: `/images/${product.slug}.jpg`,
+          }))
         )}
       />
 
