@@ -179,7 +179,7 @@ export function buildEmailHtml({
                       DIAGNOSTYKA-SYSTEMS • BEISSBARTH
                     </div>
                     <div style="margin: 0; font-size: 18px; font-weight: 700; color: #FFFFFF; line-height: 1.25; letter-spacing: -0.01em;">
-                      nowa wiadomosc
+                      Nowa wiadomość
                     </div>
                   </td>
                   <td align="right" valign="middle">
