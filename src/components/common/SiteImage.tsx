@@ -9,12 +9,14 @@ export interface SiteImageProps extends React.ImgHTMLAttributes<HTMLImageElement
   aspectRatio?: '16/9' | '4/3' | '1/1' | '3/2' | '4/5' | '16/10' | '3/4';
   priority?: boolean;
   theme?: 'light' | 'dark';
+  plain?: boolean;
 }
 
 /**
  * Komponent SiteImage z uproszczonym placeholderem zgodnym ze specyfikacją:
  * - Wersja jasna: jasnoszary blok w docelowych proporcjach, ramka border-surface-border.
  * - Wersja ciemna (Hero): panel graphite-800 z siatką pomiarową Crosshair i etykietą celową.
+ * - Wersja plain (katalog): czysty obraz bez wymuszonego paddingu i dodatkowej zewnętrznej ramki.
  */
 export const SiteImage: React.FC<SiteImageProps> = ({
   name,
@@ -23,6 +25,7 @@ export const SiteImage: React.FC<SiteImageProps> = ({
   aspectRatio,
   priority = false,
   theme = 'light',
+  plain = false,
   ...props
 }) => {
   const [loadError, setLoadError] = useState(false);
@@ -51,12 +54,21 @@ export const SiteImage: React.FC<SiteImageProps> = ({
   };
   const aspectClass = aspectMap[ratio] || 'aspect-[4/3]';
 
-  const fitClass = fit === 'contain' ? 'object-contain p-4 md:p-6 bg-white' : 'object-cover';
-  const containerBg = theme === 'dark' ? 'bg-graphite-800 border-white/12' : 'bg-background-subtle border-surface-border';
+  const fitClass =
+    fit === 'contain'
+      ? plain
+        ? 'object-contain'
+        : 'object-contain p-4 md:p-6 bg-white'
+      : 'object-cover';
+  const containerBg = plain
+    ? ''
+    : theme === 'dark'
+    ? 'bg-graphite-800 border-white/12 border rounded-[16px]'
+    : 'bg-background-subtle border-surface-border border rounded-[16px]';
 
   return (
     <div
-      className={`relative w-full overflow-hidden rounded-[16px] border ${containerBg} ${aspectClass} ${className}`}
+      className={`relative w-full h-full overflow-hidden ${containerBg} ${aspectClass} ${className}`}
     >
       {!loadError ? (
         <picture className="w-full h-full block">

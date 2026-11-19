@@ -108,17 +108,31 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        {/* Dane rejestrowe w jednej linii na dole + prawa autorskie */}
-        <div className="mt-14 pt-8 border-t border-white/12 text-white/60 space-y-2">
-          <p className="text-[14px] leading-relaxed">
-            <span className="font-medium text-white/80">Dane rejestrowe: </span>
+        {/* Dane rejestrowe w jednej linii na dole + prawa autorskie i autor wdrożenia */}
+        <div className="mt-16 pt-8 pb-4 border-t border-white/10 text-white/60 space-y-3">
+          <p className="text-[13px] sm:text-[14px] leading-[1.7] text-balance">
+            <span className="font-medium text-white/85">Dane rejestrowe spółki: </span>
             {COMPANY_DATA.legalAddress.companyName}, {COMPANY_DATA.legalAddress.street},{' '}
             {COMPANY_DATA.legalAddress.postalCode} {COMPANY_DATA.legalAddress.city} · NIP:{' '}
-            {COMPANY_DATA.legalAddress.nip} · REGON: {COMPANY_DATA.legalAddress.regon}
+            <span className="font-mono text-white/80">{COMPANY_DATA.legalAddress.nip}</span> · REGON:{' '}
+            <span className="font-mono text-white/80">{COMPANY_DATA.legalAddress.regon}</span>
           </p>
-          <p className="text-[13px] text-white/50">
-            © {new Date().getFullYear()} {LABELS.footer.allRightsReserved}
-          </p>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-2 text-[12px] sm:text-[13px] text-white/70 font-mono">
+            <p>
+              © {new Date().getFullYear()} {LABELS.footer.allRightsReserved}
+            </p>
+            <p>
+              <span>Projekt i wdrożenie: </span>
+              <a
+                href="https://www.studiowzrostu.pl"
+                target="_blank"
+                rel="noopener"
+                className="text-white/80 hover:text-accent-light underline underline-offset-2 decoration-white/35 hover:decoration-accent-light transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent-light rounded-xs"
+              >
+                Studio Wzrostu
+              </a>
+            </p>
+          </div>
         </div>
       </div>
     </footer>

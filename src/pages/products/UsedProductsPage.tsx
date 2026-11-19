@@ -1,14 +1,13 @@
 import React, { useMemo } from 'react';
 import { Link } from 'react-router-dom';
 import { Seo } from '@/components/common/Seo';
-import { Container } from '@/components/ui/Container';
-import { PageHeader } from '@/components/layout/PageHeader';
-import { Card } from '@/components/ui/Card';
-import { Button } from '@/components/ui/Button';
+import { PageHero } from '@/components/layout/PageHero';
 import { SiteImage } from '@/components/common/SiteImage';
 import { PRODUCTS_DATA } from '@/data/products';
 import { formatPolishTypography } from '@/utils/typography';
-import { ArrowRight, ShieldCheck } from 'lucide-react';
+import { ShieldCheck, ArrowRight } from 'lucide-react';
+import { COMPANY_DATA } from '@/data/company';
+import { cleanTelHref, formatPhoneWithNbsp } from '@/utils/typography';
 
 export const UsedProductsPage: React.FC = () => {
   const usedProducts = useMemo(() => {
@@ -19,119 +18,135 @@ export const UsedProductsPage: React.FC = () => {
     <div className="bg-background min-h-[100dvh]">
       <Seo
         title="Używane urządzenia diagnostyczne z gwarancją | Diagnostyka-Systems"
-        description="Sprawdzona aparatura diagnostyczna Beissbarth po fabrycznym remoncie kapitalnym w Lisim Ogonie. Geometria kół i linie diagnostyczne objęte pisemną gwarancją."
+        description="Sprawdzona aparatura diagnostyczna Beissbarth po fabrycznym remoncie w Lisim Ogonie. Geometria kół i linie diagnostyczne objęte 6-miesięczną gwarancją serwisu."
         canonicalPath="/produkty-uzywane"
       />
-      <PageHeader
+
+      <PageHero
+        variant="compact"
         breadcrumbs={[
           { label: 'Produkty', to: '/produkty' },
           { label: 'Produkty używane' },
         ]}
         title="Używane urządzenia diagnostyczne z gwarancją"
-        description="Aparatura diagnostyczna Beissbarth po fabrycznym remoncie kapitalnym w serwisie w Lisim Ogonie, w pełni sprawna technicznie i objęta pisemną gwarancją."
+        description="Aparatura diagnostyczna Beissbarth po kompleksowej regeneracji w serwisie w Lisim Ogonie, w pełni sprawna technicznie i objęta 6-miesięczną gwarancją serwisu."
       />
-      <div className="py-12 md:py-16">
-        <Container>
-          {/* 3 Filary gwarancji urządzeń używanych */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-          <Card padding="lg" className="space-y-3">
-            <ShieldCheck className="w-6 h-6 text-foreground stroke-[1.5]" />
-            <h2 className="text-[18px] font-semibold text-foreground">
-              Fabryczny remont kapitalny
-            </h2>
-            <p className="text-[15px] text-foreground-secondary leading-relaxed">
-              {formatPolishTypography(
-                'Każde urządzenie przechodzi pełny demontaż, weryfikację podzespołów, wymianę elementów eksploatacyjnych oraz testy na stanowiskach wzorcowych.'
-              )}
-            </p>
-          </Card>
 
-          <Card padding="lg" className="space-y-3">
-            <ShieldCheck className="w-6 h-6 text-foreground stroke-[1.5]" />
-            <h2 className="text-[18px] font-semibold text-foreground">
-              Pisemna gwarancja serwisu
-            </h2>
-            <p className="text-[15px] text-foreground-secondary leading-relaxed">
-              {formatPolishTypography(
-                'Udzielamy pisemnej gwarancji autoryzowanego serwisu Beissbarth na wszystkie odnowione maszyny oraz zapewniamy stałą dostępność części zamiennych.'
-              )}
-            </p>
-          </Card>
-
-          <Card padding="lg" className="space-y-3">
-            <ShieldCheck className="w-6 h-6 text-foreground stroke-[1.5]" />
-            <h2 className="text-[18px] font-semibold text-foreground">
-              Legalizacja i atesty ITS
-            </h2>
-            <p className="text-[15px] text-foreground-secondary leading-relaxed">
-              {formatPolishTypography(
-                'Urządzenia przeznaczone dla Stacji Kontroli Pojazdów dostarczamy z aktualnym świadectwem kalibracji oraz kompletną dokumentacją odbiorową.'
-              )}
-            </p>
-          </Card>
-        </div>
-
-        {/* Lista produktów używanych */}
-        <div className="mb-16 md:mb-24">
-          <div className="mb-8">
-            <h2 className="text-2xl md:text-3xl font-semibold text-foreground tracking-tight">
-              Aktualnie dostępne urządzenia z gwarancją
-            </h2>
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-12 md:space-y-16">
+        {/* Baner gwarancji: 6 miesięcy na maszyny zregenerowane */}
+        <div className="rounded-[14px] bg-background-subtle border border-surface-border p-6 sm:p-8 flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 rounded-full bg-white border border-surface-border flex items-center justify-center shrink-0 text-foreground shadow-sm">
+              <ShieldCheck className="w-6 h-6 text-foreground stroke-[1.5]" />
+            </div>
+            <div className="space-y-1 max-w-[65ch]">
+              <h2 className="text-xl font-semibold text-foreground tracking-tight">
+                6 miesięcy gwarancji na zregenerowane maszyny
+              </h2>
+              <p className="text-[15px] text-foreground-secondary leading-relaxed">
+                Każde oferowane urządzenie przechodzi demontaż, weryfikację podzespołów, wymianę elementów eksploatacyjnych, kalibrację na stanowisku wzorcowym oraz aktualizację oprogramowania.
+              </p>
+            </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {usedProducts.map((product) => (
-              <Link
-                key={product.slug}
-                to={`/produkty/${product.categorySlug}/${product.slug}`}
-                className="group flex flex-col h-full bg-white border border-surface-border rounded-[10px] p-6 hover:border-foreground/40 transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
-              >
-                <div className="mb-5 overflow-hidden rounded-[8px] bg-background-subtle">
-                  <SiteImage
-                    name={product.slug}
-                    fit="contain"
-                    aspectRatio="4/3"
-                    alt={product.name}
-                    className="w-full group-hover:scale-[1.02] transition-transform duration-200"
-                  />
-                </div>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
+            <span className="text-[13px] font-mono text-foreground-secondary uppercase tracking-wider block">
+              Dział handlowy:
+            </span>
+            <a
+              href={cleanTelHref(COMPANY_DATA.phones.salesInfo.raw)}
+              className="text-xl sm:text-2xl font-bold font-mono text-foreground hover:text-accent-text transition-colors tabular-nums"
+            >
+              {formatPhoneWithNbsp(COMPANY_DATA.phones.salesInfo.display)}
+            </a>
+          </div>
+        </div>
 
-                <div className="flex flex-col flex-1 justify-between space-y-4">
-                  <div>
-                    <h2 className="text-[18px] font-semibold text-foreground group-hover:text-accent-text transition-colors line-clamp-2">
-                      {product.name}
-                    </h2>
-                    <p className="mt-2 text-[15px] text-foreground-secondary leading-relaxed line-clamp-2">
+        {/* Tabela / Wiersze zamiast kart: miniatura, model, stan, link */}
+        <div className="space-y-4">
+          <div className="flex items-center justify-between">
+            <h3 className="text-2xl font-semibold text-foreground tracking-tight">
+              Dostępne urządzenia zregenerowane ({usedProducts.length})
+            </h3>
+          </div>
+
+          <div className="bg-white border border-surface-border rounded-[14px] overflow-hidden shadow-sm divide-y divide-surface-border">
+            {usedProducts.map((product) => (
+              <div
+                key={product.slug}
+                className="p-5 sm:p-6 flex flex-col md:flex-row md:items-center justify-between gap-6 hover:bg-background-subtle/50 transition-colors"
+              >
+                {/* Miniatura 1:1 + model + opis */}
+                <div className="flex items-start sm:items-center gap-5 sm:gap-6">
+                  <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-[10px] bg-background-subtle border border-surface-border overflow-hidden shrink-0 flex items-center justify-center p-2">
+                    <SiteImage
+                      name={product.slug}
+                      plain
+                      fit="contain"
+                      aspectRatio="1/1"
+                      alt={product.name}
+                      className="max-h-full max-w-full"
+                    />
+                  </div>
+
+                  <div className="space-y-1.5 max-w-[55ch]">
+                    <div className="flex items-center gap-3 flex-wrap">
+                      <h4 className="text-[18px] sm:text-[20px] font-bold text-foreground tracking-tight">
+                        {product.name}
+                      </h4>
+                      <span className="inline-block px-2.5 py-0.5 text-[12px] font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 rounded-full">
+                        Po regeneracji · Gwarancja 6 mies.
+                      </span>
+                    </div>
+                    <p className="text-[14px] sm:text-[15px] text-foreground-secondary leading-relaxed line-clamp-2">
                       {formatPolishTypography(product.shortDescription)}
                     </p>
                   </div>
-
-                  <div className="pt-4 border-t border-surface-border flex items-center justify-between text-[15px] font-semibold text-foreground group-hover:text-accent-text">
-                    <span>Zobacz specyfikację</span>
-                    <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
-                  </div>
                 </div>
-              </Link>
+
+                {/* Status i akcja */}
+                <div className="flex items-center justify-between md:justify-end gap-6 shrink-0 pt-3 md:pt-0 border-t md:border-t-0 border-surface-border">
+                  <div className="text-left md:text-right">
+                    <span className="text-[12px] font-mono text-foreground-secondary uppercase tracking-wider block">
+                      Status
+                    </span>
+                    <span className="text-[14px] font-semibold text-foreground block">
+                      Stanowisko w Lisim Ogonie
+                    </span>
+                  </div>
+
+                  <Link
+                    to={`/produkty/${product.categorySlug}/${product.slug}`}
+                    className="h-10 px-5 rounded-[8px] bg-foreground text-white hover:bg-foreground/90 font-semibold text-[14px] transition-colors inline-flex items-center gap-2"
+                  >
+                    <span>Karta urządzenia</span>
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                </div>
+              </div>
             ))}
           </div>
         </div>
 
-        {/* CTA kontaktowe */}
-        <div className="p-8 md:p-12 bg-white border border-surface-border rounded-[10px] flex flex-col md:flex-row items-start md:items-center justify-between gap-8">
-          <div className="max-w-[65ch] space-y-2">
-            <h2 className="text-xl md:text-2xl font-semibold text-foreground">
-              Szukasz konkretnego modelu urządzenia używanego?
-            </h2>
-            <p className="text-[15px] text-foreground-secondary leading-relaxed">
-              Skontaktuj się z naszym działem technicznym. Zapytaj o urządzenia będące w trakcie regeneracji i przygotowywane do sprzedaży.
+        {/* Dolna belka informacyjna */}
+        <div className="p-8 rounded-[14px] bg-background-subtle border border-surface-border flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="space-y-1 max-w-[65ch]">
+            <h4 className="text-lg font-semibold text-foreground">
+              Szukasz innego modelu maszyny po regeneracji?
+            </h4>
+            <p className="text-[14px] text-foreground-secondary leading-relaxed">
+              Stany magazynowe urządzeń używanych zmieniają się na bieżąco. Skontaktuj się z naszym serwisem, aby sprawdzić maszyny przygotowywane do sprzedaży.
             </p>
           </div>
-          <Button to="/kontakt" variant="primary" size="md" className="shrink-0">
-            Skontaktuj się z nami
-          </Button>
+          <Link
+            to="/kontakt"
+            className="h-11 px-6 rounded-[8px] bg-white border border-surface-border hover:bg-gray-100 font-semibold text-[14px] text-foreground transition-colors inline-flex items-center gap-2 shrink-0"
+          >
+            <span>Zapytaj o dostępność</span>
+            <ArrowRight className="w-4 h-4" />
+          </Link>
         </div>
-      </Container>
+      </div>
     </div>
-  </div>
-);
+  );
 };

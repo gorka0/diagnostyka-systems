@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Seo } from '@/components/common/Seo';
 import { Container } from '@/components/ui/Container';
-import { PageHeader } from '@/components/layout/PageHeader';
+import { PageHero } from '@/components/layout/PageHero';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
 import { formatPolishTypography } from '@/utils/typography';
@@ -73,7 +73,8 @@ export const OfferPage: React.FC = () => {
         description="Oferta aparatury diagnostycznej Beissbarth i stacji klimatyzacji Valeo: geometria 3D, ścieżki hamulcowe SKP, wyważarki, demontażownice, szkolenia personelu."
         canonicalPath="/oferta"
       />
-      <PageHeader
+      <PageHero
+        variant="compact"
         breadcrumbs={[{ label: 'Oferta' }]}
         title="Oferta aparatury i wyposażenia warsztatów"
         description="Dostarczamy precyzyjną aparaturę diagnostyczną Beissbarth oraz stacje klimatyzacji Valeo z pełnym wsparciem wdrożeniowym i serwisowym."

@@ -1,62 +1,75 @@
 /**
- * Realizacje wdrożeń Diagnostyka-Systems s.c.
- * Źródło: podstrona /realizacje.html oraz podstrony poszczególnych serwisów.
+ * Realizacje wdrożeń Diagnostyka-Systems s.c. (KROK 3).
+ * Źródło: podstrona /realizacje.html ze starej bazy wiedzy www.beissbarth-service.pl (86 podstron).
+ * W bazie realizacje mają wyłącznie nazwę klienta, adres jego strony www i zdjęcie.
+ * Wszystkie opcjonalne pola (year, scope, equipment, quote, gallery) renderują się wyłącznie, gdy są wypełnione.
  */
 
+export interface ReferenceQuote {
+  text: string;
+  author: string;
+  role?: string;
+}
+
 export interface ReferenceItem {
-  id: string;
   slug: string;
-  clientName: string;
-  category: 'ASO' | 'SKP' | 'CUM';
-  websiteUrl: string;
-  description: string;
-  sourceUrl: string;
+  name: string;
+  brand: 'BMW' | 'Volkswagen' | 'inne';
+  city?: string;
+  url: string;
+  photo: string;
+  objectPosition?: string; // punkt ogniskowania kadru 3:2
+
+  // Pola opcjonalne - renderowane wyłącznie, gdy są dostarczone i wypełnione
+  year?: number | string;
+  scope?: string;
+  equipment?: string[]; // lista slugów produktów z katalogu (np. ['beissbarth-qlign', 'product-tc-22'])
+  quote?: ReferenceQuote;
+  gallery?: string[]; // dodatkowe zdjęcia wdrożenia
 }
 
 export const REFERENCES_DATA: ReferenceItem[] = [
   {
-    id: 'bmw-sikora',
     slug: 'bmw-sikora',
-    clientName: 'BMW Sikora',
-    category: 'ASO',
-    websiteUrl: 'http://www.bmw-sikora.pl',
-    description: 'Wdrożenie aparatury diagnostycznej Beissbarth w autoryzowanym serwisie dealerskim BMW Sikora.',
-    sourceUrl: 'https://www.beissbarth-service.pl/realizacje/12-bmw-sikora.html',
+    name: 'BMW Sikora',
+    brand: 'BMW',
+    url: 'https://www.bmw-sikora.pl',
+    photo: 'bmw-sikora',
+    objectPosition: 'center 45%',
   },
   {
-    id: 'vw-watarski',
-    slug: 'vw-watarski',
-    clientName: 'VW Wątarski',
-    category: 'ASO',
-    websiteUrl: 'http://www.watarski.vw.pl',
-    description: 'Wyposażenie strefy geometrii i urządzeń diagnostycznych z certyfikacją VAS w ASO Volkswagen Wątarski.',
-    sourceUrl: 'https://www.beissbarth-service.pl/realizacje/15-vw-watarski.html',
-  },
-  {
-    id: 'cum-szymacha',
-    slug: 'cum-szymacha',
-    clientName: 'CUM Szymacha',
-    category: 'CUM',
-    websiteUrl: 'http://www.szymacha.pl',
-    description: 'Instalacja linii diagnostycznej i urządzeń geometrii kół w Centrum Usług Motoryzacyjnych Szymacha.',
-    sourceUrl: 'https://www.beissbarth-service.pl/realizacje/16-cum-szymacha.html',
-  },
-  {
-    id: 'bmw-dynamic-torun',
     slug: 'bmw-dynamic-torun',
-    clientName: 'BMW Dynamic Toruń',
-    category: 'ASO',
-    websiteUrl: 'http://www.bmw-dynamicmotors.pl',
-    description: 'Dostawa i wdrożenie aparatury kontroli geometrii podwozia Beissbarth KDS w autoryzowanym serwisie BMW Dynamic Motors w Toruniu.',
-    sourceUrl: 'https://www.beissbarth-service.pl/realizacje/11-bmw-dynamic-torun.html',
+    name: 'BMW Dynamic Toruń',
+    brand: 'BMW',
+    city: 'Toruń',
+    url: 'https://www.bmw-dynamicmotors.pl',
+    photo: 'bmw-dynamic-torun',
+    objectPosition: 'center',
   },
   {
-    id: 'bmw-dobrzanscy-krakow',
     slug: 'bmw-dobrzanscy-krakow',
-    clientName: 'BMW Dobrzańscy Kraków',
-    category: 'ASO',
-    websiteUrl: 'http://www.bmw-dobrzanski.pl',
-    description: 'Kompleksowe wyposażenie stacji obsługi w aparaturę Beissbarth KDS w ASO BMW Dobrzańscy w Krakowie.',
-    sourceUrl: 'https://www.beissbarth-service.pl/realizacje/10-bmw-dobrzanscy-krakow.html',
+    name: 'BMW Dobrzańscy Kraków',
+    brand: 'BMW',
+    city: 'Kraków',
+    url: 'https://www.bmw-dobrzanski.pl',
+    photo: 'bmw-dobrzanscy-krakow',
+    objectPosition: 'center',
+  },
+  {
+    slug: 'vw-watarski',
+    name: 'VW Wątarski',
+    brand: 'Volkswagen',
+    url: 'https://watarski.dealer.volkswagen.pl/osobowe',
+    photo: 'vw-watarski',
+    objectPosition: 'center',
+  },
+  {
+    slug: 'cum-szymacha',
+    name: 'CUM Szymacha',
+    brand: 'inne',
+    city: 'Łódź',
+    url: 'https://assistancelodz.pl/',
+    photo: 'cum-szymacha',
+    objectPosition: 'center',
   },
 ];

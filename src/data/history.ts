@@ -54,6 +54,6 @@ export const COMPANY_HISTORY: HistoryData = {
     'Autoryzowany serwis gwarancyjny i pogwarancyjny sprzedawanych urządzeń firmy Beissbarth',
     'Autoryzowany serwis urządzeń do obsługi klimatyzacji VALEO',
     'Modernizacja już eksploatowanego sprzętu oraz wykonywanie generalnych remontów maszyn',
-    'Dystrybucja sprawdzonego sprzętu używanego z pisemną gwarancją',
+    'Dystrybucja sprawdzonego sprzętu używanego z gwarancją serwisu',
   ],
 };

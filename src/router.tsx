@@ -9,6 +9,7 @@ import { ProductDetailPage } from '@/pages/products/ProductDetailPage';
 import { OemProductsPage } from '@/pages/products/OemProductsPage';
 import { UsedProductsPage } from '@/pages/products/UsedProductsPage';
 import { RealizationsPage } from '@/pages/RealizationsPage';
+import { RealizationDetailPage } from '@/pages/RealizationDetailPage';
 import { PublicationsPage } from '@/pages/PublicationsPage';
 import { PublicationDetailPage } from '@/pages/PublicationDetailPage';
 import { ServicePage } from '@/pages/ServicePage';
@@ -69,6 +70,10 @@ export const router = createBrowserRouter([
       {
         path: 'realizacje',
         element: <RealizationsPage />,
+      },
+      {
+        path: 'realizacje/:slug',
+        element: <RealizationDetailPage />,
       },
       {
         path: 'publikacje',

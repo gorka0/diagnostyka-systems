@@ -1,5 +1,5 @@
-import React, { useLayoutEffect } from 'react';
-import { Outlet, Link, useLocation, ScrollRestoration } from 'react-router-dom';
+import React, { useLayoutEffect, useEffect } from 'react';
+import { Outlet, Link, useLocation } from 'react-router-dom';
 import { Header } from './Header';
 import { Footer } from './Footer';
 import { COMPANY_DATA } from '@/data/company';
@@ -10,18 +10,28 @@ import { Phone, Wrench } from 'lucide-react';
 export const Layout: React.FC = () => {
   const { pathname, search } = useLocation();
 
-  // Natychmiastowe przewinięcie na samą górę strony przy przejściu na dowolną podstronę
+  // Natychmiastowe przewinięcie na samą górę strony przy przejściu między podstronami oraz przy odświeżeniu
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
   }, [pathname, search]);
 
+  useEffect(() => {
+    const handleResetScroll = () => {
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
+      document.documentElement.scrollTop = 0;
+      document.body.scrollTop = 0;
+    };
+    handleResetScroll();
+    window.addEventListener('beforeunload', handleResetScroll);
+    return () => window.removeEventListener('beforeunload', handleResetScroll);
+  }, []);
+
   const isHome = pathname === '/';
 
   return (
     <div className="min-h-[100dvh] flex flex-col bg-background text-foreground pb-[76px] lg:pb-0">
-      <ScrollRestoration />
       <Header />
       <main className={`flex-1 ${isHome ? 'pt-0' : 'pt-20'}`}>
         <Outlet />

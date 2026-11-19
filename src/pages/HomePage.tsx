@@ -51,7 +51,7 @@ export const HomePage: React.FC = () => {
     {
       title: 'Warsztaty mechaniczne i oponiarskie',
       description:
-        'Trwałe wyważarki, montażownice z ramą G-Frame do opon Run-Flat oraz stacje klimatyzacji z bezpośrednią opieką serwisową z Lisiego Ogona.',
+        'Wyważarki diagnostyczne, montażownice z ramą G-Frame do opon Run-Flat oraz stacje klimatyzacji z bezpośrednią opieką serwisową z Lisiego Ogona.',
       link: '/oferta',
     },
   ];
@@ -74,7 +74,7 @@ export const HomePage: React.FC = () => {
       icon: RefreshCw,
       title: 'Remonty i regeneracja podzespołów',
       description:
-        'Kompleksowa odbudowa mechaniczna i elektroniczna urządzeń używanych (geometrii i rolek hamulcowych) objęta pisemną gwarancją.',
+        'Kompleksowa odbudowa mechaniczna i elektroniczna urządzeń używanych (geometrii i rolek hamulcowych) z gwarancją serwisu.',
     },
     {
       icon: Layers,
@@ -380,7 +380,7 @@ export const HomePage: React.FC = () => {
                 Dla kogo pracujemy
               </h2>
               <p className="text-[16px] text-foreground-secondary leading-relaxed">
-                Dostarczamy certyfikowaną aparaturę i bierzemy pełną odpowiedzialność za jej ciągłą gotowość operacyjną.
+                Aparatura diagnostyczna i wsparcie serwisowe dopasowane do profilu działalności:
               </p>
             </div>
 
@@ -525,17 +525,26 @@ export const HomePage: React.FC = () => {
 
           {/* Nazwy w dużej typografii (24-28 px, #4B5563, hover grafit) oddzielone hairline */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-6 gap-x-12">
-            {REFERENCES_DATA.slice(0, 6).map((ref) => (
+            {REFERENCES_DATA.map((ref) => (
               <div
-                key={ref.id}
+                key={ref.slug}
                 className="py-4 border-b border-surface-border flex flex-col justify-center transition-colors group"
               >
-                <span className="text-[24px] sm:text-[26px] font-medium text-foreground-secondary group-hover:text-foreground transition-colors tracking-tight">
-                  {ref.clientName}
-                </span>
-                <span className="text-[14px] text-foreground-secondary mt-1 line-clamp-1">
-                  {ref.category} · {ref.description}
-                </span>
+                <Link
+                  to={`/realizacje#${ref.slug}`}
+                  className="text-[22px] sm:text-[24px] font-semibold text-foreground-secondary group-hover:text-foreground transition-colors tracking-tight"
+                >
+                  {ref.name}
+                </Link>
+                <a
+                  href={ref.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[13px] text-accent-text hover:underline mt-1 inline-flex items-center gap-1"
+                >
+                  <span>{ref.url.replace(/^https?:\/\//, '')}</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </a>
               </div>
             ))}
           </div>
@@ -598,7 +607,7 @@ export const HomePage: React.FC = () => {
       {/* 8. PARTNERZY TECHNOLOGICZNI I CERTYFIKATY */}
       <section className="bg-white py-16 md:py-24">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
-          {/* (1) Rząd logotypów partnerów, jednolity w skali szarości, wysokość 40 px, kolor na hover */}
+          {/* (1) Rząd logotypów partnerów w kartach */}
           <div className="space-y-6">
             <div className="text-center sm:text-left">
               <h2 className="text-2xl sm:text-3xl font-semibold text-foreground tracking-tight">
@@ -606,20 +615,20 @@ export const HomePage: React.FC = () => {
               </h2>
             </div>
 
-            <div className="p-8 rounded-[16px] bg-background-subtle border border-surface-border flex flex-wrap items-center justify-around gap-8">
+            <div className="p-6 sm:p-8 rounded-[16px] bg-background-subtle border border-surface-border grid grid-cols-1 sm:grid-cols-3 gap-6 items-center">
               {PARTNERS_DATA.map((partner) => (
                 <a
                   key={partner.id}
                   href={partner.websiteUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground rounded"
+                  className="group h-24 bg-white border border-surface-border hover:border-foreground/30 rounded-[12px] p-4 flex items-center justify-center transition-all duration-200 shadow-xs hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
                   title={`${partner.name} - Autoryzacja od ${partner.authorizationYear} r.`}
                 >
                   <img
-                    src={partner.logoPlaceholder}
+                    src={partner.logoUrl}
                     alt={partner.name}
-                    className="h-10 w-auto object-contain"
+                    className="max-h-12 max-w-[180px] w-auto object-contain transition-transform duration-200 group-hover:scale-105"
                   />
                 </a>
               ))}

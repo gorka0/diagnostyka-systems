@@ -9,6 +9,7 @@ export interface PartnerItem {
   websiteUrl: string;
   scope: string;
   authorizationYear: string;
+  logoUrl: string;
   logoPlaceholder: string;
 }
 
@@ -19,7 +20,8 @@ export const PARTNERS_DATA: PartnerItem[] = [
     websiteUrl: 'https://www.beissbarth.com',
     scope: 'Oficjalna autoryzacja fabryczna w zakresie dystrybucji i serwisu pełnego spektrum urządzeń: geometrii kół 3D/CCD, linii diagnostycznych SKP, wyważarek i montażownic.',
     authorizationYear: '2005',
-    logoPlaceholder: '/brand/partners/beissbarth.svg',
+    logoUrl: '/brand/partners/beissbarth.png',
+    logoPlaceholder: '/brand/partners/beissbarth.png',
   },
   {
     id: 'spx',
@@ -27,7 +29,8 @@ export const PARTNERS_DATA: PartnerItem[] = [
     websiteUrl: 'https://www.spx.com',
     scope: 'Autoryzowany partner serwisowy w zakresie obsługi stacji klimatyzacji samochodowej.',
     authorizationYear: '2007',
-    logoPlaceholder: '/brand/partners/spx.svg',
+    logoUrl: '/brand/partners/spx.png',
+    logoPlaceholder: '/brand/partners/spx.png',
   },
   {
     id: 'valeo',
@@ -35,6 +38,7 @@ export const PARTNERS_DATA: PartnerItem[] = [
     websiteUrl: 'https://www.valeo.com',
     scope: 'Autoryzowany serwis urządzeń do obsługi klimatyzacji VALEO (m.in. seria ClimFill).',
     authorizationYear: '2007',
-    logoPlaceholder: '/brand/partners/valeo.svg',
+    logoUrl: '/brand/partners/valeo.png',
+    logoPlaceholder: '/brand/partners/valeo.png',
   },
 ];

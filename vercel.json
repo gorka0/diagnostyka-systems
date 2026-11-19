@@ -1,0 +1,42 @@
+{
+  "$schema": "https://openapi.vercel.sh/vercel.json",
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
+    {
+      "source": "/realizacje/10-bmw-dobrzanscy-krakow.html",
+      "destination": "/realizacje#bmw-dobrzanscy-krakow",
+      "permanent": true
+    },
+    {
+      "source": "/realizacje/11-bmw-dynamic-torun.html",
+      "destination": "/realizacje#bmw-dynamic-torun",
+      "permanent": true
+    },
+    {
+      "source": "/realizacje/12-bmw-sikora.html",
+      "destination": "/realizacje#bmw-sikora",
+      "permanent": true
+    },
+    {
+      "source": "/realizacje/15-vw-watarski.html",
+      "destination": "/realizacje#vw-watarski",
+      "permanent": true
+    },
+    {
+      "source": "/realizacje/16-cum-szymacha.html",
+      "destination": "/realizacje#cum-szymacha",
+      "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/((?!api/).*)",
+      "destination": "/index.html"
+    }
+  ]
+}

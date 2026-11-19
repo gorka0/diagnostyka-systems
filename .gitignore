@@ -26,3 +26,10 @@ Thumbs.db
 *.njsproj
 *.sln
 *.sw?
+
+# Temporary working assets & scripts
+public/brand/ref/
+scripts/__pycache__/
+scripts/*.json
+scripts/*.py
+!scripts/prerender.py

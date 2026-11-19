@@ -1,12 +1,12 @@
 import React, { useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Seo } from '@/components/common/Seo';
-import { Container } from '@/components/ui/Container';
-import { Breadcrumbs } from '@/components/ui/Breadcrumbs';
+import { PageHero } from '@/components/layout/PageHero';
 import { Button } from '@/components/ui/Button';
 import { PUBLICATIONS_DATA } from '@/data/publications';
+import { getArticleJsonLd } from '@/utils/seo';
 import { formatPolishTypography } from '@/utils/typography';
-import { ArrowLeft } from 'lucide-react';
+import { ArrowLeft, Calendar, Building2 } from 'lucide-react';
 
 export const PublicationDetailPage: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -18,8 +18,8 @@ export const PublicationDetailPage: React.FC = () => {
   if (!publication) {
     return (
       <div className="bg-background min-h-[100dvh] py-16">
-        <Container>
-          <div className="bg-white border border-surface-border rounded-[10px] p-12 text-center max-w-lg mx-auto">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="bg-white border border-surface-border rounded-[14px] p-12 text-center max-w-lg mx-auto shadow-sm">
             <h1 className="text-2xl font-semibold text-foreground mb-3">
               Artykuł nie został odnaleziony
             </h1>
@@ -27,174 +27,130 @@ export const PublicationDetailPage: React.FC = () => {
               Publikacja o podanym adresie nie istnieje w bazie wiedzy.
             </p>
             <Button to="/publikacje" variant="primary">
-              <ArrowLeft className="w-4 h-4 mr-2" /> Wróć do listy artykułów
+              <ArrowLeft className="w-4 h-4 mr-2" /> Wróć do listy publikacji
             </Button>
           </div>
-        </Container>
+        </div>
       </div>
     );
   }
 
-  const isRentownosc = publication.slug === 'rentownosc-ogumienia';
+  // Symulowane sekcje H2 dla publikacji (obecnie publikacje w bazie to noty bibliograficzne z 1 sekcją H2)
+  // Gdy H2 >= 3, dynamicznie włącza się sticky spis treści po lewej
+  const sections = [
+    { id: 'informacje', title: 'Informacja o publikacji archiwalnej' },
+  ];
+  const showToc = sections.length >= 3;
 
   return (
-    <div className="bg-background min-h-[100dvh] py-10 md:py-16">
+    <div className="bg-background min-h-[100dvh]">
       <Seo
         title={`${publication.title} – Publikacja branżowa | Diagnostyka-Systems`}
         description={publication.summary}
         canonicalPath={`/publikacje/${publication.slug}`}
+        type="article"
+        breadcrumbs={[
+          { label: 'Strona główna', path: '/' },
+          { label: 'Publikacje', path: '/publikacje' },
+          { label: publication.title, path: `/publikacje/${publication.slug}` },
+        ]}
+        jsonLd={getArticleJsonLd(publication)}
       />
-      <Container>
-        <Breadcrumbs
-          items={[
-            { label: 'Publikacje', to: '/publikacje' },
-            { label: publication.title },
-          ]}
-        />
 
-        {/* Czysty układ redakcyjny o szerokości ok. 68 znaków (bez bocznych kolumn) */}
-        <article className="mt-8 max-w-[68ch] mx-auto">
-          {/* Nagłówek artykułu */}
-          <header className="mb-12 pb-8 border-b border-surface-border space-y-4">
-            <span className="text-[14px] font-medium text-foreground-secondary block">
-              {publication.publicationDate} · {publication.sourceJournal}
-            </span>
+      <PageHero
+        variant="compact"
+        breadcrumbs={[
+          { label: 'Publikacje', to: '/publikacje' },
+          { label: publication.title },
+        ]}
+        title={publication.title}
+        description={`${publication.sourceJournal} · ${publication.publicationDate}`}
+      />
 
-            <h1 className="text-3xl sm:text-4xl font-bold text-foreground tracking-tight leading-[1.15] text-balance">
-              {formatPolishTypography(publication.title)}
-            </h1>
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
+        <div className={showToc ? 'grid grid-cols-1 lg:grid-cols-12 gap-12' : 'max-w-[68ch] mx-auto'}>
+          {/* Sticky Spis Treści po lewej (tylko gdy sekcji H2 >= 3) */}
+          {showToc && (
+            <aside className="lg:col-span-4">
+              <div className="sticky top-28 bg-white border border-surface-border rounded-[12px] p-6 space-y-3">
+                <span className="text-[12px] font-mono text-foreground-secondary uppercase tracking-wider block">
+                  Spis treści
+                </span>
+                <nav className="space-y-2">
+                  {sections.map((sec) => (
+                    <a
+                      key={sec.id}
+                      href={`#${sec.id}`}
+                      className="text-[14px] text-foreground-secondary hover:text-foreground block transition-colors"
+                    >
+                      {sec.title}
+                    </a>
+                  ))}
+                </nav>
+              </div>
+            </aside>
+          )}
 
-            <p className="text-[17px] md:text-[18px] text-foreground-secondary leading-relaxed pt-2 text-pretty">
-              {formatPolishTypography(publication.summary)}
-            </p>
-          </header>
+          {/* Kolumna artykułu o szerokości czytania ~68ch */}
+          <article className={showToc ? 'lg:col-span-8 max-w-[68ch] space-y-10' : 'space-y-10'}>
+            <header className="space-y-4 pb-8 border-b border-surface-border">
+              <div className="flex items-center gap-4 text-[14px] font-mono text-foreground-secondary flex-wrap">
+                <span className="flex items-center gap-1.5">
+                  <Calendar className="w-4 h-4 text-foreground-secondary" />
+                  {publication.publicationDate}
+                </span>
+                <span>·</span>
+                <span className="flex items-center gap-1.5">
+                  <Building2 className="w-4 h-4 text-foreground-secondary" />
+                  {publication.sourceJournal}
+                </span>
+              </div>
 
-          {/* Treść merytoryczna */}
-          <div className="space-y-8 text-[16px] md:text-[17px] text-foreground leading-[1.6]">
-            {isRentownosc ? (
-              <>
-                <section className="space-y-4">
-                  <h2 className="text-2xl font-semibold text-foreground tracking-tight">
-                    Wskaźniki opłacalności nowoczesnego stanowiska geometrii kół
-                  </h2>
+              <p className="text-[18px] sm:text-[19px] text-foreground font-medium leading-relaxed">
+                {formatPolishTypography(publication.summary)}
+              </p>
+            </header>
+
+            {/* Treść merytoryczna publikacji */}
+            <div className="space-y-8 text-[16px] sm:text-[17px] text-foreground leading-[1.6]">
+              <section id="informacje" className="p-7 sm:p-9 bg-white border border-surface-border rounded-[14px] space-y-4 shadow-sm">
+                <h2 className="text-xl font-semibold text-foreground tracking-tight">
+                  Informacja o publikacji archiwalnej
+                </h2>
+                <div className="space-y-2.5 text-[15px] text-foreground-secondary leading-relaxed">
                   <p>
+                    <strong className="text-foreground font-semibold">Tytuł publikacji: </strong>
+                    {publication.title}
+                  </p>
+                  <p>
+                    <strong className="text-foreground font-semibold">Czasopismo: </strong>
+                    {publication.sourceJournal}
+                  </p>
+                  <p>
+                    <strong className="text-foreground font-semibold">Data wydania: </strong>
+                    {publication.publicationDate}
+                  </p>
+                  <p className="pt-3 border-t border-surface-border">
                     {formatPolishTypography(
-                      'W dobie rosnącej konkurencji na rynku usług wulkanizacyjnych i mechanicznych, sama wymiana i wyważanie opon przestaje generować zadowalającą marżę. W artykule opublikowanym w kwartalniku „Moto części” eksperci Diagnostyka-Systems przeprowadzili szczegółową analizę ekonomiczną opłacalności wdrożenia stanowiska komputerowej geometrii kół w technologii 3D.'
+                      'Artykuł ukazał się drukiem w specjalistycznej prasie motoryzacyjnej i stanowi część dorobku inżynierskiego zespołu Diagnostyka-Systems s.c. Pełny tekst publikacji w wersji drukowanej jest dostępny do wglądu w siedzibie naszej firmy w Lisim Ogonie lub w archiwach wydawnictwa.'
                     )}
                   </p>
-                </section>
+                </div>
+              </section>
+            </div>
 
-                <section className="space-y-4">
-                  <h3 className="text-xl font-semibold text-foreground tracking-tight">
-                    Kluczowe czynniki skracające czas zwrotu z inwestycji (ROI)
-                  </h3>
-                  <div className="space-y-4 pt-2">
-                    <div className="p-5 bg-background-subtle border border-surface-border rounded-[10px]">
-                      <strong className="text-foreground block text-[17px] font-semibold mb-1">
-                        Kompensacja bicia przez przetaczanie (ROC)
-                      </strong>
-                      <p className="text-[15px] text-foreground-secondary leading-relaxed">
-                        {formatPolishTypography(
-                          'Eliminacja czasochłonnego podnoszenia pojazdu na podnośniku skraca fazę pomiarową z 20–30 minut do niespełna 2 minut na pojazd.'
-                        )}
-                      </p>
-                    </div>
-
-                    <div className="p-5 bg-background-subtle border border-surface-border rounded-[10px]">
-                      <strong className="text-foreground block text-[17px] font-semibold mb-1">
-                        Kompleksowa usługa „opona + geometria”
-                      </strong>
-                      <p className="text-[15px] text-foreground-secondary leading-relaxed">
-                        {formatPolishTypography(
-                          'Zaproponowanie szybkiej kontroli geometrii przy każdej sezonowej wymianie kół konwertuje ponad 35% klientów na płatną usługę regulacji zbieżności.'
-                        )}
-                      </p>
-                    </div>
-
-                    <div className="p-5 bg-background-subtle border border-surface-border rounded-[10px]">
-                      <strong className="text-foreground block text-[17px] font-semibold mb-1">
-                        Graficzny protokół pomiarowy dla klienta
-                      </strong>
-                      <p className="text-[15px] text-foreground-secondary leading-relaxed">
-                        {formatPolishTypography(
-                          'Czytelny protokół pomiarowy przed i po regulacji buduje bezdyskusyjne zaufanie klienta do zasadności wykonanej naprawy.'
-                        )}
-                      </p>
-                    </div>
-                  </div>
-                </section>
-
-                <section className="space-y-4">
-                  <h3 className="text-xl font-semibold text-foreground tracking-tight">
-                    Podsumowanie ekonomiczne
-                  </h3>
-                  <p>
-                    {formatPolishTypography(
-                      'Inwestycja w aparaturę Beissbarth (np. Microline 8 ROC lub nowsze serie Q.Lign) przy średnim obciążeniu 3–4 pomiarów dziennie pozwala na całkowity zwrot nakładów kapitałowych w okresie poniżej 12 miesięcy, generując stabilne źródło wysokomarżowego przychodu przez kolejne lata bezawaryjnej pracy.'
-                    )}
-                  </p>
-                </section>
-              </>
-            ) : (
-              <>
-                <section className="space-y-4">
-                  <h2 className="text-2xl font-semibold text-foreground tracking-tight">
-                    Standardy wyposażenia warsztatu i Stacji Kontroli Pojazdów
-                  </h2>
-                  <p>
-                    {formatPolishTypography(
-                      'Opracowanie „Vademecum warsztatu samochodowego” stanowi kompendium wiedzy dla inwestorów planujących budowę nowej Stacji Kontroli Pojazdów (SKP/OSKP) oraz modernizację istniejących serwisów pod kątem spełnienia rygorystycznych norm prawnych w Polsce.'
-                    )}
-                  </p>
-                </section>
-
-                <section className="space-y-4">
-                  <h3 className="text-xl font-semibold text-foreground tracking-tight">
-                    Wymogi certyfikacji ITS i Transportowego Dozoru Technicznego
-                  </h3>
-                  <div className="space-y-4 pt-2">
-                    <div className="p-5 bg-background-subtle border border-surface-border rounded-[10px]">
-                      <strong className="text-foreground block text-[17px] font-semibold mb-1">
-                        Atesty i certyfikaty typu
-                      </strong>
-                      <p className="text-[15px] text-foreground-secondary leading-relaxed">
-                        {formatPolishTypography(
-                          'Każde urządzenie do pomiaru geometrii i badania sił hamowania na SKP musi posiadać aktualny certyfikat Instytutu Transportu Samochodowego dopuszczający do badań urzędowych.'
-                        )}
-                      </p>
-                    </div>
-
-                    <div className="p-5 bg-background-subtle border border-surface-border rounded-[10px]">
-                      <strong className="text-foreground block text-[17px] font-semibold mb-1">
-                        Procedury okresowych kalibracji
-                      </strong>
-                      <p className="text-[15px] text-foreground-secondary leading-relaxed">
-                        {formatPolishTypography(
-                          'Regularne kalibracje z wystawieniem oficjalnych świadectw są bezwzględnym warunkiem pozytywnego przejścia corocznych kontroli TDT na stacji kontroli.'
-                        )}
-                      </p>
-                    </div>
-                  </div>
-                </section>
-              </>
-            )}
-          </div>
-
-          <div className="mt-14 pt-8 border-t border-surface-border flex items-center justify-between">
-            <Link
-              to="/publikacje"
-              className="text-[15px] font-semibold text-foreground hover:text-accent-text inline-flex items-center gap-1.5"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span>Wróć do listy artykułów</span>
-            </Link>
-
-            <Button to="/kontakt" variant="secondary" size="md">
-              Skonsultuj z inżynierem
-            </Button>
-          </div>
-        </article>
-      </Container>
+            <footer className="pt-8 border-t border-surface-border flex items-center justify-between">
+              <Link
+                to="/publikacje"
+                className="text-[14px] sm:text-[15px] font-semibold text-foreground hover:text-accent-text inline-flex items-center gap-2 transition-colors"
+              >
+                <ArrowLeft className="w-4 h-4" />
+                <span>Wróć do listy publikacji</span>
+              </Link>
+            </footer>
+          </article>
+        </div>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useSearchParams, Link } from 'react-router-dom';
 import { Seo } from '@/components/common/Seo';
-import { PageHeader } from '@/components/layout/PageHeader';
+import { PageHero } from '@/components/layout/PageHero';
 import { Button } from '@/components/ui/Button';
 import { LABELS } from '@/config/labels';
 import { formatPolishTypography } from '@/utils/typography';
@@ -118,14 +118,14 @@ export const ServiceTicketPage: React.FC = () => {
       />
 
       {/* Wspólny spójny nagłówek podstron: #F7F7F5, breadcrumb, H1 48 px, 1 zdanie, Crosshair 5% */}
-      <PageHeader
+      <PageHero
+        variant="compact"
         breadcrumbs={[
           { label: 'Serwis', to: '/serwis' },
           { label: 'Zgłoszenie serwisowe' },
         ]}
         title="Formularz zgłoszenia serwisowego"
         description="Wypełnij formularz, aby zgłosić awarię, zapotrzebowanie na kalibrację przed TDT lub zamówienie oryginalnych części zamiennych."
-        badge="Wsparcie techniczne"
       />
 
       <div className="max-w-[800px] mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16">
@@ -140,7 +140,7 @@ export const ServiceTicketPage: React.FC = () => {
               </h2>
               <p className="text-[16px] text-foreground-secondary max-w-[50ch] mx-auto leading-relaxed">
                 {formatPolishTypography(
-                  'Dziękujemy za kontakt. Zgłoszenie trafiło do dyżurnych inżynierów Diagnostyka-Systems. Skontaktujemy się telefonicznie lub mailowo.'
+                  'Dziękujemy za kontakt. Zgłoszenie zostało przesłane do serwisu Diagnostyka-Systems. Skontaktujemy się telefonicznie lub mailowo.'
                 )}
               </p>
               <div className="pt-4 flex flex-col sm:flex-row justify-center gap-4">
