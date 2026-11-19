@@ -16,6 +16,9 @@ export default async function handler(req, res) {
     return res.status(result.status || 200).json(result);
   } catch (error) {
     console.error('[API /api/contact error]:', error);
-    return res.status(500).json({ success: false, error: 'Błąd przetwarzania wiadomości.' });
+    return res.status(500).json({
+      success: false,
+      error: error?.message || 'Błąd przetwarzania wiadomości.',
+    });
   }
 }

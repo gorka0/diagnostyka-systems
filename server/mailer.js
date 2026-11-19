@@ -84,11 +84,6 @@ export function getMailTransport() {
     return {
       isDevLog: true,
       sendMail: async (mailOptions) => {
-        const logsDir = path.join(__dirname, 'logs');
-        if (!fs.existsSync(logsDir)) {
-          fs.mkdirSync(logsDir, { recursive: true });
-        }
-
         const logEntry = {
           timestamp: new Date().toISOString(),
           to: mailOptions.to,
@@ -98,7 +93,6 @@ export function getMailTransport() {
           text: mailOptions.text,
         };
 
-        const logFilePath = path.join(logsDir, 'emails.log');
         const formattedEntry = `
 ================================================================================
 DATA: ${logEntry.timestamp}
@@ -111,10 +105,25 @@ TREŚĆ:
 ${logEntry.text}
 ================================================================================
 `;
-        fs.appendFileSync(logFilePath, formattedEntry, 'utf-8');
-        console.log(`[DEV EMAIL LOGGED] Do: ${logEntry.to} | Temat: ${logEntry.subject} -> Zapisano w server/logs/emails.log`);
+        // Zawsze loguj do stdout/console - widoczne w logach Vercel Functions w czasie rzeczywistym
+        console.log(`[DEV/SERVERLESS EMAIL LOGGED] Do: ${logEntry.to} | Temat: ${logEntry.subject}`);
+        console.log(formattedEntry);
 
-        return { messageId: `mock-${Date.now()}`, response: 'Logged to file' };
+        // Bezpieczny zapis do pliku - w środowiskach Serverless (Vercel/AWS Lambda) dysk jest read-only
+        try {
+          const isServerless = !!(process.env.VERCEL || process.env.AWS_LAMBDA_FUNCTION_NAME || process.env.LAMBDA_TASK_ROOT);
+          const logsDir = isServerless ? path.join('/tmp', 'logs') : path.join(__dirname, 'logs');
+          if (!fs.existsSync(logsDir)) {
+            fs.mkdirSync(logsDir, { recursive: true });
+          }
+          const logFilePath = path.join(logsDir, 'emails.log');
+          fs.appendFileSync(logFilePath, formattedEntry, 'utf-8');
+        } catch (fsErr) {
+          // Nigdy nie wywalaj funkcji z powodu read-only filesystem
+          console.warn('[DEV LOG DISK WRITE SKIPPED]:', fsErr.message);
+        }
+
+        return { messageId: `mock-${Date.now()}`, response: 'Logged to console' };
       },
     };
   }
@@ -132,7 +141,19 @@ ${logEntry.text}
         },
       });
 
-      return transporter.sendMail(mailOptions);
+      try {
+        return await transporter.sendMail(mailOptions);
+      } catch (smtpErr) {
+        console.error('[SMTP SendMail Error]:', smtpErr);
+        // Log zapasowy w razie problemów z siecią/SMTP
+        console.warn('[FALLBACK FORM DISPATCH LOGGED]:', {
+          to: mailOptions.to,
+          replyTo: mailOptions.replyTo,
+          subject: mailOptions.subject,
+          text: mailOptions.text,
+        });
+        throw new Error(`Błąd wysyłki e-mail przez serwer SMTP: ${smtpErr.message || 'Nieudane połączenie'}`);
+      }
     },
   };
 }
@@ -244,14 +265,23 @@ Adres zwrotny (Reply-To): ${email}
 Wiadomość wygenerowana automatycznie z formularza beissbarth.pl
 `;
 
-  const transport = getMailTransport();
-  await transport.sendMail({
-    from: process.env.SMTP_FROM || `"Diagnostyka-Systems" <${targetEmail}>`,
-    to: targetEmail,
-    replyTo: email,
-    subject,
-    text: textContent,
-  });
+  try {
+    const transport = getMailTransport();
+    await transport.sendMail({
+      from: process.env.SMTP_FROM || `"Diagnostyka-Systems" <${targetEmail}>`,
+      to: targetEmail,
+      replyTo: email,
+      subject,
+      text: textContent,
+    });
+  } catch (mailError) {
+    console.error('[handleContactMessage sendMail error]:', mailError);
+    return {
+      success: false,
+      status: 500,
+      error: mailError.message || 'Wystąpił błąd podczas wysyłania wiadomości przez serwer pocztowy.',
+    };
+  }
 
   return {
     success: true,

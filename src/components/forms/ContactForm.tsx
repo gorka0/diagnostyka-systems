@@ -766,17 +766,18 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             </div>
           </div>
 
-          {/* DÓŁ FORMULARZA: Przycisk wysyłki i bezpośredni telefon */}
-          <div className="pt-4 border-t border-[#E4E7EB] space-y-4">
-            <div className="flex justify-end">
+          {/* DÓŁ FORMULARZA: Przyciski akcji obok siebie (Wyrazisty CTA + Telefon bezpośredni) */}
+          <div className="pt-5 border-t border-[#E4E7EB] space-y-3">
+            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+              {/* Główny, wyrazisty przycisk wysyłki (Brand Amber CTA) */}
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="h-12 px-7 rounded-[8px] bg-foreground text-white hover:bg-foreground/90 font-semibold text-[15px] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm w-full sm:w-auto"
+                className="inline-flex h-12 items-center justify-center gap-2.5 rounded-[10px] bg-accent px-7 text-[16px] font-bold text-foreground shadow-sm transition-all hover:bg-accent-hover active:bg-accent-active disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 shrink-0 cursor-pointer"
               >
                 {status === 'submitting' ? (
                   <>
-                    <Loader2 className="w-4 h-4 animate-spin text-accent-primary" />
+                    <Loader2 className="w-5 h-5 animate-spin text-foreground" />
                     <span>Przetwarzanie zgłoszenia...</span>
                   </>
                 ) : (
@@ -788,25 +789,35 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                         ? 'Wyślij zapytanie o ofertę'
                         : 'Wyślij wiadomość'}
                     </span>
-                    <ArrowRight className="w-4 h-4 text-accent-primary" />
+                    <ArrowRight className="w-4 h-4 text-foreground stroke-[2.5]" />
                   </>
                 )}
               </button>
-            </div>
 
-            {/* Linia z dedykowanym telefonem dla wybranego celu (klikalna, tel:) */}
-            <div className="p-3.5 bg-[#F7F7F5] border border-[#D9DDE1] rounded-[10px] flex items-center justify-between flex-wrap gap-2 text-[13px] sm:text-[14px]">
-              <div className="flex items-center gap-2 text-foreground-secondary">
-                <Phone className="w-4 h-4 text-accent-text shrink-0" />
-                <span>{purposeConfig.phoneLabel}</span>
-              </div>
+              {/* Drugi przycisk: bezpośredni telefon dopasowany do wybranego celu */}
               <a
                 href={`tel:${purposeConfig.phone.raw}`}
-                className="font-bold text-foreground hover:text-accent-text transition-colors inline-flex items-center gap-1.5"
+                className="inline-flex h-12 items-center justify-center gap-2 rounded-[10px] border border-[#D9DDE1] bg-white px-5 text-[15px] font-semibold text-foreground transition-colors hover:bg-[#F7F7F5] hover:border-[#B8BEC5] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 shrink-0"
               >
-                <span>{formatPhoneWithNbsp(purposeConfig.phone.display)}</span>
+                <Phone className="w-4 h-4 text-accent-text shrink-0" />
+                <span className="text-foreground-secondary font-medium">
+                  {purpose === 'serwis'
+                    ? 'Pilna awaria? Zadzwoń:'
+                    : purpose === 'oferta'
+                    ? 'Informacja handlowa:'
+                    : 'Centrala:'}
+                </span>
+                <span className="font-bold text-foreground">
+                  {formatPhoneWithNbsp(purposeConfig.phone.display)}
+                </span>
               </a>
             </div>
+
+            <p className="text-[13px] text-foreground-secondary">
+              {purpose === 'serwis'
+                ? 'Informacja techniczna i zgłoszenia awaryjne pod wskazanym numerem telefonu.'
+                : 'Odpowiadamy zwykle w ciągu kilku godzin roboczych w dni powszednie.'}
+            </p>
           </div>
         </form>
       )}
