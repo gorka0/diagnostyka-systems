@@ -113,7 +113,7 @@ export function buildEmailHtml({
       : 'Pytanie ogólne';
 
   const celBadgeBg = cel === 'serwis' ? '#EE9D16' : cel === 'oferta' ? '#F5A524' : '#2A3036';
-  const celBadgeText = cel === 'ogolne' ? '#FFFFFF' : '#14171A';
+  const celBadgeText = cel === 'ogolne' ? '#FFFFFF' : '#111418';
 
   const cleanPhone = telefon ? telefon.replace(/[^\d+]/g, '') : '';
   const escapedMessage = (wiadomosc || '')
@@ -127,30 +127,63 @@ export function buildEmailHtml({
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>${subject}</title>
+  <style>
+    @media only screen and (max-width: 600px) {
+      .email-wrapper {
+        padding: 12px 8px !important;
+      }
+      .email-card {
+        border-radius: 8px !important;
+      }
+      .email-head {
+        padding: 20px 20px !important;
+      }
+      .email-body {
+        padding: 22px 20px !important;
+      }
+      .email-foot {
+        padding: 16px 20px !important;
+      }
+      .btn-cell {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        padding-bottom: 8px !important;
+      }
+      .action-btn {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+      }
+    }
+  </style>
 </head>
-<body style="margin: 0; padding: 0; background-color: #F7F7F5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1F2328; -webkit-font-smoothing: antialiased;">
-  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #F7F7F5; padding: 32px 16px;">
+<body style="margin: 0; padding: 0; background-color: #F3F4F6; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #111418; -webkit-font-smoothing: antialiased;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="email-wrapper" style="background-color: #F3F4F6; padding: 32px 16px;">
     <tr>
       <td align="center">
         <!-- Główny arkusz e-mail (600px) -->
-        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; background-color: #FFFFFF; border-radius: 12px; overflow: hidden; border: 1px solid #D9DDE1; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);">
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" class="email-card" style="max-width: 600px; background-color: #FFFFFF; border-radius: 10px; overflow: hidden; border: 1px solid #E5E7EB; box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);">
           
-          <!-- Pasek nagłówkowy: ciemny grafit #14171A z bursztynową krawędzią -->
+          <!-- Pasek nagłówkowy: elegancki ciemny grafit #111418 z cienką bursztynową krawędzią 2px -->
           <tr>
-            <td style="background-color: #14171A; padding: 26px 32px; border-bottom: 3px solid #EE9D16;">
+            <td class="email-head" style="background-color: #111418; padding: 24px 32px; border-bottom: 2px solid #EE9D16;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td valign="middle">
-                    <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #EE9D16; margin-bottom: 6px;">
+                    <div style="font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: #EE9D16; margin-bottom: 4px;">
                       DIAGNOSTYKA-SYSTEMS • BEISSBARTH
                     </div>
-                    <div style="margin: 0; font-size: 19px; font-weight: 700; color: #FFFFFF; line-height: 1.3;">
-                      Nowa wiadomość ze strony www
+                    <div style="margin: 0; font-size: 18px; font-weight: 700; color: #FFFFFF; line-height: 1.25; letter-spacing: -0.01em;">
+                      nowa wiadomosc
                     </div>
                   </td>
                   <td align="right" valign="middle">
-                    <span style="display: inline-block; background-color: ${celBadgeBg}; color: ${celBadgeText}; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 6px;">
+                    <span style="display: inline-block; background-color: ${celBadgeBg}; color: ${celBadgeText}; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; padding: 5px 11px; border-radius: 4px;">
                       ${celTitle}
                     </span>
                   </td>
@@ -159,73 +192,48 @@ export function buildEmailHtml({
             </td>
           </tr>
 
-          <!-- Pasek szybkich akcji (One-Click Reply & Call) -->
-          <tr>
-            <td style="background-color: #F9FAFB; padding: 14px 32px; border-bottom: 1px solid #E5E7EB;">
-              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
-                <tr>
-                  <td style="font-size: 13px; color: #4B5563;">
-                    Bezpośredni kontakt:
-                  </td>
-                  <td align="right">
-                    <a href="mailto:${email}?subject=Re:%20${encodeURIComponent(subject)}" style="display: inline-block; background-color: #1F2328; color: #FFFFFF; font-size: 12px; font-weight: 600; text-decoration: none; padding: 7px 13px; border-radius: 6px; margin-right: 6px;">
-                      ✉ Odpowiedz e-mail
-                    </a>
-                    ${
-                      cleanPhone
-                        ? `<a href="tel:${cleanPhone}" style="display: inline-block; background-color: #EE9D16; color: #14171A; font-size: 12px; font-weight: 700; text-decoration: none; padding: 7px 13px; border-radius: 6px;">
-                            📞 Zadzwoń: ${telefon}
-                          </a>`
-                        : ''
-                    }
-                  </td>
-                </tr>
-              </table>
-            </td>
-          </tr>
-
           <!-- Treść główna formularza -->
           <tr>
-            <td style="padding: 28px 32px;">
+            <td class="email-body" style="padding: 28px 32px;">
 
               <!-- Tabela: DANE NADAWCY -->
-              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 10px;">
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 8px;">
                 DANE NADAWCY
               </div>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; margin-bottom: 24px;">
                 <tr>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563; width: 140px;">
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 13px; color: #6B7280; width: 130px;">
                     Imię i nazwisko:
                   </td>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 600; color: #1F2328;">
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 14px; font-weight: 600; color: #111418;">
                     ${imieNazwisko}
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563;">
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 13px; color: #6B7280;">
                     Firma / Warsztat:
                   </td>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 600; color: #1F2328;">
-                    ${firma || '<span style="color: #9CA3AF; font-weight: 400;">Klient indywidualny</span>'}
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 14px; font-weight: 500; color: #111418;">
+                    ${firma || '<span style="color: #9CA3AF; font-weight: 400;">—</span>'}
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563;">
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 13px; color: #6B7280;">
                     Adres e-mail:
                   </td>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 600; color: #1F2328;">
-                    <a href="mailto:${email}" style="color: #A15C00; text-decoration: underline;">${email}</a>
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 14px; font-weight: 600; color: #111418;">
+                    <a href="mailto:${email}" style="color: #111418; text-decoration: underline;">${email}</a>
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563;">
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 13px; color: #6B7280;">
                     Numer telefonu:
                   </td>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 600; color: #1F2328;">
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 14px; font-weight: 600; color: #111418;">
                     ${
                       cleanPhone
-                        ? `<a href="tel:${cleanPhone}" style="color: #1F2328; text-decoration: none; font-weight: 700;">${telefon}</a>`
-                        : '<span style="color: #9CA3AF; font-weight: 400;">Nie podano</span>'
+                        ? `<a href="tel:${cleanPhone}" style="color: #111418; text-decoration: none; font-weight: 700;">${telefon}</a>`
+                        : '<span style="color: #9CA3AF; font-weight: 400;">—</span>'
                     }
                   </td>
                 </tr>
@@ -234,15 +242,15 @@ export function buildEmailHtml({
               ${
                 cel === 'oferta'
                   ? `<!-- Szczegóły oferty -->
-              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 10px;">
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 8px;">
                 ZAPYTANIE O APARATURĘ
               </div>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; margin-bottom: 24px;">
                 <tr>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563; width: 140px;">
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 13px; color: #6B7280; width: 130px;">
                     Urządzenie:
                   </td>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 700; color: #A15C00;">
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 14px; font-weight: 700; color: #A15C00;">
                     ${produkt || 'Zapytanie ogólne o ofertę'}
                   </td>
                 </tr>
@@ -253,24 +261,24 @@ export function buildEmailHtml({
               ${
                 cel === 'serwis'
                   ? `<!-- Szczegóły serwisu -->
-              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 10px;">
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 8px;">
                 SZCZEGÓŁY ZGŁOSZENIA SERWISOWEGO
               </div>
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; margin-bottom: 24px;">
                 <tr>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563; width: 140px;">
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 13px; color: #6B7280; width: 130px;">
                     Rodzaj aparatury:
                   </td>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 700; color: #1F2328;">
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 14px; font-weight: 700; color: #111418;">
                     ${rodzajUrzadzenia}
                   </td>
                 </tr>
                 <tr>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563;">
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 13px; color: #6B7280;">
                     Model urządzenia:
                   </td>
-                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 600; color: #1F2328;">
-                    ${model || '<span style="color: #9CA3AF; font-weight: 400;">Nie podano</span>'}
+                  <td style="padding: 8px 0; border-bottom: 1px solid #F3F4F6; font-size: 14px; font-weight: 600; color: #111418;">
+                    ${model || '<span style="color: #9CA3AF; font-weight: 400;">—</span>'}
                   </td>
                 </tr>
               </table>`
@@ -278,29 +286,57 @@ export function buildEmailHtml({
               }
 
               <!-- Treść wiadomości / Opis usterki -->
-              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 10px;">
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 8px;">
                 ${cel === 'serwis' ? 'OPIS USTERKI / USŁUGI' : 'TREŚĆ WIADOMOŚCI'}
               </div>
-              <div style="background-color: #F7F7F5; border: 1px solid #E5E7EB; border-left: 4px solid #EE9D16; border-radius: 8px; padding: 18px 20px; font-size: 15px; line-height: 1.6; color: #1F2328; margin-bottom: 10px;">
+              <div style="background-color: #F9FAFB; border: 1px solid #E5E7EB; border-left: 3px solid #EE9D16; border-radius: 6px; padding: 16px 18px; font-size: 14px; line-height: 1.6; color: #111418; word-break: break-word;">
                 ${escapedMessage}
               </div>
+
+              <!-- SEKCJA KONTAKT NA DOLE (Napis Kontakt + dwa równe przyciski responsywne) -->
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin: 26px 0 10px 0;">
+                KONTAKT
+              </div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse;">
+                <tr>
+                  <!-- Przycisk 1: Odpowiedz e-mail -->
+                  <td class="btn-cell" width="50%" valign="top" style="padding-right: 6px;">
+                    <a href="mailto:${email}?subject=Re:%20${encodeURIComponent(subject)}" class="action-btn" style="display: block; box-sizing: border-box; width: 100%; height: 44px; line-height: 42px; background-color: #111418; color: #FFFFFF; font-size: 13px; font-weight: 600; text-align: center; text-decoration: none; border-radius: 6px; border: 1px solid #111418;">
+                      ✉ Odpowiedz e-mail
+                    </a>
+                  </td>
+
+                  <!-- Przycisk 2: Zadzwoń (dokładnie tej samej wielkości) -->
+                  <td class="btn-cell" width="50%" valign="top" style="padding-left: 6px;">
+                    ${
+                      cleanPhone
+                        ? `<a href="tel:${cleanPhone}" class="action-btn" style="display: block; box-sizing: border-box; width: 100%; height: 44px; line-height: 42px; background-color: #EE9D16; color: #111418; font-size: 13px; font-weight: 700; text-align: center; text-decoration: none; border-radius: 6px; border: 1px solid #EE9D16;">
+                            📞 Zadzwoń: ${telefon}
+                          </a>`
+                        : `<div class="action-btn" style="display: block; box-sizing: border-box; width: 100%; height: 44px; line-height: 42px; background-color: #F3F4F6; color: #9CA3AF; font-size: 13px; font-weight: 500; text-align: center; border-radius: 6px; border: 1px solid #E5E7EB;">
+                            Brak telefonu
+                          </div>`
+                    }
+                  </td>
+                </tr>
+              </table>
 
             </td>
           </tr>
 
-          <!-- Stopka techniczna -->
+          <!-- Stopka techniczna: bez IP i bez RODO -->
           <tr>
-            <td style="background-color: #F7F7F5; padding: 20px 32px; border-top: 1px solid #E5E7EB; font-size: 12px; color: #6B7280; line-height: 1.5;">
+            <td class="email-foot" style="background-color: #F9FAFB; padding: 18px 32px; border-top: 1px solid #E5E7EB; font-size: 12px; color: #6B7280; line-height: 1.5;">
               <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
                 <tr>
                   <td>
-                    <div style="font-weight: 600; color: #1F2328;">Diagnostyka-Systems s.c. • Autoryzowany Serwis Beissbarth</div>
-                    <div style="color: #9CA3AF; margin-top: 4px;">
-                      Wysłano: ${formattedDate} • IP: ${clientIp} • Zgoda RODO: Zaakceptowano
+                    <div style="font-weight: 600; color: #111418;">Diagnostyka-Systems s.c. • Autoryzowany Serwis Beissbarth</div>
+                    <div style="color: #9CA3AF; margin-top: 3px; font-size: 11px;">
+                      Wysłano: ${formattedDate}
                     </div>
                   </td>
                   <td align="right" valign="middle">
-                    <a href="https://beissbarth.pl" target="_blank" style="color: #A15C00; font-weight: 700; text-decoration: none; font-size: 13px;">
+                    <a href="https://beissbarth.pl" target="_blank" style="color: #EE9D16; font-weight: 700; text-decoration: none; font-size: 12px;">
                       beissbarth.pl →
                     </a>
                   </td>
