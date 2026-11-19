@@ -6,7 +6,7 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// Prosty in-memory rate limiting (max 5 zapytań na 10 minut na IP)
+// In-memory rate limiting (max 5 zapytań na 10 minut na IP)
 const ipRateLimits = new Map();
 const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
 const MAX_REQUESTS_PER_WINDOW = 5;
@@ -57,6 +57,19 @@ export function sanitizeMultiline(input) {
     .replace(/<[^>]*>/g, '') // usunięcie tagów HTML
     .trim();
 }
+
+export function validateEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+/**
+ * Konfiguracja adresów docelowych per cel formularza
+ */
+const TARGET_EMAILS_PER_TYPE = {
+  ogolne: process.env.MAIL_TARGET_OGOLNE || process.env.MAIL_TARGET_ADDRESS || 'poczta@beissbarth-service.pl',
+  oferta: process.env.MAIL_TARGET_OFERTA || process.env.MAIL_TARGET_ADDRESS || 'poczta@beissbarth-service.pl',
+  serwis: process.env.MAIL_TARGET_SERWIS || process.env.MAIL_TARGET_ADDRESS || 'poczta@beissbarth-service.pl',
+};
 
 /**
  * Inicjalizacja transportera e-mail:
@@ -125,160 +138,115 @@ ${logEntry.text}
 }
 
 /**
- * Obsługa formularza zgłoszenia serwisowego
- */
-export async function handleServiceTicket(body, clientIp) {
-  // 1. Honeypot check (bot prevention)
-  if (body.website || body._gotcha) {
-    console.warn(`[BOT DETECTED] Honeypot filled from IP: ${clientIp}`);
-    return { success: true, message: 'Zgłoszenie przyjęte.' }; // cichy sukces dla botów
-  }
-
-  // 2. Rate limit
-  const rateLimit = checkRateLimit(clientIp);
-  if (!rateLimit.allowed) {
-    return { success: false, error: rateLimit.message, status: 429 };
-  }
-
-  // 3. Walidacja pól wymaganych
-  const firma = sanitize(body.firma);
-  const osoba = sanitize(body.osoba);
-  const telefon = sanitize(body.telefon);
-  const email = sanitize(body.email);
-  const typUrzadzenia = sanitize(body.typUrzadzenia);
-  const model = sanitize(body.model);
-  const opisUsterki = sanitizeMultiline(body.opisUsterki);
-  const zgodaRODO = body.zgodaRODO === true || body.zgodaRODO === 'true';
-
-  if (!firma || !osoba || !telefon || !email || !opisUrzadzeniaValidation(typUrzadzenia) || !opisUsterki) {
-    return {
-      success: false,
-      error: 'Wypełnij wszystkie wymagane pola formularza zgłoszenia.',
-      status: 400,
-    };
-  }
-
-  if (!validateEmail(email)) {
-    return { success: false, error: 'Podaj poprawny adres e-mail.', status: 400 };
-  }
-
-  if (!zgodaRODO) {
-    return { success: false, error: 'Wymagana jest akceptacja przetwarzania danych (RODO).', status: 400 };
-  }
-
-  // 4. Przygotowanie treści e-maila do firmy
-  const targetEmail = process.env.MAIL_TARGET_ADDRESS || 'poczta@beissbarth-service.pl';
-  const subject = `[Zgłoszenie serwisowe] ${firma}, ${model || typUrzadzenia}`;
-
-  const textContent = `
-ZGŁOSZENIE SERWISOWE BEISSBARTH / VALEO
-============================================================
-Data zgłoszenia: ${new Date().toLocaleString('pl-PL')}
-Adres IP klienta: ${clientIp}
-
-DANE ZGŁASZAJĄCEGO:
-- Firma: ${firma}
-- Osoba kontaktowa: ${osoba}
-- Numer telefonu: ${telefon}
-- E-mail kontaktowy: ${email}
-
-DANE APARATURY:
-- Typ urządzenia: ${typUrzadzenia}
-- Model / Numer seryjny: ${model || 'Nie podano'}
-
-OPIS USTERKI / ZAKRES PRAC:
-${opisUsterki}
-
-============================================================
-Zgoda RODO: Zaakceptowano
-Wiadomość wygenerowana automatycznie z formularza beissbarth-service.pl
-`;
-
-  const transport = getMailTransport();
-  await transport.sendMail({
-    from: process.env.SMTP_FROM || `"Diagnostyka-Systems Serwis" <${targetEmail}>`,
-    to: targetEmail,
-    replyTo: email,
-    subject,
-    text: textContent,
-  });
-
-  return {
-    success: true,
-    message: 'Zgłoszenie serwisowe zostało pomyślnie przesłane do działu technicznego Diagnostyka-Systems.',
-    ticketNumber: `DS-${Date.now().toString().slice(-6)}`,
-  };
-}
-
-/**
- * Obsługa formularza kontaktowego
+ * Jeden ujednolicony handler wiadomości kontaktowej, obsługujący 3 cele:
+ * - 'ogolne' (Pytanie ogólne)
+ * - 'oferta' (Zapytanie o ofertę)
+ * - 'serwis' (Zgłoszenie serwisowe)
  */
 export async function handleContactMessage(body, clientIp) {
-  // 1. Honeypot check
+  // 1. Honeypot check (ochrona przed spam-botami)
   if (body.website || body._gotcha) {
     console.warn(`[BOT DETECTED] Honeypot filled from IP: ${clientIp}`);
-    return { success: true, message: 'Wiadomość przyjęta.' };
+    return { success: true, message: 'Wiadomość przyjęta.' }; // cichy sukces dla botów
   }
 
-  // 2. Rate limit
+  // 2. Rate limiting per IP
   const rateLimit = checkRateLimit(clientIp);
   if (!rateLimit.allowed) {
     return { success: false, error: rateLimit.message, status: 429 };
   }
 
-  // 3. Walidacja pól
-  const imieNazwisko = sanitize(body.imieNazwisko);
+  // 3. Rozpoznanie celu zapytania
+  const rawCel = body.cel || body.typ;
+  const cel = ['ogolne', 'oferta', 'serwis'].includes(rawCel) ? rawCel : 'ogolne';
+
+  // 4. Ekstrakcja i sanityzacja danych
+  const imieNazwisko = sanitize(body.imieNazwisko || body.osoba);
   const firma = sanitize(body.firma);
-  const telefon = sanitize(body.telefon);
   const email = sanitize(body.email);
-  const tematProdukt = sanitize(body.tematProdukt);
-  const wiadomosc = sanitizeMultiline(body.wiadomosc);
+  const telefon = sanitize(body.telefon);
+  const produkt = sanitize(body.produkt || body.tematProdukt);
+  const rodzajUrzadzenia = sanitize(body.rodzajUrzadzenia || body.typUrzadzenia);
+  const model = sanitize(body.model);
+  const wiadomosc = sanitizeMultiline(body.wiadomosc || body.opisUsterki);
   const zgodaRODO = body.zgodaRODO === true || body.zgodaRODO === 'true';
 
-  if (!imieNazwisko || !email || !wiadomosc) {
-    return {
-      success: false,
-      error: 'Wypełnij wymagane pola (Imię i nazwisko, E-mail, Wiadomość).',
-      status: 400,
-    };
+  // 5. Walidacja wspólna
+  if (!imieNazwisko) {
+    return { success: false, error: 'Podaj imię i nazwisko.', status: 400 };
   }
-
-  if (!validateEmail(email)) {
+  if (!email || !validateEmail(email)) {
     return { success: false, error: 'Podaj poprawny adres e-mail.', status: 400 };
   }
-
   if (!zgodaRODO) {
     return { success: false, error: 'Wymagana jest akceptacja przetwarzania danych (RODO).', status: 400 };
   }
 
-  // 4. Przygotowanie wiadomości
-  const targetEmail = process.env.MAIL_TARGET_ADDRESS || 'poczta@beissbarth-service.pl';
-  const subject = `[Zapytanie ze strony] ${tematProdukt ? tematProdukt + ' - ' : ''}${imieNazwisko}`;
+  // 6. Walidacja per cel
+  if (cel === 'serwis') {
+    if (!rodzajUrzadzenia) {
+      return { success: false, error: 'Wybierz rodzaj urządzenia.', status: 400 };
+    }
+    if (!model) {
+      return { success: false, error: 'Podaj model urządzenia.', status: 400 };
+    }
+    if (!wiadomosc) {
+      return { success: false, error: 'Wpisz opis usterki lub wymaganej usługi.', status: 400 };
+    }
+  } else {
+    // ogolne lub oferta
+    if (!wiadomosc) {
+      return { success: false, error: 'Wpisz treść wiadomości.', status: 400 };
+    }
+  }
 
-  const textContent = `
-NOWE ZAPYTANIE ZE STRONY WWW
+  // 7. Generowanie tematu wiadomości ściśle wg specyfikacji:
+  // - Pytanie ogólne: "[Kontakt] imię, firma"
+  // - Zapytanie o ofertę: "[Oferta] produkt, firma"
+  // - Zgłoszenie serwisowe: "[Serwis] model, firma"
+  let subject = '';
+  if (cel === 'ogolne') {
+    subject = `[Kontakt] ${imieNazwisko}${firma ? `, ${firma}` : ''}`;
+  } else if (cel === 'oferta') {
+    subject = `[Oferta] ${produkt || 'Oferta ogólna'}${firma ? `, ${firma}` : ''}`;
+  } else if (cel === 'serwis') {
+    subject = `[Serwis] ${model || rodzajUrzadzenia}${firma ? `, ${firma}` : ''}`;
+  }
+
+  const targetEmail = TARGET_EMAILS_PER_TYPE[cel] || 'poczta@beissbarth-service.pl';
+
+  // 8. Formatowanie treści wiadomości
+  const textContent = `NOWA WIADOMOŚĆ Z FORMULARZA STRONY BEISSBARTH.PL
 ============================================================
 Data wysłania: ${new Date().toLocaleString('pl-PL')}
-Adres IP: ${clientIp}
+Adres IP klienta: ${clientIp}
+Cel kontaktu: ${cel === 'serwis' ? 'Zgłoszenie serwisowe' : cel === 'oferta' ? 'Zapytanie o ofertę' : 'Pytanie ogólne'}
 
-NADAWCA:
+DANE NADAWCY:
 - Imię i nazwisko: ${imieNazwisko}
-- Firma: ${firma || 'Osoba prywatna / brak'}
-- Telefon: ${telefon || 'Nie podano'}
-- E-mail: ${email}
-- Temat / Dotyczy produktu: ${tematProdukt || 'Zapytanie ogólne'}
-
-TREŚĆ WIADOMOŚCI:
+- Firma / Warsztat: ${firma || 'Nie podano (klient indywidualny)'}
+- Adres e-mail: ${email}
+- Numer telefonu: ${telefon || 'Nie podano'}
+${cel === 'oferta' ? `
+SZCZEGÓŁY ZAPYTANIA O OFERTĘ:
+- Urządzenie / Produkt: ${produkt || 'Zapytanie ogólne'}
+` : ''}${cel === 'serwis' ? `
+SZCZEGÓŁY ZGŁOSZENIA SERWISOWEGO:
+- Rodzaj urządzenia: ${rodzajUrzadzenia}
+- Model: ${model || 'Nie podano'}
+` : ''}
+TREŚĆ WIADOMOŚCI / OPIS USTERKI:
 ${wiadomosc}
 
 ============================================================
 Zgoda RODO: Zaakceptowano
-Odpowiedz bezpośrednio na ten e-mail, aby skontaktować się z nadawcą.
+Adres zwrotny (Reply-To): ${email}
+Wiadomość wygenerowana automatycznie z formularza beissbarth.pl
 `;
 
   const transport = getMailTransport();
   await transport.sendMail({
-    from: process.env.SMTP_FROM || `"Diagnostyka-Systems Kontakt" <${targetEmail}>`,
+    from: process.env.SMTP_FROM || `"Diagnostyka-Systems" <${targetEmail}>`,
     to: targetEmail,
     replyTo: email,
     subject,
@@ -287,14 +255,18 @@ Odpowiedz bezpośrednio na ten e-mail, aby skontaktować się z nadawcą.
 
   return {
     success: true,
-    message: 'Dziękujemy. Twoja wiadomość została pomyślnie wysłana. Odpowiemy w najbliższym dniu roboczym.',
+    cel,
+    subject,
+    targetEmail,
+    message: cel === 'serwis'
+      ? 'Zgłoszenie serwisowe zostało pomyślnie zarejestrowane. Nasz inżynier techniczny skontaktuje się z Tobą.'
+      : 'Dziękujemy. Twoja wiadomość została pomyślnie wysłana. Odpowiemy na wskazany adres e-mail lub numer telefonu.',
   };
 }
 
-function opisUrzadzeniaValidation(val) {
-  return typeof val === 'string' && val.length > 0;
-}
-
-function validateEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+/**
+ * Alias dla kompatybilności wstecznej /api/service-ticket
+ */
+export async function handleServiceTicket(body, clientIp) {
+  return handleContactMessage({ ...body, cel: 'serwis' }, clientIp);
 }

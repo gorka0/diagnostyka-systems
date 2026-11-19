@@ -10,6 +10,18 @@
 
 export const COMPANY_EMAIL = 'poczta@beissbarth-service.pl';
 
+export type ContactPurpose = 'ogolne' | 'oferta' | 'serwis';
+
+/**
+ * Adresy docelowe per cel formularza.
+ * Gdy klient zdecyduje się rozdzielić skrzynki, konfiguracja zmieniana jest wyłącznie tutaj.
+ */
+export const CONTACT_TARGET_EMAILS: Record<ContactPurpose, string> = {
+  ogolne: COMPANY_EMAIL,
+  oferta: COMPANY_EMAIL,
+  serwis: COMPANY_EMAIL,
+};
+
 export interface CompanyAddress {
   label: string;
   street: string;

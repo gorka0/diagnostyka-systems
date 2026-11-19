@@ -1,124 +1,14 @@
-import React, { useState, useEffect } from 'react';
-import { useSearchParams, Link } from 'react-router-dom';
+import React, { useState } from 'react';
 import { Seo } from '@/components/common/Seo';
 import { getLocalBusinessJsonLd } from '@/utils/seo';
 import { PageHero } from '@/components/layout/PageHero';
-import { Button } from '@/components/ui/Button';
 import { COMPANY_DATA } from '@/data/company';
-import { LABELS } from '@/config/labels';
-import { formatPolishTypography, formatPhoneWithNbsp, cleanTelHref } from '@/utils/typography';
-import { CheckCircle2, AlertCircle, Loader2, MapPin, ExternalLink, MousePointer2 } from 'lucide-react';
-
-interface ContactFormState {
-  imieNazwisko: string;
-  firma: string;
-  telefon: string;
-  email: string;
-  tematProdukt: string;
-  wiadomosc: string;
-  zgodaRODO: boolean;
-  website: string; // Honeypot
-}
+import { formatPhoneWithNbsp, cleanTelHref } from '@/utils/typography';
+import { ContactForm } from '@/components/forms/ContactForm';
+import { MapPin, ExternalLink, MousePointer2 } from 'lucide-react';
 
 export const ContactPage: React.FC = () => {
-  const [searchParams] = useSearchParams();
-
-  const [formData, setFormData] = useState<ContactFormState>({
-    imieNazwisko: '',
-    firma: '',
-    telefon: '',
-    email: '',
-    tematProdukt: searchParams.get('produkt') || searchParams.get('temat') || '',
-    wiadomosc: '',
-    zgodaRODO: false,
-    website: '',
-  });
-
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
-  const [errorMessage, setErrorMessage] = useState<string>('');
   const [mapLoaded, setMapLoaded] = useState(false);
-
-  useEffect(() => {
-    const prod = searchParams.get('produkt');
-    const temat = searchParams.get('temat');
-    if (prod && !formData.tematProdukt) {
-      setFormData((prev) => ({
-        ...prev,
-        tematProdukt: `Zapytanie o produkt: ${prod}`,
-        wiadomosc: `Dzień dobry, proszę o przesłanie oferty cenowej i specyfikacji technicznej dla urządzenia ${prod}.`,
-      }));
-    } else if (temat && !formData.tematProdukt) {
-      setFormData((prev) => ({
-        ...prev,
-        tematProdukt: temat,
-      }));
-    }
-  }, [searchParams]);
-
-  const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
-  ) => {
-    const { name, value, type } = e.target;
-    if (type === 'checkbox') {
-      const checked = (e.target as HTMLInputElement).checked;
-      setFormData((prev) => ({ ...prev, [name]: checked }));
-    } else {
-      setFormData((prev) => ({ ...prev, [name]: value }));
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    // Honeypot trap
-    if (formData.website) {
-      setStatus('success');
-      return;
-    }
-
-    if (!formData.imieNazwisko || !formData.email || !formData.wiadomosc || !formData.zgodaRODO) {
-      setErrorMessage('Wypełnij wszystkie wymagane pola formularza.');
-      setStatus('error');
-      return;
-    }
-
-    setStatus('submitting');
-    setErrorMessage('');
-
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(formData),
-      });
-
-      if (response.ok) {
-        setStatus('success');
-      } else {
-        const data = await response.json().catch(() => null);
-        setErrorMessage(data?.error || 'Wystąpił błąd podczas wysyłania wiadomości. Spróbuj ponownie.');
-        setStatus('error');
-      }
-    } catch {
-      setErrorMessage('Nie udało się połączyć z serwerem. Spróbuj ponownie lub zadzwoń bezpośrednio.');
-      setStatus('error');
-    }
-  };
-
-  const handleReset = () => {
-    setFormData({
-      imieNazwisko: '',
-      firma: '',
-      telefon: '',
-      email: '',
-      tematProdukt: '',
-      wiadomosc: '',
-      zgodaRODO: false,
-      website: '',
-    });
-    setStatus('idle');
-    setErrorMessage('');
-  };
 
   // 4 numery bezpośrednie z company.ts
   const directPhones = [
@@ -153,30 +43,29 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="bg-background min-h-[100dvh]">
       <Seo
-        title="Kontakt i dojazd | Diagnostyka-Systems s.c."
-        description="Dane kontaktowe, bezpośrednie telefony do inżynierów i specjalistów oraz formularz kontaktowy Diagnostyka-Systems s.c. Siedziba i magazyn: Lisi Ogon k. Bydgoszczy."
+        title="Kontakt i Serwis Bydgoszcz – Diagnostyka-Systems s.c."
+        description="Skontaktuj się z autoryzowanym dystrybutorem i serwisem Beissbarth: formularz z wyborem celu, bezpośrednie telefony do inżynierów, magazyn Lisi Ogon k. Bydgoszczy."
         canonicalPath="/kontakt"
+        jsonLd={getLocalBusinessJsonLd()}
         breadcrumbs={[
           { label: 'Strona główna', path: '/' },
           { label: 'Kontakt', path: '/kontakt' },
         ]}
-        jsonLd={getLocalBusinessJsonLd()}
       />
 
-      {/* Kompaktowy nagłówek podstrony */}
       <PageHero
         variant="compact"
         breadcrumbs={[{ label: 'Kontakt' }]}
-        title="Kontakt i dojazd"
-        description="Bezpośrednie telefony do inżynierów i doradców technicznych oraz formularz kontaktowy biura w Lisim Ogonie."
+        title="Kontakt z inżynierami i serwisem"
+        description="Jeden punkt kontaktu: zapytania o ofertę, zgłoszenia awarii oraz bezpośrednie telefony do specjalistów technicznych."
       />
 
-      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-16 space-y-16 md:space-y-20">
-        {/* Układ 2-kolumnowy: Lewy ciemny panel graphite-900 (telefony + adres) + Prawy biały formularz */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-          {/* Lewy ciemny panel (graphite-900) - 5 kolumn */}
-          <div className="lg:col-span-5 bg-[#14171A] text-white rounded-[16px] p-7 sm:p-9 border border-white/10 space-y-9 shadow-lg">
-            {/* 1. Cztery bezpośrednie telefony jako duże wiersze (numer 28 px, podpis 15 px) */}
+      <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-12">
+        {/* Główny grid: Lewa strona = Ciemny panel z telefonami i adresem (5 kolumn), Prawa = Formularz z wyborem celu (7 kolumn) */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          {/* Lewa strona: Ciemna kolumna kontaktowa (5 kolumn) */}
+          <div className="lg:col-span-5 bg-foreground text-white rounded-[16px] p-7 sm:p-9 space-y-8 shadow-sm">
+            {/* Lista telefonów bezpośrednich */}
             <div className="space-y-5">
               <h2 className="text-xl sm:text-2xl font-semibold text-white tracking-tight">
                 Bezpośrednie telefony
@@ -199,7 +88,7 @@ export const ContactPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Separator z motywem podziałki pomiarowej (tick marks) */}
+            {/* Separator z podziałką pomiarową */}
             <div className="relative border-t border-white/15 pt-8">
               <div aria-hidden="true" className="absolute -top-[5px] left-0 right-0 flex justify-between px-2 text-white/30 text-[10px] font-mono select-none">
                 <span>|</span>
@@ -246,7 +135,7 @@ export const ContactPage: React.FC = () => {
               </div>
             </div>
 
-            {/* Separator i dane rejestrowe */}
+            {/* Dane rejestrowe */}
             <div className="border-t border-white/15 pt-7 space-y-2 text-[13px] text-white/65 leading-relaxed">
               <h4 className="text-[14px] font-semibold text-white">
                 Dane rejestrowe spółki
@@ -262,215 +151,13 @@ export const ContactPage: React.FC = () => {
             </div>
           </div>
 
-          {/* Prawa strona: Formularz kontaktowy na białym tle (7 kolumn) */}
-          <div className="lg:col-span-7 bg-white border border-surface-border rounded-[16px] p-7 sm:p-10 shadow-sm">
-            {status === 'success' ? (
-              <div className="py-12 text-center space-y-5">
-                <div className="w-14 h-14 bg-background-subtle border border-surface-border rounded-full flex items-center justify-center text-foreground mx-auto">
-                  <CheckCircle2 className="w-8 h-8 text-foreground" />
-                </div>
-                <h3 className="text-2xl font-semibold text-foreground">
-                  {LABELS.forms.successTitle}
-                </h3>
-                <p className="text-[16px] text-foreground-secondary max-w-[50ch] mx-auto leading-relaxed">
-                  {formatPolishTypography(LABELS.forms.successDesc)}
-                </p>
-                <div className="pt-4">
-                  <Button onClick={handleReset} variant="secondary" size="md">
-                    Napisz kolejną wiadomość
-                  </Button>
-                </div>
-              </div>
-            ) : (
-              <form onSubmit={handleSubmit} className="space-y-6" noValidate>
-                <div>
-                  <h2 className="text-2xl font-semibold text-foreground tracking-tight">
-                    Napisz do nas
-                  </h2>
-                  <p className="mt-1 text-[15px] text-foreground-secondary">
-                    Odpowiemy bezpośrednio na wskazany adres e-mail lub numer telefonu.
-                  </p>
-                </div>
-
-                {status === 'error' && (
-                  <div className="p-4 bg-red-50 border border-red-200 rounded-[10px] flex items-start gap-3">
-                    <AlertCircle className="w-5 h-5 text-red-600 shrink-0 mt-0.5" />
-                    <div className="text-[14px] text-red-800">
-                      <p className="font-semibold">Wystąpił błąd</p>
-                      <p className="mt-0.5">{errorMessage || 'Sprawdź formularz i spróbuj ponownie.'}</p>
-                    </div>
-                  </div>
-                )}
-
-                {/* Honeypot */}
-                <div className="hidden" aria-hidden="true">
-                  <input
-                    type="text"
-                    name="website"
-                    tabIndex={-1}
-                    autoComplete="off"
-                    value={formData.website}
-                    onChange={handleChange}
-                  />
-                </div>
-
-                {/* Pola formularza: duże inputy 52px, tło #F7F7F5, ramka #D9DDE1 */}
-                <div className="space-y-5">
-                  <div>
-                    <label className="block text-[14px] font-medium text-foreground mb-1.5" htmlFor="imieNazwisko">
-                      Imię i nazwisko <span className="text-red-600">*</span>
-                    </label>
-                    <input
-                      type="text"
-                      id="imieNazwisko"
-                      name="imieNazwisko"
-                      required
-                      autoComplete="name"
-                      value={formData.imieNazwisko}
-                      onChange={handleChange}
-                      placeholder="Jan Kowalski"
-                      className="w-full h-[52px] px-4 text-[15px] sm:text-[16px] bg-[#F7F7F5] border border-[#D9DDE1] rounded-[10px] text-foreground focus:outline-none focus:border-[#14171A] focus:ring-[3px] focus:ring-[#EE9D16]/30 transition-all"
-                      disabled={status === 'submitting'}
-                    />
-                  </div>
-
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                    <div>
-                      <label className="block text-[14px] font-medium text-foreground mb-1.5" htmlFor="firma">
-                        Firma / Warsztat
-                      </label>
-                      <input
-                        type="text"
-                        id="firma"
-                        name="firma"
-                        autoComplete="organization"
-                        value={formData.firma}
-                        onChange={handleChange}
-                        placeholder="Nazwa firmy (opcjonalnie)"
-                        className="w-full h-[52px] px-4 text-[15px] sm:text-[16px] bg-[#F7F7F5] border border-[#D9DDE1] rounded-[10px] text-foreground focus:outline-none focus:border-[#14171A] focus:ring-[3px] focus:ring-[#EE9D16]/30 transition-all"
-                        disabled={status === 'submitting'}
-                      />
-                    </div>
-
-                    <div>
-                      <label className="block text-[14px] font-medium text-foreground mb-1.5" htmlFor="telefon">
-                        Numer telefonu
-                      </label>
-                      <input
-                        type="tel"
-                        id="telefon"
-                        name="telefon"
-                        inputMode="tel"
-                        autoComplete="tel"
-                        value={formData.telefon}
-                        onChange={handleChange}
-                        placeholder="+48 500 000 000"
-                        className="w-full h-[52px] px-4 text-[15px] sm:text-[16px] bg-[#F7F7F5] border border-[#D9DDE1] rounded-[10px] text-foreground focus:outline-none focus:border-[#14171A] focus:ring-[3px] focus:ring-[#EE9D16]/30 transition-all"
-                        disabled={status === 'submitting'}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-[14px] font-medium text-foreground mb-1.5" htmlFor="email">
-                      Adres e-mail <span className="text-red-600">*</span>
-                    </label>
-                    <input
-                      type="email"
-                      id="email"
-                      name="email"
-                      required
-                      inputMode="email"
-                      autoComplete="email"
-                      value={formData.email}
-                      onChange={handleChange}
-                      placeholder="twoj-email@domena.pl"
-                      className="w-full h-[52px] px-4 text-[15px] sm:text-[16px] bg-[#F7F7F5] border border-[#D9DDE1] rounded-[10px] text-foreground focus:outline-none focus:border-[#14171A] focus:ring-[3px] focus:ring-[#EE9D16]/30 transition-all"
-                      disabled={status === 'submitting'}
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[14px] font-medium text-foreground mb-1.5" htmlFor="tematProdukt">
-                      Temat zapytania / Urządzenie
-                    </label>
-                    <input
-                      type="text"
-                      id="tematProdukt"
-                      name="tematProdukt"
-                      value={formData.tematProdukt}
-                      onChange={handleChange}
-                      placeholder="np. Zapytanie o geometrię kół Q.Lign 3D"
-                      className="w-full h-[52px] px-4 text-[15px] sm:text-[16px] bg-[#F7F7F5] border border-[#D9DDE1] rounded-[10px] text-foreground focus:outline-none focus:border-[#14171A] focus:ring-[3px] focus:ring-[#EE9D16]/30 transition-all"
-                      disabled={status === 'submitting'}
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-[14px] font-medium text-foreground mb-1.5" htmlFor="wiadomosc">
-                      Wiadomość <span className="text-red-600">*</span>
-                    </label>
-                    <textarea
-                      id="wiadomosc"
-                      name="wiadomosc"
-                      rows={5}
-                      required
-                      value={formData.wiadomosc}
-                      onChange={handleChange}
-                      placeholder="Wpisz treść zapytania..."
-                      className="w-full p-4 text-[15px] sm:text-[16px] bg-[#F7F7F5] border border-[#D9DDE1] rounded-[10px] text-foreground focus:outline-none focus:border-[#14171A] focus:ring-[3px] focus:ring-[#EE9D16]/30 transition-all resize-y leading-relaxed"
-                      disabled={status === 'submitting'}
-                    />
-                  </div>
-
-                  <div>
-                    <label className="flex items-start gap-3 cursor-pointer">
-                      <input
-                        type="checkbox"
-                        name="zgodaRODO"
-                        checked={formData.zgodaRODO}
-                        onChange={handleChange}
-                        required
-                        className="mt-1 h-4 w-4 rounded border-gray-300 text-foreground focus:ring-accent"
-                        disabled={status === 'submitting'}
-                      />
-                      <span className="text-[13px] sm:text-[14px] text-foreground-secondary leading-relaxed">
-                        Wyrażam zgodę na przetwarzanie moich danych osobowych przez Diagnostyka-Systems s.c. w celu udzielenia odpowiedzi na przesłane zapytanie zgodnie z{' '}
-                        <Link to="/polityka-prywatnosci" target="_blank" className="text-accent-text underline underline-offset-2 hover:text-foreground">
-                          Polityką prywatności
-                        </Link>. <span className="text-red-600">*</span>
-                      </span>
-                    </label>
-                  </div>
-                </div>
-
-                <div className="pt-4 border-t border-surface-border flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                  <span className="text-[13px] text-foreground-secondary">
-                    <span className="text-red-600">*</span> Pola wymagane
-                  </span>
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    disabled={status === 'submitting'}
-                    className="h-[52px] px-8 text-[16px] font-semibold w-full sm:w-auto"
-                  >
-                    {status === 'submitting' ? (
-                      <>
-                        <Loader2 className="w-4 h-4 animate-spin mr-2" />
-                        <span>{LABELS.forms.submitting}</span>
-                      </>
-                    ) : (
-                      <span>{LABELS.cta.sendMessage}</span>
-                    )}
-                  </Button>
-                </div>
-              </form>
-            )}
+          {/* Prawa strona: Jeden uniwersalny formularz kontaktowy z wyborem celu (7 kolumn) */}
+          <div className="lg:col-span-7">
+            <ContactForm />
           </div>
         </div>
 
-        {/* Mapa dojazdu poniżej (desktop: aktywacja po najechaniu kursorem; mobile: przycisk dotykowy) */}
+        {/* Mapa dojazdu poniżej (desktop: hover; mobile: button) */}
         <section className="pt-8 border-t border-surface-border space-y-4">
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <div>
@@ -524,13 +211,13 @@ export const ContactPage: React.FC = () => {
                   </p>
                 </div>
 
-                {/* DESKTOP: Informacja o aktywacji kursorem myszy (brak mylącego przycisku) */}
+                {/* DESKTOP */}
                 <div className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white border border-surface-border text-[13px] text-foreground font-medium shadow-2xs whitespace-nowrap">
                   <MousePointer2 className="w-4 h-4 text-accent-text" />
                   <span>Najedź kursorem myszy, aby załadować mapę</span>
                 </div>
 
-                {/* MOBILE: Wyraźny przycisk dotykowy (zapobiega blokowaniu przewijania strony gestem) */}
+                {/* MOBILE */}
                 <div className="sm:hidden pt-2">
                   <button
                     type="button"

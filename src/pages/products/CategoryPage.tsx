@@ -366,7 +366,7 @@ export const CategoryPage: React.FC = () => {
                 Resetuj filtry
               </Button>
               <Button
-                to={`/kontakt?temat=Zapytanie o ${encodeURIComponent(category.name)}`}
+                to={`/kontakt?typ=oferta&produkt=${encodeURIComponent(category.name)}`}
                 variant="primary"
                 size="sm"
               >
@@ -391,7 +391,7 @@ export const CategoryPage: React.FC = () => {
             <ArrowLeft className="w-4 h-4" /> Wróć do pełnego katalogu urządzeń
           </Link>
           <Link
-            to={`/kontakt?temat=Zapytanie ofertowe - kategoria ${encodeURIComponent(category.name)}`}
+            to={`/kontakt?typ=oferta&produkt=${encodeURIComponent(category.name)}`}
             className="text-sm font-semibold text-accent-text hover:underline"
           >
             Skonsultuj dobór maszyny z doradcą →

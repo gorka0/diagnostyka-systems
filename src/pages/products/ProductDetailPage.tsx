@@ -271,7 +271,7 @@ export const ProductDetailPage: React.FC = () => {
               {/* Przycisk CTA: Zapytaj o produkt */}
               <div className="pt-2">
                 <Button
-                  to={`/kontakt?produkt=${encodeURIComponent(product.name)}`}
+                  to={`/kontakt?typ=oferta&produkt=${encodeURIComponent(product.name)}`}
                   variant="primary"
                   size="md"
                   className="w-full justify-center h-[50px] text-[15px] font-semibold shadow-xs"

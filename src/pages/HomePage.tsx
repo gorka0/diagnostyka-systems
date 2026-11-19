@@ -255,7 +255,7 @@ export const HomePage: React.FC = () => {
                   </span>
                 </div>
                 <Button
-                  to={`/kontakt?temat=${encodeURIComponent(activePromo.title)}`}
+                  to={`/kontakt?typ=oferta&produkt=${encodeURIComponent(activePromo.title)}`}
                   variant="primary"
                   size="md"
                   className="h-[52px] px-7 text-[16px] font-semibold w-full sm:w-auto justify-center"
