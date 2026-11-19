@@ -500,7 +500,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                   htmlFor={`${formUid}-imieNazwisko`}
                   className="block text-[14px] font-semibold text-foreground mb-1.5"
                 >
-                  Imię i nazwisko <span className="text-accent-text font-normal text-[12px]">(wymagane)</span>
+                  Imię i nazwisko <span className="text-accent-text font-semibold" aria-hidden="true">*</span>
                 </label>
                 <input
                   type="text"
@@ -551,7 +551,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                   htmlFor={`${formUid}-email`}
                   className="block text-[14px] font-semibold text-foreground mb-1.5"
                 >
-                  Adres e-mail <span className="text-accent-text font-normal text-[12px]">(wymagane)</span>
+                  Adres e-mail <span className="text-accent-text font-semibold" aria-hidden="true">*</span>
                 </label>
                 <input
                   type="email"
@@ -631,7 +631,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                     htmlFor={`${formUid}-rodzajUrzadzenia`}
                     className="block text-[14px] font-semibold text-foreground mb-1.5"
                   >
-                    Rodzaj urządzenia <span className="text-accent-text font-normal text-[12px]">(wymagane)</span>
+                    Rodzaj urządzenia <span className="text-accent-text font-semibold" aria-hidden="true">*</span>
                   </label>
                   <select
                     id={`${formUid}-rodzajUrzadzenia`}
@@ -654,7 +654,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                     htmlFor={`${formUid}-model`}
                     className="block text-[14px] font-semibold text-foreground mb-1.5"
                   >
-                    Model urządzenia <span className="text-accent-text font-normal text-[12px]">(wymagane)</span>
+                    Model urządzenia <span className="text-accent-text font-semibold" aria-hidden="true">*</span>
                   </label>
                   <input
                     type="text"
@@ -686,7 +686,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                   htmlFor={`${formUid}-opisUsterki`}
                   className="block text-[14px] font-semibold text-foreground mb-1.5"
                 >
-                  Opis usterki lub wymaganej usługi <span className="text-accent-text font-normal text-[12px]">(wymagane)</span>
+                  Opis usterki lub wymaganej usługi <span className="text-accent-text font-semibold" aria-hidden="true">*</span>
                 </label>
                 <textarea
                   id={`${formUid}-opisUsterki`}
@@ -714,7 +714,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                   htmlFor={`${formUid}-wiadomosc`}
                   className="block text-[14px] font-semibold text-foreground mb-1.5"
                 >
-                  Wiadomość <span className="text-accent-text font-normal text-[12px]">(wymagane)</span>
+                  Wiadomość <span className="text-accent-text font-semibold" aria-hidden="true">*</span>
                 </label>
                 <textarea
                   id={`${formUid}-wiadomosc`}
@@ -755,7 +755,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                 />
                 <span className="text-[13px] text-foreground-secondary leading-relaxed">
                   Wyrażam zgodę na przetwarzanie moich danych osobowych przez Diagnostyka-Systems s.c. w celu odpowiedzi na przesłane zapytanie.{' '}
-                  <span className="text-accent-text font-medium">(wymagane)</span>
+                  <span className="text-accent-text font-semibold" aria-hidden="true">*</span>
                 </span>
               </label>
               {errors.zgodaRODO && (

@@ -76,6 +76,247 @@ const TARGET_EMAILS_PER_TYPE = {
  * - Jeśli brak danych SMTP w .env lub włączony DEV_LOG_MAIL: zapis do pliku logu
  * - W przeciwnym razie: nodemailer z transportem SMTP
  */
+/**
+ * Buduje responsywny szablon HTML wiadomości e-mail w stylu strony Beissbarth / Diagnostyka-Systems:
+ * - Ciemny, techniczny nagłówek grafitowy (#14171A) z markowym bursztynem (#EE9D16)
+ * - Pasek szybkich akcji bezpośrednich (odpowiedz e-mail, zadzwoń jednym kliknięciem)
+ * - Czytelna siatka danych nadawcy i parametrów sprawy
+ * - Wyróżniony blok treści z lewym akcentem
+ * - Stopka techniczna ze stemplem czasowym, IP i RODO
+ */
+export function buildEmailHtml({
+  cel,
+  imieNazwisko,
+  firma,
+  email,
+  telefon,
+  produkt,
+  rodzajUrzadzenia,
+  model,
+  wiadomosc,
+  clientIp,
+  subject,
+}) {
+  const formattedDate = new Date().toLocaleString('pl-PL', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+    hour: '2-digit',
+    minute: '2-digit',
+  });
+
+  const celTitle =
+    cel === 'serwis'
+      ? 'Zgłoszenie serwisowe'
+      : cel === 'oferta'
+      ? 'Zapytanie o ofertę'
+      : 'Pytanie ogólne';
+
+  const celBadgeBg = cel === 'serwis' ? '#EE9D16' : cel === 'oferta' ? '#F5A524' : '#2A3036';
+  const celBadgeText = cel === 'ogolne' ? '#FFFFFF' : '#14171A';
+
+  const cleanPhone = telefon ? telefon.replace(/[^\d+]/g, '') : '';
+  const escapedMessage = (wiadomosc || '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/\n/g, '<br/>');
+
+  return `<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>${subject}</title>
+</head>
+<body style="margin: 0; padding: 0; background-color: #F7F7F5; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; color: #1F2328; -webkit-font-smoothing: antialiased;">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="background-color: #F7F7F5; padding: 32px 16px;">
+    <tr>
+      <td align="center">
+        <!-- Główny arkusz e-mail (600px) -->
+        <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="max-width: 600px; background-color: #FFFFFF; border-radius: 12px; overflow: hidden; border: 1px solid #D9DDE1; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);">
+          
+          <!-- Pasek nagłówkowy: ciemny grafit #14171A z bursztynową krawędzią -->
+          <tr>
+            <td style="background-color: #14171A; padding: 26px 32px; border-bottom: 3px solid #EE9D16;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td valign="middle">
+                    <div style="font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #EE9D16; margin-bottom: 6px;">
+                      DIAGNOSTYKA-SYSTEMS • BEISSBARTH
+                    </div>
+                    <div style="margin: 0; font-size: 19px; font-weight: 700; color: #FFFFFF; line-height: 1.3;">
+                      Nowa wiadomość ze strony www
+                    </div>
+                  </td>
+                  <td align="right" valign="middle">
+                    <span style="display: inline-block; background-color: ${celBadgeBg}; color: ${celBadgeText}; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.05em; padding: 6px 12px; border-radius: 6px;">
+                      ${celTitle}
+                    </span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Pasek szybkich akcji (One-Click Reply & Call) -->
+          <tr>
+            <td style="background-color: #F9FAFB; padding: 14px 32px; border-bottom: 1px solid #E5E7EB;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td style="font-size: 13px; color: #4B5563;">
+                    Bezpośredni kontakt:
+                  </td>
+                  <td align="right">
+                    <a href="mailto:${email}?subject=Re:%20${encodeURIComponent(subject)}" style="display: inline-block; background-color: #1F2328; color: #FFFFFF; font-size: 12px; font-weight: 600; text-decoration: none; padding: 7px 13px; border-radius: 6px; margin-right: 6px;">
+                      ✉ Odpowiedz e-mail
+                    </a>
+                    ${
+                      cleanPhone
+                        ? `<a href="tel:${cleanPhone}" style="display: inline-block; background-color: #EE9D16; color: #14171A; font-size: 12px; font-weight: 700; text-decoration: none; padding: 7px 13px; border-radius: 6px;">
+                            📞 Zadzwoń: ${telefon}
+                          </a>`
+                        : ''
+                    }
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- Treść główna formularza -->
+          <tr>
+            <td style="padding: 28px 32px;">
+
+              <!-- Tabela: DANE NADAWCY -->
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 10px;">
+                DANE NADAWCY
+              </div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; margin-bottom: 24px;">
+                <tr>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563; width: 140px;">
+                    Imię i nazwisko:
+                  </td>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 600; color: #1F2328;">
+                    ${imieNazwisko}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563;">
+                    Firma / Warsztat:
+                  </td>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 600; color: #1F2328;">
+                    ${firma || '<span style="color: #9CA3AF; font-weight: 400;">Klient indywidualny</span>'}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563;">
+                    Adres e-mail:
+                  </td>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 600; color: #1F2328;">
+                    <a href="mailto:${email}" style="color: #A15C00; text-decoration: underline;">${email}</a>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563;">
+                    Numer telefonu:
+                  </td>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 600; color: #1F2328;">
+                    ${
+                      cleanPhone
+                        ? `<a href="tel:${cleanPhone}" style="color: #1F2328; text-decoration: none; font-weight: 700;">${telefon}</a>`
+                        : '<span style="color: #9CA3AF; font-weight: 400;">Nie podano</span>'
+                    }
+                  </td>
+                </tr>
+              </table>
+
+              ${
+                cel === 'oferta'
+                  ? `<!-- Szczegóły oferty -->
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 10px;">
+                ZAPYTANIE O APARATURĘ
+              </div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; margin-bottom: 24px;">
+                <tr>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563; width: 140px;">
+                    Urządzenie:
+                  </td>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 700; color: #A15C00;">
+                    ${produkt || 'Zapytanie ogólne o ofertę'}
+                  </td>
+                </tr>
+              </table>`
+                  : ''
+              }
+
+              ${
+                cel === 'serwis'
+                  ? `<!-- Szczegóły serwisu -->
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 10px;">
+                SZCZEGÓŁY ZGŁOSZENIA SERWISOWEGO
+              </div>
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0" style="border-collapse: collapse; margin-bottom: 24px;">
+                <tr>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563; width: 140px;">
+                    Rodzaj aparatury:
+                  </td>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 700; color: #1F2328;">
+                    ${rodzajUrzadzenia}
+                  </td>
+                </tr>
+                <tr>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 14px; color: #4B5563;">
+                    Model urządzenia:
+                  </td>
+                  <td style="padding: 9px 0; border-bottom: 1px solid #F1F3F5; font-size: 15px; font-weight: 600; color: #1F2328;">
+                    ${model || '<span style="color: #9CA3AF; font-weight: 400;">Nie podano</span>'}
+                  </td>
+                </tr>
+              </table>`
+                  : ''
+              }
+
+              <!-- Treść wiadomości / Opis usterki -->
+              <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: #6B7280; margin-bottom: 10px;">
+                ${cel === 'serwis' ? 'OPIS USTERKI / USŁUGI' : 'TREŚĆ WIADOMOŚCI'}
+              </div>
+              <div style="background-color: #F7F7F5; border: 1px solid #E5E7EB; border-left: 4px solid #EE9D16; border-radius: 8px; padding: 18px 20px; font-size: 15px; line-height: 1.6; color: #1F2328; margin-bottom: 10px;">
+                ${escapedMessage}
+              </div>
+
+            </td>
+          </tr>
+
+          <!-- Stopka techniczna -->
+          <tr>
+            <td style="background-color: #F7F7F5; padding: 20px 32px; border-top: 1px solid #E5E7EB; font-size: 12px; color: #6B7280; line-height: 1.5;">
+              <table role="presentation" width="100%" cellpadding="0" cellspacing="0" border="0">
+                <tr>
+                  <td>
+                    <div style="font-weight: 600; color: #1F2328;">Diagnostyka-Systems s.c. • Autoryzowany Serwis Beissbarth</div>
+                    <div style="color: #9CA3AF; margin-top: 4px;">
+                      Wysłano: ${formattedDate} • IP: ${clientIp} • Zgoda RODO: Zaakceptowano
+                    </div>
+                  </td>
+                  <td align="right" valign="middle">
+                    <a href="https://beissbarth.pl" target="_blank" style="color: #A15C00; font-weight: 700; text-decoration: none; font-size: 13px;">
+                      beissbarth.pl →
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>`;
+}
+
 export function getMailTransport() {
   const smtpHost = process.env.SMTP_HOST;
   const devLog = process.env.DEV_LOG_MAIL === 'true' || !smtpHost;
@@ -306,6 +547,20 @@ Adres zwrotny (Reply-To): ${email}
 Wiadomość wygenerowana automatycznie z formularza beissbarth.pl
 `;
 
+  const htmlContent = buildEmailHtml({
+    cel,
+    imieNazwisko,
+    firma,
+    email,
+    telefon,
+    produkt,
+    rodzajUrzadzenia,
+    model,
+    wiadomosc,
+    clientIp,
+    subject,
+  });
+
   // Nadawca wiadomości (MAIL FROM) - musi należeć do uwierzytelnionego konta SMTP (np. formularz@beissbarth-service.pl),
   // inaczej serwer pocztowy (home.pl) odrzuca wysyłkę z błędem 553 (Sender address rejected: not owned by user).
   const smtpUser = process.env.SMTP_USER || 'formularz@beissbarth-service.pl';
@@ -324,6 +579,7 @@ Wiadomość wygenerowana automatycznie z formularza beissbarth.pl
       replyTo: email,
       subject,
       text: textContent,
+      html: htmlContent,
       envelope: {
         from: senderEmail,
         to: targetEmail,

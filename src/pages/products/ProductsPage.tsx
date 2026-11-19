@@ -647,8 +647,8 @@ export const ProductsPage: React.FC = () => {
         style={{ contentVisibility: 'auto', containIntrinsicSize: '100px' }}
       >
         <div className="flex items-center gap-3.5 sm:gap-4 min-w-0 pr-2">
-          {/* Wyraźna, duża miniatura 80-96px (2x większa niż wcześniejsze 48px) */}
-          <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 bg-[#F7F7F5] rounded-[10px] overflow-hidden flex items-center justify-center p-2 border border-surface-border group-hover:border-accent/40 transition-colors">
+          {/* Wyraźna, duża miniatura 88-104px */}
+          <div className="w-[88px] h-[88px] sm:w-[104px] sm:h-[104px] shrink-0 bg-white rounded-[10px] overflow-hidden flex items-center justify-center p-1 border border-surface-border group-hover:border-accent/40 transition-colors">
             <SiteImage
               name={product.slug}
               alt={product.name}
