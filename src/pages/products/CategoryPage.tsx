@@ -165,11 +165,12 @@ export const CategoryPage: React.FC = () => {
       <Link
         key={product.slug}
         to={`/produkty/${category.slug}/${product.slug}`}
-        className="group flex items-center justify-between p-3 sm:p-4 bg-background border border-surface-border rounded-[8px] hover:border-accent hover:bg-background-subtle transition-all duration-150"
-        style={{ contentVisibility: 'auto', containIntrinsicSize: '72px' }}
+        className="group flex items-center justify-between p-3 sm:p-3.5 bg-background border border-surface-border rounded-[12px] hover:border-accent hover:bg-background-subtle hover:shadow-xs transition-all duration-150"
+        style={{ contentVisibility: 'auto', containIntrinsicSize: '100px' }}
       >
-        <div className="flex items-center gap-3 sm:gap-4 min-w-0 pr-2">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 shrink-0 bg-[#F7F7F5] rounded-md overflow-hidden flex items-center justify-center p-1 border border-surface-border">
+        <div className="flex items-center gap-3.5 sm:gap-4 min-w-0 pr-2">
+          {/* Wyraźna, duża miniatura 80-96px */}
+          <div className="w-20 h-20 sm:w-24 sm:h-24 shrink-0 bg-[#F7F7F5] rounded-[10px] overflow-hidden flex items-center justify-center p-2 border border-surface-border group-hover:border-accent/40 transition-colors">
             <SiteImage
               name={product.slug}
               alt={product.name}
@@ -178,14 +179,14 @@ export const CategoryPage: React.FC = () => {
               plain={true}
               loading="lazy"
               className={`w-full h-full ${
-                isContain ? 'object-contain mix-blend-multiply' : 'object-cover'
+                isContain ? 'object-contain mix-blend-multiply transition-transform duration-200 group-hover:scale-105' : 'object-cover transition-transform duration-200 group-hover:scale-105'
               }`}
             />
           </div>
 
           <div className="min-w-0">
-            <div className="flex items-center gap-2">
-              <h4 className="text-[14px] sm:text-[15px] font-semibold text-foreground truncate group-hover:text-accent-text transition-colors">
+            <div className="flex items-center gap-2 flex-wrap">
+              <h4 className="text-[15px] sm:text-[16px] font-semibold text-foreground truncate group-hover:text-accent-text transition-colors leading-snug">
                 {meta.model}
               </h4>
               {isUsed && (
@@ -194,16 +195,16 @@ export const CategoryPage: React.FC = () => {
                 </span>
               )}
             </div>
-            <p className="text-[12px] text-foreground-secondary truncate mt-0.5">
+            <p className="text-[13px] text-foreground-secondary truncate mt-1">
               {meta.typ ? `${meta.typ}` : ''}
               {meta.typ && meta.seria ? ' · ' : ''}
               {meta.seria ? `${meta.seria}` : ''}
-              {!meta.typ && !meta.seria && meta.oemBrand ? `OEM ${meta.oemBrand}` : ''}
+              {!meta.typ && !meta.seria && meta.oemBrand ? `OEM · ${meta.oemBrand}` : ''}
             </p>
           </div>
         </div>
 
-        <div className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full text-foreground-secondary group-hover:text-accent-text group-hover:translate-x-1 transition-all">
+        <div className="shrink-0 flex items-center justify-center w-8 h-8 rounded-full border border-surface-border/50 text-foreground-secondary group-hover:text-accent-text group-hover:border-accent/50 group-hover:translate-x-0.5 transition-all">
           <ArrowRight className="w-4 h-4" />
         </div>
       </Link>
@@ -379,7 +380,7 @@ export const CategoryPage: React.FC = () => {
             {filteredProducts.map(renderGridCard)}
           </div>
         ) : (
-          <div className="space-y-2 max-w-4xl mx-auto">{filteredProducts.map(renderListRow)}</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">{filteredProducts.map(renderListRow)}</div>
         )}
 
         {/* Dolna belka nawigacji powrotnej */}
