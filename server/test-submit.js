@@ -50,31 +50,22 @@ async function runDevTests() {
   const botResult = await handleServiceTicket(botPayload, '192.168.1.99');
   console.log('Wynik zgłoszenia bota (powinien być cichy sukces):', botResult);
 
-  console.log('\n--- TEST 4: Math Captcha - błędny wynik ---');
-  const badMathPayload = {
-    ...contactPayload,
-    captchaChallenge: '4+5',
-    captchaAnswer: '10', // błędny wynik
-  };
-  const badMathResult = await handleContactMessage(badMathPayload, '127.0.0.1');
-  console.log('Wynik błędnego math captchy (powinien być błąd 400):', badMathResult);
+  console.log('\n--- TEST 4: Rate Limiting (max 10 na godzinę z jednego IP) ---');
+  const testIp = '192.168.10.50';
+  let allowedCount = 0;
+  let blockedResult = null;
 
-  console.log('\n--- TEST 5: Math Captcha - poprawny wynik ---');
-  const goodMathPayload = {
-    ...contactPayload,
-    captchaChallenge: '4+5',
-    captchaAnswer: '9', // poprawny wynik
-  };
-  const goodMathResult = await handleContactMessage(goodMathPayload, '127.0.0.1');
-  console.log('Wynik poprawnego math captchy (powinien być sukces):', goodMathResult?.success);
-
-  console.log('\n--- TEST 6: Time-trap (< 2000ms) ---');
-  const fastBotPayload = {
-    ...contactPayload,
-    _time: Date.now() - 500, // wysłano w 500ms
-  };
-  const fastBotResult = await handleContactMessage(fastBotPayload, '192.168.1.100');
-  console.log('Wynik time-trap (powinien być cichy sukces):', fastBotResult);
+  for (let i = 1; i <= 11; i++) {
+    const res = await handleContactMessage({ ...contactPayload, wiadomosc: `Test rate limit ${i}` }, testIp);
+    if (res.success) {
+      allowedCount++;
+    } else {
+      blockedResult = res;
+      break;
+    }
+  }
+  console.log(`Pomyślnie wysłano z IP ${testIp}: ${allowedCount} zapytań (oczekiwane: 10).`);
+  console.log('11. próba zablokowana przez rate limit:', blockedResult);
 
   // Weryfikacja zawartości pliku logów
   const logFile = path.join(__dirname, 'logs', 'emails.log');

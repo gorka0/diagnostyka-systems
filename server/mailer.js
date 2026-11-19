@@ -6,13 +6,13 @@ import { fileURLToPath } from 'url';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-// In-memory rate limiting (max 5 zapytań na 10 minut na IP)
+// Rate limiting na IP: max 10 zapytań na godzinę z jednego adresu IP
 const ipRateLimits = new Map();
-const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000;
-const MAX_REQUESTS_PER_WINDOW = 5;
+const RATE_LIMIT_WINDOW_MS = 60 * 60 * 1000; // 1 godzina
+const MAX_REQUESTS_PER_WINDOW = 10; // max 10 wiadomości
 
 /**
- * Sprawdza limit zapytań dla danego adresu IP
+ * Sprawdza limit zapytań dla danego adresu IP (max 10 na godzinę)
  */
 export function checkRateLimit(ip) {
   const now = Date.now();
@@ -29,10 +29,10 @@ export function checkRateLimit(ip) {
   }
 
   if (record.count >= MAX_REQUESTS_PER_WINDOW) {
-    const waitSeconds = Math.ceil((record.resetAt - now) / 1000);
+    const waitMinutes = Math.ceil((record.resetAt - now) / (60 * 1000));
     return {
       allowed: false,
-      message: `Zbyt wiele prób wysłania. Odczekaj ${waitSeconds} sekund przed kolejnym zgłoszeniem.`,
+      message: `Zbyt wiele prób wysłania z tego adresu IP (limit: 10 wiadomości na godzinę). Odczekaj ${waitMinutes} min przed kolejnym zgłoszeniem.`,
     };
   }
 
@@ -483,46 +483,13 @@ ${logEntry.text}
  * - 'serwis' (Zgłoszenie serwisowe)
  */
 export async function handleContactMessage(body, clientIp) {
-  // 1. Honeypot check (ochrona przed spam-botami)
+  // 1. Honeypot check (ochrona przed botami - pole ukryte w HTML)
   if (body.website || body._gotcha) {
     console.warn(`[BOT DETECTED] Honeypot filled from IP: ${clientIp}`);
     return { success: true, message: 'Wiadomość przyjęta.' }; // cichy sukces dla botów
   }
 
-  // 1b. Time-trap check (człowiek nie wypełnia formularza poniżej 2 sekund)
-  if (body._time) {
-    const elapsed = Date.now() - Number(body._time);
-    if (!isNaN(elapsed) && elapsed < 2000) {
-      console.warn(`[BOT DETECTED] Time-trap triggered (${elapsed}ms) from IP: ${clientIp}`);
-      return { success: true, message: 'Wiadomość przyjęta.' };
-    }
-  }
-
-  // 1c. Weryfikacja działania matematycznego (Basic Antispam Math Challenge)
-  if (body.captchaChallenge && body.captchaAnswer !== undefined) {
-    const parts = String(body.captchaChallenge).split('+').map((n) => parseInt(n.trim(), 10));
-    if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
-      const expected = parts[0] + parts[1];
-      const received = parseInt(String(body.captchaAnswer).trim(), 10);
-      if (received !== expected) {
-        return {
-          success: false,
-          error: 'Nieprawidłowy wynik weryfikacji antyspamowej. Spróbuj ponownie.',
-          status: 400,
-        };
-      }
-    }
-  }
-
-  // 1d. Ochrona przed spamem linkowym / SEO (>2 linki w treści zapytania B2B)
-  const rawMsg = String(body.wiadomosc || body.opisUsterki || '');
-  const linkMatches = rawMsg.match(/https?:\/\/|www\./gi) || [];
-  if (linkMatches.length > 2) {
-    console.warn(`[SPAM DETECTED] Excessive links (${linkMatches.length}) from IP: ${clientIp}`);
-    return { success: true, message: 'Wiadomość przyjęta.' };
-  }
-
-  // 2. Rate limiting per IP
+  // 2. Rate limiting per IP (max 10 wysyłek na godzinę z jednego IP)
   const rateLimit = checkRateLimit(clientIp);
   if (!rateLimit.allowed) {
     return { success: false, error: rateLimit.message, status: 429 };
