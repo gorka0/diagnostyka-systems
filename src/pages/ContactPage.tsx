@@ -63,8 +63,8 @@ export const ContactPage: React.FC = () => {
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 py-10 md:py-16 space-y-12">
         {/* Główny grid: Lewa strona = Ciemny panel z telefonami i adresem (5 kolumn), Prawa = Formularz z wyborem celu (7 kolumn) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
-          {/* Lewa strona: Ciemna kolumna kontaktowa (5 kolumn) */}
-          <div className="lg:col-span-5 bg-foreground text-white rounded-[16px] p-7 sm:p-9 space-y-8 shadow-sm">
+          {/* Lewa strona: Ciemny panel carbon / graphite #14171A (telefony + adres) - 5 kolumn */}
+          <div className="lg:col-span-5 bg-[#14171A] text-white rounded-[16px] p-7 sm:p-9 border border-white/10 space-y-9 shadow-lg">
             {/* Lista telefonów bezpośrednich */}
             <div className="space-y-5">
               <h2 className="text-xl sm:text-2xl font-semibold text-white tracking-tight">

@@ -8,14 +8,14 @@ import { cleanTelHref } from '@/utils/typography';
 import { Phone, Wrench } from 'lucide-react';
 
 export const Layout: React.FC = () => {
-  const { pathname, search } = useLocation();
+  const { pathname } = useLocation();
 
-  // Natychmiastowe przewinięcie na samą górę strony przy przejściu między podstronami oraz przy odświeżeniu
+  // Przewinięcie na górę strony wyłącznie przy zmianie podstrony (pathname) – zmiana parametrów URL (searchParams) nie przewija strony
   useLayoutEffect(() => {
     window.scrollTo({ top: 0, left: 0, behavior: 'instant' as ScrollBehavior });
     document.documentElement.scrollTop = 0;
     document.body.scrollTop = 0;
-  }, [pathname, search]);
+  }, [pathname]);
 
   useEffect(() => {
     const handleResetScroll = () => {

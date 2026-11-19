@@ -66,7 +66,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   className = '',
   onSuccess,
 }) => {
-  const [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams] = useSearchParams();
   const formUid = useId();
 
   // 1. Inicjalizacja typu z URL lub propa
@@ -123,16 +123,20 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     return Array.from(new Set(PRODUCTS_DATA.map((p) => p.name))).slice(0, 30);
   }, []);
 
-  // Przełączanie celu zapytania z zachowaniem wspólnych pól
+  // Przełączanie celu zapytania z zachowaniem wspólnych pól bez przewijania strony
   const handlePurposeChange = (newPurpose: ContactPurpose) => {
     setPurpose(newPurpose);
     setErrors({});
     setServerErrorMessage('');
 
-    // Aktualizujemy query param w URL bez przeładowania strony
-    const currentParams = new URLSearchParams(searchParams);
-    currentParams.set('typ', newPurpose);
-    setSearchParams(currentParams, { replace: true });
+    // Aktualizujemy query param w URL za pomocą replaceState, aby NIE przewijać strony do góry
+    try {
+      const url = new URL(window.location.href);
+      url.searchParams.set('typ', newPurpose);
+      window.history.replaceState(null, '', url.pathname + url.search);
+    } catch {
+      // fallback
+    }
   };
 
   const handleInputChange = (
@@ -301,15 +305,15 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   return (
     <div className={`bg-white border border-[#D9DDE1] rounded-[16px] p-6 sm:p-9 shadow-sm ${className}`}>
       {/* 1. SELEKTOR CELU (Segmented Control Desktop / Karta Mobile) */}
-      <fieldset className="mb-8 border-none p-0 m-0">
-        <legend className="block text-[13px] font-mono uppercase tracking-wider text-foreground-secondary mb-3">
+      <fieldset className="mb-6 border-none p-0 m-0">
+        <legend className="block text-[12px] font-mono uppercase tracking-wider text-foreground-secondary mb-2.5 font-medium">
           Czego dotyczy Twoja sprawa? <span className="sr-only">(Wybierz cel zapytania)</span>
         </legend>
 
         <div
           role="radiogroup"
           aria-label="Wybór celu zapytania"
-          className="grid grid-cols-1 sm:grid-cols-3 gap-2 sm:gap-1.5 p-1.5 bg-[#F0F2F5] rounded-[12px] border border-[#E4E7EB]"
+          className="grid grid-cols-1 md:grid-cols-3 gap-1.5 p-1.5 bg-[#F1F3F5] rounded-[11px] border border-[#E2E6EA]"
         >
           {(
             [
@@ -324,10 +328,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               <label
                 key={item.id}
                 htmlFor={`${formUid}-purpose-${item.id}`}
-                className={`relative flex items-center justify-center gap-2.5 min-h-[48px] px-4 py-3 rounded-[9px] cursor-pointer text-[14px] sm:text-[15px] font-semibold transition-all select-none has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent-primary has-[:focus-visible]:ring-offset-1 ${
+                className={`relative flex items-center justify-center gap-2 h-11 px-3 rounded-[8px] cursor-pointer text-[13px] sm:text-[14px] font-semibold transition-all select-none has-[:focus-visible]:ring-2 has-[:focus-visible]:ring-accent-primary has-[:focus-visible]:ring-offset-1 ${
                   isSelected
-                    ? 'bg-white text-foreground shadow-sm ring-1 ring-black/5'
-                    : 'text-foreground-secondary hover:text-foreground hover:bg-white/50'
+                    ? 'bg-white text-foreground shadow-xs border border-black/5 ring-1 ring-black/5'
+                    : 'text-foreground-secondary hover:text-foreground hover:bg-white/60'
                 }`}
               >
                 <input
@@ -340,11 +344,11 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                   className="sr-only"
                 />
                 <Icon
-                  className={`w-4 h-4 transition-colors ${
+                  className={`w-4 h-4 shrink-0 transition-colors ${
                     isSelected ? 'text-accent-text' : 'text-foreground-secondary'
                   }`}
                 />
-                <span className="whitespace-nowrap">{item.label}</span>
+                <span className="whitespace-nowrap tracking-tight">{item.label}</span>
               </label>
             );
           })}
