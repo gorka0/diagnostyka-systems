@@ -62,8 +62,8 @@ export const ServicePage: React.FC = () => {
           {/* Kolumna 1: Geometria, wyważanie i diagnostyka (Beissbarth) */}
           <div className="flex flex-col justify-between bg-white border border-surface-border rounded-[16px] p-7 sm:p-8 space-y-8">
             <div className="space-y-6">
-              <div className="flex items-center gap-3">
-                <Wrench className="w-6 h-6 text-foreground stroke-[1.5]" />
+              <div className="flex items-start gap-3">
+                <Wrench className="w-6 h-6 shrink-0 text-foreground stroke-[1.5] mt-0.5" />
                 <h2 className="text-xl font-semibold text-foreground tracking-tight leading-snug">
                   Geometria, wyważanie i diagnostyka (Beissbarth)
                 </h2>
@@ -113,8 +113,8 @@ export const ServicePage: React.FC = () => {
           {/* Kolumna 2: Klimatyzacja (Valeo, SPX) */}
           <div className="flex flex-col justify-between bg-white border border-surface-border rounded-[16px] p-7 sm:p-8 space-y-8">
             <div className="space-y-6">
-              <div className="flex items-center gap-3">
-                <ThermometerSnowflake className="w-6 h-6 text-foreground stroke-[1.5]" />
+              <div className="flex items-start gap-3">
+                <ThermometerSnowflake className="w-6 h-6 shrink-0 text-foreground stroke-[1.5] mt-0.5" />
                 <h2 className="text-xl font-semibold text-foreground tracking-tight leading-snug">
                   Klimatyzacja (Valeo, SPX)
                 </h2>
@@ -164,8 +164,8 @@ export const ServicePage: React.FC = () => {
           {/* Kolumna 3: Części zamienne */}
           <div className="flex flex-col justify-between bg-white border border-surface-border rounded-[16px] p-7 sm:p-8 space-y-8">
             <div className="space-y-6">
-              <div className="flex items-center gap-3">
-                <Package className="w-6 h-6 text-foreground stroke-[1.5]" />
+              <div className="flex items-start gap-3">
+                <Package className="w-6 h-6 shrink-0 text-foreground stroke-[1.5] mt-0.5" />
                 <h2 className="text-xl font-semibold text-foreground tracking-tight leading-snug">
                   Części zamienne
                 </h2>
