@@ -131,28 +131,69 @@ ${logEntry.text}
   return {
     isDevLog: false,
     sendMail: async (mailOptions) => {
-      const transporter = nodemailer.createTransport({
-        host: process.env.SMTP_HOST,
-        port: parseInt(process.env.SMTP_PORT || '465', 10),
-        secure: process.env.SMTP_SECURE !== 'false',
+      // Auto-korekta: poczta.home.pl (62.129.245.180) to webmail blokujący połączenia SMTP z zewnątrz (ETIMEDOUT).
+      // Prawidłowym serwerem pocztowym domeny beissbarth-service.pl jest beissbarth-service.pl (79.96.215.238).
+      let host = process.env.SMTP_HOST;
+      if (host === 'poczta.home.pl' || host === '62.129.245.180') {
+        console.warn(`[SMTP AUTO-FIX] Zamiana błędnego hosta '${host}' na właściwy serwer domeny 'beissbarth-service.pl'`);
+        host = 'beissbarth-service.pl';
+      }
+
+      const port = parseInt(process.env.SMTP_PORT || '465', 10);
+      const secure = process.env.SMTP_SECURE !== undefined
+        ? process.env.SMTP_SECURE === 'true'
+        : port === 465;
+
+      const transporterConfig = {
+        host,
+        port,
+        secure,
         auth: {
           user: process.env.SMTP_USER,
           pass: process.env.SMTP_PASS,
         },
-      });
+        connectionTimeout: 8000,
+        greetingTimeout: 8000,
+        socketTimeout: 10000,
+        tls: {
+          rejectUnauthorized: false,
+        },
+      };
 
       try {
+        const transporter = nodemailer.createTransport(transporterConfig);
         return await transporter.sendMail(mailOptions);
       } catch (smtpErr) {
         console.error('[SMTP SendMail Error]:', smtpErr);
-        // Log zapasowy w razie problemów z siecią/SMTP
+
+        // Jeśli port 465 miał timeout i port nie był sztywno zdefiniowany w env, spróbuj portu 587 (STARTTLS)
+        if (
+          (smtpErr.code === 'ETIMEDOUT' || smtpErr.code === 'ECONNREFUSED' || smtpErr.message?.includes('ETIMEDOUT')) &&
+          port === 465 &&
+          !process.env.SMTP_PORT
+        ) {
+          console.warn('[SMTP RETRY] Próba wysyłki przez alternatywny port 587 (STARTTLS)...');
+          try {
+            const fallbackTransporter = nodemailer.createTransport({
+              ...transporterConfig,
+              port: 587,
+              secure: false,
+              requireTLS: true,
+            });
+            return await fallbackTransporter.sendMail(mailOptions);
+          } catch (retryErr) {
+            console.error('[SMTP Retry 587 Error]:', retryErr);
+          }
+        }
+
+        // Log zapasowy w razie problemów z siecią/SMTP – zapytanie nigdy nie przepada
         console.warn('[FALLBACK FORM DISPATCH LOGGED]:', {
           to: mailOptions.to,
           replyTo: mailOptions.replyTo,
           subject: mailOptions.subject,
           text: mailOptions.text,
         });
-        throw new Error(`Błąd wysyłki e-mail przez serwer SMTP: ${smtpErr.message || 'Nieudane połączenie'}`);
+        throw new Error(`Błąd wysyłki e-mail przez serwer SMTP (${host}:${port}): ${smtpErr.message || 'Nieudane połączenie'}`);
       }
     },
   };
