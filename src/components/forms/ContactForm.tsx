@@ -766,17 +766,13 @@ export const ContactForm: React.FC<ContactFormProps> = ({
             </div>
           </div>
 
-          {/* DÓŁ FORMULARZA: Informacja o polach wymaganych, przycisk i bezpośredni telefon */}
+          {/* DÓŁ FORMULARZA: Przycisk wysyłki i bezpośredni telefon */}
           <div className="pt-4 border-t border-[#E4E7EB] space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <span className="text-[12px] font-mono text-foreground-secondary">
-                Pola oznaczone jako (wymagane) są niezbędne do wysłania.
-              </span>
-
+            <div className="flex justify-end">
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="h-12 px-7 rounded-[8px] bg-foreground text-white hover:bg-foreground/90 font-semibold text-[15px] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm shrink-0"
+                className="h-12 px-7 rounded-[8px] bg-foreground text-white hover:bg-foreground/90 font-semibold text-[15px] transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 shadow-sm w-full sm:w-auto"
               >
                 {status === 'submitting' ? (
                   <>
