@@ -303,10 +303,10 @@ export const ProductDetailPage: React.FC = () => {
 
         {/* 3 Podobne urządzenia z tej samej kategorii */}
         {similarProducts.length > 0 && (
-          <div className="mt-16 pt-12 border-t border-surface-border">
-            <div className="flex items-center justify-between mb-6">
+          <div className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-surface-border">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 sm:mb-6">
               <div>
-                <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+                <h2 className="text-lg sm:text-2xl font-bold text-foreground tracking-tight">
                   Podobne urządzenia
                 </h2>
                 <p className="text-xs sm:text-sm text-foreground-secondary mt-0.5">
@@ -315,13 +315,14 @@ export const ProductDetailPage: React.FC = () => {
               </div>
               <Link
                 to={`/produkty/${product.categorySlug}`}
-                className="text-xs sm:text-sm font-semibold text-accent-text hover:underline flex items-center gap-1"
+                className="text-xs sm:text-sm font-semibold text-accent-text hover:underline flex items-center gap-1 self-start sm:self-auto"
               >
                 Zobacz wszystkie ({categoryTitle}) <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+            {/* Na mobilce: zmniejszone, w poziomym rzędzie obok siebie (scroll/swipe); na desktopie: siatka 3 kolumny */}
+            <div className="flex overflow-x-auto gap-3 pb-3 -mx-4 px-4 sm:mx-0 sm:px-0 sm:grid sm:grid-cols-2 md:grid-cols-3 sm:gap-6 no-scrollbar snap-x">
               {similarProducts.map(({ product: simProd, meta: simMeta }) => {
                 const simContain = simMeta.imageFit === 'contain';
                 const simUsed = simMeta.stan === 'używane';
@@ -330,9 +331,9 @@ export const ProductDetailPage: React.FC = () => {
                   <Link
                     key={simProd.slug}
                     to={`/produkty/${simProd.categorySlug}/${simProd.slug}`}
-                    className="group flex flex-col bg-background border border-surface-border rounded-[10px] overflow-hidden hover:border-accent transition-all duration-150 hover:shadow-xs"
+                    className="w-[165px] sm:w-auto shrink-0 snap-start group flex flex-col bg-background border border-surface-border rounded-[10px] overflow-hidden hover:border-accent transition-all duration-150 hover:shadow-xs"
                   >
-                    <div className="relative aspect-square w-full bg-[#F7F7F5] overflow-hidden flex items-center justify-center p-4">
+                    <div className="relative aspect-square w-full bg-[#F7F7F5] overflow-hidden flex items-center justify-center p-2.5 sm:p-4">
                       <SiteImage
                         name={simProd.slug}
                         alt={simProd.name}
@@ -347,23 +348,23 @@ export const ProductDetailPage: React.FC = () => {
                         }`}
                       />
                       {simUsed && (
-                        <span className="absolute top-2.5 left-2.5 bg-neutral-900 text-white text-[10px] font-semibold px-1.5 py-0.5 rounded tracking-wide uppercase">
+                        <span className="absolute top-2 left-2 bg-neutral-900 text-white text-[9px] sm:text-[10px] font-semibold px-1.5 py-0.5 rounded tracking-wide uppercase">
                           Używane
                         </span>
                       )}
-                      <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/90 border border-surface-border flex items-center justify-center text-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shadow-xs">
+                      <div className="hidden sm:flex absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/90 border border-surface-border items-center justify-center text-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shadow-xs">
                         <ArrowRight className="w-3.5 h-3.5" />
                       </div>
                     </div>
 
-                    <div className="p-4 flex flex-col flex-1 justify-between gap-1.5 border-t border-surface-border bg-background">
+                    <div className="p-2.5 sm:p-4 flex flex-col flex-1 justify-between gap-1 border-t border-surface-border bg-background">
                       <h4
-                        className="text-[15px] font-semibold text-foreground tracking-tight leading-snug line-clamp-2 group-hover:text-accent-text transition-colors"
+                        className="text-[13px] sm:text-[15px] font-semibold text-foreground tracking-tight leading-snug line-clamp-2 group-hover:text-accent-text transition-colors"
                         title={simProd.name}
                       >
                         {simMeta.model}
                       </h4>
-                      <p className="text-[12px] text-foreground-secondary truncate">
+                      <p className="text-[11px] sm:text-[12px] text-foreground-secondary truncate">
                         {simMeta.typ ? `${simMeta.typ}` : ''}
                         {simMeta.typ && simMeta.seria ? ' · ' : ''}
                         {simMeta.seria ? `${simMeta.seria}` : ''}
