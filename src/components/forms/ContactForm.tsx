@@ -306,9 +306,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     <div className={`bg-white border border-[#D9DDE1] rounded-[16px] p-6 sm:p-9 shadow-sm ${className}`}>
       {/* 1. SELEKTOR CELU (Segmented Control Desktop / Karta Mobile) */}
       <fieldset className="mb-6 border-none p-0 m-0">
-        <legend className="block text-[12px] font-mono uppercase tracking-wider text-foreground-secondary mb-2.5 font-medium">
-          Czego dotyczy Twoja sprawa? <span className="sr-only">(Wybierz cel zapytania)</span>
-        </legend>
+        <legend className="sr-only">Cel kontaktu / rodzaj sprawy</legend>
 
         <div
           role="radiogroup"
