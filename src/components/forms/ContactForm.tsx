@@ -303,7 +303,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   }[purpose];
 
   return (
-    <div className={`bg-white border border-[#D9DDE1] rounded-[16px] p-6 sm:p-9 shadow-sm ${className}`}>
+    <div className={`bg-white border border-[#D9DDE1] rounded-[16px] p-6 sm:p-9 shadow-sm overflow-hidden ${className}`}>
       {/* 1. SELEKTOR CELU (Segmented Control Desktop / Karta Mobile) */}
       <fieldset className="mb-6 border-none p-0 m-0">
         <legend className="sr-only">Cel kontaktu / rodzaj sprawy</legend>
@@ -767,29 +767,29 @@ export const ContactForm: React.FC<ContactFormProps> = ({
           </div>
 
           {/* DÓŁ FORMULARZA: Przyciski akcji obok siebie (Wyrazisty CTA + Telefon bezpośredni) */}
-          <div className="pt-5 border-t border-[#E4E7EB] space-y-3">
-            <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
+          <div className="pt-5 border-t border-[#E4E7EB]">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {/* Główny, wyrazisty przycisk wysyłki (Brand Amber CTA) */}
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="inline-flex h-12 items-center justify-center gap-2.5 rounded-[10px] bg-accent px-7 text-[16px] font-bold text-foreground shadow-sm transition-all hover:bg-accent-hover active:bg-accent-active disabled:cursor-not-allowed disabled:opacity-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 shrink-0 cursor-pointer"
+                className="w-full h-12 px-4 rounded-[10px] bg-accent text-foreground hover:bg-accent-hover active:bg-accent-active font-bold text-[15px] sm:text-[16px] shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 cursor-pointer"
               >
                 {status === 'submitting' ? (
                   <>
-                    <Loader2 className="w-5 h-5 animate-spin text-foreground" />
-                    <span>Przetwarzanie zgłoszenia...</span>
+                    <Loader2 className="w-5 h-5 animate-spin text-foreground shrink-0" />
+                    <span>Wysyłanie...</span>
                   </>
                 ) : (
                   <>
                     <span>
                       {purpose === 'serwis'
-                        ? 'Wyślij zgłoszenie serwisowe'
+                        ? 'Wyślij zgłoszenie'
                         : purpose === 'oferta'
-                        ? 'Wyślij zapytanie o ofertę'
+                        ? 'Wyślij zapytanie'
                         : 'Wyślij wiadomość'}
                     </span>
-                    <ArrowRight className="w-4 h-4 text-foreground stroke-[2.5]" />
+                    <ArrowRight className="w-4 h-4 text-foreground stroke-[2.5] shrink-0" />
                   </>
                 )}
               </button>
@@ -797,27 +797,16 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               {/* Drugi przycisk: bezpośredni telefon dopasowany do wybranego celu */}
               <a
                 href={`tel:${purposeConfig.phone.raw}`}
-                className="inline-flex h-12 items-center justify-center gap-2 rounded-[10px] border border-[#D9DDE1] bg-white px-5 text-[15px] font-semibold text-foreground transition-colors hover:bg-[#F7F7F5] hover:border-[#B8BEC5] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 shrink-0"
+                className="w-full h-12 px-4 rounded-[10px] border border-[#D9DDE1] bg-white text-foreground hover:bg-[#F7F7F5] hover:border-[#B8BEC5] font-semibold text-[14px] sm:text-[15px] transition-colors flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
+                title={`${purposeConfig.phoneLabel} ${purposeConfig.phone.display}`}
               >
                 <Phone className="w-4 h-4 text-accent-text shrink-0" />
-                <span className="text-foreground-secondary font-medium">
-                  {purpose === 'serwis'
-                    ? 'Pilna awaria? Zadzwoń:'
-                    : purpose === 'oferta'
-                    ? 'Informacja handlowa:'
-                    : 'Centrala:'}
-                </span>
+                <span className="text-foreground-secondary font-medium">Zadzwoń:</span>
                 <span className="font-bold text-foreground">
                   {formatPhoneWithNbsp(purposeConfig.phone.display)}
                 </span>
               </a>
             </div>
-
-            <p className="text-[13px] text-foreground-secondary">
-              {purpose === 'serwis'
-                ? 'Informacja techniczna i zgłoszenia awaryjne pod wskazanym numerem telefonu.'
-                : 'Odpowiadamy zwykle w ciągu kilku godzin roboczych w dni powszednie.'}
-            </p>
           </div>
         </form>
       )}
