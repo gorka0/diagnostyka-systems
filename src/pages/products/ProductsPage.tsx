@@ -744,80 +744,57 @@ export const ProductsPage: React.FC = () => {
         </Container>
       </div>
 
-      {/* Mobile: Sticky pasek pod headerem z wyszukiwarką i przyciskiem filtrów */}
-      <div className="lg:hidden sticky top-[72px] z-30 bg-background border-b border-surface-border px-4 py-2.5 flex items-center gap-2">
-        <div className="relative flex-1">
-          <Search className="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-foreground-secondary" />
+      {/* Mobile: Sticky pasek pod headerem z wyszukiwarką i jednym dużym przyciskiem filtrów */}
+      <div className="lg:hidden sticky top-[72px] z-30 bg-background/95 backdrop-blur-md border-b border-surface-border px-4 py-3 space-y-2.5 shadow-xs">
+        {/* Wyszukiwarka na pełną szerokość */}
+        <div className="relative w-full">
+          <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-foreground-secondary pointer-events-none" />
           <input
             type="text"
             value={queryParam}
             onChange={(e) => updateParams({ q: e.target.value || null })}
-            placeholder="Szukaj modelu, serii..."
-            className="w-full pl-9 pr-8 py-2 text-xs bg-background border border-surface-border rounded-md text-foreground placeholder:text-foreground-secondary focus:outline-none focus:border-accent"
+            placeholder="Szukaj modelu, serii (np. Q.Lign, ML, MS)..."
+            className="w-full h-11 pl-10 pr-9 text-[14px] bg-background border border-surface-border rounded-[8px] text-foreground placeholder:text-foreground-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all"
           />
           {queryParam && (
             <button
               type="button"
               onClick={() => updateParams({ q: null })}
-              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-foreground-secondary hover:text-foreground"
+              className="absolute right-2.5 top-1/2 -translate-y-1/2 text-foreground-secondary hover:text-foreground p-1"
+              aria-label="Wyczyść wyszukiwanie"
             >
-              <X className="w-3.5 h-3.5" />
+              <X className="w-4 h-4" />
             </button>
           )}
         </div>
+
+        {/* Jeden duży, wyrazisty przycisk filtrów */}
         <button
           type="button"
           onClick={() => setIsMobileFiltersOpen(true)}
-          className={`flex items-center gap-1.5 px-3 py-2 text-xs font-semibold rounded-md border transition-colors shrink-0 ${
+          className={`w-full h-12 px-4 rounded-[10px] font-bold text-[14px] flex items-center justify-between border transition-all cursor-pointer shadow-sm active:scale-[0.99] ${
             totalActiveFilterCount > 0
-              ? 'bg-accent text-white border-accent'
-              : 'bg-background border-surface-border text-foreground hover:bg-surface-hover'
+              ? 'bg-accent text-foreground border-accent hover:bg-accent-hover'
+              : 'bg-[#14171A] text-white border-[#14171A] hover:bg-[#20252A]'
           }`}
         >
-          <SlidersHorizontal className="w-3.5 h-3.5" />
-          <span>Filtry</span>
-          {totalActiveFilterCount > 0 && (
-            <span className="bg-white text-neutral-900 text-[10px] font-bold px-1.5 py-0.2 rounded-full">
-              {totalActiveFilterCount}
-            </span>
-          )}
-        </button>
-      </div>
+          <div className="flex items-center gap-2.5">
+            <SlidersHorizontal className={`w-4 h-4 ${totalActiveFilterCount > 0 ? 'text-foreground' : 'text-accent'}`} />
+            <span>Filtry i kategorie</span>
+          </div>
 
-      {/* Mobile: Przewijane poziomo pigułki kategorii (min. 44px wysokości) */}
-      <div className="lg:hidden bg-background-subtle border-b border-surface-border py-2 px-4 overflow-x-auto no-scrollbar">
-        <div className="flex items-center gap-2 min-w-max">
-          <button
-            type="button"
-            onClick={() => updateParams({ kat: null })}
-            className={`min-h-[44px] px-4 rounded-full border text-xs font-medium whitespace-nowrap transition-colors flex items-center ${
-              selectedCategories.length === 0
-                ? 'bg-foreground text-background border-foreground font-semibold'
-                : 'bg-background border-surface-border text-foreground hover:bg-surface-hover'
-            }`}
-          >
-            Wszystkie ({allProductsWithMeta.length})
-          </button>
-          {mainCategories.map((cat) => {
-            const isSelected = selectedCategories.includes(cat.slug);
-            const count = facetCounts.categories[cat.slug] || 0;
-            return (
-              <button
-                key={cat.slug}
-                type="button"
-                onClick={() => toggleArrayParam('kat', selectedCategories, cat.slug)}
-                className={`min-h-[44px] px-4 rounded-full border text-xs font-medium whitespace-nowrap transition-colors flex items-center gap-1.5 ${
-                  isSelected
-                    ? 'bg-accent text-white border-accent font-semibold'
-                    : 'bg-background border-surface-border text-foreground hover:bg-surface-hover'
-                }`}
-              >
-                <span>{cat.name}</span>
-                <span className="opacity-70 font-mono text-[11px]">({count})</span>
-              </button>
-            );
-          })}
-        </div>
+          <div className="flex items-center gap-2 font-mono text-[12px]">
+            {totalActiveFilterCount > 0 ? (
+              <span className="bg-[#14171A] text-accent font-bold px-2.5 py-0.5 rounded-full">
+                {totalActiveFilterCount} {totalActiveFilterCount === 1 ? 'aktywny' : 'aktywne'}
+              </span>
+            ) : (
+              <span className="text-neutral-400 font-normal">
+                {filteredProducts.length} urządzeń
+              </span>
+            )}
+          </div>
+        </button>
       </div>
 
       {/* Główny kontener katalogu: 2 kolumny na desktopie */}
