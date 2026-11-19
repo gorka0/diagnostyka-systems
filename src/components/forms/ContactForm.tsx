@@ -13,7 +13,19 @@ import {
   Wrench,
   Tag,
   Mail,
+  ShieldCheck,
 } from 'lucide-react';
+
+function generateCaptcha() {
+  const numA = Math.floor(Math.random() * 8) + 2; // 2..9
+  const numB = Math.floor(Math.random() * 8) + 1; // 1..8
+  return {
+    numA,
+    numB,
+    expected: numA + numB,
+    challenge: `${numA}+${numB}`,
+  };
+}
 
 export interface ContactFormProps {
   initialType?: ContactPurpose;
@@ -47,6 +59,7 @@ interface FormErrors {
   wiadomosc?: string;
   opisUsterki?: string;
   zgodaRODO?: string;
+  captcha?: string;
 }
 
 const SERVICE_EQUIPMENT_TYPES = [
@@ -101,6 +114,19 @@ export const ContactForm: React.FC<ContactFormProps> = ({
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
   const [serverErrorMessage, setServerErrorMessage] = useState<string>('');
+
+  // Zabezpieczenie antyspamowe (Basic Math Check & Time-trap)
+  const [captcha, setCaptcha] = useState(generateCaptcha);
+  const [captchaAnswer, setCaptchaAnswer] = useState<string>('');
+  const [renderTime] = useState<number>(() => Date.now());
+
+  const refreshCaptcha = () => {
+    setCaptcha(generateCaptcha());
+    setCaptchaAnswer('');
+    if (errors.captcha) {
+      setErrors((prev) => ({ ...prev, captcha: undefined }));
+    }
+  };
 
   // Synchronizacja parametrów URL
   useEffect(() => {
@@ -174,6 +200,14 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       newErrors.zgodaRODO = 'Zgoda na przetwarzanie danych osobowych jest wymagana.';
     }
 
+    // Walidacja zabezpieczenia antyspamowego
+    const numericCaptcha = parseInt(captchaAnswer.trim(), 10);
+    if (!captchaAnswer.trim()) {
+      newErrors.captcha = 'Podaj wynik działania (weryfikacja antyspamowa).';
+    } else if (isNaN(numericCaptcha) || numericCaptcha !== captcha.expected) {
+      newErrors.captcha = 'Błędny wynik działania. Spróbuj ponownie.';
+    }
+
     if (purpose === 'serwis') {
       if (!formData.rodzajUrzadzenia) {
         newErrors.rodzajUrzadzenia = 'Wybierz rodzaj urządzenia.';
@@ -227,6 +261,9 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       opisUsterki: formData.opisUsterki.trim(),
       zgodaRODO: formData.zgodaRODO,
       website: formData.website,
+      captchaChallenge: captcha.challenge,
+      captchaAnswer: captchaAnswer.trim(),
+      _time: renderTime,
     };
 
     try {
@@ -269,6 +306,8 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       zgodaRODO: false,
       website: '',
     });
+    setCaptcha(generateCaptcha());
+    setCaptchaAnswer('');
     setErrors({});
     setStatus('idle');
     setServerErrorMessage('');
@@ -761,6 +800,72 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               {errors.zgodaRODO && (
                 <p className="text-[12px] text-red-600 font-medium mt-1 ml-8">
                   {errors.zgodaRODO}
+                </p>
+              )}
+            </div>
+
+            {/* Weryfikacja antyspamowa (Basic Math Captcha - Swiss grid / Tesla style) */}
+            <div className="pt-1">
+              <div
+                className={`p-3.5 sm:p-4 rounded-[10px] bg-[#F8F9FA] border transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-3.5 ${
+                  errors.captcha ? 'border-red-400 bg-red-50/20' : 'border-[#E4E7EB]'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <div className="w-8 h-8 rounded-[8px] bg-[#14171A] text-accent flex items-center justify-center shrink-0">
+                    <ShieldCheck className="w-4 h-4 text-accent" />
+                  </div>
+                  <div>
+                    <label
+                      htmlFor={`${formUid}-captcha`}
+                      className="block text-[13px] font-semibold text-foreground tracking-tight"
+                    >
+                      Ochrona antyspamowa <span className="text-accent-text font-semibold" aria-hidden="true">*</span>
+                    </label>
+                    <div className="text-[12px] text-foreground-secondary flex items-center gap-1.5 mt-0.5">
+                      <span>Ile to jest:</span>
+                      <span className="font-mono font-bold text-foreground bg-white px-2 py-0.5 rounded border border-[#D9DDE1] text-[13px]">
+                        {captcha.numA} + {captcha.numB} = ?
+                      </span>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-2 self-start sm:self-auto">
+                  <input
+                    type="text"
+                    inputMode="numeric"
+                    pattern="[0-9]*"
+                    id={`${formUid}-captcha`}
+                    name="captcha"
+                    value={captchaAnswer}
+                    onChange={(e) => {
+                      setCaptchaAnswer(e.target.value);
+                      if (errors.captcha) {
+                        setErrors((prev) => ({ ...prev, captcha: undefined }));
+                      }
+                    }}
+                    aria-required="true"
+                    aria-invalid={!!errors.captcha}
+                    aria-describedby={errors.captcha ? `${formUid}-captcha-err` : undefined}
+                    placeholder="Wynik"
+                    className={`w-24 h-10 px-3 rounded-[8px] bg-white border text-[15px] font-mono text-center font-bold text-foreground transition-colors focus:outline-none focus:ring-2 focus:ring-accent-primary focus:border-accent-primary ${
+                      errors.captcha ? 'border-red-500 bg-red-50/30' : 'border-[#D9DDE1]'
+                    }`}
+                  />
+                  <button
+                    type="button"
+                    onClick={refreshCaptcha}
+                    title="Wylosuj inne działanie"
+                    className="w-10 h-10 rounded-[8px] border border-[#D9DDE1] bg-white hover:bg-[#F3F4F6] active:bg-[#E5E7EB] text-foreground-secondary hover:text-foreground flex items-center justify-center transition-colors cursor-pointer shrink-0"
+                  >
+                    <RotateCcw className="w-4 h-4" />
+                  </button>
+                </div>
+              </div>
+              {errors.captcha && (
+                <p id={`${formUid}-captcha-err`} className="text-[12px] text-red-600 font-medium mt-1.5 ml-1">
+                  {errors.captcha}
                 </p>
               )}
             </div>

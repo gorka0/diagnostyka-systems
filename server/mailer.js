@@ -489,6 +489,39 @@ export async function handleContactMessage(body, clientIp) {
     return { success: true, message: 'Wiadomość przyjęta.' }; // cichy sukces dla botów
   }
 
+  // 1b. Time-trap check (człowiek nie wypełnia formularza poniżej 2 sekund)
+  if (body._time) {
+    const elapsed = Date.now() - Number(body._time);
+    if (!isNaN(elapsed) && elapsed < 2000) {
+      console.warn(`[BOT DETECTED] Time-trap triggered (${elapsed}ms) from IP: ${clientIp}`);
+      return { success: true, message: 'Wiadomość przyjęta.' };
+    }
+  }
+
+  // 1c. Weryfikacja działania matematycznego (Basic Antispam Math Challenge)
+  if (body.captchaChallenge && body.captchaAnswer !== undefined) {
+    const parts = String(body.captchaChallenge).split('+').map((n) => parseInt(n.trim(), 10));
+    if (parts.length === 2 && !isNaN(parts[0]) && !isNaN(parts[1])) {
+      const expected = parts[0] + parts[1];
+      const received = parseInt(String(body.captchaAnswer).trim(), 10);
+      if (received !== expected) {
+        return {
+          success: false,
+          error: 'Nieprawidłowy wynik weryfikacji antyspamowej. Spróbuj ponownie.',
+          status: 400,
+        };
+      }
+    }
+  }
+
+  // 1d. Ochrona przed spamem linkowym / SEO (>2 linki w treści zapytania B2B)
+  const rawMsg = String(body.wiadomosc || body.opisUsterki || '');
+  const linkMatches = rawMsg.match(/https?:\/\/|www\./gi) || [];
+  if (linkMatches.length > 2) {
+    console.warn(`[SPAM DETECTED] Excessive links (${linkMatches.length}) from IP: ${clientIp}`);
+    return { success: true, message: 'Wiadomość przyjęta.' };
+  }
+
   // 2. Rate limiting per IP
   const rateLimit = checkRateLimit(clientIp);
   if (!rateLimit.allowed) {
