@@ -143,7 +143,7 @@ export const HomePage: React.FC = () => {
                   {LABELS.cta.seeProducts}
                 </Button>
                 <Button
-                  to="/serwis/zgloszenie"
+                  to="/kontakt?typ=serwis"
                   variant="outline"
                   size="md"
                   className="h-[52px] px-8 text-[16px] font-semibold justify-center border-white/80 text-white hover:bg-white/10"
@@ -464,7 +464,7 @@ export const HomePage: React.FC = () => {
           <div className="pt-8 border-t border-white/12 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Button
-                to="/serwis/zgloszenie"
+                to="/kontakt?typ=serwis"
                 variant="primary"
                 size="md"
                 className="h-[52px] px-8 text-[16px] font-semibold justify-center shadow-[0_2px_14px_rgba(245,165,36,0.35)]"

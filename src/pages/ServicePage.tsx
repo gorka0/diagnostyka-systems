@@ -34,7 +34,7 @@ export const ServicePage: React.FC = () => {
         cta={
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 pt-2">
             <Button
-              to="/zgloszenie-serwisowe"
+              to="/kontakt?typ=serwis"
               variant="primary"
               size="lg"
               className="h-12 px-7 text-[16px] font-semibold"
@@ -224,7 +224,7 @@ export const ServicePage: React.FC = () => {
             </p>
           </div>
           <div className="flex items-center gap-4 shrink-0">
-            <Button to="/zgloszenie-serwisowe" variant="primary" size="md">
+            <Button to="/kontakt?typ=serwis" variant="primary" size="md">
               Zgłoszenie serwisowe
             </Button>
             <Button to="/kontakt" variant="secondary" size="md">

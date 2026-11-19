@@ -64,7 +64,7 @@ export const PlaceholderPage: React.FC<PlaceholderPageProps> = ({
                 <Button to="/" variant="secondary" size="sm" icon={<ArrowLeft className="w-3.5 h-3.5" />}>
                   Powrót do fundamentów
                 </Button>
-                <Button to="/zgloszenie-serwisowe" variant="cta" size="sm" icon={<Wrench className="w-3.5 h-3.5" />}>
+                <Button to="/kontakt?typ=serwis" variant="cta" size="sm" icon={<Wrench className="w-3.5 h-3.5" />}>
                   Zgłoś serwis Beissbarth
                 </Button>
               </div>

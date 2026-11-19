@@ -42,8 +42,6 @@ def get_all_routes():
         '/urzadzenia-oem',
         '/produkty-uzywane',
         '/serwis',
-        '/serwis/zgloszenie',
-        '/zgloszenie-serwisowe',
         '/realizacje',
         '/publikacje',
         '/kontakt',
@@ -112,6 +110,30 @@ def generate_redirects_and_sitemap(routes):
             rf.write(redirect_html)
         print(f"✓ [Redirect] /realizacje/{old_file} -> /realizacje#{target_slug}")
 
+    # Redirects dla zgłoszeń serwisowych -> /kontakt?typ=serwis
+    service_redirects = [
+        ('serwis/zgloszenie', os.path.join(DIST_DIR, 'serwis', 'zgloszenie')),
+        ('zgloszenie-serwisowe', os.path.join(DIST_DIR, 'zgloszenie-serwisowe'))
+    ]
+    for s_name, s_dir in service_redirects:
+        os.makedirs(s_dir, exist_ok=True)
+        s_html = '''<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="utf-8">
+  <title>Zgłoszenie serwisowe | Diagnostyka-Systems</title>
+  <link rel="canonical" href="https://www.beissbarth-service.pl/kontakt?typ=serwis">
+  <meta http-equiv="refresh" content="0; url=/kontakt?typ=serwis">
+  <script>location.replace('/kontakt?typ=serwis');</script>
+</head>
+<body>
+  <p>Przekierowanie do formularza zgłoszenia serwisowego: <a href="/kontakt?typ=serwis">/kontakt?typ=serwis</a></p>
+</body>
+</html>'''
+        with open(os.path.join(s_dir, 'index.html'), 'w', encoding='utf-8') as sf:
+            sf.write(s_html)
+        print(f"✓ [Redirect] /{s_name} -> /kontakt?typ=serwis")
+
     # Generowanie kompletnego sitemap.xml
     today = time.strftime('%Y-%m-%d')
     sitemap_entries = []
@@ -130,7 +152,7 @@ def generate_redirects_and_sitemap(routes):
         elif r.startswith('/produkty/'):
             priority = '0.8'
             freq = 'monthly'
-        elif r in ['/urzadzenia-oem', '/produkty-uzywane', '/serwis/zgloszenie']:
+        elif r in ['/urzadzenia-oem', '/produkty-uzywane']:
             priority = '0.85'
             freq = 'monthly'
         elif r in ['/o-nas', '/realizacje', '/publikacje']:

@@ -25,6 +25,16 @@
       "source": "/realizacje/16-cum-szymacha.html",
       "destination": "/realizacje#cum-szymacha",
       "permanent": true
+    },
+    {
+      "source": "/serwis/zgloszenie",
+      "destination": "/kontakt?typ=serwis",
+      "permanent": true
+    },
+    {
+      "source": "/zgloszenie-serwisowe",
+      "destination": "/kontakt?typ=serwis",
+      "permanent": true
     }
   ],
   "rewrites": [

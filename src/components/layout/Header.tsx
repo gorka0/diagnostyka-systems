@@ -202,10 +202,10 @@ export const Header: React.FC = () => {
             ))}
           </nav>
 
-          {/* CTA: Zgłoszenie serwisowe */}
+          {/* CTA: Zgłoszenie serwisowe -> Przekierowanie do /kontakt?typ=serwis */}
           <div className="hidden lg:flex items-center shrink-0">
             <Button
-              to="/serwis/zgloszenie"
+              to="/kontakt?typ=serwis"
               variant="primary"
               size="md"
               className={!isLightMode ? 'shadow-[0_2px_12px_rgba(245,165,36,0.3)]' : ''}
@@ -256,7 +256,7 @@ export const Header: React.FC = () => {
 
             <div className="pt-4 mt-2 border-t border-surface-border">
               <Button
-                to="/serwis/zgloszenie"
+                to="/kontakt?typ=serwis"
                 variant="primary"
                 size="md"
                 className="w-full justify-center h-12 text-[16px]"

@@ -48,7 +48,7 @@ export const Layout: React.FC = () => {
           <span className="whitespace-nowrap">{LABELS.cta.callNow}</span>
         </a>
         <Link
-          to="/serwis/zgloszenie"
+          to="/kontakt?typ=serwis"
           className="w-full h-11 px-2.5 inline-flex items-center justify-center gap-1.5 sm:gap-2 text-[13px] sm:text-[14px] font-semibold text-foreground bg-accent border border-[#D98908]/40 rounded-[10px] active:bg-accent-active focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground select-none whitespace-nowrap overflow-hidden shadow-2xs"
         >
           <Wrench className="w-4 h-4 text-foreground shrink-0" />

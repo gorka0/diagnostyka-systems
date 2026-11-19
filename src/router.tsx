@@ -1,4 +1,4 @@
-import { createBrowserRouter } from 'react-router-dom';
+import { createBrowserRouter, Navigate } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { HomePage } from '@/pages/HomePage';
 import { AboutPage } from '@/pages/AboutPage';
@@ -13,7 +13,6 @@ import { RealizationDetailPage } from '@/pages/RealizationDetailPage';
 import { PublicationsPage } from '@/pages/PublicationsPage';
 import { PublicationDetailPage } from '@/pages/PublicationDetailPage';
 import { ServicePage } from '@/pages/ServicePage';
-import { ServiceTicketPage } from '@/pages/ServiceTicketPage';
 import { ContactPage } from '@/pages/ContactPage';
 import { PrivacyPolicyPage } from '@/pages/PrivacyPolicyPage';
 import { NotFoundPage } from '@/pages/NotFoundPage';
@@ -61,11 +60,11 @@ export const router = createBrowserRouter([
       },
       {
         path: 'serwis/zgloszenie',
-        element: <ServiceTicketPage />,
+        element: <Navigate to="/kontakt?typ=serwis" replace />,
       },
       {
         path: 'zgloszenie-serwisowe',
-        element: <ServiceTicketPage />,
+        element: <Navigate to="/kontakt?typ=serwis" replace />,
       },
       {
         path: 'realizacje',
