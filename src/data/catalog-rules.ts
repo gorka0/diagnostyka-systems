@@ -81,8 +81,10 @@ const CONTAIN_IMAGE_SLUGS = new Set<string>([
   'ml-easy-3d',
   'wywazarka-beissbarth-mt-zero-6-lcd-aw-detail',
   'wywazarka-beissbarth-mt-zero-6-touch-awlp-detail',
+  'wywazarka-beissbarth-mt-zero-6-lcd-awl-detail',
   'wywazarka-beissbarth-mt-zero-6-lcd-awlp-detail',
   'wywazarka-beissbarth-mt-zero-6-touch-awl-detail',
+  'wywazarka-beissbarth-g-90-hd-detail',
   'ms-500-demontazownica-beissbarth-serii-g-frame-detail',
   'ms-530-demontazownica-beissbarth-serii-g-frame-detail',
   'ms-530-v1-demontazownica-beissbarth-serii-g-frame-detail',
@@ -188,7 +190,7 @@ export function extractProductMetadata(product: ProductItem): ProductMetadata {
   } else if (nameL.includes('easy 3d')) {
     seria = 'Easy 3D';
   } else if (
-    ['g20', 'g 30', 'g30', 'g50', 'g60'].some((k) => nameL.includes(k)) ||
+    ['g20', 'g 30', 'g30', 'g50', 'g60', 'g.20', 'g.30', 'g.50', 'g.60', 'g.90', 'g90'].some((k) => nameL.includes(k)) ||
     urlL.includes('mt-zero')
   ) {
     seria = 'MT Zero / Seria G';
@@ -213,6 +215,8 @@ export function extractProductMetadata(product: ProductItem): ProductMetadata {
   // 6. Czysty model do wyświetlenia na karcie
   let model = name;
   const prefixes = [
+    'Wyważarka uniwersalna Beissbarth ',
+    'Wyważarka uniwersalna ',
     'Geometria Beissbarth ',
     'Wyważarka Beissbarth ',
     'Demontażownica Beissbarth ',

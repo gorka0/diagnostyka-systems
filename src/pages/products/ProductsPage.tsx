@@ -629,6 +629,14 @@ export const ProductsPage: React.FC = () => {
               {!meta.typ && !meta.seria && meta.oemBrand ? `OEM · ${meta.oemBrand}` : ''}
             </p>
           </div>
+          {product.priceNetto && (
+            <div className="pt-2 border-t border-surface-border/60 flex items-baseline justify-between">
+              <span className="text-[11px] font-medium text-foreground-secondary uppercase tracking-wider">Cena</span>
+              <span className="text-[13px] font-mono font-bold text-foreground">
+                {product.priceNetto}
+              </span>
+            </div>
+          )}
         </div>
       </Link>
     );
@@ -681,9 +689,16 @@ export const ProductsPage: React.FC = () => {
           </div>
         </div>
 
-        {/* Strzałka z prawej strony */}
-        <div className="shrink-0 flex items-center justify-center w-7 h-7 rounded-full text-foreground-secondary group-hover:text-accent-text group-hover:translate-x-0.5 transition-all">
-          <ArrowRight className="w-4 h-4" />
+        {/* Prawa strona: cena + strzałka */}
+        <div className="shrink-0 flex items-center gap-2 sm:gap-3 pl-2">
+          {product.priceNetto && (
+            <span className="text-[11px] sm:text-[13px] font-mono font-bold text-foreground text-right whitespace-nowrap">
+              {product.priceNetto}
+            </span>
+          )}
+          <div className="flex items-center justify-center w-6 h-6 sm:w-7 sm:h-7 rounded-full text-foreground-secondary group-hover:text-accent-text group-hover:translate-x-0.5 transition-all">
+            <ArrowRight className="w-3.5 h-3.5 sm:w-4 sm:h-4" />
+          </div>
         </div>
       </Link>
     );

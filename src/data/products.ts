@@ -11,6 +11,11 @@ export interface ProductAccessory {
   isOptional?: boolean;
 }
 
+export interface ProductPriceVariant {
+  label: string;
+  priceNetto: string;
+}
+
 export interface ProductItem {
   slug: string;
   categorySlug: string;
@@ -23,6 +28,8 @@ export interface ProductItem {
   originalUrl: string;
   notes?: string | null;
   subcategory?: string;
+  priceNetto?: string;
+  priceVariants?: ProductPriceVariant[];
 }
 
 export const PRODUCTS_DATA: ProductItem[] = [
@@ -235,36 +242,30 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     "slug": "wywazarka-beissbarth-mt-zero-6-lcd-aw-detail",
     "categorySlug": "wywazarki-do-kol",
-    "name": "Wyważarka Beissbarth G20",
-    "shortDescription": "G20 posiada sonar wbudowany w osłonę",
+    "name": "Wyważarka Beissbarth G.20",
+    "shortDescription": "Kompaktowa wyważarka do kół o wadze do 75 kg z dotykowym monitorem 17\" LED i Virtual Sonarem.",
+    "priceNetto": "21.500 zł netto",
     "details": [
-      "Wyważarka Beissbarth G20",
-      "G20 posiada sonar wbudowany w osłonę",
-      "koła automatycznie dobiera program",
-      "pomiarowy",
-      "- G.20 kompaktowa wyważarka do kół",
-      "samochodowych o wadze do 75kg.",
-      "automatyczny pomiar szerokości kół",
-      "stalowych",
-      "17” dotykowy monitor LED wskazuje",
-      "wartość i pozycję niewyważenia, umożliwia",
-      "obsługę w rękawicach",
-      "Laserowe wskazanie miejsca mocowania ciężarka, oświetlenie",
-      "przestrzeni roboczej",
-      "czas pomiary niewyważenia to 4,7 s (dla",
-      "kół 15”)"
+      "Kompaktowa wyważarka do kół samochodowych o wadze do 75 kg.",
+      "Automatyczny pomiar szerokości kół stalowych.",
+      "Virtual Sonar – sonar wbudowany w osłonę koła automatycznie dobiera program pomiarowy.",
+      "17” dotykowy monitor LED wskazuje wartość i pozycję niewyważenia, umożliwia obsługę w rękawicach.",
+      "Czas pomiaru niewyważenia: 4,7 s (dla kół 15”), dokładność pomiarowa ±0,5 g.",
+      "Laserowe wskazanie miejsca mocowania ciężarka, oświetlenie przestrzeni roboczej.",
+      "Półautomatyczny wpis parametrów koła."
     ],
     "technicalSpecs": {
-      "Parametr 1": "Max. średnica koła 36\" | 914mm \"",
-      "Parametr 2": "Prędkość pomiarowa 100 rpm",
-      "Parametr 3": "Czas pomiaru 4,7 s",
-      "Parametr 4": "Max. szerokość obręczy 20 \"",
-      "Parametr 5": "max. średnica obręczy 30 \"",
-      "Parametr 6": "max. waga koła 75 kg",
-      "Zasilanie 230 V | 50": "60 Hz | 1 ph",
-      "Parametr 8": "Moc 0,15 kW",
-      "Parametr 9": "min. Średnica koła 10 \"",
-      "Parametr 10": "Min. Szerokość obręczy 1,5 \""
+      "Maksymalna średnica koła": "36\" | 914 mm",
+      "Prędkość pomiarowa": "100 rpm",
+      "Czas pomiaru": "4,7 s",
+      "Maksymalna szerokość obręczy": "20\"",
+      "Maksymalna średnica obręczy": "30\"",
+      "Maksymalna waga koła": "75 kg",
+      "Minimalna średnica koła": "10\"",
+      "Minimalna szerokość obręczy": "1,5\"",
+      "Zasilanie": "230 V | 50 - 60 Hz | 1 ph",
+      "Moc silnika": "0,15 kW",
+      "Wprowadzanie parametrów": "Półautomatyczny wpis parametrów koła"
     },
     "accessories": [],
     "hasFullData": true,
@@ -274,35 +275,38 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     "slug": "wywazarka-beissbarth-mt-zero-6-touch-awlp-detail",
     "categorySlug": "wywazarki-do-kol",
-    "name": "Wyważarka Beissbarth G 30",
-    "shortDescription": "G.30 kompaktowa wyważarka do kół",
+    "name": "Wyważarka Beissbarth G.30",
+    "shortDescription": "Kompaktowa wyważarka do kół o wadze do 75 kg z systemem Auto Adaptive Mode i funkcją Split.",
+    "priceNetto": "24.100 zł netto",
+    "priceVariants": [
+      {
+        "label": "Wersja z pneumatycznym mocowaniem koła G 30 P",
+        "priceNetto": "27.000 zł netto"
+      }
+    ],
     "details": [
-      "Wyważarka Beissbarth G 30",
-      "G.30 kompaktowa wyważarka do kół",
-      "samochodowych o wadze do 75kg.",
-      "- automatyczny pomiar szerokości kółinterfejsem użytkownika GUI.",
-      "- G.20 kompaktowa wyważarka do kół",
-      "samochodowych o wadze do 75kg",
-      "automatyczny wybór rodzaju felgi przy użyciu ramienia pomiarowego",
-      "17” dotykowy monitor LED wskazuje",
-      "wartość i pozycję niewyważenia, umożliwia",
-      "obsługę w rękawicach",
-      "Laserowe wskazanie miejsca mocowania ciężarka, oświetlenie",
-      "przestrzeni roboczej",
-      "czas pomiary niewyważenia to 4,7 s (dla",
-      "kół 15”)"
+      "Kompaktowa wyważarka do kół samochodowych o wadze do 75 kg.",
+      "Automatyczny pomiar szerokości kół stalowych.",
+      "Virtual Sonar – sonar wbudowany w osłonę koła automatycznie dobiera program pomiarowy.",
+      "17” dotykowy monitor LED wskazuje wartość i pozycję niewyważenia, umożliwia obsługę w rękawicach.",
+      "Czas pomiaru niewyważenia: 4,7 s (dla kół 15”), dokładność pomiarowa ±0,5 g.",
+      "Laserowe wskazanie miejsca mocowania ciężarka.",
+      "Funkcja Split do rozdzielania i chowania ciężarka za szprychami.",
+      "System Auto Adaptive Mode – dobiera tolerancję wyważania proporcjonalnie do wielkości koła w celu zminimalizowania wibracji koła podczas jazdy.",
+      "Półautomatyczny wpis parametrów koła."
     ],
     "technicalSpecs": {
-      "Parametr 1": "Max. średnica koła 36\" | 914mm \"",
-      "Parametr 2": "Prędkość pomiarowa 100 rpm",
-      "Parametr 3": "Czas pomiaru 4,7 s",
-      "Parametr 4": "Max. szerokość obręczy 20 \"",
-      "Parametr 5": "max. średnica obręczy 30 \"",
-      "Parametr 6": "max. waga koła 75 kg",
-      "Zasilanie 230 V | 50": "60 Hz | 1 ph",
-      "Parametr 8": "Moc 0,15 kW",
-      "Parametr 9": "min. Średnica koła 10 \"",
-      "Parametr 10": "Min. Szerokość obręczy 1,5 \""
+      "Maksymalna średnica koła": "36\" | 914 mm",
+      "Prędkość pomiarowa": "100 rpm",
+      "Czas pomiaru": "4,7 s",
+      "Maksymalna szerokość obręczy": "20\"",
+      "Maksymalna średnica obręczy": "30\"",
+      "Maksymalna waga koła": "75 kg",
+      "Minimalna średnica koła": "10\"",
+      "Minimalna szerokość obręczy": "1,5\"",
+      "Zasilanie": "230 V | 50 - 60 Hz | 1 ph",
+      "Moc silnika": "0,15 kW",
+      "Wprowadzanie parametrów": "Półautomatyczny wpis parametrów koła"
     },
     "accessories": [],
     "hasFullData": true,
@@ -312,36 +316,34 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     "slug": "wywazarka-beissbarth-mt-zero-6-lcd-awl-detail",
     "categorySlug": "wywazarki-do-kol",
-    "name": "Wyważarka Beissbarth G30P",
-    "shortDescription": "G.30P kompaktowa wyważarka do kół",
+    "name": "Wyważarka Beissbarth G 30 P",
+    "shortDescription": "Kompaktowa wyważarka do kół o wadze do 75 kg ze zintegrowanym mocowaniem pneumatycznym koła.",
+    "priceNetto": "27.000 zł netto",
     "details": [
-      "Wyważarka Beissbarth  G30P",
-      "G.30P kompaktowa wyważarka do kół",
-      "samochodowych o wadze do 75kg.",
-      "- automatyczny pomiar szerokości kół z pneumatycznym uchwytem",
-      "- G.30P kompaktowa wyważarka do kół",
-      "samochodowych o wadze do 75kg z pneumatycznym uchwytem do koła",
-      "automatyczny pomiar szerokości kół",
-      "i>automatyczne rozpoznawanie rodzaju felgi",
-      "17” dotykowy monitor LED wskazuje",
-      "wartość i pozycję niewyważenia, umożliwia",
-      "obsługę w rękawicach",
-      "Laserowe wskazanie miejsca mocowania ciężarka, oświetlenie",
-      "przestrzeni roboczej",
-      "czas pomiary niewyważenia to 4,7 s (dla",
-      "kół 15”)"
+      "Kompaktowa wyważarka do kół samochodowych o wadze do 75 kg z pneumatycznym uchwytem koła.",
+      "Zintegrowane pneumatyczne mocowanie koła.",
+      "Automatyczny pomiar szerokości kół stalowych.",
+      "Virtual Sonar – sonar wbudowany w osłonę koła automatycznie dobiera program pomiarowy.",
+      "17” dotykowy monitor LED wskazuje wartość i pozycję niewyważenia, umożliwia obsługę w rękawicach.",
+      "Czas pomiaru niewyważenia: 4,7 s (dla kół 15”), dokładność pomiarowa ±0,5 g.",
+      "Laserowe wskazanie miejsca mocowania ciężarka.",
+      "Funkcja Split do rozdzielania i chowania ciężarka za szprychami.",
+      "System Auto Adaptive Mode – dobiera tolerancję wyważania proporcjonalnie do wielkości koła w celu zminimalizowania wibracji koła podczas jazdy.",
+      "Półautomatyczny wpis parametrów koła."
     ],
     "technicalSpecs": {
-      "Parametr 1": "Max. średnica koła 36\" | 914mm \"",
-      "Parametr 2": "Prędkość pomiarowa 100 rpm",
-      "Parametr 3": "Czas pomiaru 4,7 s",
-      "Parametr 4": "Max. szerokość obręczy 20 \"",
-      "Parametr 5": "max. średnica obręczy 30 \"",
-      "Parametr 6": "max. waga koła 75 kg",
-      "Zasilanie 230 V | 50": "60 Hz | 1 ph",
-      "Parametr 8": "Moc 0,15 kW",
-      "Parametr 9": "min. Średnica koła 10 \"",
-      "Parametr 10": "Min. Szerokość obręczy 1,5 \""
+      "Maksymalna średnica koła": "36\" | 914 mm",
+      "Prędkość pomiarowa": "100 rpm",
+      "Czas pomiaru": "4,7 s",
+      "Maksymalna szerokość obręczy": "20\"",
+      "Maksymalna średnica obręczy": "30\"",
+      "Maksymalna waga koła": "75 kg",
+      "Minimalna średnica koła": "10\"",
+      "Minimalna szerokość obręczy": "1,5\"",
+      "Zasilanie": "230 V | 50 - 60 Hz | 1 ph",
+      "Moc silnika": "0,15 kW",
+      "Mocowanie koła": "Pneumatyczne",
+      "Wprowadzanie parametrów": "Półautomatyczny wpis parametrów koła"
     },
     "accessories": [],
     "hasFullData": true,
@@ -351,42 +353,39 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     "slug": "wywazarka-beissbarth-mt-zero-6-lcd-awlp-detail",
     "categorySlug": "wywazarki-do-kol",
-    "name": "Wyważarka Beissbarth G50",
-    "shortDescription": "G.50 profesjonalna wyważarka do kół",
+    "name": "Wyważarka Beissbarth G.50",
+    "shortDescription": "Profesjonalna wyważarka do kół samochodowych o wadze do 75 kg z monitorem 19\" LED i zakresem koła do 44\".",
+    "priceNetto": "33.700 zł netto",
+    "priceVariants": [
+      {
+        "label": "Wersja z pneumatycznym mocowaniem koła G 50 P",
+        "priceNetto": "38.900 zł netto"
+      }
+    ],
     "details": [
-      "Wyważarka Beissbarth G50",
-      "G.50 profesjonalna wyważarka do kół",
-      "samochodowych o wadze do 75kg.",
-      "- automatyczny pomiar szerokości kół",
-      "- G.50 profesjonalna wyważarka do kół",
-      "samochodowych o wadze do 75kg",
-      "automatyczny pomiar szerokości kół",
-      "i>automatyczne rozpoznawanie rodzaju felgi",
-      "19” dotykowy monitor LED wskazuje",
-      "wartość i pozycję niewyważenia, umożliwia",
-      "obsługę w rękawicach",
-      "Funkcja Split do rozdzielania i chowania",
-      "ciężarka za szprychami",
-      "Laserowe wskazanie miejsca mocowania ciężarka, oświetlenie",
-      "przestrzeni roboczej",
-      "System Auto Adaptive Mode- dobiera",
-      "tolerancję wyważanie propocjonalnie do",
-      "wielkości koła w celu zminimalizowania wibracji koła podczas jazdy",
-      "Szybkie umieszczanie ciężarka za pomocą dokładnego wskazania mocowania ciężarka",
-      "czas pomiary niewyważenia to 4,7 s (dla",
-      "kół 15”)"
+      "Profesjonalna wyważarka do kół samochodowych o wadze do 75 kg.",
+      "19” dotykowy monitor LED wskazuje wartość i pozycję niewyważenia, umożliwia obsługę w rękawicach.",
+      "Zwiększony zakres roboczy: maksymalna średnica koła do 44\" (1117 mm).",
+      "Automatyczny pomiar szerokości kół stalowych.",
+      "Virtual Sonar – sonar wbudowany w osłonę koła automatycznie dobiera program pomiarowy.",
+      "Laserowe wskazanie miejsca mocowania ciężarka.",
+      "Funkcja Split do rozdzielania i chowania ciężarka za szprychami.",
+      "System Auto Adaptive Mode – dobiera tolerancję wyważania proporcjonalnie do wielkości koła w celu zminimalizowania wibracji koła podczas jazdy.",
+      "Czas pomiaru niewyważenia: 4,7 s (dla kół 15”), dokładność pomiarowa ±0,5 g.",
+      "Półautomatyczny wpis parametrów koła."
     ],
     "technicalSpecs": {
-      "Parametr 1": "Max. średnica koła 44\" | 1117mm \"",
-      "Parametr 2": "Prędkość pomiarowa 100 rpm",
-      "Parametr 3": "Czas pomiaru 4,7 s",
-      "Parametr 4": "Max. szerokość obręczy 20 \"",
-      "Parametr 5": "max. średnica obręczy 30 \"",
-      "Parametr 6": "max. waga koła 75 kg",
-      "Zasilanie 230 V | 50": "60 Hz | 1 ph",
-      "Parametr 8": "Moc 0,15 kW",
-      "Parametr 9": "min. Średnica koła 10 \"",
-      "Parametr 10": "Min. Szerokość obręczy 1,5 \""
+      "Maksymalna średnica koła": "44\" | 1117 mm",
+      "Prędkość pomiarowa": "100 rpm",
+      "Czas pomiaru": "4,7 s",
+      "Maksymalna szerokość obręczy": "20\"",
+      "Maksymalna średnica obręczy": "30\"",
+      "Maksymalna waga koła": "75 kg",
+      "Minimalna średnica koła": "10\"",
+      "Minimalna szerokość obręczy": "1,5\"",
+      "Zasilanie": "230 V | 50 - 60 Hz | 1 ph",
+      "Moc silnika": "0,15 kW",
+      "Wprowadzanie parametrów": "Półautomatyczny wpis parametrów koła"
     },
     "accessories": [],
     "hasFullData": true,
@@ -396,61 +395,81 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     "slug": "wywazarka-beissbarth-mt-zero-6-touch-awl-detail",
     "categorySlug": "wywazarki-do-kol",
-    "name": "Wyważarka Beissbarth G60 P Pro",
-    "shortDescription": "G.60P Pro profesjonalna diagnostyczna wyważarka do kół",
+    "name": "Wyważarka Beissbarth G.60 P PRO",
+    "shortDescription": "Profesjonalna diagnostyczna wyważarka do kół z 3D Laser Scannerem, uchwytem pneumatycznym i funkcją Hubmatch.",
+    "priceNetto": "51.800 zł netto",
+    "priceVariants": [
+      {
+        "label": "Opcjonalna pneumatyczna winda do kół",
+        "priceNetto": "17.000 zł netto"
+      }
+    ],
     "details": [
-      "Wyważarka Beissbarth G60 P Pro",
-      "G.60P Pro profesjonalna diagnostyczna wyważarka do kół",
-      "samochodowych o wadze do 75kg z automatycznym uchwytem do kół",
-      "- automatyczny pomiar szerokości kół",
-      "- G.60P Pro profesjonalna diagnostyczna wyważarka do kół",
-      "samochodowych o wadze do 75kg z pneumatycznym uchwytem do kół",
-      "automatyczny pomiar szerokości kół",
-      "stalowych",
-      "automatyczne rozpoznawanie",
-      "rodzaju obręczy",
-      "(stalowa/aluminiowa)",
-      "Virtual Sonar - sonar wbudowany w osłonę",
-      "koła automatycznie dobiera program",
-      "pomiarowy",
-      "19” dotykowy monitor LED wskazuje",
-      "wartość i pozycję niewyważenia, umożliwia",
-      "obsługę w rękawicach",
-      "Funkcja Split do rozdzielania i chowania",
-      "ciężarka za szprychami",
-      "bezdotykowy pomiar wszystkich parametrów koła: odstęp, średnica",
-      "oraz szerokość koła",
-      "Wersja PRO – rozbudowane funkcje diagnostyczne",
-      "- automatyczny pomiar odchyleń wysokości (promienia) koła",
-      "podczas każdego cyklu pomiarowego",
-      "funkcja Hubmatch – eliminuje wibracje koła poprzez zmianę",
-      "położenia koła na obręczy bez konieczności stosowania rolki",
-      "dociskowej/li>",
-      "Laserowe wskazanie miejsca mocowania ciężarka, oświetlenie",
-      "przestrzeni roboczej",
-      "System Auto Adaptive Mode- dobiera",
-      "tolerancję wyważanie propocjonalnie do",
-      "wielkości koła w celu zminimalizowania wibracji koła podczas jazdy",
-      "Szybkie umieszczanie ciężarka za pomocą dokładnego wskazania mocowania ciężarka",
-      "czas pomiary niewyważenia to 4,7 s (dla",
-      "kół 15”)"
+      "Profesjonalna, diagnostyczna wyważarka do kół samochodowych o wadze do 75 kg.",
+      "Pneumatyczne mocowanie koła w wyposażeniu standardowym.",
+      "3D Laser Scanner – bezdotykowy pomiar wszystkich parametrów koła: odstęp, średnica oraz szerokość koła.",
+      "Automatyczne rozpoznawanie rodzaju obręczy (stalowa / aluminiowa) i pomiar szerokości kół stalowych.",
+      "Wersja PRO – rozbudowane funkcje diagnostyczne: automatyczny pomiar odchyleń wysokości (promienia) koła podczas każdego cyklu pomiarowego.",
+      "Funkcja Hubmatch – eliminuje wibracje koła poprzez zmianę położenia koła na obręczy bez konieczności stosowania rolki dociskowej.",
+      "19” dotykowy monitor LED wskazuje wartość i pozycję niewyważenia, umożliwia obsługę w rękawicach.",
+      "Virtual Sonar – sonar wbudowany w osłonę koła automatycznie dobiera program pomiarowy.",
+      "Laserowe wskazanie miejsca mocowania ciężarka.",
+      "Funkcja Split do rozdzielania i chowania ciężarka za szprychami.",
+      "System Auto Adaptive Mode – dobiera tolerancję wyważania proporcjonalnie do wielkości koła w celu zminimalizowania wibracji koła podczas jazdy.",
+      "Czas pomiaru niewyważenia: 4,7 s (dla kół 15”), dokładność pomiarowa ±0,5 g.",
+      "W pełni automatyczny pomiar parametrów koła."
     ],
     "technicalSpecs": {
-      "Parametr 1": "Max. średnica koła 44\" | 1117mm \"",
-      "Parametr 2": "Prędkość pomiarowa 100 rpm",
-      "Parametr 3": "Czas pomiaru 4,7 s",
-      "Parametr 4": "Max. szerokość obręczy 20 \"",
-      "Parametr 5": "max. średnica obręczy 30 \"",
-      "Parametr 6": "max. waga koła 75 kg",
-      "Zasilanie 230 V | 50": "60 Hz | 1 ph",
-      "Parametr 8": "Moc 0,15 kW",
-      "Parametr 9": "min. Średnica koła 10 \"",
-      "Parametr 10": "Min. Szerokość obręczy 1,5 \""
+      "Maksymalna średnica koła": "44\" | 1117 mm",
+      "Prędkość pomiarowa": "100 rpm",
+      "Czas pomiaru": "4,7 s",
+      "Maksymalna szerokość obręczy": "20\"",
+      "Maksymalna średnica obręczy": "30\"",
+      "Maksymalna waga koła": "75 kg",
+      "Minimalna średnica koła": "10\"",
+      "Minimalna szerokość obręczy": "1,5\"",
+      "Zasilanie": "230 V | 50 - 60 Hz | 1 ph",
+      "Moc silnika": "0,15 kW",
+      "Mocowanie koła": "Pneumatyczne",
+      "Wprowadzanie parametrów": "W pełni automatyczny pomiar parametrów koła (3D Laser Scanner)"
     },
     "accessories": [],
     "hasFullData": true,
     "originalUrl": "https://www.beissbarth-service.pl/produkty/wywazarki-do-kol/wywazarka-beissbarth-mt-zero-6-touch-awl-detail.html",
     "notes": null
+  },
+  {
+    "slug": "wywazarka-beissbarth-g-90-hd-detail",
+    "categorySlug": "wywazarki-do-kol",
+    "name": "Wyważarka uniwersalna Beissbarth G.90 HD",
+    "shortDescription": "Stacjonarna, uniwersalna wyważarka do kół osobowych i ciężarowych o masie do 200 kg z opuszczanym wałem montażowym.",
+    "priceNetto": "47.300 zł netto",
+    "details": [
+      "Stacjonarna, uniwersalna wyważarka do kół o masie do 200 kg (obsługa kół samochodów osobowych, dostawczych i ciężarowych).",
+      "Bezpieczeństwo operatora: wał wyważarki obniża się do pozycji montażowej, eliminując ryzyko upadku ciężkiego koła z wysokości.",
+      "Automatyczny pomiar niewyważenia po zamknięciu osłony – superszybki pomiar w zaledwie 8 sekund.",
+      "19” monitor prezentuje wartość niewyważenia oraz pozycję mocowania ciężarków.",
+      "Laser precyzyjnie wskazuje miejsce mocowania ciężarka po automatycznym zablokowaniu koła hamulcem elektromagnetycznym.",
+      "15 dedykowanych programów doboru sposobu mocowania ciężarków.",
+      "Wygodny i intuicyjny system kalibracji maszyny bezpośrednio przez użytkownika."
+    ],
+    "technicalSpecs": {
+      "Maksymalna waga koła": "200 kg",
+      "Maksymalna średnica koła": "1380 mm",
+      "Maksymalna średnica obręczy": "30 cali",
+      "Maksymalna szerokość obręczy": "20 cali",
+      "Prędkość pomiarowa": "130 obr/min (50 Hz)",
+      "Prędkość wyważania kół ciężarowych": "100 U/min (50 Hz)",
+      "Przyłącze sprężonego powietrza": "8 - 12 bar",
+      "Dokładność wyważania (koła ciężarowe)": "10 g",
+      "Dokładność wyważania (koła osobowe)": "1 g",
+      "Masa własna urządzenia": "210 kg"
+    },
+    "accessories": [],
+    "hasFullData": true,
+    "originalUrl": "https://www.beissbarth-service.pl/produkty/wywazarki-do-kol/wywazarka-beissbarth-g-90-hd-detail.html",
+    "notes": "Nowość w ofercie Diagnostyka-Systems: stacjonarna uniwersalna wyważarka do kół osobowych i ciężarowych.",
+    "subcategory": "Wyważarki do kół ciężarowe"
   },
   {
     "slug": "ms-500-demontazownica-beissbarth-serii-g-frame-detail",

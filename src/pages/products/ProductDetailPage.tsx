@@ -268,6 +268,35 @@ export const ProductDetailPage: React.FC = () => {
                 </div>
               )}
 
+              {/* Cena katalogowa urządzenia */}
+              {product.priceNetto && (
+                <div className="pt-4 border-t border-surface-border">
+                  <div className="flex items-baseline justify-between gap-2">
+                    <span className="text-xs uppercase tracking-wider font-semibold text-foreground-secondary">
+                      Cena katalogowa
+                    </span>
+                    <div className="text-right">
+                      <span className="text-2xl sm:text-3xl font-extrabold text-foreground font-mono tracking-tight">
+                        {product.priceNetto.replace(' netto', '')}
+                      </span>
+                      <span className="text-xs font-semibold text-foreground-secondary ml-1.5 uppercase">
+                        netto
+                      </span>
+                    </div>
+                  </div>
+                  {product.priceVariants && product.priceVariants.length > 0 && (
+                    <div className="mt-3 pt-3 border-t border-surface-border/60 space-y-1.5">
+                      {product.priceVariants.map((v, i) => (
+                        <div key={i} className="flex items-center justify-between text-xs text-foreground-secondary">
+                          <span>{v.label}</span>
+                          <span className="font-mono font-semibold text-foreground">{v.priceNetto}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              )}
+
               {/* Przycisk CTA: Zapytaj o produkt */}
               <div className="pt-2">
                 <Button
