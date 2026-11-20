@@ -46,6 +46,16 @@
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>  <url>
+    <loc>https://www.beissbarth-service.pl/produkty/demontazownice/demontazownica-beissbarth-akimbo-mk2-detail</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>  <url>
+    <loc>https://www.beissbarth-service.pl/produkty/demontazownice/demontazownica-beissbarth-infinity-center-post-detail</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>  <url>
     <loc>https://www.beissbarth-service.pl/produkty/demontazownice/ms-500-demontazownica-beissbarth-serii-g-frame-detail</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -62,11 +72,6 @@
     <priority>0.8</priority>
   </url>  <url>
     <loc>https://www.beissbarth-service.pl/produkty/demontazownice/ms-630-demontazownica-beissbarth-serii-g-frame-detail</loc>
-    <lastmod>2026-11-20</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>  <url>
-    <loc>https://www.beissbarth-service.pl/produkty/demontazownice/ms-630-v1-demontazownica-beissbarth-serii-g-frame-detail</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -126,6 +131,16 @@
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>  <url>
+    <loc>https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-1150-hd-detail</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>  <url>
+    <loc>https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-850-hd-detail</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>  <url>
     <loc>https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-70-detail</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
@@ -142,6 +157,11 @@
     <priority>0.8</priority>
   </url>  <url>
     <loc>https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail</loc>
+    <lastmod>2026-11-20</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>  <url>
+    <loc>https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/klatka-bezpieczenstwa-do-pompowania-kol-ciezarowych-detail</loc>
     <lastmod>2026-11-20</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>

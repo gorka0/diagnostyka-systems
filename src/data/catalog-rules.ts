@@ -49,6 +49,8 @@ export const FACET_SERIES = [
   'Easy CCD',
   'Seria G',
   'Seria TC',
+  'Akimbo',
+  'Infinity',
   'Screen-Testline',
   'Servomat',
   'KDS',
@@ -187,6 +189,21 @@ export function extractProductMetadata(product: ProductItem): ProductMetadata {
     seria = 'Q.Lign';
   } else if (nameL.includes('easy ccd') || slug.includes('easy-ccd')) {
     seria = 'Easy CCD';
+  } else if (nameL.includes('akimbo')) {
+    seria = 'Akimbo';
+  } else if (nameL.includes('infinity')) {
+    seria = 'Infinity';
+  } else if (
+    nameL.includes('seria tc') ||
+    nameL.includes('tc 22') ||
+    nameL.includes('tce 22') ||
+    nameL.includes('tc 45') ||
+    nameL.includes('tc 47') ||
+    nameL.includes('tc850') ||
+    nameL.includes('tc1150') ||
+    slug.includes('tc-')
+  ) {
+    seria = 'Seria TC';
   } else if (nameL.includes('microline') || nameL.startsWith('ml ') || urlL.includes('ml-')) {
     seria = 'Microline';
   } else if (name.startsWith('VAS')) {
