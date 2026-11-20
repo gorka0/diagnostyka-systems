@@ -51,7 +51,7 @@ export function getLocalBusinessJsonLd() {
       'Linie diagnostyczne SKP',
       'Rolkowe stanowiska hamulcowe',
       'Wyważarki do kół',
-      'Montażownice opon z ramą G-Frame',
+      'Montażownice opon serii TC',
       'Kalibracje okresowe ITS i TDT',
       'Oryginalne części zamienne Beissbarth',
     ],

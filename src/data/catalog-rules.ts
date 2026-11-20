@@ -46,8 +46,9 @@ export const FACET_TYPES = [
 export const FACET_SERIES = [
   'Microline',
   'Q.Lign',
-  'MT Zero / Seria G',
-  'G-Frame (TC)',
+  'Easy CCD',
+  'Seria G',
+  'Seria TC',
   'Screen-Testline',
   'Servomat',
   'KDS',
@@ -76,9 +77,12 @@ export const FACET_OEM_BRANDS = [
 
 // Obrazy wycinków na jasnym/białym tle dostają 'contain' + mix-blend-mode: multiply.
 // Obrazy z pełnym tłem dostają 'cover'.
-const CONTAIN_IMAGE_SLUGS = new Set<string>([
+export const CONTAIN_IMAGE_SLUGS = new Set<string>([
   'ml-1800-8r',
   'ml-easy-3d',
+  'ml-8-easy-ccd-excellence',
+  'qlign-compact',
+  'qlign-t-series',
   'wywazarka-beissbarth-mt-zero-6-lcd-aw-detail',
   'wywazarka-beissbarth-mt-zero-6-touch-awlp-detail',
   'wywazarka-beissbarth-mt-zero-6-lcd-awl-detail',
@@ -179,8 +183,10 @@ export function extractProductMetadata(product: ProductItem): ProductMetadata {
 
   // 5. Seria
   let seria: string | undefined = undefined;
-  if (nameL.includes('q.lign')) {
+  if (nameL.includes('q.lign') || slug.includes('qlign')) {
     seria = 'Q.Lign';
+  } else if (nameL.includes('easy ccd') || slug.includes('easy-ccd')) {
+    seria = 'Easy CCD';
   } else if (nameL.includes('microline') || nameL.startsWith('ml ') || urlL.includes('ml-')) {
     seria = 'Microline';
   } else if (name.startsWith('VAS')) {
@@ -193,9 +199,9 @@ export function extractProductMetadata(product: ProductItem): ProductMetadata {
     ['g20', 'g 30', 'g30', 'g50', 'g60', 'g.20', 'g.30', 'g.50', 'g.60', 'g.90', 'g90'].some((k) => nameL.includes(k)) ||
     urlL.includes('mt-zero')
   ) {
-    seria = 'MT Zero / Seria G';
+    seria = 'Seria G';
   } else if (nameL.includes('tc ') || urlL.includes('g-frame')) {
-    seria = 'G-Frame (TC)';
+    seria = 'Seria TC';
   } else if (nameL.includes('servomat')) {
     seria = 'Servomat';
   } else if (
@@ -240,7 +246,7 @@ export function extractProductMetadata(product: ProductItem): ProductMetadata {
   }
 
   // 7. Dopasowanie grafiki
-  const imageFit: ProductMetadata['imageFit'] = CONTAIN_IMAGE_SLUGS.has(slug) ? 'contain' : 'cover';
+  const imageFit: ProductMetadata['imageFit'] = 'contain';
 
   return {
     slug,

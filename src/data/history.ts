@@ -47,6 +47,16 @@ export const COMPANY_HISTORY: HistoryData = {
       title: 'Nowa siedziba i magazyn w Lisim Ogonie',
       description: 'Przeniesienie firmy do nowego obiektu w Lisim Ogonie k. Bydgoszczy. Nowa siedziba z większą przestrzenią magazynową umożliwiła zapewnienie bieżącej dostępności maszyn i części zamiennych, a także organizację szkoleń i prezentacji aparatury geometrii.',
     },
+    {
+      year: '2018',
+      title: 'Porozumienie z Bosch Polska',
+      description: 'Podpisanie porozumienia z Bosch Polska w sprawie autoryzacji napraw urządzeń diagnostycznych i wyposażenia warsztatowego marki Bosch.',
+    },
+    {
+      year: '2020',
+      title: 'Współpraca z Magneti Marelli',
+      description: 'Zawarcie oficjalnej umowy z Magneti Marelli w sprawie świadczenia autoryzowanych usług serwisowych aparatury warsztatowej.',
+    },
   ],
   coreActivities: [
     'Doradztwo w zakresie doboru i kompletacji odpowiedniego wyposażenia warsztatowego i SKP',

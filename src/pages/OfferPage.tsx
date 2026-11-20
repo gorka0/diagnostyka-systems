@@ -33,7 +33,7 @@ export const OfferPage: React.FC = () => {
       title: 'Montażownice i wyważarki do kół',
       target: 'Dla serwisów oponiarskich i wulkanizacji',
       description:
-        'Wyważarki serii MT Zero z sonarami bezdotykowymi oraz montażownice z ramą G-Frame (TC 22, TC 45, TC 47) z ramionami pomocniczymi TCX Pro do bezpiecznego montażu opon UHP i Run-Flat.',
+        'Wyważarki serii G z sonarami bezdotykowymi oraz montażownice serii TC (TC 22, TC 45, TC 47) z ramionami pomocniczymi TCX Pro do bezpiecznego montażu opon UHP i Run-Flat.',
       link: '/produkty/wywazarki-do-kol',
       linkLabel: 'Zobacz montaż i wyważanie',
     },

@@ -34,172 +34,27 @@ export interface ProductItem {
 
 export const PRODUCTS_DATA: ProductItem[] = [
   {
-    "slug": "ml-1800-8r",
+    "slug": "ml-8-easy-ccd-excellence",
     "categorySlug": "geometria",
-    "name": "Geometria Microline 8 ROC",
-    "shortDescription": "Beissbarth ML 8 ROC, to bezprzewodowy przyrząd przeznaczony do pomiaru i regulacji  geometrii kół, 4 głowicowy ,8 kamer CCD.  Głowice pomiarowe z nowymi czujnikami CCD oraz elektronicznym kompensatorem, umożliwiają pomiar wszystkich parametrów pojazdu tj.: kątów zbieżności i pochylenia kół, wyprzedzenia osi sworznia zwrotnicy, przestawienia kół i osi pojazdu itp.",
+    "name": "Geometria Beissbarth ML 8 Easy CCD Excellence",
+    "shortDescription": "8-sensorowy radiowy przyrząd CCD do kontroli geometrii kół w pojazdach o DMC do 3,5 t z certyfikatem ITS do Stacji Kontroli Pojazdów.",
     "details": [
-      "Beissbarth ML 8 ROC, to bezprzewodowy przyrząd przeznaczony do pomiaru i regulacji  geometrii kół, 4 głowicowy ,8 kamer CCD.  Głowice pomiarowe z nowymi czujnikami CCD oraz elektronicznym kompensatorem, umożliwiają pomiar wszystkich parametrów pojazdu tj.: kątów zbieżności i pochylenia kół, wyprzedzenia osi sworznia zwrotnicy, przestawienia kół i osi pojazdu itp.",
-      "Beissbarth ML 8 ROC, to bezprzewodowy przyrząd przeznaczony do pomiaru i regulacji geometrii kół, 4 głowicowy ,8 kamer CCD, elektroniczny kompesator. System pracuje w środowisku Windows, charakteryzuje go bardzo przyjazny interfejs programu pomiarowego. Głowice pomiarowe z nowymi czujnikami CCD umożliwiają pomiar wszystkich parametrów pojazdu tj.: kątów zbieżności i pochylenia kół, wyprzedzenia osi sworznia zwrotnicy, przestawienia kół i osi pojazdu itp. Program umożliwia wydruk zmierzonych parametrów w formie tabeli lub graficznej. Baza danych obejmuje ponad 20,000 pojazdów od 55 producentów. KOMPESACJA PRZEZ PRZETACZANiE"
+      "Beissbarth ML 8 Easy CCD Excellence to profesjonalny, bezprzewodowy przyrząd pomiarowy z 8 sensorami CCD, posiadający oficjalny certyfikat Instytutu Transportu Samochodowego (ITS) do urzędowych badań technicznych na SKP.",
+      "Urządzenie wyposażone jest w 4 głowice pomiarowe CCD z enkoderami kątowymi i transmisją radiową 433 MHz, zasilane akumulatorowo. Zapewnia pełną kompensację bicia obręczy przez przetaczanie pojazdu lub uniesienie osi.",
+      "Stanowisko operatora obejmuje mobilny wózek z komputerem PC, panoramicznym monitorem 27\", kolorową drukarką raportów oraz zaawansowanym oprogramowaniem pomiarowym z regularnie aktualizowaną bazą danych ponad 35 000 modeli pojazdów od 55 producentów.",
+      "Pomiar wszystkich parametrów osi przedniej i tylnej: zbieżność całkowita i połówkowa, kąt pochylenia koła, wyprzedzenie i pochylenie osi sworznia zwrotnicy, nierównoległość osi oraz różnica kątów skrętu."
     ],
-    "technicalSpecs": {},
-    "accessories": [
-      {
-        "name": "Baza danych DVDROM Beissbarth \"CARs & VANs\"",
-        "quantity": "1x",
-        "catalogNumber": "982.501.420",
-        "isOptional": false
-      },
-      {
-        "name": "Program-CDROM ML",
-        "quantity": "1x",
-        "catalogNumber": "982.311.400",
-        "isOptional": false
-      },
-      {
-        "name": "Monitor LCD 21,5\"",
-        "quantity": "1x",
-        "catalogNumber": "977.251.414",
-        "isOptional": false
-      },
-      {
-        "name": "Drukarka atramentowa z zasilaczem",
-        "quantity": "1x",
-        "catalogNumber": "977.251.356",
-        "isOptional": false
-      },
-      {
-        "name": "Klucz aktywacyjny Dongle",
-        "quantity": "1x",
-        "catalogNumber": "932.501.023",
-        "isOptional": false
-      },
-      {
-        "name": "Pokrowiec ochronny",
-        "quantity": "1x",
-        "catalogNumber": "932.405.152",
-        "isOptional": false
-      },
-      {
-        "name": "Blokada hamulca",
-        "quantity": "1x",
-        "catalogNumber": "932.401.012",
-        "isOptional": false
-      },
-      {
-        "name": "Głowice pomiarowe CCD",
-        "quantity": "4x",
-        "catalogNumber": "762.501.016",
-        "isOptional": false
-      },
-      {
-        "name": "Instrukcja obsługi",
-        "quantity": "1x",
-        "catalogNumber": "902.312.001",
-        "isOptional": false
-      },
-      {
-        "name": "Blokada kierownicy P 8 73",
-        "quantity": "1x",
-        "catalogNumber": "850.001.669",
-        "isOptional": false
-      },
-      {
-        "name": "Obrotnice mechaniczne",
-        "quantity": "2x",
-        "catalogNumber": "932.501.210",
-        "isOptional": false
-      },
-      {
-        "name": "Zaciski samocentrujące",
-        "quantity": "4x",
-        "catalogNumber": "932.311.020",
-        "isOptional": false
-      },
-      {
-        "name": "Moduł zdalnego sterowania (pilot/odbiornik)",
-        "quantity": "1x",
-        "catalogNumber": "932.501.064",
-        "isOptional": true
-      },
-      {
-        "name": "Zaciski typu Multi-Quick 13\"-24\"",
-        "quantity": "4x",
-        "catalogNumber": "932.401.111",
-        "isOptional": true
-      },
-      {
-        "name": "Aluminiowe obrotnice elektroniczne umożliwiające pomiar maksymalnych skrętów",
-        "quantity": "2x",
-        "catalogNumber": "932.401.098",
-        "isOptional": true
-      },
-      {
-        "name": "Płyty rolkowe pod tylne koła",
-        "quantity": "2x",
-        "catalogNumber": "",
-        "isOptional": true
-      },
-      {
-        "name": "Zestaw kalibracyjny",
-        "quantity": "1x",
-        "catalogNumber": "932.401.029",
-        "isOptional": true
-      },
-      {
-        "name": "Przewody zasilania awaryjnego",
-        "quantity": "1x",
-        "catalogNumber": "932.401.019",
-        "isOptional": true
-      },
-      {
-        "name": "Spoiler adapter E 1200 55, 50 mm in length",
-        "quantity": "2x",
-        "catalogNumber": "850.001.633",
-        "isOptional": true
-      },
-      {
-        "name": "Urządzenie posiada certyfikat ITS , dopuszczający stosowanie na SKP. Blisko 200 szt. tego typu urządzeń działa w Zespołach Szkół Samochodowych oraz Centrach Egzaminacyjnych, sprawdzających kwalifikacje zawodowe mechaników !",
-        "quantity": "",
-        "catalogNumber": "",
-        "isOptional": true
-      }
-    ],
-    "hasFullData": true,
-    "originalUrl": "https://www.beissbarth-service.pl/ml-1800-8r.html",
-    "notes": null
-  },
-  {
-    "slug": "ml-easy-3d",
-    "categorySlug": "geometria",
-    "name": "Geometria Beissbarth ML EASY 3D",
-    "shortDescription": "Easy CCD Excellence to profesjonalny przyrząd do pomiaru i regulacji",
-    "details": [
-      "Easy CCD Excellence to profesjonalny przyrząd do pomiaru i regulacji",
-      "geometrii w pojazdach samochodowych o DMC<3,5t.",
-      "Easy CCD Excellence to profesjonalny przyrząd do pomiaru i regulacji",
-      "geometrii w pojazdach samochodowych o DMC<3,5t.",
-      "Urządzenie wyposażone jest w 4 zespoły pomiarowe z",
-      "8 sensorami i radiową transmisją danych. Pomiar",
-      "realizowany jest wiązką podczerwieni, a wyniki są",
-      "wizualizowane na 27” monitorze. Zakres pomiarowy",
-      "zastosowanych kamer CCD wynosi 20st.",
-      "Automatyczny pomiar kompensacji bicia kół przez",
-      "przetaczanie lub uniesienie pojazdu dzięki",
-      "zastosowaniu elektronicznego kompensatora.",
-      "Głowice pomiarowe z nowymi czujnikami CCD umożliwiają",
-      "pomiar wszystkich parametrów",
-      "pojazdu tj.: kątów zbieżności i",
-      "pochylenia kół, wyprzedzenia osi",
-      "sworznia zwrotnicy, przestawienia",
-      "kół i osi pojazdu itp.",
-      "Program umożliwia wydruk zmierzonych parametrów w formie tabeli lub graficznej. Baza danych obejmuje",
-      "ponad 20,000 pojazdów od 55 producentów",
-      "Szybkość działania",
-      "Dokładność",
-      "Mobilność oraz mała przestrzeń robocza"
-    ],
-    "technicalSpecs": {},
+    "technicalSpecs": {
+      "Typ urządzenia": "8-sensorowa geometria bezprzewodowa CCD",
+      "Certyfikacja": "Certyfikat ITS do Stacji Kontroli Pojazdów (SKP)",
+      "Transmisja danych": "Bezprzewodowa radiowa 433 MHz",
+      "Liczba głowic": "4 głowice z 8 czujnikami CCD",
+      "Kompensacja bicia": "Przez przetoczenie pojazdu (ROC) lub uniesienie",
+      "Zakres pomiarowy CCD": "±20°",
+      "Stanowisko PC": "Wózek warsztatowy, PC Windows, monitor 27\", drukarka",
+      "Baza danych": "Ponad 35 000 pojazdów, 55 marek z aktualizacją",
+      "Zasilanie": "230 V | 50-60 Hz"
+    },
     "accessories": [],
     "hasFullData": true,
     "originalUrl": "https://www.beissbarth-service.pl/ml-easy-3d.html",
@@ -474,6 +329,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     "slug": "ms-500-demontazownica-beissbarth-serii-g-frame-detail",
     "categorySlug": "demontazownice",
+    "priceNetto": "18 500 zł netto",
     "name": "Demontażownica Beissbarth TC 22",
     "shortDescription": "Urządzenie do montażu/demontażu opon o",
     "details": [
@@ -484,14 +340,14 @@ export const PRODUCTS_DATA: ProductItem[] = [
       "TC 22 - Urządzenie do montażu/demontażu opon o zakresie mocowania do 25”"
     ],
     "technicalSpecs": {
-      "Parametr 1": "Koła samochodu osobowego/dostawczego",
-      "szerokość obręczy": "3\" – 12\"",
-      "średnica koła": "1000 mm",
-      "średnica obręczy koła (mocowanie od wewnątrz)": "12\" - 25\"",
-      "średnica obręczy koła (mocowanie od zewnątrz)": "10\" - 22\"",
-      "Parametr 6": "Prędkość obrotowa stołu 8/16/obr/min",
-      "Wymiary": "(W x H x D)930 x 1850 x 1060 mm",
-      "Zasilanie": "400V | 3Ph | 50-60Hz"
+      "Zastosowanie": "Koła samochodów osobowych i dostawczych",
+      "Szerokość obręczy": "3\" – 12\"",
+      "Maksymalna średnica koła": "1000 mm",
+      "Średnica obręczy (od wewnątrz)": "12\" - 25\"",
+      "Średnica obręczy (od zewnątrz)": "10\" - 22\"",
+      "Prędkość obrotowa stołu": "8 / 16 obr/min",
+      "Wymiary (szer. × wys. × gł.)": "930 × 1850 × 1060 mm",
+      "Zasilanie": "400 V | 3 ph | 50-60 Hz"
     },
     "accessories": [],
     "hasFullData": true,
@@ -501,6 +357,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     "slug": "ms-530-demontazownica-beissbarth-serii-g-frame-detail",
     "categorySlug": "demontazownice",
+    "priceNetto": "24 800 zł netto",
     "name": "Demontażownica Beissbarth TC 22 PRO",
     "shortDescription": "TCE 22 Pro- Urządzenie do montażu/demontażu opon o zakresie",
     "details": [
@@ -516,14 +373,14 @@ export const PRODUCTS_DATA: ProductItem[] = [
       "akcesoriów"
     ],
     "technicalSpecs": {
-      "Parametr 1": "Koła samochodu osobowego/dostawczego",
-      "szerokość obręczy": "3\" – 12\"",
-      "średnica koła": "1000 mm",
-      "średnica obręczy koła (mocowanie od wewnątrz)": "12\" - 25\"",
-      "średnica obręczy koła (mocowanie od zewnątrz)": "10\" - 22\"",
-      "Parametr 6": "Prędkość obrotowa stołu 8/16/obr/min",
-      "Wymiary": "(W x H x D)930 x 1850 x 1060 mm",
-      "Zasilanie": "400V | 3Ph | 50-60Hz"
+      "Zastosowanie": "Koła samochodów osobowych i dostawczych",
+      "Szerokość obręczy": "3\" – 12\"",
+      "Maksymalna średnica koła": "1000 mm",
+      "Średnica obręczy (od wewnątrz)": "12\" - 25\"",
+      "Średnica obręczy (od zewnątrz)": "10\" - 22\"",
+      "Prędkość obrotowa stołu": "8 / 16 obr/min",
+      "Wymiary (szer. × wys. × gł.)": "930 × 1850 × 1060 mm",
+      "Zasilanie": "400 V | 3 ph | 50-60 Hz"
     },
     "accessories": [],
     "hasFullData": true,
@@ -533,6 +390,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     "slug": "ms-530-v1-demontazownica-beissbarth-serii-g-frame-detail",
     "categorySlug": "demontazownice",
+    "priceNetto": "30 500 zł netto",
     "name": "Demontażownica Beissbarth TC 45 PRO",
     "shortDescription": "TCE 45 Pro- Urządzenie do montażu/demontażu opon o zakresie",
     "details": [
@@ -548,14 +406,14 @@ export const PRODUCTS_DATA: ProductItem[] = [
       "akcesoriów"
     ],
     "technicalSpecs": {
-      "Parametr 1": "Koła samochodu osobowego/dostawczego",
-      "szerokość obręczy": "3\" – 15\"",
-      "średnica koła": "1170 mm",
-      "średnica obręczy koła (mocowanie od wewnątrz)": "12\" - 27\"",
-      "średnica obręczy koła (mocowanie od zewnątrz)": "10\" - 24\"",
-      "Parametr 6": "Prędkość obrotowa stołu 8/16/obr/min",
-      "Wymiary": "(W x H x D)1030 x 1900 x 1450 mm",
-      "Zasilanie": "400V | 3Ph | 50-60Hz"
+      "Zastosowanie": "Koła samochodów osobowych i dostawczych",
+      "Szerokość obręczy": "3\" – 15\"",
+      "Maksymalna średnica koła": "1170 mm",
+      "Średnica obręczy (od wewnątrz)": "12\" - 27\"",
+      "Średnica obręczy (od zewnątrz)": "10\" - 24\"",
+      "Prędkość obrotowa stołu": "8 / 16 obr/min",
+      "Wymiary (szer. × wys. × gł.)": "1030 × 1900 × 1450 mm",
+      "Zasilanie": "400 V | 3 ph | 50-60 Hz"
     },
     "accessories": [],
     "hasFullData": true,
@@ -565,6 +423,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     "slug": "ms-630-demontazownica-beissbarth-serii-g-frame-detail",
     "categorySlug": "demontazownice",
+    "priceNetto": "36 200 zł netto",
     "name": "Demontażownica Beissbarth serii TC 45 Pro 2",
     "shortDescription": "Demontażownica Beissbarth serii  TC 45 Pro 2",
     "details": [
@@ -580,14 +439,14 @@ export const PRODUCTS_DATA: ProductItem[] = [
       "akcesoriów"
     ],
     "technicalSpecs": {
-      "Parametr 1": "Koła samochodu osobowego/dostawczego",
-      "szerokość obręczy": "3\" – 15\"",
-      "średnica koła": "1170 mm",
-      "średnica obręczy koła (mocowanie od wewnątrz)": "12\" - 27\"",
-      "średnica obręczy koła (mocowanie od zewnątrz)": "10\" - 24\"",
-      "Parametr 6": "Prędkość obrotowa stołu 8/16/obr/min",
-      "Wymiary": "(W x H x D)1030 x 1900 x 1450 mm",
-      "Zasilanie": "400V | 3Ph | 50-60Hz"
+      "Zastosowanie": "Koła samochodów osobowych i dostawczych",
+      "Szerokość obręczy": "3\" – 15\"",
+      "Maksymalna średnica koła": "1170 mm",
+      "Średnica obręczy (od wewnątrz)": "12\" - 27\"",
+      "Średnica obręczy (od zewnątrz)": "10\" - 24\"",
+      "Prędkość obrotowa stołu": "8 / 16 obr/min",
+      "Wymiary (szer. × wys. × gł.)": "1030 × 1900 × 1450 mm",
+      "Zasilanie": "400 V | 3 ph | 50-60 Hz"
     },
     "accessories": [],
     "hasFullData": true,
@@ -622,14 +481,14 @@ export const PRODUCTS_DATA: ProductItem[] = [
       "akcesoriów"
     ],
     "technicalSpecs": {
-      "Parametr 1": "Koła samochodu osobowego/dostawczego",
-      "szerokość obręczy": "3\" – 17\"",
-      "średnica koła": "1170 mm",
-      "średnica obręczy koła (mocowanie od wewnątrz)": "12\" - 27\"",
-      "średnica obręczy koła (mocowanie od zewnątrz)": "10\" - 24\"",
-      "Parametr 6": "Prędkość obrotowa stołu 0-16/obr/min",
-      "Wymiary": "(W x H x D)1030 x 2300 x 1450 mm",
-      "Zasilanie": "230V | 1Ph | 50-60Hz"
+      "Zastosowanie": "Koła samochodów osobowych i dostawczych",
+      "Szerokość obręczy": "3\" – 17\"",
+      "Maksymalna średnica koła": "1170 mm",
+      "Średnica obręczy (od wewnątrz)": "12\" - 27\"",
+      "Średnica obręczy (od zewnątrz)": "10\" - 24\"",
+      "Prędkość obrotowa stołu": "0 - 16 obr/min",
+      "Wymiary (szer. × wys. × gł.)": "1030 × 2300 × 1450 mm",
+      "Zasilanie": "230 V | 1 ph | 50-60 Hz"
     },
     "accessories": [],
     "hasFullData": true,
@@ -637,35 +496,56 @@ export const PRODUCTS_DATA: ProductItem[] = [
     "notes": null
   },
   {
-    "slug": "geometria-beissbarth-ml-8-r-tech-awb-detail",
+    "slug": "qlign-compact",
     "categorySlug": "geometria",
-    "name": "Geometria Beissbarth ML 8 R TECH AWB",
-    "shortDescription": "profesjonalny, ultraszybki przyrząd do pomiaru i regulacji",
+    "name": "Geometria Beissbarth Q.Lign Compact",
+    "shortDescription": "Ultraszybka bezprzewodowa geometria 3D w kompaktowej architekturze Stream-to-X z wolnostojącą kolumną T-Column.",
     "details": [
-      "Q.Lign 3D Compact to bezprzewodowy,",
-      "profesjonalny, ultraszybki przyrząd do pomiaru i regulacji",
-      "geometrii w pojazdach samochodowych o DMC<3,5t pracujący",
-      "w technologii 3D.",
-      "Bezprzewodowy Q.Lign 3D Compact",
-      "Urządzenie wyposażone jest w 2",
-      "bezprzewodowe zespoły pomiarowe z dodatkowymi",
-      "wyświetlaczami ilustrującymi mierzone parametry oraz",
-      "trwałymi, mocnymi akumulatorami Li-Ion.",
-      "Prezentacja pomiarów możliwa na TV, tablecie, laptopie, PC dzięki",
-      "technologii Stream – to –X.",
-      "Zalety systemu:",
-      "Opcjonalne zaciski kół Q.Grip zapewniają błyskawiczny montaż",
-      "bez kontaktu z felgą",
-      "bezprzewodowy pomiar i komunikacja z automatycznym",
-      "rozpoznawaniem ekranów",
-      "głowice Q.Lign z dodatkowymi wyświetlaczami QLED",
-      "mała przestrzeń robocza-brak potrzeby przestrzeni przed podnosnikiem/kanałem"
+      "Beissbarth Q.Lign Compact to rewolucyjna geometria 3D oparta na architekturze Stream-to-X, eliminującej konieczność stosowania tradycyjnego wózka PC. Pomiary przetwarzane są bezpośrednio w głowicach i przesyłane przez Wi-Fi na dowolne urządzenie (tablet, smartfon, monitor TV, komputer PC).",
+      "System wykorzystuje kompaktową kolumnę pomiarową T-Column z 2 kamerami wysokiej rozdzielczości, zajmując minimalną przestrzeń na stanowisku pracy. Czas pełnego pomiaru zbieżności i pochylenia wynosi poniżej 15 sekund.",
+      "Opcjonalne zaciski kół Q.Grip zapewniają montaż na oponie bez kontaktu z lakierowaną obręczą felgi w czasie poniżej 5 sekund na koło.",
+      "Głowice wyposażone są w inteligentne wyświetlacze OLED informujące operatora o postępie procedury i wartościach regulacyjnych bezpośrednio przy kole."
     ],
-    "technicalSpecs": {},
+    "technicalSpecs": {
+      "Technologia": "Ultraszybki pomiar 3D Stream-to-X",
+      "Czas pomiaru": "Poniżej 15 sekund",
+      "Konstrukcja": "Kompaktowa kolumna T-Column (2 kamery)",
+      "Wyświetlanie": "Stream-to-X (tablet, smartfon, TV, PC)",
+      "Uchwyty kół": "Q.Grip (montaż bez kontaktu z felgą) lub standardowe",
+      "Wskaźniki pomocnicze": "Ekrany OLED w głowicach pomiarowych",
+      "Łączność": "Wbudowane Wi-Fi dużej mocy",
+      "Zasilanie": "230 V | 50-60 Hz"
+    },
     "accessories": [],
     "hasFullData": true,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
-    "notes": "Niespójność w starym CMS: tytuł i URL to ML 8 R TECH AWB, lecz treść opisuje Q.Lign 3D Compact."
+    "originalUrl": "https://www.beissbarth-service.pl/produkty/geometria/qlign-compact.html",
+    "notes": null
+  },
+  {
+    "slug": "qlign-t-series",
+    "categorySlug": "geometria",
+    "name": "Geometria Beissbarth Q.Lign T-Series",
+    "shortDescription": "Modułowa geometria 3D do bezpośredniego montażu na podnośniku diagnostycznym lub kanale pomiarowym z głowicami QLED.",
+    "details": [
+      "Beissbarth Q.Lign T-Series to zaawansowany system geometrii 3D zaprojektowany do pełnej integracji ze stanowiskiem pomiarowym. Moduły kamer instalowane są bezpośrednio na pomostach dźwignika lub obrzeżach kanału, eliminując przestrzeń martwą przed pojazdem.",
+      "Idealne rozwiązanie dla warsztatów o ograniczonej przestrzeni oraz autoryzowanych stacji obsługi (ASO) wymagających najwyższej ergonomii i powtarzalności pomiarów na dowolnej wysokości podnoszenia.",
+      "Pełna integracja z technologią Stream-to-X – bezprzewodowa transmisja danych do urządzeń mobilnych i ekranów warsztatowych bez kabli i szafy sterującej.",
+      "Aktywne tarcze celownicze z diodami QLED gwarantują natychmiastowe rozpoznawanie pozycji w każdych warunkach oświetleniowych hali serwisowej."
+    ],
+    "technicalSpecs": {
+      "Technologia": "Modułowy pomiar 3D zintegrowany z dźwignikiem/kanałem",
+      "Montaż": "Bezpośrednio na pomostach podnośnika lub krawędzi kanału",
+      "Przestrzeń robocza": "Zero martwej strefy przed stanowiskiem",
+      "Tarcze celownicze": "QLED z aktywną identyfikacją optyczną",
+      "Prezentacja wyników": "Stream-to-X (tablet, smartfon, TV, PC)",
+      "Wysokość pomiaru": "Pomiar na poziomie posadzki oraz na dowolnej wysokości dźwignika",
+      "Łączność": "Wi-Fi bezprzewodowe",
+      "Zasilanie": "230 V | 50-60 Hz"
+    },
+    "accessories": [],
+    "hasFullData": true,
+    "originalUrl": "https://www.beissbarth-service.pl/produkty/geometria/qlign-t-series.html",
+    "notes": null
   },
   {
     "slug": "linia-diagnostyczna-beissbarth-sl-640-detail",
@@ -733,23 +613,23 @@ export const PRODUCTS_DATA: ProductItem[] = [
       "Zakres sił hamowania": ": 0 - 7,5kN przy obciążeniu 3.5t na oś",
       "Silnik/przekładnia": "2x3.7kW, 2.7 km/h prędkość pomiarowa, hamulec elektromag., sterowanie 4x4",
       "Rolki hamulcowe": "o przedłużonej żywotności, pokryte piaskiem kwarcowym, Ø 205 mm, szerokość 700 mm, tylna rolka uniesiona o 25mm",
-      "Parametr 4": "Zasilanie 5 x 2,5 mm²,bezpieczniki 3 x 20 A slow (400V)",
-      "Parametr 5": "Tester zawieszenia pracuje w oparciu o tzw. metodę EUSAMA. Dwa silniki elektryczne o mocy (2,7 kW) wywołują drgania płyt ze zintegrowanymi sensorami o amplitudzie 6mm.",
-      "Parametr 6": "Płyta uślizgu dokonuje pomiaru ustawienia kół jezdnych (zbieżność/rozbieżność).",
-      "Parametr 7": "Magistrala BNET umożliwia podłączenia komputera PC i korzystanie z zasobów sieci ASA.",
+      "Zasilanie / bezpieczniki": "5 × 2,5 mm², 3 × 20 A zwłoczne (400 V)",
+      "Tester zawieszenia": "Metoda EUSAMA, 2 silniki 2,7 kW, amplituda drgań 6 mm",
+      "Płyta uślizgu": "Kontrola zbieżności i uślizgu bocznego kół",
+      "Sieć i oprogramowanie": "Magistrala BNET, zgodność z siecią ASA-Net",
       "Przyłącze sprężonego powietrza": "6- 10 bar",
       "Nośność podnośnika": "2,5 t",
       "Dopuszczalny nacisk osi": "4,0 t",
       "Czas podnoszenia": "ok. 5 sec przy ciśnieniu 6 bar",
       "Wybór trybu pomiarowego i modułu pomiarowego": "1 Polu komunikacji",
-      "Parametr 13": "2 Ikona aktywnej funkcji",
-      "Parametr 14": "3 Ikona aktywowanej funkcji",
-      "Parametr 15": "4 – 7 Interfejs użytkownika",
-      "Parametr 16": "8-9 Pole wyboru modułu pomiarowego",
-      "Parametr 17": "Kontrola ustawienia kół",
-      "Parametr 18": "Pomiar sił hamowania",
-      "Parametr 19": "Ocena zawieszenia",
-      "Parametr 20": "Protokoły pomiarowe"
+      "Wizualizacja": "Ikona aktywnej funkcji pomiarowej",
+      "Interfejs operatora": "Kolorowe wskaźniki stanu procedury",
+      "Jednostka PC": "Komputer z monitorem 17\" w mobilnym wózku",
+      "Wybór modułu": "Zdalny pilot radiowy lub panel sterujący",
+      "Procedura 1": "Kontrola geometrii wstępnej i uślizgu",
+      "Procedura 2": "Pomiar sił hamowania i owalizacji",
+      "Procedura 3": "Ocena tłumienia drgań zawieszenia EUSAMA",
+      "Procedura 4": "Wydruk raportu zbiorczego SKP"
     },
     "accessories": [
       {
@@ -835,23 +715,23 @@ export const PRODUCTS_DATA: ProductItem[] = [
       "Zakres sił hamowania": ": 0 - 7,5kN przy obciążeniu 3.5t na oś",
       "Silnik/przekładnia": "2x3.7kW, 2.7 km/h prędkość pomiarowa, hamulec elektromag., sterowanie 4x4",
       "Rolki hamulcowe": "o przedłużonej żywotności, pokryte piaskiem kwarcowym, Ø 205 mm, szerokość 700 mm, tylna rolka uniesiona o 25mm",
-      "Parametr 4": "Zasilanie 5 x 2,5 mm²,bezpieczniki 3 x 20 A slow (400V)",
-      "Parametr 5": "Tester zawieszenia pracuje w oparciu o tzw. metodę EUSAMA. Dwa silniki elektryczne o mocy (2,7 kW) wywołują drgania płyt ze zintegrowanymi sensorami o amplitudzie 6mm.",
-      "Parametr 6": "Płyta uślizgu dokonuje pomiaru ustawienia kół jezdnych (zbieżność/rozbieżność).",
-      "Parametr 7": "Magistrala BNET umożliwia podłączenia komputera PC i korzystanie z zasobów sieci ASA.",
+      "Zasilanie / bezpieczniki": "5 × 2,5 mm², 3 × 20 A zwłoczne (400 V)",
+      "Tester zawieszenia": "Metoda EUSAMA, 2 silniki 2,7 kW, amplituda drgań 6 mm",
+      "Płyta uślizgu": "Kontrola zbieżności i uślizgu bocznego kół",
+      "Sieć i oprogramowanie": "Magistrala BNET, zgodność z siecią ASA-Net",
       "Przyłącze sprężonego powietrza": "6- 10 bar",
       "Nośność podnośnika": "2,5 t",
       "Dopuszczalny nacisk osi": "4,0 t",
       "Czas podnoszenia": "ok. 5 sec przy ciśnieniu 6 bar",
       "Wybór trybu pomiarowego i modułu pomiarowego": "1 Polu komunikacji",
-      "Parametr 13": "2 Ikona aktywnej funkcji",
-      "Parametr 14": "3 Ikona aktywowanej funkcji",
-      "Parametr 15": "4 – 7 Interfejs użytkownika",
-      "Parametr 16": "8-9 Pole wyboru modułu pomiarowego",
-      "Parametr 17": "Kontrola ustawienia kół",
-      "Parametr 18": "Pomiar sił hamowania",
-      "Parametr 19": "Ocena zawieszenia",
-      "Parametr 20": "Protokoły pomiarowe"
+      "Wizualizacja": "Ikona aktywnej funkcji pomiarowej",
+      "Interfejs operatora": "Kolorowe wskaźniki stanu procedury",
+      "Jednostka PC": "Komputer z monitorem 17\" w mobilnym wózku",
+      "Wybór modułu": "Zdalny pilot radiowy lub panel sterujący",
+      "Procedura 1": "Kontrola geometrii wstępnej i uślizgu",
+      "Procedura 2": "Pomiar sił hamowania i owalizacji",
+      "Procedura 3": "Ocena tłumienia drgań zawieszenia EUSAMA",
+      "Procedura 4": "Wydruk raportu zbiorczego SKP"
     },
     "accessories": [
       {
@@ -1469,18 +1349,18 @@ export const PRODUCTS_DATA: ProductItem[] = [
       "Stacjonarna wyważarka do kół o masie do 160 kg. Automatyczny pomiar niewyważenia po zamknięciu osłony. Koło unoszone jest do kołnierza wyważarki przy pomocy pneumatycznego podnośnika sterowanego za pomocą pedału, zapewniając tym samym swobodę rąk. Wartości niewyważenia i pozycja mocowania ciężarków wskazywana jest na wyświetlaczach LED. Istnieje możliwość wyboru sposobu mocowania ciężarków spośród 15 programów. Użytkownik może w bardzo dogodny sposób dokonywać kalibracji maszyny."
     ],
     "technicalSpecs": {
-      "Max. waga koła": "160 kg",
-      "Max. średnica koła": "1200 mm",
-      "średnica obręczy": "10 - 26,5 inch",
-      "Szerokość obręczy": "1 - 20 inch",
-      "prędkośc pomiarowa/programy sam.osob.": "170U/min (50Hz)",
-      "Prędkość wyważania kół ciężąrowych": "100U/min (50Hz)",
-      "Przyłącze sprężonego powietrza": "8-12bar",
-      "Parametr 8": "Dokładność wyważania /ciężarowe = 10g",
-      "Parametr 9": "Dokładność wyważania /osobowe = 1g",
-      "Wymiary (WxHxD)": "2000 x 1950 x 1350 mm,",
-      "Parametr 11": "Waga netto 248 kg,",
-      "Kolorystyka": "niebieski RAL5015 / Szary RAL7011"
+      "Maksymalna waga koła": "160 kg",
+      "Maksymalna średnica koła": "1200 mm",
+      "Średnica obręczy": "10 - 26,5\"",
+      "Szerokość obręczy": "1 - 20\"",
+      "Prędkość pomiarowa (osobowe)": "170 obr/min (50 Hz)",
+      "Prędkość pomiarowa (ciężarowe)": "100 obr/min (50 Hz)",
+      "Przyłącze sprężonego powietrza": "8 - 12 bar",
+      "Dokładność wyważania (ciężarowe)": "10 g",
+      "Dokładność wyważania (osobowe)": "1 g",
+      "Wymiary (szer. × wys. × gł.)": "2000 × 1950 × 1350 mm",
+      "Waga netto": "248 kg",
+      "Kolorystyka": "Niebieski RAL 5015 / Szary RAL 7011"
     },
     "accessories": [
       {
@@ -1553,17 +1433,17 @@ export const PRODUCTS_DATA: ProductItem[] = [
       "Stacjonarna wyważarka do kół o masie do 160 kg. Automatyczny pomiar niewyważenia po zamknięciu osłony. Koło unoszone jest do kołnierza wyważarki przy pomocy pneumatycznego podnośnika sterowanego za pomocą pedału, zapewniając tym samym swobodę rąk. Wartości niewyważenia i pozycja mocowania ciężarków wskazywana jest na monitorze. Istnieje możliwość wyboru sposobu mocowania ciężarków spośród 15 programów. Użytkownik może w bardzo dogodny sposób dokonywać kalibracji maszyny."
     ],
     "technicalSpecs": {
-      "Max. waga koła": "160 kg",
-      "Max. średnica koła": "1200 mm",
-      "średnica obręczy": "10 - 26,5 inch",
-      "Szerokość obręczy": "1 - 20 inch",
-      "prędkośc pomiarowa/programy sam.osob.": "170U/min (50Hz)",
-      "Prędkość wyważania kół ciężąrowych": "100U/min (50Hz)",
-      "Przyłącze sprężonego powietrza": "8-12bar",
-      "Parametr 8": "Dokładność wyważania /ciężarowe = 10g",
-      "Parametr 9": "Dokładność wyważania /osobowe = 1g",
-      "Parametr 10": "Waga netto 248 kg,",
-      "Kolorystyka": "niebieski RAL5015 / Szary RAL7011"
+      "Maksymalna waga koła": "160 kg",
+      "Maksymalna średnica koła": "1200 mm",
+      "Średnica obręczy": "10 - 26,5\"",
+      "Szerokość obręczy": "1 - 20\"",
+      "Prędkość pomiarowa (osobowe)": "170 obr/min (50 Hz)",
+      "Prędkość pomiarowa (ciężarowe)": "100 obr/min (50 Hz)",
+      "Przyłącze sprężonego powietrza": "8 - 12 bar",
+      "Dokładność wyważania (ciężarowe)": "10 g",
+      "Dokładność wyważania (osobowe)": "1 g",
+      "Waga netto": "248 kg",
+      "Kolorystyka": "Niebieski RAL 5015 / Szary RAL 7011"
     },
     "accessories": [
       {

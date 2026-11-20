@@ -14,7 +14,7 @@ export interface ReferenceQuote {
 export interface ReferenceItem {
   slug: string;
   name: string;
-  brand: 'BMW' | 'Volkswagen' | 'inne';
+  brand: 'BMW' | 'Volkswagen' | 'Mercedes-Benz' | 'Skoda' | 'inne';
   city?: string;
   url: string;
   photo: string;
@@ -38,15 +38,6 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     objectPosition: 'center 45%',
   },
   {
-    slug: 'bmw-dynamic-torun',
-    name: 'BMW Dynamic Toruń',
-    brand: 'BMW',
-    city: 'Toruń',
-    url: 'https://www.bmw-dynamicmotors.pl',
-    photo: 'bmw-dynamic-torun',
-    objectPosition: 'center',
-  },
-  {
     slug: 'bmw-dobrzanscy-krakow',
     name: 'BMW Dobrzańscy Kraków',
     brand: 'BMW',
@@ -59,17 +50,36 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     slug: 'vw-watarski',
     name: 'VW Wątarski',
     brand: 'Volkswagen',
+    city: 'Włocławek',
     url: 'https://watarski.dealer.volkswagen.pl/osobowe',
     photo: 'vw-watarski',
     objectPosition: 'center',
   },
   {
-    slug: 'cum-szymacha',
-    name: 'CUM Szymacha',
+    slug: 'aso-mercedes-wrobel-lubin',
+    name: 'MB Professional ASO Mercedes Wróbel Lubin',
+    brand: 'Mercedes-Benz',
+    city: 'Lubin',
+    url: 'https://wrobel.mercedes-benz.pl',
+    photo: 'mercedes',
+    objectPosition: 'center',
+  },
+  {
+    slug: 'zst-kutno',
+    name: 'Zespół Szkół Technicznych w Kutnie (ZST Kutno)',
     brand: 'inne',
-    city: 'Łódź',
-    url: 'https://assistancelodz.pl/',
-    photo: 'cum-szymacha',
+    city: 'Kutno',
+    url: 'https://zstkutno.pl',
+    photo: 'stanowisko-diagnostyczne-hero',
+    objectPosition: 'center',
+  },
+  {
+    slug: 'skoda-bieranowski',
+    name: 'Skoda Bieranowski',
+    brand: 'Skoda',
+    city: 'Bydgoszcz',
+    url: 'https://bieranowski.pl',
+    photo: 'vag',
     objectPosition: 'center',
   },
 ];

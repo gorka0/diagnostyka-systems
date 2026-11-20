@@ -99,13 +99,13 @@ export const ServicePage: React.FC = () => {
 
             <div className="pt-6 border-t border-surface-border space-y-1">
               <span className="text-[12px] font-mono text-foreground-secondary uppercase tracking-wider block">
-                {COMPANY_DATA.specialists[0].role}
+                {COMPANY_DATA.phones.techInfo.label}
               </span>
               <a
-                href={cleanTelHref(COMPANY_DATA.specialists[0].phoneRaw)}
+                href={cleanTelHref(COMPANY_DATA.phones.techInfo.raw)}
                 className="text-2xl font-bold font-mono text-foreground hover:text-accent-text transition-colors tabular-nums block"
               >
-                {formatPhoneWithNbsp(COMPANY_DATA.specialists[0].phoneDisplay)}
+                {formatPhoneWithNbsp(COMPANY_DATA.phones.techInfo.display)}
               </a>
             </div>
           </div>
@@ -150,13 +150,13 @@ export const ServicePage: React.FC = () => {
 
             <div className="pt-6 border-t border-surface-border space-y-1">
               <span className="text-[12px] font-mono text-foreground-secondary uppercase tracking-wider block">
-                {COMPANY_DATA.specialists[1].role}
+                {COMPANY_DATA.phones.salesInfo.label}
               </span>
               <a
-                href={cleanTelHref(COMPANY_DATA.specialists[1].phoneRaw)}
+                href={cleanTelHref(COMPANY_DATA.phones.salesInfo.raw)}
                 className="text-2xl font-bold font-mono text-foreground hover:text-accent-text transition-colors tabular-nums block"
               >
-                {formatPhoneWithNbsp(COMPANY_DATA.specialists[1].phoneDisplay)}
+                {formatPhoneWithNbsp(COMPANY_DATA.phones.salesInfo.display)}
               </a>
             </div>
           </div>

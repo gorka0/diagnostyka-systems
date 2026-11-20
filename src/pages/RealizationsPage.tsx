@@ -15,11 +15,18 @@ import { ExternalLink, MapPin, Phone, ArrowRight } from 'lucide-react';
 export const RealizationsPage: React.FC = () => {
   // Podział realizacji według marek (BMW, Volkswagen, pozostałe)
   const groupedReferences = useMemo(() => {
+    const mbItems = REFERENCES_DATA.filter((r) => r.brand === 'Mercedes-Benz');
     const bmwItems = REFERENCES_DATA.filter((r) => r.brand === 'BMW');
-    const vwItems = REFERENCES_DATA.filter((r) => r.brand === 'Volkswagen');
+    const vagItems = REFERENCES_DATA.filter((r) => r.brand === 'Volkswagen' || r.brand === 'Skoda');
     const otherItems = REFERENCES_DATA.filter((r) => r.brand === 'inne');
 
     return [
+      {
+        id: 'mercedes',
+        title: 'Serwisy autoryzowane Mercedes-Benz',
+        brandLabel: 'Mercedes-Benz',
+        items: mbItems,
+      },
       {
         id: 'bmw',
         title: 'Serwisy autoryzowane BMW',
@@ -28,14 +35,14 @@ export const RealizationsPage: React.FC = () => {
       },
       {
         id: 'volkswagen',
-        title: 'Serwisy autoryzowane Volkswagen',
-        brandLabel: 'Volkswagen',
-        items: vwItems,
+        title: 'Serwisy autoryzowane Grupy VAG (Volkswagen, Skoda)',
+        brandLabel: 'Grupa VAG',
+        items: vagItems,
       },
       {
         id: 'inne',
-        title: 'Pozostałe centra motoryzacyjne i serwisy',
-        brandLabel: 'Centrum Motoryzacyjne',
+        title: 'Ośrodki edukacyjne i centra techniczne',
+        brandLabel: 'Edukacja i Serwis',
         items: otherItems,
       },
     ].filter((group) => group.items.length > 0);

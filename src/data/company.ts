@@ -88,19 +88,8 @@ export const COMPANY_DATA = {
     },
   },
 
-  // Dedykowani specjaliści
-  specialists: [
-    {
-      role: 'Specjalista ds. Beissbarth',
-      phoneRaw: '+48516144977',
-      phoneDisplay: '516 144 977',
-    },
-    {
-      role: 'Specjalista ds. klimatyzacji Valeo',
-      phoneRaw: '+48501607989',
-      phoneDisplay: '501 607 989',
-    },
-  ] as SpecialistContact[],
+  // Dedykowani specjaliści (usunięci zgodnie z dyspozycją - obsługa centralna przez numery główne)
+  specialists: [] as SpecialistContact[],
 
   // Kluczowe autoryzacje i partnerstwa
   authorizations: [

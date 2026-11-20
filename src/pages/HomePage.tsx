@@ -51,7 +51,7 @@ export const HomePage: React.FC = () => {
     {
       title: 'Warsztaty mechaniczne i oponiarskie',
       description:
-        'Wyważarki diagnostyczne, montażownice z ramą G-Frame do opon Run-Flat oraz stacje klimatyzacji z bezpośrednią opieką serwisową z Lisiego Ogona.',
+        'Wyważarki diagnostyczne, montażownice serii TC do opon Run-Flat oraz stacje klimatyzacji z bezpośrednią opieką serwisową z Lisiego Ogona.',
       link: '/oferta',
     },
   ];

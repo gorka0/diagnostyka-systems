@@ -708,7 +708,7 @@ export const ProductsPage: React.FC = () => {
     <div className="bg-background min-h-[100dvh]">
       <Seo
         title="Katalog urządzeń diagnostycznych Beissbarth | Diagnostyka-Systems"
-        description="Oferta aparatury warsztatowej Beissbarth: geometria kół 3D i CCD, wyważarki do kół, montażownice opon G-Frame, linie rolkowe SKP, stacje klimatyzacji Valeo."
+        description="Oferta aparatury warsztatowej Beissbarth: geometria kół 3D i CCD, wyważarki do kół, montażownice opon serii TC, linie rolkowe SKP, stacje klimatyzacji Valeo."
         canonicalPath="/produkty"
         breadcrumbs={[
           { label: 'Strona główna', path: '/' },
@@ -718,7 +718,7 @@ export const ProductsPage: React.FC = () => {
           !hasActiveFilters
             ? getCollectionJsonLd(
                 'Katalog urządzeń diagnostycznych Beissbarth',
-                'Oferta aparatury warsztatowej Beissbarth: geometria kół 3D i CCD, wyważarki do kół, montażownice opon G-Frame, linie rolkowe SKP.',
+                'Oferta aparatury warsztatowej Beissbarth: geometria kół 3D i CCD, wyważarki do kół, montażownice opon serii TC, linie rolkowe SKP.',
                 '/produkty'
               )
             : undefined

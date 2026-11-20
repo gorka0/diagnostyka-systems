@@ -18,7 +18,7 @@ export const ContactPage: React.FC = () => {
     saveConsent({ ...categories, external: true });
   };
 
-  // 4 numery bezpośrednie z company.ts
+  // Numery bezpośrednie z company.ts (dwa telefony komórkowe + stacjonarny)
   const directPhones = [
     {
       label: COMPANY_DATA.phones.techInfo.label,
@@ -29,17 +29,10 @@ export const ContactPage: React.FC = () => {
       phone: COMPANY_DATA.phones.salesInfo,
     },
     {
-      label: COMPANY_DATA.specialists[0].role,
+      label: COMPANY_DATA.phones.mainFax.label,
       phone: {
-        raw: COMPANY_DATA.specialists[0].phoneRaw,
-        display: COMPANY_DATA.specialists[0].phoneDisplay,
-      },
-    },
-    {
-      label: COMPANY_DATA.specialists[1].role,
-      phone: {
-        raw: COMPANY_DATA.specialists[1].phoneRaw,
-        display: COMPANY_DATA.specialists[1].phoneDisplay,
+        raw: COMPANY_DATA.phones.mainFax.raw,
+        display: COMPANY_DATA.phones.mainFax.display,
       },
     },
   ];

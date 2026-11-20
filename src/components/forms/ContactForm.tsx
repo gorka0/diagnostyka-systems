@@ -614,7 +614,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                   list={`${formUid}-products-list`}
                   value={formData.produkt}
                   onChange={handleInputChange}
-                  placeholder="Wpisz lub wybierz z listy (np. Beissbarth Q.Lign, MT Zero 6...)"
+                  placeholder="Wpisz lub wybierz z listy (np. Beissbarth Q.Lign, Beissbarth G.30...)"
                   className="w-full h-[52px] px-4 rounded-[8px] bg-white border border-[#D9DDE1] text-[16px] text-foreground placeholder:text-[#6B7280] transition-colors focus:outline-none focus:ring-2 focus:ring-accent-primary focus:border-accent-primary"
                 />
                 <span className="text-[12px] text-foreground-secondary mt-1 block">
