@@ -230,13 +230,22 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
     alt: 'Wdrożenie urządzeń diagnostycznych Beissbarth KDS w autoryzowanym serwisie BMW Sikora',
   },
   'realization-vw-watarski': {
-    fileName: 'realizacja-vw-watarski.jpg',
-    path: '/images/realizacja-vw-watarski.jpg',
-    dimensions: '1200x800',
+    fileName: 'vw-watarski.webp',
+    path: '/images/vw-watarski.webp',
+    dimensions: '1024x682',
     aspectRatio: '3/2',
-    label: 'Wyposażenie strefy geometrii w ASO VW Wątarski',
+    label: 'Autoryzowany Serwis Volkswagen Wątarski Włocławek',
     category: 'realizations',
-    alt: 'Stanowisko pomiaru geometrii VAS w ASO Volkswagen Wątarski',
+    alt: 'Autoryzowany Serwis i Salon Volkswagen Wątarski we Włocławku wyposażony przez Diagnostyka-Systems',
+  },
+  'vw-watarski': {
+    fileName: 'vw-watarski.webp',
+    path: '/images/vw-watarski.webp',
+    dimensions: '1024x682',
+    aspectRatio: '3/2',
+    label: 'Autoryzowany Serwis Volkswagen Wątarski Włocławek',
+    category: 'realizations',
+    alt: 'Autoryzowany Serwis i Salon Volkswagen Wątarski we Włocławku wyposażony przez Diagnostyka-Systems',
   },
 
   // Certyfikaty i autoryzacje
