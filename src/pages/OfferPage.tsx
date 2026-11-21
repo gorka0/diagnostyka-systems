@@ -24,7 +24,7 @@ export const OfferPage: React.FC = () => {
       title: 'Rolkowe linie diagnostyczne',
       target: 'Dla Stacji Kontroli Pojazdów (SKP i OSKP)',
       description:
-        'Stanowiska rolkowe serii Screen-Testline (SL 600, SL 640 4x4), testery amortyzatorów EUSAMA, płyty zbieżności i szarpaki hydrauliczne. Badanie sił hamowania do 7,5 kN na oś i wsparcie przy odbiorach TDT.',
+        'Rolkowe stanowiska hamulcowe nowej generacji Beissbarth QB 4 (zintegrowane z testerem zawieszenia QS 4 EUSAMA) w architekturze Stream-to-X z obsługą na tablecie, TV lub komputerze PC.',
       link: '/produkty/linie-diagnostyczne',
       linkLabel: 'Zobacz linie diagnostyczne',
     },

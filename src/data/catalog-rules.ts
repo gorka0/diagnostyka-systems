@@ -49,6 +49,7 @@ export const FACET_SERIES = [
   'Easy CCD',
   'Seria G',
   'Seria TC',
+  'Seria QB',
   'Akimbo',
   'Infinity',
   'Screen-Testline',
@@ -96,7 +97,7 @@ export const CONTAIN_IMAGE_SLUGS = new Set<string>([
   'ms-530-v1-demontazownica-beissbarth-serii-g-frame-detail',
   'ms-630-demontazownica-beissbarth-serii-g-frame-detail',
   'ms-630-v1-demontazownica-beissbarth-serii-g-frame-detail',
-  'linia-diagnostyczna-beissbarth-sl-600-detail',
+  'qb-4',
   'geometria-beissbarth-ml-1800-8r2017-01-13-08-15-53_-detail',
   'geometria-beissbarth-microline-4600-detail',
   'vas-6602-detail',
@@ -177,6 +178,8 @@ export function extractProductMetadata(product: ProductItem): ProductMetadata {
   } else if (
     nameL.includes('linia') ||
     nameL.includes('stl ') ||
+    nameL.includes('qb ') ||
+    nameL.includes('qb.') ||
     catL.includes('linie') ||
     nameL.startsWith('sl ')
   ) {
@@ -185,7 +188,9 @@ export function extractProductMetadata(product: ProductItem): ProductMetadata {
 
   // 5. Seria
   let seria: string | undefined = undefined;
-  if (nameL.includes('q.lign') || slug.includes('qlign')) {
+  if (nameL.includes('qb ') || nameL.includes('qb.') || slug.includes('qb-4')) {
+    seria = 'Seria QB';
+  } else if (nameL.includes('q.lign') || slug.includes('qlign')) {
     seria = 'Q.Lign';
   } else if (nameL.includes('easy ccd') || slug.includes('easy-ccd')) {
     seria = 'Easy CCD';

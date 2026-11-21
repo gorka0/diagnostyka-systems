@@ -47,10 +47,10 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     id: 'linie-diagnostyczne',
     slug: 'linie-diagnostyczne',
     name: 'Linie diagnostyczne',
-    description: 'Rolkowe stanowiska hamulcowe i ścieżki Screen-Testline (SL 600, SL 640 4x4). Badanie sił hamowania do 7,5 kN i testery zawieszenia EUSAMA.',
-    productCount: 2,
+    description: 'Rolkowe stanowiska hamulcowe nowej generacji Beissbarth QB 4 (zintegrowane z testerem zawieszenia QS 4 EUSAMA) w architekturze Stream-to-X z obsługą na tablecie, TV lub PC.',
+    productCount: 1,
     featured: false,
-    imageKey: 'product-screen-testline',
+    imageKey: 'product-qb-4',
   },
   {
     id: 'urzadzenia-oem',

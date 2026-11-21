@@ -111,6 +111,25 @@ def generate_redirects_and_sitemap(routes):
         print(f"✓ [Redirect] /realizacje/{old_file} -> /realizacje#{target_slug}")
 
     # Redirects dla zgłoszeń serwisowych -> /kontakt?typ=serwis
+    # Redirects dla starych linii SL -> QB 4
+    sl_redirects = [
+        ('produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-600-detail', 'produkty/linie-diagnostyczne/qb-4'),
+        ('produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-640-detail', 'produkty/linie-diagnostyczne/qb-4'),
+        ('produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-600-detail.html', 'produkty/linie-diagnostyczne/qb-4'),
+        ('produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-640-detail.html', 'produkty/linie-diagnostyczne/qb-4'),
+    ]
+    for old_r, new_r in sl_redirects:
+        target_dir = os.path.join(DIST_DIR, old_r)
+        if old_r.endswith('.html'):
+            os.makedirs(os.path.dirname(target_dir), exist_ok=True)
+            rf_path = target_dir
+        else:
+            os.makedirs(target_dir, exist_ok=True)
+            rf_path = os.path.join(target_dir, 'index.html')
+        with open(rf_path, 'w', encoding='utf-8') as rf:
+            rf.write(f'''<!DOCTYPE html><html><head><meta http-equiv="refresh" content="0; url=/{new_r}"><link rel="canonical" href="/{new_r}"><title>Przekierowanie...</title></head><body><script>window.location.href="/{new_r}";</script></body></html>''')
+        print(f"✓ [Redirect] /{old_r} -> /{new_r}")
+
     service_redirects = [
         ('serwis/zgloszenie', os.path.join(DIST_DIR, 'serwis', 'zgloszenie')),
         ('zgloszenie-serwisowe', os.path.join(DIST_DIR, 'zgloszenie-serwisowe'))

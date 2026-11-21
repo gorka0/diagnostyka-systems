@@ -654,207 +654,143 @@ export const PRODUCTS_DATA: ProductItem[] = [
     "notes": null
   },
   {
-    "slug": "linia-diagnostyczna-beissbarth-sl-640-detail",
+    "slug": "qb-4",
     "categorySlug": "linie-diagnostyczne",
-    "name": "Linia diagnostyczna Beissbarth SL 640",
-    "shortDescription": "Screen-testline  SL 640 (z funkcją 4x4) (400V,50Hz)",
+    "name": "Linia diagnostyczna Beissbarth QB 4",
+    "shortDescription": "Nowoczesne rolkowe stanowisko hamulcowe z kontrolą pomiaru w czasie rzeczywistym na tablecie 10,1\", smartfonie lub TV oraz integracją z testerem zawieszenia QS 4 EUSAMA.",
+    "priceNetto": "49.600 zł netto",
+    "priceVariants": [
+      {
+        "label": "QB.4 2200mm | 3,7 kW (tablet 10,1\", nacisk 4t, rozstaw 800-2200mm)",
+        "priceNetto": "49.600 zł netto"
+      },
+      {
+        "label": "QB.4 2800mm | 5,0 kW (tablet 10,1\", nacisk 4t, rozstaw 800-2800mm)",
+        "priceNetto": "59.700 zł netto"
+      },
+      {
+        "label": "Moduł rozszerzający: Tester zawieszenia QS.4 2800mm EUSAMA (silniki 2x2.5kW)",
+        "priceNetto": "+42.500 zł netto"
+      },
+      {
+        "label": "Opcja: Wanna fundamentowa rolek QB 4",
+        "priceNetto": "+5.200 zł netto"
+      },
+      {
+        "label": "Opcja: Pokrywy ochronne rolek hamulcowych",
+        "priceNetto": "+3.250 zł netto"
+      },
+      {
+        "label": "Opcja: Analogowy wskaźnik zegarowy naścienny",
+        "priceNetto": "+6.450 zł netto"
+      },
+      {
+        "label": "Opcja: Zestaw do bezprzewodowej wizualizacji TV",
+        "priceNetto": "+3.050 zł netto"
+      },
+      {
+        "label": "Opcja: Bezprzewodowy miernik siły nacisku na pedał hamulca",
+        "priceNetto": "+10.000 zł netto"
+      },
+      {
+        "label": "Opcja: Rama fundamentowa testera zawieszenia QS 4",
+        "priceNetto": "+3.600 zł netto"
+      },
+      {
+        "label": "Opcja: Wanna fundamentowa zestawu linii QB 4 i QS 4",
+        "priceNetto": "+6.500 zł netto"
+      }
+    ],
     "details": [
-      "Linia diagnostyczna Beissbarth SL 640",
-      "Screen-testline  SL 640 (z funkcją 4x4) (400V,50Hz)",
-      "Linia diagnostyczna SL 640 (z funkcją 4x4) (400V,50Hz) przeznaczona jest do diagnostyki układu jezdnego pojazdów o DMC<3,5t i rozstawie kół 800-2200mm. Wszystkie zmierzone wartości tj. ocena stanu zawieszenia na podstawie metody EUSAMA, siły hamowania i uślizgu bocznego są rejestrowane i kalkulowane przy użyciu jednostki PC. Obsługa odbywa się przez wybór odpowiedniego trybu pracy (ręczny, automatyczny, superautomatic) pilotem zdalnego sterowania. Wyniki pomiarów są prezentowane w formie czytelnych diagramów na monitorze 17”. Wersja SL 640 posiada zintegrowaną funkcję pomiaru pojazdów z napędem na 4 koła.",
-      "Specyfikacja wyposażenia",
-      "No.",
-      "Specyfikacja wyposażenia",
-      "No.",
-      "Oprogramowanie BNET",
-      "1x",
-      "985.691.405",
-      "Przewód przyłączeniowy (9-pin D-Sub) do przetwornika BNET/RS232",
-      "1x",
-      "960.703.543",
-      "Pilot zdalnego sterowania",
-      "1x",
-      "935.702.001",
-      "BNET Software licence (dongle No.2) do TL-SL600/640/680 PC-Visualisation",
-      "1x",
-      "935.701.018",
-      "Mobilna jednostka PC (na kołach) z drukarką,Windows XP PC, 17\" Monitor",
-      "1x",
-      "935.701.016",
-      "ST 600 zestaw przyłączeniowy z (2.5m)",
-      "1x",
-      "935.633.012",
-      "ST 600 płyta poślizgu (“płyta zbieżności”)",
-      "1x",
-      "935.631.010",
-      "Pakiet montażowy SA 600",
-      "1x",
-      "935.623.012",
-      "BNET tester zawieszenia SA 600 (metoda EUSAMA) z silnikami 2.5kW (400V,50Hz)",
-      "1x",
-      "935.621.017",
-      "installation kit mainswitch box",
-      "1x",
-      "935.603.247",
-      "BD 600 zestaw montażowy",
-      "1x",
-      "935.603.042",
-      "BNET/RS232 przetwornik do BD500/600 i TL/SL",
-      "1x",
-      "935.602.208",
-      "BNET rolki hamulcowe BF 600 z silnikami 3.7kW, prędkość pomiarowa 2.7km/h (400V/50Hz)",
-      "1x",
-      "935.602.139",
-      "BNET-\"RS232\" – moduł wydruku I procesor komunikacyjny do BD500/600 I TL600. W zestawie z Dongle nr 2",
-      "1x",
-      "935.601.089",
-      "BNET główny przełącznik (400V) z 30m kablem komunikacyjnym 15m",
-      "1x",
-      "935.601.085",
-      "Rama fundamentowa",
-      "1x",
-      "935.694.001"
+      "Beissbarth QB 4 to najnowocześniejsze rolkowe stanowisko hamulcowe do kontroli i diagnostyki układu hamulcowego pojazdów o dopuszczalnej masie całkowitej (DMC) do 3,5 t.",
+      "Brak konieczności stosowania tradycyjnej szafy sterującej i pilota: pełna kontrola nad przebiegiem pomiaru odbywa się w czasie rzeczywistym przy użyciu tabletu warsztatowego 10,1\" lub smartfonu z automatycznym trybem pomiarowym.",
+      "Wbudowany hamulec elektromagnetyczny ułatwia wyjazd badanego pojazdu ze stanowiska rolkowego, a podwyższona o 25 mm tylna rolka zapobiega wypchnięciu kół podczas intensywnego hamowania.",
+      "Pełna integracja modułowa: stanowisko rolkowe QB 4 bezproblemowo współpracuje z testerem zawieszenia QS 4 (metoda EUSAMA, 2 silniki 2,5 kW) tworząc kompletną ścieżkę diagnostyczną.",
+      "Łączność Stream-to-X oraz interfejs ASA Livestream 1.2: bezprzewodowa prezentacja sił hamowania i szacowania skuteczności na tablecie, monitorze TV z dedykowanym zestawem HDMI lub komputerze PC."
     ],
     "technicalSpecs": {
-      "Zakres sił hamowania": ": 0 - 7,5kN przy obciążeniu 3.5t na oś",
-      "Silnik/przekładnia": "2x3.7kW, 2.7 km/h prędkość pomiarowa, hamulec elektromag., sterowanie 4x4",
-      "Rolki hamulcowe": "o przedłużonej żywotności, pokryte piaskiem kwarcowym, Ø 205 mm, szerokość 700 mm, tylna rolka uniesiona o 25mm",
-      "Zasilanie / bezpieczniki": "5 × 2,5 mm², 3 × 20 A zwłoczne (400 V)",
-      "Tester zawieszenia": "Metoda EUSAMA, 2 silniki 2,7 kW, amplituda drgań 6 mm",
-      "Płyta uślizgu": "Kontrola zbieżności i uślizgu bocznego kół",
-      "Sieć i oprogramowanie": "Magistrala BNET, zgodność z siecią ASA-Net",
-      "Przyłącze sprężonego powietrza": "6- 10 bar",
-      "Nośność podnośnika": "2,5 t",
-      "Dopuszczalny nacisk osi": "4,0 t",
-      "Czas podnoszenia": "ok. 5 sec przy ciśnieniu 6 bar",
-      "Wybór trybu pomiarowego i modułu pomiarowego": "1 Polu komunikacji",
-      "Wizualizacja": "Ikona aktywnej funkcji pomiarowej",
-      "Interfejs operatora": "Kolorowe wskaźniki stanu procedury",
-      "Jednostka PC": "Komputer z monitorem 17\" w mobilnym wózku",
-      "Wybór modułu": "Zdalny pilot radiowy lub panel sterujący",
-      "Procedura 1": "Kontrola geometrii wstępnej i uślizgu",
-      "Procedura 2": "Pomiar sił hamowania i owalizacji",
-      "Procedura 3": "Ocena tłumienia drgań zawieszenia EUSAMA",
-      "Procedura 4": "Wydruk raportu zbiorczego SKP"
+      "Typ urządzenia": "Rolkowe stanowisko hamulcowe / modułowa linia diagnostyczna",
+      "Zakres sił hamowania": "0 – 5,0 kN przy obciążeniu 4,0 t na oś",
+      "Maksymalny nacisk osi": "4,0 t (badanie pojazdów do 3,5 t DMC)",
+      "Rozstaw kół (wariant 2200mm)": "800 – 2200 mm (silniki 2 × 3,7 kW)",
+      "Rozstaw kół (wariant 2800mm)": "800 – 2800 mm (silniki 2 × 5,0 kW)",
+      "Prędkość pomiarowa": "5,2 km/h",
+      "Średnica rolek": "Ø 205 mm, szerokość 700 mm",
+      "Geometria rolek": "Tylna rolka uniesiona o 25 mm",
+      "Hamulec wyjazdowy": "Wbudowany elektromagnetyczny wspomagający wyjazd",
+      "Obsługa napędów 4x4": "Opcjonalna funkcja badania pojazdów z napędem na 4 koła",
+      "Tester zawieszenia QS.4": "Metoda EUSAMA, 0-30 Hz, nacisk osi 2t, 2x2.5 kW, skok 6 mm"
     },
     "accessories": [
       {
-        "name": "Pneumatyczny podnośnik mierzonej osi",
-        "quantity": "",
+        "name": "Moduł rolek hamulcowych Beissbarth QB 4 z uniesioną tylną rolką i hamulcem elektromagnetycznym",
+        "quantity": "1 szt.",
         "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Skrzynka sterująco-zasilająca z interfejsem ASA Livestream 1.2",
+        "quantity": "1 szt.",
+        "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Tablet warsztatowy Android 10,1\" z dedykowaną aplikacją pomiarową",
+        "quantity": "1 szt.",
+        "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Tester zawieszenia QS.4 2800mm (EUSAMA, silniki 2x2.5kW)",
+        "quantity": "1 szt.",
+        "catalogNumber": "42 500 zł netto",
         "isOptional": true
       },
       {
-        "name": "przeznaczony jest do stosowania z dowolnym modułem rolek hamulcowych w celu unoszenia/opuszczania osi pojazdu na stanowisko pomiarowe. Funkcja ta jest w zalecana firmach obsługujących ospojlerowane pojazdy Kub z obniżonym zawieszeniem, celem uniknięcia uszkodzeń spojlerów przy najeżdżaniu na stanowisko pomiarowe.",
-        "quantity": "",
-        "catalogNumber": "",
+        "name": "Wanna fundamentowa rolek hamulcowych QB 4",
+        "quantity": "1 szt.",
+        "catalogNumber": "1 691 602 115 (5 200 zł netto)",
+        "isOptional": true
+      },
+      {
+        "name": "Pokrywy ochronne rolek hamulcowych",
+        "quantity": "1 kpl.",
+        "catalogNumber": "935.602.032 (3 250 zł netto)",
+        "isOptional": true
+      },
+      {
+        "name": "Analogowy naścienny wskaźnik zegarowy ze wspornikiem",
+        "quantity": "1 szt.",
+        "catalogNumber": "1 691 401 100 (6 450 zł netto)",
+        "isOptional": true
+      },
+      {
+        "name": "Zestaw do bezprzewodowej wizualizacji danych na ekranie TV",
+        "quantity": "1 kpl.",
+        "catalogNumber": "1 691 403 100 (3 050 zł netto)",
+        "isOptional": true
+      },
+      {
+        "name": "Bezprzewodowy miernik siły nacisku na pedał hamulca",
+        "quantity": "1 szt.",
+        "catalogNumber": "1 691 403 101 (10 000 zł netto)",
+        "isOptional": true
+      },
+      {
+        "name": "Rama fundamentowa testera zawieszenia QS 4",
+        "quantity": "1 szt.",
+        "catalogNumber": "1691622002 (3 600 zł netto)",
+        "isOptional": true
+      },
+      {
+        "name": "Wanna fundamentowa zestawu linii diagnostycznej QB 4 i QS 4",
+        "quantity": "1 szt.",
+        "catalogNumber": "1691602002 (6 500 zł netto)",
         "isOptional": true
       }
     ],
     "hasFullData": true,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-640-detail.html",
-    "notes": null
-  },
-  {
-    "slug": "linia-diagnostyczna-beissbarth-sl-600-detail",
-    "categorySlug": "linie-diagnostyczne",
-    "name": "Linia diagnostyczna Beissbarth SL 600",
-    "shortDescription": "Screen-testline  SL 600 (bez funkcji 4x4) (400V,50Hz)",
-    "details": [
-      "Linia diagnostyczna Beissbarth SL 600",
-      "Screen-testline  SL 600 (bez funkcji 4x4) (400V,50Hz)",
-      "Linia diagnostyczna SL 600(bez funkcji 4x4) (400V,50Hz) przeznaczona jest do diagnostyki układu jezdnego pojazdów o DMC<3,5t i rozstawie kół 800-2200mm. Wszystkie zmierzone wartości tj. ocena stanu zawieszenia na podstawie metody EUSAMA, siły hamowania i uślizgu bocznego są rejestrowane i kalkulowane przy użyciu jednostki PC. Obsługa odbywa się przez wybór odpowiedniego trybu pracy (ręczny, automatyczny, superautomatic) pilotem zdalnego sterowania. Wyniki pomiarów są prezentowane w formie czytelnych diagramów na monitorze 17”. Wersja SL 640 posiada zintegrowaną funkcję pomiaru pojazdów z napędem na 4 koła.",
-      "Specyfikacja wyposażenia",
-      "No.",
-      "Specyfikacja wyposażenia",
-      "No.",
-      "Oprogramowanie BNET",
-      "1x",
-      "985.691.405",
-      "Przewód przyłączeniowy (9-pin D-Sub) do przetwornika BNET/RS232",
-      "1x",
-      "960.703.543",
-      "Pilot zdalnego sterowania",
-      "1x",
-      "935.702.001",
-      "BNET Software licence (dongle No.2) do TL-SL600/640/680 PC-Visualisation",
-      "1x",
-      "935.701.018",
-      "Mobilna jednostka PC (na kołach) z drukarką,Windows XP PC, 17\" Monitor",
-      "1x",
-      "935.701.016",
-      "ST 600 zestaw przyłączeniowy z (2.5m)",
-      "1x",
-      "935.633.012",
-      "ST 600 płyta poślizgu (“płyta zbieżności”)",
-      "1x",
-      "935.631.010",
-      "Pakiet montażowy SA 600",
-      "1x",
-      "935.623.012",
-      "BNET tester zawieszenia SA 600 (metoda EUSAMA) z silnikami 2.5kW (400V,50Hz)",
-      "1x",
-      "935.621.017",
-      "installation kit mainswitch box",
-      "1x",
-      "935.603.247",
-      "BD 600 zestaw montażowy",
-      "1x",
-      "935.603.042",
-      "BNET/RS232 przetwornik do BD500/600 i TL/SL",
-      "1x",
-      "935.602.208",
-      "BNET rolki hamulcowe BF 600 z silnikami 3.7kW, prędkość pomiarowa 2.7km/h (400V/50Hz)",
-      "1x",
-      "935.602.139",
-      "BNET-\"RS232\" – moduł wydruku I procesor komunikacyjny do BD500/600 I TL600. W zestawie z Dongle nr 2",
-      "1x",
-      "935.601.089",
-      "BNET główny przełącznik (400V) z 30m kablem komunikacyjnym 15m",
-      "1x",
-      "935.601.085",
-      "Rama fundamentowa",
-      "1x",
-      "935.694.001"
-    ],
-    "technicalSpecs": {
-      "Zakres sił hamowania": ": 0 - 7,5kN przy obciążeniu 3.5t na oś",
-      "Silnik/przekładnia": "2x3.7kW, 2.7 km/h prędkość pomiarowa, hamulec elektromag., sterowanie 4x4",
-      "Rolki hamulcowe": "o przedłużonej żywotności, pokryte piaskiem kwarcowym, Ø 205 mm, szerokość 700 mm, tylna rolka uniesiona o 25mm",
-      "Zasilanie / bezpieczniki": "5 × 2,5 mm², 3 × 20 A zwłoczne (400 V)",
-      "Tester zawieszenia": "Metoda EUSAMA, 2 silniki 2,7 kW, amplituda drgań 6 mm",
-      "Płyta uślizgu": "Kontrola zbieżności i uślizgu bocznego kół",
-      "Sieć i oprogramowanie": "Magistrala BNET, zgodność z siecią ASA-Net",
-      "Przyłącze sprężonego powietrza": "6- 10 bar",
-      "Nośność podnośnika": "2,5 t",
-      "Dopuszczalny nacisk osi": "4,0 t",
-      "Czas podnoszenia": "ok. 5 sec przy ciśnieniu 6 bar",
-      "Wybór trybu pomiarowego i modułu pomiarowego": "1 Polu komunikacji",
-      "Wizualizacja": "Ikona aktywnej funkcji pomiarowej",
-      "Interfejs operatora": "Kolorowe wskaźniki stanu procedury",
-      "Jednostka PC": "Komputer z monitorem 17\" w mobilnym wózku",
-      "Wybór modułu": "Zdalny pilot radiowy lub panel sterujący",
-      "Procedura 1": "Kontrola geometrii wstępnej i uślizgu",
-      "Procedura 2": "Pomiar sił hamowania i owalizacji",
-      "Procedura 3": "Ocena tłumienia drgań zawieszenia EUSAMA",
-      "Procedura 4": "Wydruk raportu zbiorczego SKP"
-    },
-    "accessories": [
-      {
-        "name": "Pneumatyczny podnośnik mierzonej osi",
-        "quantity": "",
-        "catalogNumber": "",
-        "isOptional": true
-      },
-      {
-        "name": "przeznaczony jest do stosowania z dowolnym modułem rolek hamulcowych w celu unoszenia/opuszczania osi pojazdu na stanowisko pomiarowe. Funkcja ta jest w zalecana firmach obsługujących ospojlerowane pojazdy Kub z obniżonym zawieszeniem, celem uniknięcia uszkodzeń spojlerów przy najeżdżaniu na stanowisko pomiarowe.",
-        "quantity": "",
-        "catalogNumber": "",
-        "isOptional": true
-      }
-    ],
-    "hasFullData": true,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-600-detail.html",
+    "originalUrl": "https://www.beissbarth-service.pl/produkty/linie-diagnostyczne/qb-4.html",
     "notes": null
   },
   {
