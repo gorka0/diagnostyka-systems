@@ -15,7 +15,7 @@ export const OfferPage: React.FC = () => {
       title: 'Geometria kół i osi Beissbarth',
       target: 'Dla SKP, ASO i warsztatów mechanicznych',
       description:
-        'Komputerowe systemy pomiaru geometrii kół i osi (Microline 8 ROC, ML Easy 3D, Q.Lign). Kompensacja przez przetoczenie bez podnoszenia osi, atesty ITS dla SKP oraz wersje z homologacjami fabrycznymi OEM.',
+        'Komputerowe i bezprzewodowe systemy pomiaru geometrii kół i osi (ML 8 Easy CCD Excellence, Q.Lign 3D Compact, Q.Lign T-Series). Kompensacja przez przetoczenie, atesty ITS do Stacji Kontroli Pojazdów.',
       link: '/produkty/geometria',
       linkLabel: 'Zobacz geometrię kół',
     },

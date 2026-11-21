@@ -38,7 +38,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     id: 'demontazownice',
     slug: 'demontazownice',
     name: 'Demontażownice',
-    description: 'Montażownice opon serii TC (serie TC 22, TC 45, TC 47). Zakres mocowania do 27" oraz ramiona pomocnicze do opon Run-Flat (RFT).',
+    description: 'Profesjonalne montażownice opon serii TC (TC 22, TCE 22 Pro, TC 45 Pro, TC 45 Pro 2 WDK), INFINITY oraz bezłyżkowe Akimbo Mk2 WDK. Obsługa kół UHP i Run-Flat (RFT).',
     productCount: 6,
     featured: false,
     imageKey: 'product-tc-22',
@@ -81,7 +81,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     slug: 'pojazdy-ciezarowe',
     name: 'Pojazdy ciężarowe',
     description: 'Wyważarki i montażownice elektrohydrauliczne Servomat do obsługi kół ciężarowych, autobusowych i maszyn rolniczych do 2,2t.',
-    productCount: 10,
+    productCount: 11,
     featured: false,
     imageKey: 'product-servomat-ms70',
     subcategories: [

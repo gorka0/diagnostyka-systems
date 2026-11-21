@@ -27,7 +27,11 @@ export const CategoryPage: React.FC = () => {
 
   const categoryProductsWithMeta = useMemo(() => {
     if (!kategoria) return [];
-    return PRODUCTS_DATA.filter((p) => p.categorySlug === kategoria).map((product) => ({
+    return PRODUCTS_DATA.filter(
+      (p) =>
+        p.categorySlug === kategoria ||
+        (kategoria === 'pojazdy-ciezarowe' && p.slug === 'wywazarka-beissbarth-g-90-hd-detail')
+    ).map((product) => ({
       product,
       meta: extractProductMetadata(product),
     }));

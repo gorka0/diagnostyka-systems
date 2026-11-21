@@ -222,7 +222,7 @@ export const HomePage: React.FC = () => {
               <div className="lg:col-span-3 flex justify-center">
                 <div className="w-full max-w-[240px] aspect-square rounded-[12px] bg-background-subtle p-4 flex items-center justify-center">
                   <SiteImage
-                    name="product-ml-8-roc"
+                    name="ml-8-easy-ccd-excellence"
                     fit="contain"
                     aspectRatio="1/1"
                     alt={activePromo.title}

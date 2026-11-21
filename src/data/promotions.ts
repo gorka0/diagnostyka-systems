@@ -20,15 +20,15 @@ export interface PromotionItem {
 
 export const PROMOTIONS_DATA: PromotionItem[] = [
   {
-    id: 'promo-ml-8-roc',
-    slug: 'ml-8-roc-promocja',
-    title: 'System do pomiaru geometrii kół Beissbarth ML 8 ROC',
-    description: 'Zestaw z wyposażeniem, kompensacja przez przetaczanie, certyfikat ITS dla SKP.',
-    priceNetto: '46 900 zł netto',
-    bonus: 'Dostawa i szkolenie w cenie zestawu',
+    id: 'promo-ml-8-easy-ccd-excellence',
+    slug: 'ml-8-easy-ccd-excellence',
+    title: 'Geometria kół Beissbarth ML 8 Easy CCD Excellence',
+    description: '8-sensorowy radiowy przyrząd CCD z elektronicznym kompensatorem, monitorem 27" i certyfikatem ITS do SKP.',
+    priceNetto: '51 900 zł netto',
+    bonus: 'Dostawa, montaż i szkolenie personelu w cenie zestawu',
     active: true,
-    modelCode: 'ML 8 ROC',
+    modelCode: 'ML 8 Easy CCD Excellence',
     category: 'Geometria',
-    details: 'Urządzenie 4-głowicowe, 8 kamer CCD, atest dopuszczający stosowanie na Stacjach Kontroli Pojazdów.',
+    details: '4 zespoły pomiarowe z 8 sensorami CCD, radiowa transmisja, baza ponad 20 000 pojazdów, atest ITS do badań technicznych.',
   },
 ];
