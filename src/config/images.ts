@@ -77,8 +77,8 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
   'qlign-compact': {
     fileName: 'qlign-compact.webp',
     path: '/images/qlign-compact.webp',
-    dimensions: '800x600',
-    aspectRatio: '4/3',
+    dimensions: '620x898',
+    aspectRatio: '3/4',
     label: 'Geometria Beissbarth Q.Lign 3D Compact',
     category: 'products',
     alt: 'Kompaktowy bezprzewodowy system geometrii 3D Beissbarth Q.Lign Compact',
