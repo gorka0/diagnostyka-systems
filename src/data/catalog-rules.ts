@@ -95,6 +95,7 @@ export const CONTAIN_IMAGE_SLUGS = new Set<string>([
   'wywazarka-beissbarth-mt-zero-6-lcd-awlp-detail',
   'wywazarka-beissbarth-mt-zero-6-touch-awl-detail',
   'wywazarka-beissbarth-g-90-hd-detail',
+  'beissbarth-g-90-hd',
   'ms-500-demontazownica-beissbarth-serii-g-frame-detail',
   'ms-530-demontazownica-beissbarth-serii-g-frame-detail',
   'ms-530-v1-demontazownica-beissbarth-serii-g-frame-detail',
