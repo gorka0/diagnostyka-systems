@@ -79,7 +79,7 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     brand: 'Skoda',
     city: 'Bydgoszcz',
     url: 'https://bieranowski.pl',
-    photo: 'vag',
+    photo: 'skoda-bieranowski',
     objectPosition: 'center',
   },
 ];

@@ -247,6 +247,24 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
     category: 'realizations',
     alt: 'Autoryzowany Serwis i Salon Volkswagen Wątarski we Włocławku wyposażony przez Diagnostyka-Systems',
   },
+  'realization-skoda-bieranowski': {
+    fileName: 'skoda-bieranowski.webp',
+    path: '/images/skoda-bieranowski.webp',
+    dimensions: '1024x512',
+    aspectRatio: '2/1',
+    label: 'Autoryzowany Salon i Serwis Skoda Bieranowski Bydgoszcz',
+    category: 'realizations',
+    alt: 'Autoryzowany Salon i Serwis Skoda Bieranowski w Bydgoszczy wyposażony przez Diagnostyka-Systems',
+  },
+  'skoda-bieranowski': {
+    fileName: 'skoda-bieranowski.webp',
+    path: '/images/skoda-bieranowski.webp',
+    dimensions: '1024x512',
+    aspectRatio: '2/1',
+    label: 'Autoryzowany Salon i Serwis Skoda Bieranowski Bydgoszcz',
+    category: 'realizations',
+    alt: 'Autoryzowany Salon i Serwis Skoda Bieranowski w Bydgoszczy wyposażony przez Diagnostyka-Systems',
+  },
 
   // Certyfikaty i autoryzacje
   'cert-beissbarth': {
