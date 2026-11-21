@@ -506,25 +506,123 @@ export const PRODUCTS_DATA: ProductItem[] = [
   {
     "slug": "qlign-compact",
     "categorySlug": "geometria",
-    "name": "Geometria Beissbarth Q.Lign Compact",
-    "shortDescription": "Ultraszybka bezprzewodowa geometria 3D w kompaktowej architekturze Stream-to-X z wolnostojącą kolumną T-Column.",
+    "name": "Geometria Beissbarth Q.Lign 3D Compact",
+    "shortDescription": "Bezprzewodowy, ultraszybki przyrząd 3D do pomiaru i regulacji geometrii kół w pojazdach o DMC do 3,5 t w architekturze Stream-to-X.",
+    "priceNetto": "92.500 zł netto",
+    "priceVariants": [
+      {
+        "label": "Zestaw bazowy z tabletem Android 10,1\"",
+        "priceNetto": "92.500 zł netto"
+      },
+      {
+        "label": "Opcja: Szafka odkładcza z drukarką i monitorem 27\"",
+        "priceNetto": "+10.300 zł netto"
+      },
+      {
+        "label": "Opcja: Komplet zacisków Q.Grip (montaż w 3 s)",
+        "priceNetto": "+15.600 zł netto"
+      },
+      {
+        "label": "Opcja: Komplet zacisków magnetycznych",
+        "priceNetto": "+8.300 zł netto"
+      },
+      {
+        "label": "Opcja: Komplet aluminiowych obrotnic mechanicznych",
+        "priceNetto": "+6.500 zł netto"
+      }
+    ],
     "details": [
-      "Beissbarth Q.Lign Compact to rewolucyjna geometria 3D oparta na architekturze Stream-to-X, eliminującej konieczność stosowania tradycyjnego wózka PC. Pomiary przetwarzane są bezpośrednio w głowicach i przesyłane przez Wi-Fi na dowolne urządzenie (tablet, smartfon, monitor TV, komputer PC).",
-      "System wykorzystuje kompaktową kolumnę pomiarową T-Column z 2 kamerami wysokiej rozdzielczości, zajmując minimalną przestrzeń na stanowisku pracy. Czas pełnego pomiaru zbieżności i pochylenia wynosi poniżej 15 sekund.",
-      "Opcjonalne zaciski kół Q.Grip zapewniają montaż na oponie bez kontaktu z lakierowaną obręczą felgi w czasie poniżej 5 sekund na koło.",
-      "Głowice wyposażone są w inteligentne wyświetlacze OLED informujące operatora o postępie procedury i wartościach regulacyjnych bezpośrednio przy kole."
+      "Beissbarth Q.Lign 3D Compact to profesjonalny, ultraszybki przyrząd do pomiaru i regulacji geometrii kół w pojazdach samochodowych o DMC < 3,5 t pracujący w technologii 3D.",
+      "Urządzenie wyposażone jest w 2 bezprzewodowe zespoły pomiarowe z dodatkowymi wyświetlaczami QLED ilustrującymi mierzone parametry bezpośrednio przy kole oraz trwałymi akumulatorami Li-Ion zapewniającymi do 19 h ciągłej pracy.",
+      "Prezentacja pomiarów na dowolnym urządzeniu: tablecie Android, monitorze TV, laptopie lub komputerze PC dzięki technologii Stream-to-X bez kabli i szafy sterującej.",
+      "Błyskawiczny montaż: opcjonalne zaciski kół Q.Grip montowane są na oponie bez kontaktu z felgą w czasie poniżej 3 sekund na koło.",
+      "Bezprzewodowy pomiar i komunikacja z automatycznym rozpoznawaniem ekranów oraz minimalna przestrzeń robocza przed stanowiskiem pomiarowym."
     ],
     "technicalSpecs": {
-      "Technologia": "Ultraszybki pomiar 3D Stream-to-X",
-      "Czas pomiaru": "Poniżej 15 sekund",
-      "Konstrukcja": "Kompaktowa kolumna T-Column (2 kamery)",
-      "Wyświetlanie": "Stream-to-X (tablet, smartfon, TV, PC)",
-      "Uchwyty kół": "Q.Grip (montaż bez kontaktu z felgą) lub standardowe",
-      "Wskaźniki pomocnicze": "Ekrany OLED w głowicach pomiarowych",
-      "Łączność": "Wbudowane Wi-Fi dużej mocy",
-      "Zasilanie": "230 V | 50-60 Hz"
+      "Typ urządzenia": "Ultraszybka bezprzewodowa geometria kół 3D",
+      "Architektura": "Stream-to-X (tablet, laptop, PC, Smart TV przez Wi-Fi)",
+      "Rozstaw osi pojazdów": "1800 – 4500 mm",
+      "Wyświetlacze głowic": "Ekrany OLED/QLED zintegrowane w głowicach",
+      "Wymiary głowic (wys. × dł. × szer.)": "137 × 372 × 311 mm",
+      "Waga głowic": "6 kg",
+      "Zasilanie głowic": "Wbudowane akumulatory Li-Ion 99.4 Wh",
+      "Czas pracy na baterii": "Do 19 h ciągłej pracy",
+      "Czas ładowania": "< 3 h (szybkie ładowanie w stacji odkładczej)"
     },
-    "accessories": [],
+    "accessories": [
+      {
+        "name": "Komplet bezprzewodowych zespołów pomiarowych Q.Lign z akumulatorami Li-Ion",
+        "quantity": "1x",
+        "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Zestaw ekranów pomiarowych (4 tarcze celownicze)",
+        "quantity": "1x",
+        "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Blokada hamulca i kierownicy",
+        "quantity": "1x",
+        "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Obrotnice mechaniczne z wypełnieniami",
+        "quantity": "2x",
+        "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Stanowisko odkładcze zintegrowane z ładowarką akumulatorów",
+        "quantity": "1x",
+        "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Zaciski samocentrujące o zakresie mocowania 13\" - 22\"",
+        "quantity": "4x",
+        "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Tablet warsztatowy Android 10,1\"",
+        "quantity": "1x",
+        "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Uchwyty mocujące do podnośnika",
+        "quantity": "2x",
+        "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Szafka warsztatowa ze stanowiskiem odkładczym, drukarką i monitorem 27\"",
+        "quantity": "1 szt.",
+        "catalogNumber": "10 300 zł netto",
+        "isOptional": true
+      },
+      {
+        "name": "Komplet zacisków Q.Grip 525–840 mm / 20.6\"–33\" (montaż 3 s, waga 2.65 kg)",
+        "quantity": "1 kpl.",
+        "catalogNumber": "15 600 zł netto",
+        "isOptional": true
+      },
+      {
+        "name": "Komplet zacisków magnetycznych",
+        "quantity": "1 kpl.",
+        "catalogNumber": "8 300 zł netto",
+        "isOptional": true
+      },
+      {
+        "name": "Komplet aluminiowych obrotnic mechanicznych z wypełnieniami",
+        "quantity": "1 kpl.",
+        "catalogNumber": "6 500 zł netto",
+        "isOptional": true
+      }
+    ],
     "hasFullData": true,
     "originalUrl": "https://www.beissbarth-service.pl/produkty/geometria/qlign-compact.html",
     "notes": null
