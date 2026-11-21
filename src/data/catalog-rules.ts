@@ -101,6 +101,7 @@ export const CONTAIN_IMAGE_SLUGS = new Set<string>([
   'ms-630-v1-demontazownica-beissbarth-serii-g-frame-detail',
   'qb-4',
   'mld-815',
+  'mld-9000',
   'geometria-beissbarth-ml-1800-8r2017-01-13-08-15-53_-detail',
   'geometria-beissbarth-microline-4600-detail',
   'vas-6602-detail',

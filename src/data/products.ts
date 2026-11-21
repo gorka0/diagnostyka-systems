@@ -1589,5 +1589,124 @@ export const PRODUCTS_DATA: ProductItem[] = [
     "hasFullData": true,
     "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-do-swiatel/mld-815.html",
     "notes": null
+  },
+  {
+    "slug": "mld-9000",
+    "categorySlug": "urzadzenia-do-swiatel",
+    "name": "Przyrząd do ustawiania świateł Beissbarth MLD 9000",
+    "shortDescription": "Flagowy cyfrowy przyrząd do kontroli i regulacji świateł z kamerą CMOS 5 megapikseli, 2 laserami, dotykowym ekranem 7\", drukarką termiczną oraz pełną obsługą reflektorów Matrix beam 2.",
+    "priceNetto": "26.500 zł netto",
+    "priceVariants": [
+      {
+        "label": "MLD 9000 wersja standard (kamera CMOS 5 MP, 2x laser, ekran dotykowy 7\", drukarka)",
+        "priceNetto": "26.500 zł netto"
+      },
+      {
+        "label": "Opcja: Pokrowiec ochronny (nr kat. 1.692.105.201)",
+        "priceNetto": "+585 zł netto"
+      },
+      {
+        "label": "Opcja: Szyny dł. 3m do przesuwu wzdłużnego testera (nr kat. 1.692.105.080)",
+        "priceNetto": "+3.800 zł netto"
+      },
+      {
+        "label": "Opcja: Dodatkowe przedłużacze szyn 1,5m (nr kat. 1.692.105.112)",
+        "priceNetto": "+2.100 zł netto"
+      },
+      {
+        "label": "Opcja: Automatyczny pomiar wysokości (nr kat. 1.692.105.278)",
+        "priceNetto": "+1.190 zł netto"
+      },
+      {
+        "label": "Opcja: Funkcja CoRe z modułem WiFi (nr kat. 1.692.105.282)",
+        "priceNetto": "+1.544 zł netto"
+      }
+    ],
+    "details": [
+      "Beissbarth MLD 9000 to najnowszy, flagowy przyrząd do badania i precyzyjnej regulacji wszystkich rodzajów oświetlenia w pojazdach samochodowych, wyposażony w matrycę CMOS o wysokiej rozdzielczości 5 megapikseli z superszybką cyfrową obróbką obrazu w czasie rzeczywistym.",
+      "System dwóch laserów: laserowy pozycjoner wspomaga pozycjonowanie testera na stanowisku diagnostycznym nawet przy słabym oświetleniu hali, a laser krzyżowy pozwala idealnie ustawić jednostkę optyczną względem reflektorów pojazdu (kluczowe przy oświetleniu LED, Matrix LED, Matrix beam 2 oraz Xenon).",
+      "Wyposażony w duży, interaktywny i dotykowy wyświetlacz LCD o przekątnej 7\" (262 000 kolorów) z kurzo- i kroploszczelną powłoką ochronną, który w czasie rzeczywistym prezentuje linię odcięcia światła, kąty świecenia, odchylenie pionowe i poziome, światłość oraz natężenie oświetlenia.",
+      "Wbudowana drukarka wstęgowa (termiczna) umożliwia natychmiastowe wygenerowanie protokołu pomiarowego dla klienta lub do dokumentacji stacji.",
+      "Program pomiarowy automatycznie prowadzi diagnostę krok po kroku przez kolejne etapy badania. Możliwość bezprzewodowej transmisji WLAN i wizualizacji wyników na komputerze serwisowym za pomocą funkcji CoRe.",
+      "Przyrząd posiada oficjalne dopuszczenia oraz certyfikaty CE i TÜV."
+    ],
+    "technicalSpecs": {
+      "Przetwornik obrazu": "Kamera cyfrowa CMOS 5 megapikseli (szybka obróbka w czasie rzeczywistym)",
+      "System pozycjonowania": "2 lasery (pozycjoner stanowiska + laser krzyżowy względem lamp)",
+      "Wyświetlacz": "Interaktywny dotykowy ekran LCD 7\" (262 000 kolorów, odporny na kurz i wilgoć)",
+      "Drukarka": "Zintegrowana drukarka wstęgowa (termiczna)",
+      "Transmisja danych": "WLAN / funkcja sieciowa CoRe (opcjonalny moduł WiFi)",
+      "Dokładność pomiaru": "Dystans pomiarowy 10 m ± 1 cm",
+      "Obsługiwane źródła światła": "Halogen, Xenon, LED, LED Matrix, Matrix beam 2",
+      "Rodzaje badanych świateł": "Światła mijania, drogowe, przeciwmgielne",
+      "Zakres pomiarowy - pion (góra/dół)": "-8% do +8% (-800 mm do +800 mm)",
+      "Zakres pomiarowy - poziom (lewo/prawo)": "Mijania: -10% do +10% (-1000 do +1000 mm) | Drogowe: -10% do +10% (-1000 do +1000 mm)",
+      "Zakres pomiaru jasności": "Lux / 25m: 0 – 240 | Kandela: 0 – 150 000 cd | Lux / 1m: 0 – 150 000",
+      "Jednostki pomiarowe": "Światłość: Lux (25m), Candela (cd), kLux (1m) | Regulacja: %, cm, °",
+      "Regulacja skoku soczewki": "240 – 1450 mm",
+      "Zasilanie": "Wewnętrzna bateria akumulatorowa / zewnętrzne 100-240 V (50-60 Hz)",
+      "Zakres temperatur pracy": "5°C – 45°C",
+      "Certyfikaty": "CE, TÜV"
+    },
+    "accessories": [
+      {
+        "name": "Kamera cyfrowa CMOS 5 MP zintegrowana w obudowie optycznej",
+        "quantity": "1 szt.",
+        "isOptional": false
+      },
+      {
+        "name": "Laserowy pozycjoner do ustawiania testera na stanowisku pracy",
+        "quantity": "1 szt.",
+        "isOptional": false
+      },
+      {
+        "name": "Laser krzyżowy do precyzyjnego osiowania reflektorów LED/Matrix/Xenon",
+        "quantity": "1 szt.",
+        "isOptional": false
+      },
+      {
+        "name": "Dotykowy kolorowy wyświetlacz LCD 7\"",
+        "quantity": "1 szt.",
+        "isOptional": false
+      },
+      {
+        "name": "Zintegrowana drukarka termiczna (wstęgowa)",
+        "quantity": "1 szt.",
+        "isOptional": false
+      },
+      {
+        "name": "Pokrowiec ochronny",
+        "quantity": "1 szt.",
+        "catalogNumber": "1.692.105.201",
+        "isOptional": true
+      },
+      {
+        "name": "Szyny dł. 3m do swobodnego przesuwu wzdłużnego testera",
+        "quantity": "1 szt.",
+        "catalogNumber": "1.692.105.080",
+        "isOptional": true
+      },
+      {
+        "name": "Dodatkowe przedłużacze szyn 1,5m",
+        "quantity": "1 szt.",
+        "catalogNumber": "1.692.105.112",
+        "isOptional": true
+      },
+      {
+        "name": "Automatyczny pomiar wysokości",
+        "quantity": "1 szt.",
+        "catalogNumber": "1.692.105.278",
+        "isOptional": true
+      },
+      {
+        "name": "Funkcja CoRe z modułem WiFi do bezprzewodowej transmisji wyników",
+        "quantity": "1 szt.",
+        "catalogNumber": "1.692.105.282",
+        "isOptional": true
+      }
+    ],
+    "hasFullData": true,
+    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-do-swiatel/mld-9000.html",
+    "notes": null
   }
 ];
