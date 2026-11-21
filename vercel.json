@@ -35,6 +35,31 @@
       "source": "/zgloszenie-serwisowe",
       "destination": "/kontakt?typ=serwis",
       "permanent": true
+    },
+    {
+      "source": "/urzadzenia-oem",
+      "destination": "/produkty/urzadzenia-do-swiatel",
+      "permanent": true
+    },
+    {
+      "source": "/produkty/urzadzenia-oem",
+      "destination": "/produkty/urzadzenia-do-swiatel",
+      "permanent": true
+    },
+    {
+      "source": "/produkty/urzadzenia-oem/:path*",
+      "destination": "/produkty/urzadzenia-do-swiatel",
+      "permanent": true
+    },
+    {
+      "source": "/produkty/nowosci/tester-ustawienia-swiatel-beissbarth-mld-815-77-86-detail:path*",
+      "destination": "/produkty/urzadzenia-do-swiatel/mld-815",
+      "permanent": true
+    },
+    {
+      "source": "/produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-:path*",
+      "destination": "/produkty/linie-diagnostyczne/qb-4",
+      "permanent": true
     }
   ],
   "rewrites": [

@@ -39,7 +39,6 @@ def get_all_routes():
         '/o-nas',
         '/oferta',
         '/produkty',
-        '/urzadzenia-oem',
         '/produkty-uzywane',
         '/serwis',
         '/realizacje',
@@ -56,7 +55,7 @@ def get_all_routes():
         'demontazownice',
         'geometria',
         'linie-diagnostyczne',
-        'urzadzenia-oem',
+        'urzadzenia-do-swiatel',
         'serwis-klimatyzacji',
         'pojazdy-ciezarowe',
         'produkty-uzywane',
@@ -111,13 +110,32 @@ def generate_redirects_and_sitemap(routes):
         print(f"✓ [Redirect] /realizacje/{old_file} -> /realizacje#{target_slug}")
 
     # Redirects dla zgłoszeń serwisowych -> /kontakt?typ=serwis
-    # Redirects dla starych linii SL -> QB 4
+    # Redirects dla starych linii SL -> QB 4, starych OEM -> urzadzenia-do-swiatel, starego MLD -> nowy MLD 815
+    oem_slugs = [
+        'vas-6279-detail', 'vas-6360-detail', 'vas-6595-detail', 'vas-6602-detail',
+        'vas-6603-detail', 'vas-6651-detail', 'vas-6767-detail', 'vas-6783-detail',
+        'ml-81r-tech-detail', 'ml-81-tech-detail', 'wywaarka-beissbarth-mt-848-detail',
+        'wywazarka-beissbarth-mt-868adt-detail', 'bd-620-pc-detail', 'kds-ii-detail',
+        'geometria-beissbarth-kds-3d-detail', 'mt-825d-detail',
+        'mt-825d2013-06-24-13-39-54_-detail', 'mt-848ad-detail',
+        'mt-868adt2013-06-24-13-41-37_-detail', 'ms-65-detail', 'ms-680-detail',
+        'easy-3d-oem-detail', 'bd-640-toyota-detail'
+    ]
     sl_redirects = [
         ('produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-600-detail', 'produkty/linie-diagnostyczne/qb-4'),
         ('produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-640-detail', 'produkty/linie-diagnostyczne/qb-4'),
         ('produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-600-detail.html', 'produkty/linie-diagnostyczne/qb-4'),
         ('produkty/linie-diagnostyczne/linia-diagnostyczna-beissbarth-sl-640-detail.html', 'produkty/linie-diagnostyczne/qb-4'),
+        ('urzadzenia-oem', 'produkty/urzadzenia-do-swiatel'),
+        ('urzadzenia-oem.html', 'produkty/urzadzenia-do-swiatel'),
+        ('produkty/urzadzenia-oem', 'produkty/urzadzenia-do-swiatel'),
+        ('produkty/urzadzenia-oem.html', 'produkty/urzadzenia-do-swiatel'),
+        ('produkty/nowosci/tester-ustawienia-swiatel-beissbarth-mld-815-77-86-detail', 'produkty/urzadzenia-do-swiatel/mld-815'),
+        ('produkty/nowosci/tester-ustawienia-swiatel-beissbarth-mld-815-77-86-detail.html', 'produkty/urzadzenia-do-swiatel/mld-815'),
     ]
+    for oem_s in oem_slugs:
+        sl_redirects.append((f'produkty/urzadzenia-oem/{oem_s}', 'produkty/urzadzenia-do-swiatel'))
+        sl_redirects.append((f'produkty/urzadzenia-oem/{oem_s}.html', 'produkty/urzadzenia-do-swiatel'))
     for old_r, new_r in sl_redirects:
         target_dir = os.path.join(DIST_DIR, old_r)
         if old_r.endswith('.html'):

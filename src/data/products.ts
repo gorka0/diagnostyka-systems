@@ -120,40 +120,6 @@ export const PRODUCTS_DATA: ProductItem[] = [
     "notes": null
   },
   {
-    "slug": "tester-ustawienia-swiatel-beissbarth-mld-815-77-86-detail",
-    "categorySlug": "nowosci",
-    "name": "Urządzenie do pomiaru geometrii Q.Lign T.41",
-    "shortDescription": "Urządzenie do pomiaru geometrii Q.Lign T.41",
-    "details": [
-      "Urządzenie do pomiaru geometrii Q.Lign T.41",
-      "Bezprzewodowy Q.Lign T-series to",
-      "profesjonalny, ultraszybki przyrząd do pomiaru i regulacji",
-      "geometrii w pojazdach samochodowych o DMC<3,5t",
-      "pracujący w technologii 3D.",
-      "Q.Lign T.41",
-      "Urządzenie można zamontować",
-      "w odległości 1800mm-3300mm, licząc od osi przedniej",
-      "pojazdu, umożliwiając pomiar pojazdów o rozstawie osi w",
-      "zakresie od",
-      "1750mm do",
-      "4600mm. System",
-      "może być",
-      "zamontowany na",
-      "wysokości 2,8m,",
-      "obejmując zasięgiem cały obszar roboczy dźwignika.",
-      "Prezentacja pomiarów możliwa na TV, tablecie, laptopie,",
-      "PC dzięki technologii Stream – to –X. Urodzenie jest wyposażone w 4 kamery wysokiej rozdzielczości.",
-      "bezprzewodowy pomiar i komunikacja z automatycznym rozpoznawaniem ekranów",
-      "mała przestrzeń robocza",
-      "brak konieczności stosowanie wózków i szafek nie ogranicza przestrzeni warsztatowej"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": true,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/nowosci/tester-ustawienia-swiatel-beissbarth-mld-815-77-86-detail.html",
-    "notes": "Niespójność w starym CMS: URL testera świateł MLD 815 zawierał opis geometrii Q.Lign T.41."
-  },
-  {
     "slug": "wywazarka-beissbarth-mt-zero-6-lcd-aw-detail",
     "categorySlug": "wywazarki-do-kol",
     "name": "Wyważarka Beissbarth G.20",
@@ -1096,350 +1062,6 @@ export const PRODUCTS_DATA: ProductItem[] = [
     "notes": null
   },
   {
-    "slug": "vas-6279-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "VAS 6279",
-    "shortDescription": "VAS 6279",
-    "details": [
-      "VAG : VAS 6279",
-      "VAS 6279"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6279-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "vas-6360-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "VAS 6360",
-    "shortDescription": "VAS 6360",
-    "details": [
-      "VAG : VAS 6360",
-      "VAS 6360"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6360-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "vas-6595-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "VAS 6595",
-    "shortDescription": "VAS 6595",
-    "details": [
-      "VAG : VAS 6595",
-      "VAS 6595"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6595-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "vas-6602-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "VAS 6602",
-    "shortDescription": "VAS 6602",
-    "details": [
-      "VAG : VAS 6602",
-      "VAS 6602"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6602-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "vas-6603-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "VAS 6603",
-    "shortDescription": "VAS 6603",
-    "details": [
-      "VAG : VAS 6603",
-      "VAS 6603"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6603-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "vas-6651-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "VAS 6651",
-    "shortDescription": "VAS 6651",
-    "details": [
-      "VAG : VAS 6651",
-      "VAS 6651"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6651-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "vas-6767-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "VAS 6767",
-    "shortDescription": "VAS 6767",
-    "details": [
-      "VAG : VAS 6767",
-      "VAS 6767"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6767-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "vas-6783-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "VAS 6783",
-    "shortDescription": "VAS 6783",
-    "details": [
-      "VAG : VAS 6783",
-      "VAS 6783"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/vag/vas-6783-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "ml-81r-tech-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "ML 81R TECH",
-    "shortDescription": "ML 81R TECH",
-    "details": [
-      "Mercedes : ML 81R TECH",
-      "ML 81R TECH"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/mercedes/ml-81r-tech-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "ml-81-tech-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "ML 81 TECH",
-    "shortDescription": "ML 81 TECH",
-    "details": [
-      "Mercedes : ML 81 TECH",
-      "ML 81 TECH"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/mercedes/ml-81-tech-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "wywaarka-beissbarth-mt-848-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "Wyważarka Beissbarth MT 848",
-    "shortDescription": "Wyważarka Beissbarth MT 848",
-    "details": [
-      "Mercedes : Wyważarka Beissbarth MT 848",
-      "Wyważarka Beissbarth MT 848"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/mercedes/wywaarka-beissbarth-mt-848-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "wywazarka-beissbarth-mt-868adt-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "Wyważarka Beissbarth MT 868ADT",
-    "shortDescription": "Mercedes : Wyważarka Beissbarth MT 868ADT",
-    "details": [
-      "Mercedes : Wyważarka Beissbarth MT 868ADT",
-      "Wyważarka Beissbarth MT 868ADT"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/mercedes/wywazarka-beissbarth-mt-868adt-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "bd-620-pc-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "BD 620 PC",
-    "shortDescription": "BD 620 PC",
-    "details": [
-      "Mercedes : BD 620 PC",
-      "BD 620 PC"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/mercedes/bd-620-pc-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "kds-ii-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "KDS II",
-    "shortDescription": "KDS II",
-    "details": [
-      "BMW : KDS II",
-      "KDS II"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/kds-ii-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "geometria-beissbarth-kds-3d-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "Geometria Beissbarth KDS 3D",
-    "shortDescription": "BMW : Geometria Beissbarth KDS 3D",
-    "details": [
-      "BMW : Geometria Beissbarth KDS 3D"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/geometria-beissbarth-kds-3d-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "mt-825d-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "MT 825D",
-    "shortDescription": "MT 825D",
-    "details": [
-      "BMW : MT 825D",
-      "MT 825D"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-825d-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "mt-825d2013-06-24-13-39-54_-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "MT 825D",
-    "shortDescription": "MT 825D",
-    "details": [
-      "BMW : MT 825D",
-      "MT 825D"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-825d2013-06-24-13-39-54_-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "mt-848ad-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "MT 848AD",
-    "shortDescription": "MT 848AD",
-    "details": [
-      "BMW : MT 848AD",
-      "MT 848AD"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-848ad-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "mt-868adt2013-06-24-13-41-37_-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "MT 868ADT",
-    "shortDescription": "MT 868ADT",
-    "details": [
-      "BMW : MT 868ADT",
-      "MT 868ADT"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/mt-868adt2013-06-24-13-41-37_-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "ms-65-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "MS 65",
-    "shortDescription": "MS 65",
-    "details": [
-      "BMW : MS 65",
-      "MS 65"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/ms-65-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "ms-680-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "MS 680",
-    "shortDescription": "MS 680",
-    "details": [
-      "BMW : MS 680",
-      "MS 680"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/bmw/ms-680-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "easy-3d-oem-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "EASY 3D OEM",
-    "shortDescription": "EASY 3D OEM",
-    "details": [
-      "Toyota : EASY 3D OEM",
-      "EASY 3D OEM"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/toyota/easy-3d-oem-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
-    "slug": "bd-640-toyota-detail",
-    "categorySlug": "urzadzenia-oem",
-    "name": "BD 640 Toyota",
-    "shortDescription": "BD 640 Toyota",
-    "details": [
-      "Toyota : BD 640 Toyota",
-      "BD 640 Toyota"
-    ],
-    "technicalSpecs": {},
-    "accessories": [],
-    "hasFullData": false,
-    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-dla-marki/toyota/bd-640-toyota-detail.html",
-    "notes": "Produkt OEM w starym CMS zawierał wyłącznie nazwę modelu bez specyfikacji technicznej."
-  },
-  {
     "slug": "wywazarka-beissbarth-mt-788-detail",
     "categorySlug": "pojazdy-ciezarowe",
     "name": "Wyważarka Beissbarth MT 788",
@@ -1763,7 +1385,7 @@ export const PRODUCTS_DATA: ProductItem[] = [
     "originalUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/geometria-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
     "notes": "Niespójność w starym CMS: tytuł i URL to ML 8 R TECH AWB, lecz treść opisuje Q.Lign 3D Compact."
   },
-{
+  {
     "slug": "demontazownica-beissbarth-tc-850-hd-detail",
     "categorySlug": "pojazdy-ciezarowe",
     "name": "Demontażownica ciężarowa Beissbarth TC850 HD",
@@ -1847,6 +1469,125 @@ export const PRODUCTS_DATA: ProductItem[] = [
     "accessories": [],
     "hasFullData": true,
     "originalUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/klatka-bezpieczenstwa.html",
+    "notes": null
+  },
+  {
+    "slug": "mld-815",
+    "categorySlug": "urzadzenia-do-swiatel",
+    "name": "Przyrząd do ustawiania świateł Beissbarth MLD 815",
+    "shortDescription": "Cyfrowy przyrząd do kontroli i regulacji świateł z kamerą CMOS, dwoma laserami pozycjonującymi, dotykowym ekranem 5.7\" i zintegrowaną drukarką termiczną. Pełna obsługa reflektorów Matrix LED, Xenon i Halogen.",
+    "priceNetto": "21.500 zł netto",
+    "priceVariants": [
+      {
+        "label": "MLD 815 wersja standard (kamera CMOS, 2x laser, ekran dotykowy 5.7\", drukarka)",
+        "priceNetto": "21.500 zł netto"
+      },
+      {
+        "label": "Opcja: Pokrowiec ochronny (nr kat. 1692105060)",
+        "priceNetto": "+286 zł netto"
+      },
+      {
+        "label": "Opcja: Szyny dł. 3m do przesuwu wzdłużnego testera (nr kat. 1692105080)",
+        "priceNetto": "+3.800 zł netto"
+      },
+      {
+        "label": "Opcja: Dodatkowe przedłużacze szyn 1,5m (nr kat. 1692105112)",
+        "priceNetto": "+2.100 zł netto"
+      },
+      {
+        "label": "Opcja: Czujnik automatycznego pomiaru wysokości (nr kat. 1692104329)",
+        "priceNetto": "+744 zł netto"
+      },
+      {
+        "label": "Opcja: Oprogramowanie IC Perform z Bluetooth do sieci ASA Network (nr kat. 1692105145)",
+        "priceNetto": "+3.800 zł netto"
+      }
+    ],
+    "details": [
+      "Beissbarth MLD 815 to nowoczesny, cyfrowy przyrząd do kontroli i precyzyjnego ustawiania świateł w pojazdach samochodowych, wyposażony w kamerę CMOS o wysokiej rozdzielczości z superszybką obróbką obrazu w czasie rzeczywistym.",
+      "System 2 laserów pozycjonujących: laserowy pozycjoner wspomaga pozycjonowanie testera na stanowisku pomiarowym nawet przy słabym oświetleniu hali, a laser krzyżowy pozwala idealnie ustawić tester względem lamp pojazdu (szczególnie istotne dla reflektorów LED, Matrix LED oraz Xenon).",
+      "Wysokiej klasy szklana soczewka o średnicy 230 mm zapewnia bezkompromisową jakość optyczną i powtarzalność pomiarów z dokładnością +/- 1 cm przy dystansie pomiarowym 10 m.",
+      "Interaktywny dotykowy wyświetlacz LCD 5.7\" (262 000 kolorów) z kurzo- i kroploszczelną osłoną, wskazujący cyfrowo linię odcięcia światła, kąty świecenia, odchylenie pionowe i poziome, światłość oraz natężenie oświetlenia.",
+      "Zintegrowana drukarka termiczna (wstęgowa) umożliwia natychmiastowy wydruk protokołu z wykonanego pomiaru i regulacji dla klienta.",
+      "Program pomiarowy automatycznie prowadzi diagnostę przez kolejne etapy badania. Urządzenie posiada oficjalne certyfikaty CE i TÜV."
+    ],
+    "technicalSpecs": {
+      "Przetwornik obrazu": "Kamera CMOS (szybka cyfrowa obróbka obrazu w czasie rzeczywistym)",
+      "System pozycjonowania": "2 lasery (pozycjoner stanowiska + laser krzyżowy względem lamp)",
+      "Układ optyczny": "Szklana soczewka o średnicy 230 mm",
+      "Dokładność pomiaru": "Dystans pomiarowy 10 m ± 1 cm",
+      "Wyświetlacz": "Interaktywny dotykowy LCD 5.7\" (262 000 kolorów, odporny na kurz i wilgoć)",
+      "Drukarka": "Zintegrowana drukarka termiczna (wstęgowa)",
+      "Obsługiwane źródła światła": "Halogen, Xenon, LED, LED Matrix",
+      "Rodzaje świateł": "Światła mijania, drogowe, przeciwmgielne",
+      "Zakres pomiarowy - pion (góra/dół)": "0% – 6% (0 – 600 mm)",
+      "Zakres pomiarowy - poziom (lewo/prawo)": "Mijania: 0% – 10% (0 – 1000 mm) | Drogowe: 0% – 10% (0 – 1000 mm)",
+      "Zakres pomiarowy - jasność": "Lux / 25m: 0 – 240 | Kandela: 0 – 150 000 cd | Lux / 1m: 0 – 150 000",
+      "Jednostki pomiarowe": "Światłość: Lux (25m), Candela, kLux (1m) | Regulacja: %, cm, °",
+      "Regulacja skoku soczewki": "240 – 1450 mm",
+      "Zasilanie": "Wewnętrzna bateria akumulatorowa / sieć 100-240 V (50-60 Hz)",
+      "Zakres temperatur pracy": "5°C – 45°C",
+      "Certyfikaty": "CE, TÜV"
+    },
+    "accessories": [
+      {
+        "name": "Kamera cyfrowa CMOS zintegrowana w obudowie optycznej",
+        "quantity": "1 szt.",
+        "isOptional": false
+      },
+      {
+        "name": "Laserowy pozycjoner do ustawiania testera na stanowisku",
+        "quantity": "1 szt.",
+        "isOptional": false
+      },
+      {
+        "name": "Laser krzyżowy do ustawienia względem reflektorów LED/Matrix/Xenon",
+        "quantity": "1 szt.",
+        "isOptional": false
+      },
+      {
+        "name": "Precyzyjna szklana soczewka o średnicy 230 mm",
+        "quantity": "1 szt.",
+        "isOptional": false
+      },
+      {
+        "name": "Wbudowana drukarka termiczna",
+        "quantity": "1 szt.",
+        "isOptional": false
+      },
+      {
+        "name": "Pokrowiec ochronny",
+        "quantity": "1 szt.",
+        "catalogNumber": "1692105060",
+        "isOptional": true
+      },
+      {
+        "name": "Szyny dł. 3m do swobodnego przesuwu wzdłużnego testera",
+        "quantity": "1 szt.",
+        "catalogNumber": "1692105080",
+        "isOptional": true
+      },
+      {
+        "name": "Dodatkowe przedłużacze szyn 1,5m",
+        "quantity": "1 szt.",
+        "catalogNumber": "1692105112",
+        "isOptional": true
+      },
+      {
+        "name": "Czujnik automatycznego pomiaru wysokości",
+        "quantity": "1 szt.",
+        "catalogNumber": "1692104329",
+        "isOptional": true
+      },
+      {
+        "name": "Oprogramowanie IC Perform z interfejsem bezprzewodowym Bluetooth (ASA Network)",
+        "quantity": "1 szt.",
+        "catalogNumber": "1692105145",
+        "isOptional": true
+      }
+    ],
+    "hasFullData": true,
+    "originalUrl": "https://www.beissbarth-service.pl/produkty/urzadzenia-do-swiatel/mld-815.html",
     "notes": null
   }
 ];

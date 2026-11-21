@@ -41,6 +41,7 @@ export const FACET_TYPES = [
   'Wyważarka do kół',
   'Demontażownica',
   'Linia diagnostyczna',
+  'Przyrząd do ustawiania świateł',
 ] as const;
 
 export const FACET_SERIES = [
@@ -50,6 +51,7 @@ export const FACET_SERIES = [
   'Seria G',
   'Seria TC',
   'Seria QB',
+  'Seria MLD',
   'Akimbo',
   'Infinity',
   'Screen-Testline',
@@ -98,6 +100,7 @@ export const CONTAIN_IMAGE_SLUGS = new Set<string>([
   'ms-630-demontazownica-beissbarth-serii-g-frame-detail',
   'ms-630-v1-demontazownica-beissbarth-serii-g-frame-detail',
   'qb-4',
+  'mld-815',
   'geometria-beissbarth-ml-1800-8r2017-01-13-08-15-53_-detail',
   'geometria-beissbarth-microline-4600-detail',
   'vas-6602-detail',
@@ -184,11 +187,20 @@ export function extractProductMetadata(product: ProductItem): ProductMetadata {
     nameL.startsWith('sl ')
   ) {
     typ = 'Linia diagnostyczna';
+  } else if (
+    nameL.includes('świateł') ||
+    nameL.includes('swiatel') ||
+    nameL.includes('mld') ||
+    catL.includes('swiatel')
+  ) {
+    typ = 'Przyrząd do ustawiania świateł';
   }
 
   // 5. Seria
   let seria: string | undefined = undefined;
-  if (nameL.includes('qb ') || nameL.includes('qb.') || slug.includes('qb-4')) {
+  if (nameL.includes('mld') || slug.includes('mld')) {
+    seria = 'Seria MLD';
+  } else if (nameL.includes('qb ') || nameL.includes('qb.') || slug.includes('qb-4')) {
     seria = 'Seria QB';
   } else if (nameL.includes('q.lign') || slug.includes('qlign')) {
     seria = 'Q.Lign';

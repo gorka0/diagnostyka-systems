@@ -6,7 +6,6 @@ import { OfferPage } from '@/pages/OfferPage';
 import { ProductsPage } from '@/pages/products/ProductsPage';
 import { CategoryPage } from '@/pages/products/CategoryPage';
 import { ProductDetailPage } from '@/pages/products/ProductDetailPage';
-import { OemProductsPage } from '@/pages/products/OemProductsPage';
 import { UsedProductsPage } from '@/pages/products/UsedProductsPage';
 import { RealizationsPage } from '@/pages/RealizationsPage';
 import { RealizationDetailPage } from '@/pages/RealizationDetailPage';
@@ -48,7 +47,7 @@ export const router = createBrowserRouter([
       },
       {
         path: 'urzadzenia-oem',
-        element: <OemProductsPage />,
+        element: <Navigate to="/produkty/urzadzenia-do-swiatel" replace />,
       },
       {
         path: 'produkty-uzywane',

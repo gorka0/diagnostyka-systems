@@ -45,8 +45,8 @@ export const HomePage: React.FC = () => {
     {
       title: 'Autoryzowane Stacje Obsługi (ASO)',
       description:
-        'Aparatura diagnostyczna i kalibracyjna z oficjalnymi homologacjami OEM czołowych producentów (BMW KDS, Grupa VAG VAS, Mercedes-Benz, Toyota).',
-      link: '/urzadzenia-oem',
+        'Aparatura diagnostyczna i cyfrowe przyrządy do świateł Matrix LED (MLD 815) z certyfikacją do badań i kalibracji reflektorów w ASO i SKP.',
+      link: '/produkty/urzadzenia-do-swiatel',
     },
     {
       title: 'Warsztaty mechaniczne i oponiarskie',
