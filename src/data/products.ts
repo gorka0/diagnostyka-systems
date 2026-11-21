@@ -37,25 +37,84 @@ export const PRODUCTS_DATA: ProductItem[] = [
     "slug": "ml-8-easy-ccd-excellence",
     "categorySlug": "geometria",
     "name": "Geometria Beissbarth ML 8 Easy CCD Excellence",
-    "shortDescription": "8-sensorowy radiowy przyrząd CCD do kontroli geometrii kół w pojazdach o DMC do 3,5 t z certyfikatem ITS do Stacji Kontroli Pojazdów.",
+    "shortDescription": "8-sensorowy radiowy przyrząd CCD do pomiaru i regulacji geometrii kół w pojazdach o DMC < 3,5 t z certyfikatem ITS do Stacji Kontroli Pojazdów.",
+    "priceNetto": "51.900 zł netto",
     "details": [
-      "Beissbarth ML 8 Easy CCD Excellence to profesjonalny, bezprzewodowy przyrząd pomiarowy z 8 sensorami CCD, posiadający oficjalny certyfikat Instytutu Transportu Samochodowego (ITS) do urzędowych badań technicznych na SKP.",
-      "Urządzenie wyposażone jest w 4 głowice pomiarowe CCD z enkoderami kątowymi i transmisją radiową 433 MHz, zasilane akumulatorowo. Zapewnia pełną kompensację bicia obręczy przez przetaczanie pojazdu lub uniesienie osi.",
-      "Stanowisko operatora obejmuje mobilny wózek z komputerem PC, panoramicznym monitorem 27\", kolorową drukarką raportów oraz zaawansowanym oprogramowaniem pomiarowym z regularnie aktualizowaną bazą danych ponad 35 000 modeli pojazdów od 55 producentów.",
-      "Pomiar wszystkich parametrów osi przedniej i tylnej: zbieżność całkowita i połówkowa, kąt pochylenia koła, wyprzedzenie i pochylenie osi sworznia zwrotnicy, nierównoległość osi oraz różnica kątów skrętu."
+      "Beissbarth ML 8 Easy CCD Excellence (nr kat. 1 690 310 074) to profesjonalny przyrząd do pomiaru i regulacji geometrii kół w pojazdach samochodowych o DMC < 3,5 t, posiadający oficjalny certyfikat Instytutu Transportu Samochodowego (ITS) do urzędowych badań technicznych na SKP.",
+      "Urządzenie wyposażone jest w 4 zespoły pomiarowe z 8 sensorami CCD i radiową transmisją danych. Pomiar realizowany jest precyzyjną wiązką podczerwieni, a wyniki są wizualizowane w czasie rzeczywistym na panoramicznym monitorze 27\".",
+      "Automatyczny pomiar kompensacji bicia kół przez przetaczanie lub uniesienie pojazdu dzięki zastosowaniu elektronicznego kompensatora.",
+      "Głowice pomiarowe z nowoczesnymi czujnikami CCD o zakresie pomiarowym 20° umożliwiają dokładny pomiar wszystkich parametrów pojazdu: kątów zbieżności i pochylenia kół, wyprzedzenia osi sworznia zwrotnicy, przestawienia kół i osi pojazdu.",
+      "Program pomiarowy umożliwia wydruk zmierzonych parametrów w formie czytelnej tabeli lub graficznej. Baza danych obejmuje ponad 20 000 pojazdów od 55 producentów."
     ],
     "technicalSpecs": {
-      "Typ urządzenia": "8-sensorowa geometria bezprzewodowa CCD",
+      "Numer katalogowy zestawu": "1 690 310 074",
+      "Typ urządzenia": "Bezprzewodowa 8-sensorowa geometria kół CCD",
+      "Zakres pojazdów": "Samochody osobowe i dostawcze o DMC < 3,5 t",
       "Certyfikacja": "Certyfikat ITS do Stacji Kontroli Pojazdów (SKP)",
-      "Transmisja danych": "Bezprzewodowa radiowa 433 MHz",
-      "Liczba głowic": "4 głowice z 8 czujnikami CCD",
-      "Kompensacja bicia": "Przez przetoczenie pojazdu (ROC) lub uniesienie",
-      "Zakres pomiarowy CCD": "±20°",
-      "Stanowisko PC": "Wózek warsztatowy, PC Windows, monitor 27\", drukarka",
-      "Baza danych": "Ponad 35 000 pojazdów, 55 marek z aktualizacją",
+      "Transmisja danych": "Bezprzewodowa radiowa transmisja danych",
+      "Sensory pomiarowe": "4 zespoły pomiarowe z 8 sensorami CCD (wiązka podczerwieni)",
+      "Zakres kamer CCD": "20°",
+      "Kompensacja bicia": "Automatyczna przez przetaczanie lub uniesienie (kompensator elektroniczny)",
+      "Jednostka centralna": "Wózek warsztatowy z komputerem PC, monitorem 27\", drukarką i stacją zasilania głowic",
+      "Baza danych pojazdów": "Ponad 20 000 pojazdów od 55 producentów",
       "Zasilanie": "230 V | 50-60 Hz"
     },
-    "accessories": [],
+    "accessories": [
+      {
+        "name": "Komplet zespołów pomiarowych z automatycznym kompensatorem",
+        "quantity": "1 kpl.",
+        "catalogNumber": "932.501.095",
+        "isOptional": false
+      },
+      {
+        "name": "Jednostka centralna z komputerem, monitorem 27\", drukarką i stacją zasilania głowic pomiarowych",
+        "quantity": "1 szt.",
+        "catalogNumber": "932.501.087",
+        "isOptional": false
+      },
+      {
+        "name": "Aluminiowe obrotnice mechaniczne",
+        "quantity": "2 szt.",
+        "catalogNumber": "932.401.092",
+        "isOptional": false
+      },
+      {
+        "name": "Wypełnienia obrotnic mechanicznych",
+        "quantity": "1 kpl.",
+        "catalogNumber": "",
+        "isOptional": false
+      },
+      {
+        "name": "Zaciski samocentrujące o zakresie mocowania 13\" - 21\"",
+        "quantity": "4 szt.",
+        "catalogNumber": "932.401.111",
+        "isOptional": false
+      },
+      {
+        "name": "Blokada pedału hamulca",
+        "quantity": "1 szt.",
+        "catalogNumber": "932.401.013",
+        "isOptional": false
+      },
+      {
+        "name": "Blokada koła kierownicy",
+        "quantity": "1 szt.",
+        "catalogNumber": "932.401.012",
+        "isOptional": false
+      },
+      {
+        "name": "Instrukcja obsługi w języku polskim",
+        "quantity": "1 szt.",
+        "catalogNumber": "902.502.101",
+        "isOptional": false
+      },
+      {
+        "name": "Zestaw przewodów awaryjnych",
+        "quantity": "1 kpl.",
+        "catalogNumber": "1690401012",
+        "isOptional": false
+      }
+    ],
     "hasFullData": true,
     "originalUrl": "https://www.beissbarth-service.pl/ml-easy-3d.html",
     "notes": null
