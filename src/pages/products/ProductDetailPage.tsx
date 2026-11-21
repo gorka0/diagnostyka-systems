@@ -246,25 +246,24 @@ export const ProductDetailPage: React.FC = () => {
                 </p>
               </div>
 
-              {/* 3 kluczowe parametry dużą czcionką z danych technicznych */}
+              {/* Kluczowe parametry techniczne urządzenia - czytelne kafelki metryk bez ucinania tekstu */}
               {topThreeSpecs.length > 0 && (
-                <div className="pt-4 border-t border-surface-border grid grid-cols-1 sm:grid-cols-3 gap-3">
-                  {topThreeSpecs.map(([paramKey, paramVal]) => (
-                    <div key={paramKey} className="space-y-0.5">
-                      <span
-                        className="text-[17px] font-bold text-foreground font-mono block truncate"
-                        title={paramVal}
+                <div className="pt-4 border-t border-surface-border">
+                  <div className="space-y-2">
+                    {topThreeSpecs.map(([paramKey, paramVal]) => (
+                      <div
+                        key={paramKey}
+                        className="py-2.5 px-3.5 rounded-[10px] bg-background border border-surface-border transition-colors hover:border-surface-border/80"
                       >
-                        {paramVal}
-                      </span>
-                      <span
-                        className="text-[12px] text-foreground-secondary block truncate"
-                        title={paramKey}
-                      >
-                        {paramKey}
-                      </span>
-                    </div>
-                  ))}
+                        <span className="text-[11px] font-semibold text-foreground-secondary uppercase tracking-wider block">
+                          {paramKey}
+                        </span>
+                        <span className="text-[14px] sm:text-[15px] font-bold text-foreground font-mono mt-0.5 block leading-snug break-words">
+                          {paramVal}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               )}
 
