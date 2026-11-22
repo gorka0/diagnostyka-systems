@@ -58,7 +58,7 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     name: 'Przyrządy do ustawiania świateł',
     description: 'Cyfrowe przyrządy do kontroli i regulacji świateł serii MLD (MLD 815, MLD 9000). Kamera CMOS do 5 MP, system pozycjonowania laserowego, pełna obsługa reflektorów Matrix LED / Matrix beam 2, Xenon i Halogen.',
     productCount: 2,
-    featured: true,
+    featured: false,
     imageKey: 'product-mld-815',
     subcategories: [
       'Przyrządy z kamerą CMOS (MLD 815, MLD 9000)',
