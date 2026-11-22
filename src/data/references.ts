@@ -65,12 +65,12 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     objectPosition: 'center',
   },
   {
-    slug: 'zst-kutno',
-    name: 'Zespół Szkół Technicznych w Kutnie (ZST Kutno)',
+    slug: 'zs1-kutno',
+    name: 'Zespół Szkół Nr 1 im. Stanisława Staszica w Kutnie',
     brand: 'inne',
     city: 'Kutno',
-    url: 'https://zstkutno.pl',
-    photo: 'stanowisko-diagnostyczne-hero',
+    url: 'https://staszickutno.pl',
+    photo: 'zs1-kutno',
     objectPosition: 'center',
   },
   {

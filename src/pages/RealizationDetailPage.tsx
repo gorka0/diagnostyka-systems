@@ -27,7 +27,9 @@ export const RealizationDetailPage: React.FC = () => {
   }
 
   const cleanSlug = normalizeRealizationSlug(slug);
-  const realization = REFERENCES_DATA.find((r) => r.slug === cleanSlug);
+  const realization = REFERENCES_DATA.find(
+    (r) => r.slug === cleanSlug || (cleanSlug === 'zst-kutno' && r.slug === 'zs1-kutno')
+  );
 
   if (!realization) {
     return <Navigate to="/realizacje" replace />;

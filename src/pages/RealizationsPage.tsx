@@ -119,10 +119,14 @@ export const RealizationsPage: React.FC = () => {
                     <article
                       key={item.slug}
                       id={item.slug}
-                      className={`flex flex-col lg:items-center gap-8 lg:gap-14 py-8 sm:py-12 border-b border-surface-border/70 last:border-b-0 scroll-mt-28 ${
+                      className={`relative flex flex-col lg:items-center gap-8 lg:gap-14 py-8 sm:py-12 border-b border-surface-border/70 last:border-b-0 scroll-mt-28 ${
                         isReversed ? 'lg:flex-row-reverse' : 'lg:flex-row'
                       }`}
                     >
+                      {/* Kotwica kompatybilności wstecznej dla #zst-kutno */}
+                      {item.slug === 'zs1-kutno' && (
+                        <span id="zst-kutno" className="absolute -top-28 pointer-events-none invisible" />
+                      )}
                       {/* Zdjęcie 3:2 w ramce z pomarańczowymi narożnikami-nawiasami */}
                       <div className="w-full lg:w-1/2 shrink-0">
                         <div className="relative aspect-[3/2] w-full rounded-[16px] overflow-hidden bg-[#F7F7F5] border border-surface-border p-3 sm:p-4">
@@ -149,7 +153,7 @@ export const RealizationsPage: React.FC = () => {
                         {/* Etykieta marki i lokalizacja */}
                         <div className="flex items-center gap-2.5 text-xs text-foreground-secondary">
                           <span className="font-semibold text-accent-text uppercase tracking-wider">
-                            {item.brand === 'inne' ? 'Centrum Motoryzacyjne' : item.brand}
+                            {item.brand === 'inne' ? 'Edukacja Techniczna' : item.brand}
                           </span>
                           {item.city && (
                             <>

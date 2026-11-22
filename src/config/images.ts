@@ -301,6 +301,33 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
     category: 'realizations',
     alt: 'Autoryzowany Salon i Serwis Skoda Bieranowski w Bydgoszczy wyposażony przez Diagnostyka-Systems',
   },
+  'realization-zs1-kutno': {
+    fileName: 'zs1-kutno.webp',
+    path: '/images/zs1-kutno.webp',
+    dimensions: '1200x800',
+    aspectRatio: '3/2',
+    label: 'Zespół Szkół Nr 1 im. Stanisława Staszica w Kutnie',
+    category: 'realizations',
+    alt: 'Budynek Zespołu Szkół Nr 1 im. Stanisława Staszica w Kutnie wyposażony w aparaturę diagnostyczną Beissbarth',
+  },
+  'zs1-kutno': {
+    fileName: 'zs1-kutno.webp',
+    path: '/images/zs1-kutno.webp',
+    dimensions: '1200x800',
+    aspectRatio: '3/2',
+    label: 'Zespół Szkół Nr 1 im. Stanisława Staszica w Kutnie',
+    category: 'realizations',
+    alt: 'Budynek Zespołu Szkół Nr 1 im. Stanisława Staszica w Kutnie wyposażony w aparaturę diagnostyczną Beissbarth',
+  },
+  'zst-kutno': {
+    fileName: 'zst-kutno.webp',
+    path: '/images/zst-kutno.webp',
+    dimensions: '1200x800',
+    aspectRatio: '3/2',
+    label: 'Zespół Szkół Nr 1 im. Stanisława Staszica w Kutnie',
+    category: 'realizations',
+    alt: 'Budynek Zespołu Szkół Nr 1 im. Stanisława Staszica w Kutnie wyposażony w aparaturę diagnostyczną Beissbarth',
+  },
 
   // Certyfikaty i autoryzacje
   'cert-beissbarth': {
