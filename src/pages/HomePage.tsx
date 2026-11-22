@@ -4,7 +4,7 @@ import { Seo } from '@/components/common/Seo';
 import { getHomepageJsonLd } from '@/utils/seo';
 import { Button } from '@/components/ui/Button';
 import { SiteImage } from '@/components/common/SiteImage';
-import { Crosshair, CornerBrackets } from '@/components/ui/MeasurementMarks';
+import { Crosshair, CornerBrackets, MeasurementDivider } from '@/components/ui/MeasurementMarks';
 import { CertificateLightbox } from '@/components/ui/CertificateLightbox';
 import { PRODUCT_CATEGORIES } from '@/data/categories';
 import { PROMOTIONS_DATA } from '@/data/promotions';
@@ -202,6 +202,11 @@ export const HomePage: React.FC = () => {
               </div>
             </div>
           </div>
+
+          {/* Podziałka pomiarowa CAD zamykająca blok Hero */}
+          <div className="pt-4">
+            <MeasurementDivider dark={true} />
+          </div>
         </div>
       </section>
 
@@ -294,7 +299,12 @@ export const HomePage: React.FC = () => {
                   </div>
 
                   {/* Zdjęcie produktu na środku z łagodnym powiększeniem przy hoverze */}
-                  <div className="my-8 aspect-[16/10] w-full flex items-center justify-center overflow-hidden">
+                  <div className="relative my-8 aspect-[16/10] w-full flex items-center justify-center overflow-hidden">
+                    <CornerBrackets
+                      size={14}
+                      color="#EE9D16"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    />
                     <SiteImage
                       name={cat.imageKey || `cat-${cat.slug}`}
                       fit="contain"
@@ -333,7 +343,12 @@ export const HomePage: React.FC = () => {
                   </div>
 
                   {/* Zdjęcie produktu 4:3 */}
-                  <div className="my-6 aspect-[4/3] w-full flex items-center justify-center overflow-hidden">
+                  <div className="relative my-6 aspect-[4/3] w-full flex items-center justify-center overflow-hidden">
+                    <CornerBrackets
+                      size={12}
+                      color="#EE9D16"
+                      className="opacity-0 group-hover:opacity-100 transition-opacity duration-200"
+                    />
                     <SiteImage
                       name={cat.imageKey || `cat-${cat.slug}`}
                       fit="contain"
@@ -446,8 +461,13 @@ export const HomePage: React.FC = () => {
             })}
           </div>
 
+          {/* Podziałka pomiarowa CAD nad blokiem CTA */}
+          <div className="pt-4 pb-2">
+            <MeasurementDivider dark={true} />
+          </div>
+
           {/* Blok CTA: Przycisk primary + duży telefon */}
-          <div className="pt-8 border-t border-white/12 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
+          <div className="pt-6 flex flex-col lg:flex-row lg:items-center justify-between gap-6">
             <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
               <Button
                 to="/kontakt?typ=serwis"
