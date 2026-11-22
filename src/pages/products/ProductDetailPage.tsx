@@ -154,6 +154,30 @@ export const ProductDetailPage: React.FC = () => {
               />
             </div>
 
+            {/* Sekcja Opis: od razu pod obrazkiem, w stylu sekcji danych technicznych */}
+            {(product.shortDescription || (product.details && product.details.length > 0)) && (
+              <div className="space-y-4 pt-4 border-t border-surface-border">
+                <div className="flex items-center justify-between">
+                  <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+                    Opis
+                  </h2>
+                </div>
+
+                <div className="space-y-3.5 text-[15px] sm:text-[16px] text-foreground-secondary leading-relaxed">
+                  {product.shortDescription && (
+                    <p className="text-foreground font-medium text-[16px] sm:text-[17px] leading-snug">
+                      {formatPolishTypography(product.shortDescription)}
+                    </p>
+                  )}
+                  {product.details && product.details.map((paragraph, idx) => (
+                    <p key={idx}>
+                      {formatPolishTypography(paragraph)}
+                    </p>
+                  ))}
+                </div>
+              </div>
+            )}
+
             {/* Tabela danych technicznych: tylko gdy produkt posiada dane techniczne w bazie */}
             {hasSpecs && (
               <div className="space-y-5 pt-4 border-t border-surface-border">
@@ -238,12 +262,6 @@ export const ProductDetailPage: React.FC = () => {
                     {product.name}
                   </p>
                 )}
-                <p className="mt-3 text-[14px] sm:text-[15px] text-foreground-secondary leading-relaxed">
-                  {formatPolishTypography(
-                    product.shortDescription ||
-                      'Oryginalna aparatura diagnostyczna Beissbarth z pełną opieką autoryzowanego serwisu.'
-                  )}
-                </p>
               </div>
 
               {/* Kluczowe parametry techniczne urządzenia - czytelne kafelki metryk bez ucinania tekstu */}
