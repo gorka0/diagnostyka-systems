@@ -5,6 +5,7 @@ import { Container } from '@/components/ui/Container';
 import { SiteImage } from '@/components/common/SiteImage';
 import { PRODUCT_CATEGORIES } from '@/data/categories';
 import { PRODUCTS_DATA, ProductItem } from '@/data/products';
+import { COMPANY_DATA } from '@/data/company';
 import { getCollectionJsonLd } from '@/utils/seo';
 import {
   extractProductMetadata,
@@ -629,7 +630,7 @@ export const ProductsPage: React.FC = () => {
               {!meta.typ && !meta.seria && meta.oemBrand ? `OEM · ${meta.oemBrand}` : ''}
             </p>
           </div>
-          {product.priceNetto && (
+          {COMPANY_DATA.showPrices && product.priceNetto && (
             <div className="pt-2 border-t border-surface-border/60 flex items-baseline justify-between">
               <span className="text-[11px] font-medium text-foreground-secondary uppercase tracking-wider">Cena</span>
               <span className="text-[13px] font-mono font-bold text-foreground">
@@ -691,7 +692,7 @@ export const ProductsPage: React.FC = () => {
 
         {/* Prawa strona: cena + strzałka */}
         <div className="shrink-0 flex items-center gap-2 sm:gap-3 pl-2">
-          {product.priceNetto && (
+          {COMPANY_DATA.showPrices && product.priceNetto && (
             <span className="text-[11px] sm:text-[13px] font-mono font-bold text-foreground text-right whitespace-nowrap">
               {product.priceNetto}
             </span>

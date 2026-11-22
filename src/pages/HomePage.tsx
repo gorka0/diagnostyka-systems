@@ -245,14 +245,25 @@ export const HomePage: React.FC = () => {
 
               {/* Prawa: Duża cena i przycisk */}
               <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-4 pt-4 lg:pt-0 border-t lg:border-t-0 border-surface-border">
-                <div>
-                  <span className="text-[38px] sm:text-[44px] font-bold text-foreground tracking-tight leading-none tabular-nums block">
-                    {activePromo.priceNetto}
-                  </span>
-                  <span className="text-[14px] text-foreground-secondary block mt-1">
-                    cena netto (zestaw gotowy do pracy)
-                  </span>
-                </div>
+                {COMPANY_DATA.showPrices ? (
+                  <div>
+                    <span className="text-[38px] sm:text-[44px] font-bold text-foreground tracking-tight leading-none tabular-nums block">
+                      {activePromo.priceNetto}
+                    </span>
+                    <span className="text-[14px] text-foreground-secondary block mt-1">
+                      cena netto (zestaw gotowy do pracy)
+                    </span>
+                  </div>
+                ) : (
+                  <div>
+                    <span className="text-[26px] sm:text-[30px] font-bold text-foreground tracking-tight leading-none block">
+                      Cena na zapytanie
+                    </span>
+                    <span className="text-[14px] text-foreground-secondary block mt-1">
+                      zestaw gotowy do pracy · zapytaj o ofertę
+                    </span>
+                  </div>
+                )}
                 <Button
                   to={`/kontakt?typ=oferta&produkt=${encodeURIComponent(activePromo.title)}`}
                   variant="primary"

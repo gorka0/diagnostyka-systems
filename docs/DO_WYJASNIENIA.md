@@ -196,9 +196,9 @@ Wdrożono silnik parsowania i normalizacji danych `/src/data/parse-rules.ts`, kt
    - Normalizacja typograficzna: twarda spacja przed jednostkami (`km/h`, `t`, `kW`, `mm`, `kg`, `V`), półpauza w zakresach (`800–2200 mm`), spójne separatory ` · ` zamiast pionowych kresek `|`.
    - Scalenie wariantów: wiersze typu `Rozstaw kół (wariant 2200mm)` i `Rozstaw kół (wariant 2800mm)` zostały zintegrowane w jeden logiczny wiersz przełączany identyfikatorem `variantId`.
 
-4. **Flaga globalna cen:**
-   - W pliku `src/data/company.ts` wdrożono flagę `showPrices: true`.
-   - W przypadku podjęcia decyzji przez klienta o ukryciu wszystkich cen katalogowych, zmiana flagi na `false` natychmiastowo przełącza wszystkie karty w tryb "Cena na zapytanie".
+4. **Flaga globalna cen (`showPrices: false`):**
+   - W pliku `src/data/company.ts` ustawiono flagę `showPrices: false` (zgodnie z decyzją o ukryciu wszystkich cen z uwagi na częste zmiany cenników dystrybutora).
+   - Wszystkie karty produktów (strona główna, katalog, kategorie, karta produktu, opcje dodatkowe, warianty oraz pasek mobilny) wyświetlają teraz tryb **"Cena na zapytanie"**, a kolumny z cenami opcji zostały automatycznie ukryte.
 
 5. **Ujednolicenie zapisu nazwy 'QB 4' vs 'QB.4':**
    - W nagłówkach i oficjalnych materiałach Beissbarth linia diagnostyczna figuruje jako `QB 4` (ze spacją), natomiast w niektórych roboczych wariantach pojawił się zapis `QB.4`.

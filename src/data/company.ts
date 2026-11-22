@@ -44,8 +44,8 @@ export const COMPANY_DATA = {
   tagline: 'Autoryzowany dystrybutor i serwis urządzeń warsztatowych Beissbarth',
   description: 'Kompleksowe wyposażenie i autoryzowany serwis SKP, ASO oraz serwisów oponiarskich i mechanicznych. Geometria 3D, linie diagnostyczne, wyważarki i montażownice kół.',
 
-  // Globalna flaga widoczności cen katalogowych (domyślnie włączona)
-  showPrices: true,
+  // Globalna flaga widoczności cen katalogowych (wyłączona: ceny na zapytanie)
+  showPrices: false,
 
   // Główny adres operacyjny / magazyn / siedziba (do kontaktu i nawigacji)
   officeAddress: {

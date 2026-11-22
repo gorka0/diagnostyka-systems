@@ -166,9 +166,9 @@ export const ProductDetailPage: React.FC = () => {
 
   const selectedCount = selectedOptionsList.length;
   const hasAnyOptionPrice = useMemo(() => {
-    if (!parsedModel) return false;
+    if (!parsedModel || !showPrices) return false;
     return parsedModel.options.some((o) => o.price !== null);
-  }, [parsedModel]);
+  }, [parsedModel, showPrices]);
 
   const allSelectedPriced =
     basePrice !== null && selectedOptionsList.every((o) => o.price !== null);
@@ -656,22 +656,26 @@ export const ProductDetailPage: React.FC = () => {
             aria-label="Panel zakupu urządzenia"
             className="order-2 w-full lg:w-[380px] lg:shrink-0 p-6 sm:p-7 rounded-[14px] bg-background-subtle border border-surface-border space-y-5 lg:sticky lg:top-24 self-start"
           >
-              {/* 3. Blok ceny: etykieta "Cena katalogowa", wartość "X zł netto" */}
+              {/* 3. Blok ceny */}
               <div className="space-y-1">
-                <span className="text-[13px] sm:text-[14px] text-foreground-secondary block font-normal">
-                  Cena katalogowa
-                </span>
-                <div>
-                  {showPrices && basePrice !== null ? (
-                    <span className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight whitespace-nowrap tabular-nums">
-                      {formatPrice(basePrice)}
+                {showPrices && basePrice !== null ? (
+                  <>
+                    <span className="text-[13px] sm:text-[14px] text-foreground-secondary block font-normal">
+                      Cena katalogowa
                     </span>
-                  ) : (
+                    <div>
+                      <span className="text-2xl sm:text-3xl font-extrabold text-foreground tracking-tight whitespace-nowrap tabular-nums">
+                        {formatPrice(basePrice)}
+                      </span>
+                    </div>
+                  </>
+                ) : (
+                  <div>
                     <span className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
                       Cena na zapytanie
                     </span>
-                  )}
-                </div>
+                  </div>
+                )}
               </div>
 
               {/* 3. Wybór wersji (jeśli >= 2): karty-radio z obrysem 2px #1F2328 i tłem #F7F7F5 */}
@@ -764,7 +768,7 @@ export const ProductDetailPage: React.FC = () => {
                           (cena katalogowa)
                         </p>
                       ) : (
-                        <p>oraz opcje wg wyceny</p>
+                        <p>Wycena opcji na zapytanie</p>
                       )}
                     </div>
                   </div>
