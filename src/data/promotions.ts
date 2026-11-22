@@ -10,9 +10,10 @@ export interface PromotionItem {
   slug: string;
   title: string;
   description: string;
-  priceNetto: string;
+  priceNetto?: string;
   bonus: string;
   active: boolean;
+  showPrice?: boolean;
   modelCode?: string;
   category?: string;
   details?: string;
@@ -27,6 +28,7 @@ export const PROMOTIONS_DATA: PromotionItem[] = [
     priceNetto: '51 900 zł netto',
     bonus: 'Dostawa, montaż i szkolenie personelu w cenie zestawu',
     active: true,
+    showPrice: false,
     modelCode: 'ML 8 Easy CCD Excellence',
     category: 'Geometria',
     details: '4 zespoły pomiarowe z 8 sensorami CCD, radiowa transmisja, baza ponad 20 000 pojazdów, atest ITS do badań technicznych.',

@@ -111,7 +111,7 @@ export function getProductJsonLd(product: ProductItem, categoryName?: string) {
   const photoUrl = `${BASE_URL}/images/${product.slug}.jpg`;
   const productUrl = `${BASE_URL}/produkty/${product.categorySlug}/${product.slug}`;
 
-  return {
+  const jsonLd: Record<string, any> = {
     '@context': 'https://schema.org',
     '@type': 'Product',
     'name': product.name,
@@ -123,7 +123,20 @@ export function getProductJsonLd(product: ProductItem, categoryName?: string) {
       '@type': 'Brand',
       'name': 'Beissbarth',
     },
-    'offers': {
+  };
+
+  const catalogNo =
+    product.technicalSpecs?.['Numer katalogowy'] ||
+    product.technicalSpecs?.['Numer katalogowy zestawu'] ||
+    product.accessories?.[0]?.catalogNumber;
+  if (catalogNo && !catalogNo.includes('zł')) {
+    jsonLd.sku = catalogNo.trim();
+    jsonLd.mpn = catalogNo.trim();
+  }
+
+  // W trybie bez cen (showPrices=false) wycinamy Offer, price i priceCurrency
+  if (COMPANY_DATA.showPrices && product.priceNetto) {
+    jsonLd.offers = {
       '@type': 'Offer',
       'url': productUrl,
       'priceCurrency': 'PLN',
@@ -133,8 +146,10 @@ export function getProductJsonLd(product: ProductItem, categoryName?: string) {
         'name': COMPANY_DATA.name,
         'url': BASE_URL,
       },
-    },
-  };
+    };
+  }
+
+  return jsonLd;
 }
 
 export function getAboutJsonLd() {

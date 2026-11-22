@@ -243,9 +243,9 @@ export const HomePage: React.FC = () => {
                 </p>
               </div>
 
-              {/* Prawa: Duża cena i przycisk */}
+              {/* Prawa: Cena (gdy włączona) lub fakty z oferty i przycisk Zapytaj o promocję */}
               <div className="lg:col-span-4 flex flex-col sm:flex-row lg:flex-col items-start lg:items-end justify-between gap-4 pt-4 lg:pt-0 border-t lg:border-t-0 border-surface-border">
-                {COMPANY_DATA.showPrices ? (
+                {COMPANY_DATA.showPrices && activePromo.showPrice && activePromo.priceNetto ? (
                   <div>
                     <span className="text-[38px] sm:text-[44px] font-bold text-foreground tracking-tight leading-none tabular-nums block">
                       {activePromo.priceNetto}
@@ -255,12 +255,15 @@ export const HomePage: React.FC = () => {
                     </span>
                   </div>
                 ) : (
-                  <div>
-                    <span className="text-[26px] sm:text-[30px] font-bold text-foreground tracking-tight leading-none block">
-                      Cena na zapytanie
-                    </span>
-                    <span className="text-[14px] text-foreground-secondary block mt-1">
-                      zestaw gotowy do pracy · zapytaj o ofertę
+                  <div className="space-y-1 text-left lg:text-right">
+                    {activePromo.bonus && (
+                      <span className="text-[14px] sm:text-[15px] font-semibold text-foreground flex items-center lg:justify-end gap-1.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                        {formatPolishTypography(activePromo.bonus)}
+                      </span>
+                    )}
+                    <span className="text-[13px] text-foreground-secondary block">
+                      Oficjalna konfiguracja i doradztwo techniczne
                     </span>
                   </div>
                 )}

@@ -4,6 +4,7 @@
  */
 
 import type { ProductItem } from '@/data/products';
+import { COMPANY_DATA } from '@/data/company';
 
 export interface ProductVariant {
   id: string;
@@ -52,12 +53,17 @@ export function parsePrice(val: string | number | null | undefined): number | nu
 
 /**
  * Formatowanie kwoty: "49 600 zł" z twardą spacją (\u00A0) i "netto" w tej samej linii (white-space: nowrap).
+ * Gdy COMPANY_DATA.showPrices === false, funkcja nic nie renderuje (zwraca pusty ciąg znaków).
  * Nigdy "49.600".
  */
 export function formatPrice(
   amount: number | null | undefined,
   prefix: string = ''
 ): string {
+  if (!COMPANY_DATA.showPrices) {
+    return '';
+  }
+
   if (amount === null || amount === undefined) {
     return 'Cena na zapytanie';
   }

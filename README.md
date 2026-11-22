@@ -143,3 +143,33 @@ Wyniki i treść sformatowanych e-maili zapisywane są w pliku:
 | `certyfikat-autoryzacji-beissbarth.jpg` | **800 × 1130 px** | A4 pion | Oficjalny certyfikat autoryzacji fabrycznej Beissbarth GmbH |
 | `certyfikat-its-skp.jpg` | **800 × 1130 px** | A4 pion | Certyfikat zgodności Instytutu Transportu Samochodowego |
 | `certyfikat-valeo-klima.jpg` | **800 × 1130 px** | A4 pion | Certyfikat autoryzowanego partnera serwisowego Valeo / SPX |
+
+---
+
+## 8. Tryb bez cen (Wycena indywidualna / Zapytanie o produkt)
+
+Domyślnie serwis działa w trybie **bez publikacji cen** (`showPrices = false`), ponieważ ceny aparatury warsztatowej podlegają częstym zmianom dystrybutorskim. Ceny ustalane są indywidualnie po przesłaniu zapytania ofertowego.
+
+### Jak włączyć ceny z powrotem (`showPrices: true`):
+
+1. Otwórz plik `src/data/company.ts`:
+```typescript
+export const COMPANY_DATA = {
+  // ...
+  showPrices: true, // zmień z false na true
+  // ...
+};
+```
+
+2. Zbuduj ponownie aplikację produkcyjną:
+```bash
+npm run build
+```
+
+### Architektura wycinania cen przy buildzie:
+- **Zachowanie danych źródłowych:** Ceny, wersje i dopłaty do opcji pozostają nienaruszone w repozytorium (`src/data/products.ts`, `src/data/parse-rules.ts`, `src/data/promotions.ts`).
+- **Sanityzacja bundla (Vite Plugin):** Gdy `showPrices: false`, plugin `stripPricesPlugin` w `vite.config.ts` automatycznie wycina pola cenowe z kodu przed kompilacją Rollup, dzięki czemu w plikach `.js`, `.html` i `.json` w katalogu `dist/` nie ma żadnych wzorców kwot ani słów cenowych.
+- **Jedno źródło prawdy w UI:** Komponent `<Price />` oraz funkcja `formatPrice()` przy `showPrices = false` nie renderują nic w DOM.
+- **SEO & JSON-LD:** Schemat `Product` w JSON-LD nie zawiera obiektu `Offer`, ani pól `price` i `priceCurrency`.
+- **Panel produktu:** W trybie bez cen blok cenowy prezentuje nagłówek *„Wycena indywidualna”* oraz informację *„Cenę ustalamy po zapytaniu. Wybraną wersję i opcje dołączymy do zapytania.”*. Tabela opcji rozszerza nazwy na pełną szerokość z numerem katalogowym, eliminując puste kolumny.
+

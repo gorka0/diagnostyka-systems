@@ -12,6 +12,7 @@ import { LABELS } from '@/config/labels';
 import { formatPolishTypography, formatPhoneWithNbsp, cleanTelHref } from '@/utils/typography';
 import { extractProductMetadata } from '@/data/catalog-rules';
 import { parseProductModel, formatPrice } from '@/data/parse-rules';
+import { Price } from '@/components/common/Price';
 import { ChevronDown, ArrowLeft, ArrowRight, Phone, CheckCircle2 } from 'lucide-react';
 
 export const ProductDetailPage: React.FC = () => {
@@ -165,10 +166,6 @@ export const ProductDetailPage: React.FC = () => {
   }, [parsedModel, selectedOptionIds]);
 
   const selectedCount = selectedOptionsList.length;
-  const hasAnyOptionPrice = useMemo(() => {
-    if (!parsedModel || !showPrices) return false;
-    return parsedModel.options.some((o) => o.price !== null);
-  }, [parsedModel, showPrices]);
 
   const allSelectedPriced =
     basePrice !== null && selectedOptionsList.every((o) => o.price !== null);
@@ -513,11 +510,6 @@ export const ProductDetailPage: React.FC = () => {
                   <p className="text-[13px] sm:text-[14px] text-foreground-secondary mt-1">
                     Zaznacz opcje, które chcesz uwzględnić w zapytaniu
                   </p>
-                  {!hasAnyOptionPrice && (
-                    <p className="text-[13px] text-foreground-muted mt-0.5 font-medium">
-                      Ceny opcji na zapytanie
-                    </p>
-                  )}
                 </div>
 
                 <div className="divide-y divide-surface-border border-y border-surface-border">
@@ -533,92 +525,41 @@ export const ProductDetailPage: React.FC = () => {
                           isChecked ? 'bg-[#F7F7F5]' : 'hover:bg-[#F7F7F5]/50'
                         } ${isHidden ? 'hidden' : ''}`}
                       >
-                        {/* Desktop (sm+) layout */}
-                        <div className="hidden sm:grid sm:grid-cols-12 sm:items-center sm:gap-4">
+                        <div className="flex items-start gap-3">
                           {/* Checkbox 24px z polem dotykowym 44px */}
-                          <div className="sm:col-span-1 flex items-center justify-center">
-                            <div className="w-11 h-11 flex items-center justify-center">
-                              <input
-                                type="checkbox"
-                                value={option.id}
-                                checked={isChecked}
-                                onChange={() => handleToggleOption(option.id)}
-                                className="w-6 h-6 rounded border-surface-border text-accent-primary focus:ring-accent-primary focus-visible:ring-2 focus-visible:ring-[#1F2328] focus-visible:ring-offset-2 cursor-pointer"
-                              />
-                            </div>
+                          <div className="w-11 h-11 -ml-2 -mt-2 flex items-center justify-center shrink-0">
+                            <input
+                              type="checkbox"
+                              value={option.id}
+                              checked={isChecked}
+                              onChange={() => handleToggleOption(option.id)}
+                              className="w-6 h-6 rounded border-surface-border text-accent-primary focus:ring-accent-primary focus-visible:ring-2 focus-visible:ring-[#1F2328] focus-visible:ring-offset-2 cursor-pointer"
+                            />
                           </div>
 
-                          {/* Nazwa + nr kat w 2. linii */}
-                          <div className={hasAnyOptionPrice ? 'sm:col-span-8' : 'sm:col-span-11'}>
-                            <span className="text-[15px] font-medium text-foreground leading-snug block">
-                              {option.name}
-                            </span>
-                            {option.catalogNo && (
-                              <span className="font-mono text-[14px] text-[#4B5563] block mt-0.5">
-                                nr {option.catalogNo}
-                              </span>
-                            )}
-                            {option.spec && (
-                              <span className="text-[13px] text-foreground-secondary mt-0.5 block leading-tight">
-                                {option.spec}
-                              </span>
-                            )}
-                          </div>
-
-                          {/* Kolumna ceny (tylko gdy co najmniej jedna opcja ma cenę) */}
-                          {hasAnyOptionPrice && (
-                            <div className="sm:col-span-3 text-right">
-                              {showPrices && option.price !== null ? (
-                                <span className="text-[15px] font-bold text-foreground font-sans tabular-nums whitespace-nowrap">
-                                  {formatPrice(option.price, '+')}
-                                </span>
-                              ) : (
-                                <span className="text-[13px] sm:text-[14px] font-normal text-foreground-secondary whitespace-nowrap">
-                                  na zapytanie
-                                </span>
-                              )}
-                            </div>
-                          )}
-                        </div>
-
-                        {/* Mobile (390 px) layout */}
-                        <div className="sm:hidden space-y-1.5">
-                          <div className="flex items-start gap-2">
-                            <div className="w-11 h-11 -ml-2 -mt-1 flex items-center justify-center shrink-0">
-                              <input
-                                type="checkbox"
-                                value={option.id}
-                                checked={isChecked}
-                                onChange={() => handleToggleOption(option.id)}
-                                className="w-6 h-6 rounded border-surface-border text-accent-primary focus:ring-accent-primary cursor-pointer"
-                              />
-                            </div>
-                            <div className="flex-1 pt-1 min-w-0">
-                              <span className="text-[14px] font-medium text-foreground leading-snug block">
+                          {/* Treść opcji: pełna szerokość, nazwa + numer katalogowy w 2. linii */}
+                          <div className="flex-1 min-w-0 pt-0.5">
+                            <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-1 sm:gap-4">
+                              <span className="text-[15px] font-medium text-foreground leading-snug">
                                 {option.name}
                               </span>
+                              {option.catalogNo && (
+                                <span className="font-mono text-[13px] sm:text-[14px] text-[#4B5563] shrink-0 sm:text-right">
+                                  nr {option.catalogNo}
+                                </span>
+                              )}
+                              {showPrices && option.price !== null && (
+                                <Price
+                                  amount={option.price}
+                                  prefix="+"
+                                  className="text-[15px] font-bold text-foreground font-sans tabular-nums whitespace-nowrap shrink-0"
+                                />
+                              )}
                             </div>
-                          </div>
-
-                          <div className="flex items-center justify-between pl-9 text-[13px]">
-                            {option.catalogNo ? (
-                              <span className="font-mono text-[#4B5563] whitespace-nowrap">
-                                nr {option.catalogNo}
+                            {option.spec && (
+                              <span className="text-[13px] text-foreground-secondary mt-1 block leading-normal">
+                                {option.spec}
                               </span>
-                            ) : (
-                              <span />
-                            )}
-
-                            {hasAnyOptionPrice && (
-                              showPrices && option.price !== null ? (
-                                <span className="font-bold text-foreground font-sans tabular-nums whitespace-nowrap">
-                                  {formatPrice(option.price, '+')}
-                                </span>
-                              ) : (
-                                <span className="font-normal text-foreground-secondary whitespace-nowrap">
-                                  na zapytanie
-                                </span>
-                              )
                             )}
                           </div>
                         </div>
@@ -656,7 +597,7 @@ export const ProductDetailPage: React.FC = () => {
             aria-label="Panel zakupu urządzenia"
             className="order-2 w-full lg:w-[380px] lg:shrink-0 p-6 sm:p-7 rounded-[14px] bg-background-subtle border border-surface-border space-y-5 lg:sticky lg:top-24 self-start"
           >
-              {/* 3. Blok ceny */}
+              {/* 3. Blok wyceny lub ceny katalogowej */}
               <div className="space-y-1">
                 {showPrices && basePrice !== null ? (
                   <>
@@ -671,9 +612,12 @@ export const ProductDetailPage: React.FC = () => {
                   </>
                 ) : (
                   <div>
-                    <span className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
-                      Cena na zapytanie
-                    </span>
+                    <h3 className="text-[20px] sm:text-[22px] font-semibold text-foreground tracking-tight">
+                      Wycena indywidualna
+                    </h3>
+                    <p className="text-[15px] sm:text-[16px] text-foreground-secondary leading-normal mt-1">
+                      Cenę ustalamy po zapytaniu. Wybraną wersję i opcje dołączymy do zapytania.
+                    </p>
                   </div>
                 )}
               </div>
@@ -720,9 +664,10 @@ export const ProductDetailPage: React.FC = () => {
                                 {variant.label}
                               </span>
                               {showPrices && variant.price !== null && (
-                                <span className="text-[16px] sm:text-[17px] font-bold text-foreground whitespace-nowrap tabular-nums shrink-0">
-                                  {formatPrice(variant.price)}
-                                </span>
+                                <Price
+                                  amount={variant.price}
+                                  className="text-[16px] sm:text-[17px] font-bold text-foreground whitespace-nowrap tabular-nums shrink-0"
+                                />
                               )}
                             </div>
                             {variant.description && (
@@ -753,24 +698,39 @@ export const ProductDetailPage: React.FC = () => {
                     )}
                   </div>
                 ) : (
-                  <div className="space-y-1.5">
-                    <div className="flex items-center justify-between text-foreground font-medium">
-                      <span>Wybrane opcje:</span>
-                      <span className="tabular-nums font-semibold">{selectedCount}</span>
-                    </div>
-                    <div className="text-foreground-secondary">
-                      {showPrices && allSelectedPriced && totalCatalogPrice !== null ? (
-                        <p>
-                          Orientacyjnie:{' '}
-                          <strong className="text-foreground font-bold whitespace-nowrap tabular-nums">
-                            {formatPrice(totalCatalogPrice)}
-                          </strong>{' '}
-                          (cena katalogowa)
-                        </p>
-                      ) : (
-                        <p>Wycena opcji na zapytanie</p>
-                      )}
-                    </div>
+                  <div className="space-y-1 text-foreground-secondary">
+                    {showPrices ? (
+                      <div className="space-y-1.5">
+                        <div className="flex items-center justify-between text-foreground font-medium">
+                          <span>Wybrane opcje:</span>
+                          <span className="tabular-nums font-semibold">{selectedCount}</span>
+                        </div>
+                        {allSelectedPriced && totalCatalogPrice !== null && (
+                          <p>
+                            Orientacyjnie:{' '}
+                            <Price
+                              amount={totalCatalogPrice}
+                              className="text-foreground font-bold whitespace-nowrap tabular-nums"
+                            />{' '}
+                            (cena katalogowa)
+                          </p>
+                        )}
+                      </div>
+                    ) : (
+                      <p className="text-[14px] text-foreground font-medium">
+                        Do zapytania:{' '}
+                        {parsedModel.variants.length > 1 && selectedVariant ? (
+                          <>
+                            wersja <span className="font-semibold">{selectedVariant.label}</span>, opcje:{' '}
+                            <span className="font-semibold tabular-nums">{selectedCount}</span>
+                          </>
+                        ) : (
+                          <>
+                            opcje: <span className="font-semibold tabular-nums">{selectedCount}</span>
+                          </>
+                        )}
+                      </p>
+                    )}
                   </div>
                 )}
               </div>
@@ -892,35 +852,45 @@ export const ProductDetailPage: React.FC = () => {
         <aside
           role="region"
           aria-label="Szybki wybór oferty"
-          className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-surface-border p-3 sm:hidden shadow-lg animate-fade-in"
-          style={{ paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom, 0px))' }}
+          className="fixed left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-surface-border p-3 sm:hidden shadow-lg animate-fade-in"
+          style={{
+            bottom: 'var(--cookie-banner-h, 0px)',
+            paddingBottom: 'calc(0.75rem + env(safe-area-inset-bottom, 0px))',
+          }}
         >
-          <div className="flex items-center justify-between gap-3">
-            <div className="min-w-0">
-              <span className="text-[11px] text-foreground-secondary block truncate">
-                {cleanTitle}
-              </span>
-              <div className="text-[15px] font-extrabold text-foreground tabular-nums whitespace-nowrap">
-                {showPrices && basePrice !== null ? (
-                  totalCatalogPrice !== null && allSelectedPriced ? (
-                    formatPrice(totalCatalogPrice)
+          {showPrices ? (
+            <div className="flex items-center justify-between gap-3">
+              <div className="min-w-0">
+                <span className="text-[11px] text-foreground-secondary block truncate">
+                  {cleanTitle}
+                </span>
+                <div className="text-[15px] font-extrabold text-foreground tabular-nums whitespace-nowrap">
+                  {totalCatalogPrice !== null && allSelectedPriced ? (
+                    <Price amount={totalCatalogPrice} />
                   ) : (
-                    formatPrice(basePrice)
-                  )
-                ) : (
-                  'Cena na zapytanie'
-                )}
+                    <Price amount={basePrice} />
+                  )}
+                </div>
               </div>
+              <Button
+                to={offerHref}
+                variant="primary"
+                size="sm"
+                className="h-10 px-4 text-[13px] font-semibold whitespace-nowrap shrink-0 shadow-xs"
+              >
+                Zapytaj o ofertę
+              </Button>
             </div>
+          ) : (
             <Button
               to={offerHref}
               variant="primary"
-              size="sm"
-              className="h-10 px-4 text-[13px] font-semibold whitespace-nowrap shrink-0 shadow-xs"
+              size="md"
+              className="w-full h-11 text-[15px] font-semibold shadow-xs justify-center"
             >
               Zapytaj o ofertę
             </Button>
-          </div>
+          )}
         </aside>
       )}
     </div>
