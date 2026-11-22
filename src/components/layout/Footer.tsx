@@ -127,11 +127,11 @@ export const Footer: React.FC = () => {
             <span className="font-mono text-white/80">{COMPANY_DATA.legalAddress.nip}</span> · REGON:{' '}
             <span className="font-mono text-white/80">{COMPANY_DATA.legalAddress.regon}</span>
           </p>
-          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-2 text-[12px] sm:text-[13px] text-white/70 font-mono">
-            <p>
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 pt-2 text-[13px] sm:text-[14px] text-white/70">
+            <p className="text-[13px]">
               © {new Date().getFullYear()} {LABELS.footer.allRightsReserved}
             </p>
-            <p>
+            <p className="text-[14px]">
               <span>Projekt i wdrożenie: </span>
               <a
                 href="https://www.studiowzrostu.pl"

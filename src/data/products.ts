@@ -4,6 +4,8 @@
  * Żadne dane nie zostały dopisane z głowy.
  */
 
+import type { ProductVariant, ProductOption, ProductSpecItem } from '@/data/parse-rules';
+
 export interface ProductAccessory {
   name: string;
   quantity?: string;
@@ -30,6 +32,9 @@ export interface ProductItem {
   subcategory?: string;
   priceNetto?: string;
   priceVariants?: ProductPriceVariant[];
+  variants?: ProductVariant[];
+  options?: ProductOption[];
+  specs?: ProductSpecItem[];
 }
 
 export const PRODUCTS_DATA: ProductItem[] = [

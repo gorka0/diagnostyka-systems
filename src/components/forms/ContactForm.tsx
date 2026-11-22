@@ -2,6 +2,7 @@ import React, { useState, useEffect, useId, useMemo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 import { COMPANY_DATA, ContactPurpose } from '@/data/company';
 import { PRODUCTS_DATA } from '@/data/products';
+import { parseProductModel } from '@/data/parse-rules';
 import { formatPhoneWithNbsp } from '@/utils/typography';
 import {
   CheckCircle2,
@@ -80,8 +81,52 @@ export const ContactForm: React.FC<ContactFormProps> = ({
 
   const [purpose, setPurpose] = useState<ContactPurpose>(parseTypeFromUrl);
 
-  // Wstępne wartości z URL (&produkt=..., &temat=..., &model=...)
+  // Funkcja budująca wstępne dane oferty z URL (nazwa, wersja, wybrane opcje bez cen)
+  const buildInitialOfferState = (
+    prodParam: string,
+    wersjaParam: string | null,
+    opcjeParam: string | null
+  ): { productName: string; message: string } => {
+    if (!prodParam) return { productName: '', message: '' };
+    const foundProduct = PRODUCTS_DATA.find(
+      (p) => p.slug === prodParam || p.name.toLowerCase() === prodParam.toLowerCase()
+    );
+
+    if (!foundProduct) {
+      return { productName: prodParam, message: '' };
+    }
+
+    const parsed = parseProductModel(foundProduct);
+    const selectedVariant = wersjaParam
+      ? parsed.variants.find((v) => v.id === wersjaParam)
+      : parsed.variants[0];
+
+    const optIdList = opcjeParam ? opcjeParam.split(',').filter(Boolean) : [];
+    const selectedOptions = parsed.options.filter((o) => optIdList.includes(o.id));
+
+    let msg = `Dzień dobry,\n\nProszę o przygotowanie oferty na:\n- Urządzenie: ${foundProduct.name}\n`;
+    if (selectedVariant && parsed.variants.length > 1) {
+      msg += `- Wersja: ${selectedVariant.label}\n`;
+    }
+    if (selectedOptions.length > 0) {
+      msg += `- Wybrane wyposażenie dodatkowe:\n`;
+      selectedOptions.forEach((opt) => {
+        const catInfo = opt.catalogNo ? ` (nr kat. ${opt.catalogNo})` : '';
+        msg += `  * ${opt.name}${catInfo}\n`;
+      });
+    }
+
+    return {
+      productName: foundProduct.name,
+      message: msg,
+    };
+  };
+
+  // Wstępne wartości z URL (&produkt=..., &temat=..., &model=..., &wersja=..., &opcje=...)
   const initialProdParam = searchParams.get('produkt') || initialProduct || '';
+  const initialWersjaParam = searchParams.get('wersja');
+  const initialOpcjeParam = searchParams.get('opcje');
+  const initialOffer = buildInitialOfferState(initialProdParam, initialWersjaParam, initialOpcjeParam);
   const initialModelParam = searchParams.get('model') || '';
 
   const [formData, setFormData] = useState<FormState>({
@@ -89,10 +134,10 @@ export const ContactForm: React.FC<ContactFormProps> = ({
     firma: '',
     email: '',
     telefon: '',
-    produkt: initialProdParam,
+    produkt: initialOffer.productName || initialProdParam,
     rodzajUrzadzenia: SERVICE_EQUIPMENT_TYPES[0],
     model: initialModelParam,
-    wiadomosc: '',
+    wiadomosc: initialOffer.message,
     opisUsterki: '',
     zgodaRODO: false,
     website: '',
@@ -109,8 +154,16 @@ export const ContactForm: React.FC<ContactFormProps> = ({
       setPurpose(urlType);
     }
     const prod = searchParams.get('produkt');
-    if (prod && !formData.produkt) {
-      setFormData((prev) => ({ ...prev, produkt: prod }));
+    const wersja = searchParams.get('wersja');
+    const opcje = searchParams.get('opcje');
+
+    if (prod) {
+      const offer = buildInitialOfferState(prod, wersja, opcje);
+      setFormData((prev) => ({
+        ...prev,
+        produkt: offer.productName || prod,
+        wiadomosc: prev.wiadomosc || offer.message,
+      }));
     }
     const mdl = searchParams.get('model');
     if (mdl && !formData.model) {

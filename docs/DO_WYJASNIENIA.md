@@ -173,3 +173,29 @@ Wszystkie oryginalne zdjęcia z działu `/realizacje` posiadają szerokość **6
 
 
 
+
+---
+
+## 10. Audyt parsowania wariantów, opcji i cen (KROK 4: Karta Produktu)
+
+Wdrożono silnik parsowania i normalizacji danych `/src/data/parse-rules.ts`, który rozdziela model danych na 3 pojęcia: `variants[]` (wzajemnie wykluczające się wersje bazowe), `options[]` (wyposażenie dodatkowe i opcje dokładane) oraz `specs[]` (parametry techniczne).
+
+### A. Statystyki parsowania katalogu:
+1. **Warianty bazowe (`variants[]`): 35 wariantów**
+   - Urządzenia wielowariantowe:
+     - `Linia diagnostyczna Beissbarth QB 4`: 2 wersje (2200 mm 3,7 kW @ 49 600 zł netto, 2800 mm 5,0 kW @ 59 700 zł netto)
+     - `Wyważarka Beissbarth G.30`: 2 wersje (mocowanie mechaniczne @ 24 100 zł netto, uchwyt pneumatyczny P @ 27 000 zł netto)
+     - `Wyważarka Beissbarth G.50`: 2 wersje (mocowanie mechaniczne @ 33 700 zł netto, uchwyt pneumatyczny P @ 38 900 zł netto)
+   - Pozostałe 29 produktów: 1 wersja bazowa (z ceną katalogową lub "Cena na zapytanie").
+
+2. **Opcje i wyposażenie dodatkowe (`options[]`): 101 pozycji**
+   - **23 pozycje ze zweryfikowaną ceną katalogową netto** (m.in. akcesoria QB 4, MLD 9000, Q.Lign, G.60 P PRO).
+   - **78 pozycji bez oficjalnej ceny katalogowej w bazie (`price: null`)** – traktowane w UI jako "Wycena na zapytanie / opcje wg wyceny". Nie zgadujemy liczb; pozycje te wymagają wyceny inżynierskiej przy składaniu oferty.
+
+3. **Dane techniczne (`specs[]`): 252 znormalizowane wiersze**
+   - Normalizacja typograficzna: twarda spacja przed jednostkami (`km/h`, `t`, `kW`, `mm`, `kg`, `V`), półpauza w zakresach (`800–2200 mm`), spójne separatory ` · ` zamiast pionowych kresek `|`.
+   - Scalenie wariantów: wiersze typu `Rozstaw kół (wariant 2200mm)` i `Rozstaw kół (wariant 2800mm)` zostały zintegrowane w jeden logiczny wiersz przełączany identyfikatorem `variantId`.
+
+4. **Flaga globalna cen:**
+   - W pliku `src/data/company.ts` wdrożono flagę `showPrices: true`.
+   - W przypadku podjęcia decyzji przez klienta o ukryciu wszystkich cen katalogowych, zmiana flagi na `false` natychmiastowo przełącza wszystkie karty w tryb "Cena na zapytanie".

@@ -8,7 +8,7 @@ export const LABELS = {
   cta: {
     serviceTicket: 'Zgłoszenie serwisowe',
     seeProducts: 'Zobacz produkty',
-    askAboutProduct: 'Zapytaj o produkt',
+    askAboutProduct: 'Zapytaj o ofertę',
     askAboutPromotion: 'Zapytaj o promocję',
     allContacts: 'Wszystkie kontakty',
     loadMap: 'Załaduj mapę',
