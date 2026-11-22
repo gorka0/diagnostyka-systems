@@ -100,15 +100,7 @@ export const HomePage: React.FC = () => {
           <Crosshair size={64} />
         </div>
 
-        {/* Dyskretna poświata radial-gradient w prawym górnym rogu (8-10% krycia) */}
-        <div
-          aria-hidden="true"
-          className="absolute top-0 right-0 w-[600px] h-[600px] pointer-events-none select-none"
-          style={{
-            background:
-              'radial-gradient(circle at 80% 20%, rgba(245, 165, 36, 0.09) 0%, rgba(245, 165, 36, 0) 70%)',
-          }}
-        />
+
 
         <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 w-full z-10 space-y-10 sm:space-y-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
@@ -138,7 +130,7 @@ export const HomePage: React.FC = () => {
                   to="/produkty"
                   variant="primary"
                   size="md"
-                  className="h-[52px] px-8 text-[16px] font-semibold justify-center shadow-[0_2px_12px_rgba(245,165,36,0.3)]"
+                  className="h-[52px] px-8 text-[16px] font-semibold justify-center"
                 >
                   {LABELS.cta.seeProducts}
                 </Button>
@@ -216,7 +208,7 @@ export const HomePage: React.FC = () => {
       {/* 2. AKTUALNA PROMOCJA (BIAŁA KARTA PONIŻEJ HERO) */}
       {activePromo && (
         <section className="relative z-20 max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 mt-10 md:mt-14 mb-16 md:mb-24">
-          <div className="bg-white rounded-[16px] border border-surface-border p-6 sm:p-8 lg:p-10 shadow-[0_24px_60px_rgba(20,23,26,0.18)]">
+          <div className="bg-white rounded-[16px] border border-surface-border p-6 sm:p-8 lg:p-10 shadow-md">
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
               {/* Lewa: Zdjęcie produktu */}
               <div className="lg:col-span-3 flex justify-center">
@@ -289,7 +281,7 @@ export const HomePage: React.FC = () => {
                 <Link
                   key={cat.id}
                   to={`/produkty/${cat.slug}`}
-                  className="group relative lg:col-span-6 rounded-[16px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden bg-gradient-to-b from-[#EEF0F2] to-[#F7F7F5] transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+                  className="group relative lg:col-span-6 rounded-[16px] p-6 sm:p-8 flex flex-col justify-between overflow-hidden bg-background-subtle transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
                 >
                   {/* Przycisk strzałki w kółku w prawym górnym rogu */}
                   <div className="flex items-start justify-between gap-4 z-10">
@@ -331,7 +323,7 @@ export const HomePage: React.FC = () => {
                 <Link
                   key={cat.id}
                   to={`/produkty/${cat.slug}`}
-                  className="group relative rounded-[16px] p-6 flex flex-col justify-between overflow-hidden bg-gradient-to-b from-[#EEF0F2] to-[#F7F7F5] transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+                  className="group relative rounded-[16px] p-6 flex flex-col justify-between overflow-hidden bg-background-subtle transition-all duration-300 hover:shadow-md focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
                 >
                   {/* Przycisk strzałki w prawym górnym rogu */}
                   <div className="flex items-center justify-end z-10">
@@ -417,15 +409,7 @@ export const HomePage: React.FC = () => {
           <Crosshair size={64} />
         </div>
 
-        {/* Poświata radial-gradient w lewym dolnym rogu */}
-        <div
-          aria-hidden="true"
-          className="absolute bottom-0 left-0 w-[500px] h-[500px] pointer-events-none select-none"
-          style={{
-            background:
-              'radial-gradient(circle at 20% 80%, rgba(245, 165, 36, 0.08) 0%, rgba(245, 165, 36, 0) 70%)',
-          }}
-        />
+
 
         <div className="relative max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8 z-10">
           <div className="max-w-[70ch] mb-12 sm:mb-16">
@@ -469,7 +453,7 @@ export const HomePage: React.FC = () => {
                 to="/kontakt?typ=serwis"
                 variant="primary"
                 size="md"
-                className="h-[52px] px-8 text-[16px] font-semibold justify-center shadow-[0_2px_14px_rgba(245,165,36,0.35)]"
+                className="h-[52px] px-8 text-[16px] font-semibold justify-center"
               >
                 {LABELS.cta.serviceTicket}
               </Button>
