@@ -185,8 +185,8 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
   'product-mld-815': {
     fileName: 'mld-815.webp',
     path: '/images/mld-815.webp',
-    dimensions: '4000x2449',
-    aspectRatio: '16/10',
+    dimensions: '444x768',
+    aspectRatio: '3/4',
     label: 'Przyrząd do ustawiania świateł Beissbarth MLD 815',
     category: 'products',
     alt: 'Cyfrowy przyrząd do ustawiania świateł Beissbarth MLD 815 z kamerą CMOS',
@@ -194,8 +194,8 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
   'mld-815': {
     fileName: 'mld-815.webp',
     path: '/images/mld-815.webp',
-    dimensions: '4000x2449',
-    aspectRatio: '16/10',
+    dimensions: '444x768',
+    aspectRatio: '3/4',
     label: 'Przyrząd do ustawiania świateł Beissbarth MLD 815',
     category: 'products',
     alt: 'Cyfrowy przyrząd do ustawiania świateł Beissbarth MLD 815 z kamerą CMOS',
