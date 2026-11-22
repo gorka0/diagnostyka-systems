@@ -21,8 +21,8 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
   'hero-budynek': {
     fileName: 'hero-budynek.jpg',
     path: '/images/hero-budynek.jpg',
-    dimensions: '1600x2000',
-    aspectRatio: '4/5',
+    dimensions: '1024x338',
+    aspectRatio: '1024/338',
     label: 'Siedziba i centrum serwisowe Diagnostyka-Systems w Lisim Ogonie',
     category: 'company',
     alt: 'Budynek siedziby i magazynu centralnego Diagnostyka-Systems w Lisim Ogonie',
@@ -30,8 +30,8 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
   'company-building': {
     fileName: 'budynek-firmy-lisi-ogon.jpg',
     path: '/images/budynek-firmy-lisi-ogon.jpg',
-    dimensions: '1600x900',
-    aspectRatio: '16/9',
+    dimensions: '1024x338',
+    aspectRatio: '1024/338',
     label: 'Siedziba i magazyn firmy (Lisi Ogon k. Bydgoszczy)',
     category: 'company',
     alt: 'Budynek siedziby i magazynu centralnego Diagnostyka-Systems w Lisim Ogonie',

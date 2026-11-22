@@ -176,18 +176,18 @@ export const HomePage: React.FC = () => {
             </div>
           </div>
 
-          {/* Panoramiczne zdjęcie siedziby i floty w poziomie bez ucinania (naturalne proporcje 948/258) */}
+          {/* Panoramiczne zdjęcie siedziby i floty w poziomie bez ucinania (naturalne proporcje 1024/338) */}
           <div className="relative w-full">
             <CornerBrackets size={16} color="#F5A524" />
 
-            <div className="relative aspect-[948/258] w-full rounded-[16px] overflow-hidden border border-white/12 bg-graphite-800 shadow-2xl">
+            <div className="relative aspect-[1024/338] w-full rounded-[16px] overflow-hidden border border-white/12 bg-graphite-800 shadow-2xl">
               <picture className="w-full h-full block">
                 <source srcSet="/images/budynek-firmy-lisi-ogon.webp" type="image/webp" />
                 <img
                   src="/images/budynek-firmy-lisi-ogon.jpg"
                   alt="Siedziba, magazyn i flota serwisowa Diagnostyka-Systems w Lisim Ogonie k. Bydgoszczy"
-                  width={948}
-                  height={258}
+                  width={1024}
+                  height={338}
                   className="w-full h-full object-cover object-center"
                   {...({ fetchpriority: 'high' } as any)}
                   loading="eager"
