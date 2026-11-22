@@ -272,9 +272,13 @@ export const PublicationDetailPage: React.FC = () => {
               <p className="text-[13px] text-foreground-secondary leading-relaxed">
                 Nasi inżynierowie bezpłatnie obliczą stopę zwrotu (ROI) dla geometrii 3D, linii diagnostycznej lub montażownicy pod Twój warsztat.
               </p>
-              <Button to="/kontakt" variant="outline" className="w-full text-[13px] h-9">
+              <Button
+                to="/kontakt"
+                variant="outline"
+                className="w-full text-[13px] h-9 px-3 whitespace-nowrap inline-flex items-center justify-center gap-1.5"
+              >
                 <span>Skonsultuj z inżynierem</span>
-                <ChevronRight className="w-3.5 h-3.5 ml-1" />
+                <ChevronRight className="w-3.5 h-3.5 shrink-0 ml-0.5" />
               </Button>
             </div>
           </aside>

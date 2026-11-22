@@ -25,7 +25,7 @@ export const Button: React.FC<ButtonProps> = ({
   ...props
 }) => {
   // Jednolita wysokość (48-52 px), radius 10 px, font 16-17 px, weight 600, active:scale .98
-  const baseClasses = 'inline-flex items-center justify-center font-semibold transition-all duration-200 select-none rounded-[10px] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
+  const baseClasses = 'inline-flex items-center justify-center font-semibold whitespace-nowrap transition-all duration-200 select-none rounded-[10px] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
 
   const sizeClasses = {
     sm: 'text-[15px] px-4 h-11 gap-2 min-h-[44px]',
@@ -49,7 +49,7 @@ export const Button: React.FC<ButtonProps> = ({
   const content = (
     <>
       {icon && iconPosition === 'left' && <span className="inline-flex shrink-0">{icon}</span>}
-      <span>{children}</span>
+      <span className="inline-flex items-center gap-1.5 shrink-0">{children}</span>
       {icon && iconPosition === 'right' && <span className="inline-flex shrink-0">{icon}</span>}
     </>
   );
