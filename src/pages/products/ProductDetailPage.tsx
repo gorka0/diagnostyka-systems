@@ -32,9 +32,42 @@ export const ProductDetailPage: React.FC = () => {
     return product ? extractProductMetadata(product) : null;
   }, [product]);
 
-  // 1. Model danych: rozdzielenie wariantów, opcji i specyfikacji
+  // Model danych: warianty, opcje, specyfikacja
   const parsedModel = useMemo(() => {
     return product ? parseProductModel(product) : null;
+  }, [product]);
+
+  // Ujednolicony tytuł (QB 4 zamiast QB.4)
+  const cleanTitle = useMemo(() => {
+    if (!product) return '';
+    let t = meta?.model || product.name;
+    if (t.startsWith('QB.4')) t = t.replace('QB.4', 'QB 4');
+    return t;
+  }, [meta, product]);
+
+  // Podtytuł typu urządzenia (z danych technicznych lub metadanych)
+  const productTypeSubtitle = useMemo(() => {
+    if (!product) return '';
+    return (
+      product.technicalSpecs['Typ urządzenia'] ||
+      product.technicalSpecs['Rodzaj urządzenia'] ||
+      meta?.typ ||
+      category?.name ||
+      ''
+    );
+  }, [product, meta, category]);
+
+  // Czy produkt ma certyfikat ITS dla SKP
+  const hasItsCert = useMemo(() => {
+    if (!product) return false;
+    const desc = (product.shortDescription || '').toLowerCase();
+    const specsVals = Object.values(product.technicalSpecs).join(' ').toLowerCase();
+    return (
+      product.categorySlug === 'geometria' ||
+      desc.includes('its') ||
+      specsVals.includes('its') ||
+      specsVals.includes('skp')
+    );
   }, [product]);
 
   // Wybrana wersja urządzenia (z URL ?wersja=... lub pierwsza domyślna)
@@ -55,7 +88,7 @@ export const ProductDetailPage: React.FC = () => {
     return new Set(optionsParam.split(',').filter(Boolean));
   });
 
-  // Synchronizacja URL bez przeładowania strony i bez scrollowania
+  // Synchronizacja URL
   const syncUrlState = (vId: string | null, optIds: Set<string>) => {
     const nextParams = new URLSearchParams(searchParams);
     if (vId && parsedModel && parsedModel.variants.length > 1) {
@@ -86,7 +119,7 @@ export const ProductDetailPage: React.FC = () => {
     syncUrlState(selectedVariant?.id || null, next);
   };
 
-  // 5. Dane techniczne (filtrowane wg wybranego wariantu)
+  // Dane techniczne (filtrowane wg wybranego wariantu)
   const filteredSpecs = useMemo(() => {
     if (!parsedModel) return [];
     return parsedModel.specs.filter(
@@ -94,18 +127,35 @@ export const ProductDetailPage: React.FC = () => {
     );
   }, [parsedModel, selectedVariant]);
 
-  // 3 kluczowe parametry do prawego panelu
-  const topThreeSpecs = useMemo(() => {
-    return filteredSpecs.slice(0, 3);
-  }, [filteredSpecs]);
-
-  // Paginacja wierszy danych technicznych (powyżej 8)
+  // Zwijanie sekcji: jeśli N <= 12 wszystko widoczne; jeśli > 12: pokaż 10 + przycisk
   const [showAllSpecs, setShowAllSpecs] = useState(false);
-
-  // Paginacja wierszy opcji i wyposażenia (powyżej 8)
   const [showAllOptions, setShowAllOptions] = useState(false);
 
-  // Kalkulacja podsumowania opcji i cen
+  // Auto-rozwijanie listy opcji, jeśli jakakolwiek zaznaczona opcja ma indeks >= 10
+  useEffect(() => {
+    if (!parsedModel || showAllOptions) return;
+    const hasPreselectedBeyondThreshold = parsedModel.options.some(
+      (opt, idx) => idx >= 10 && selectedOptionIds.has(opt.id)
+    );
+    if (hasPreselectedBeyondThreshold) {
+      setShowAllOptions(true);
+    }
+  }, [parsedModel, selectedOptionIds, showAllOptions]);
+
+  // Zwijany pełny opis
+  const [isDescriptionOpen, setIsDescriptionOpen] = useState(false);
+
+  // Galeria zdjęć (wsparcie dla wielu zdjęć)
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const galleryImages = useMemo(() => {
+    if (!product) return [];
+    if (product.galleryImages && product.galleryImages.length > 0) {
+      return product.galleryImages;
+    }
+    return [product.slug];
+  }, [product]);
+
+  // Kalkulacja podsumowania cen i opcji
   const showPrices = COMPANY_DATA.showPrices;
   const basePrice = selectedVariant?.price ?? null;
 
@@ -115,6 +165,11 @@ export const ProductDetailPage: React.FC = () => {
   }, [parsedModel, selectedOptionIds]);
 
   const selectedCount = selectedOptionsList.length;
+  const hasAnyOptionPrice = useMemo(() => {
+    if (!parsedModel) return false;
+    return parsedModel.options.some((o) => o.price !== null);
+  }, [parsedModel]);
+
   const allSelectedPriced =
     basePrice !== null && selectedOptionsList.every((o) => o.price !== null);
   const totalCatalogPrice = useMemo(() => {
@@ -137,22 +192,8 @@ export const ProductDetailPage: React.FC = () => {
     return `/kontakt?${params.toString()}`;
   }, [product, selectedVariant, parsedModel, selectedOptionIds]);
 
-  // Detekcja wysokości prawego panelu dla zachowania sticky
+  // Ref panelu do obserwacji scrolla na mobile
   const panelRef = useRef<HTMLDivElement>(null);
-  const [canStick, setCanStick] = useState(true);
-
-  useEffect(() => {
-    const checkHeight = () => {
-      if (panelRef.current) {
-        setCanStick(panelRef.current.offsetHeight < window.innerHeight - 100);
-      }
-    };
-    checkHeight();
-    window.addEventListener('resize', checkHeight);
-    return () => window.removeEventListener('resize', checkHeight);
-  }, [selectedVariant, selectedOptionIds, showPrices]);
-
-  // Mobile Sticky Bottom Bar przy przewinięciu panelu poza ekran
   const [showMobileBar, setShowMobileBar] = useState(false);
 
   useEffect(() => {
@@ -171,7 +212,7 @@ export const ProductDetailPage: React.FC = () => {
     return () => observer.disconnect();
   }, []);
 
-  // 6. Podobne urządzenia (pokazywane TYLKO gdy >= 2)
+  // Podobne urządzenia (pokazywane TYLKO gdy >= 2)
   const similarProducts = useMemo(() => {
     if (!product) return [];
     const list = PRODUCTS_DATA.filter(
@@ -217,9 +258,9 @@ export const ProductDetailPage: React.FC = () => {
 
   return (
     <div className="bg-background min-h-[100dvh] py-6 sm:py-10">
-      {/* Canonical ZAWSZE bez parametrów zapytania URL */}
+      {/* Canonical ZAWSZE bez parametrów URL */}
       <Seo
-        title={`${product.name} – Specyfikacja techniczna | Beissbarth Diagnostyka-Systems`}
+        title={`${cleanTitle} – Specyfikacja techniczna | Beissbarth Diagnostyka-Systems`}
         description={product.shortDescription || 'Oficjalna aparatura diagnostyczna Beissbarth.'}
         canonicalPath={`/produkty/${product.categorySlug}/${product.slug}`}
         type="product"
@@ -229,7 +270,7 @@ export const ProductDetailPage: React.FC = () => {
           { label: 'Katalog produktów', path: '/produkty' },
           { label: categoryTitle, path: `/produkty/${kategoria || product.categorySlug}` },
           {
-            label: meta?.model || product.name,
+            label: cleanTitle,
             path: `/produkty/${product.categorySlug}/${product.slug}`,
           },
         ]}
@@ -237,8 +278,8 @@ export const ProductDetailPage: React.FC = () => {
       />
 
       <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Górna belka nawigacji z powrotem */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8 pb-4 border-b border-surface-border">
+        {/* Górna belka nawigacji breadcrumbs */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-6 pb-4 border-b border-surface-border">
           <nav aria-label="Ścieżka powrotu">
             <ol className="flex items-center flex-wrap gap-2 text-[13px] text-foreground-secondary">
               <li>
@@ -263,7 +304,7 @@ export const ProductDetailPage: React.FC = () => {
                 className="text-foreground font-medium truncate max-w-[200px] sm:max-w-none"
                 aria-current="page"
               >
-                {meta?.model || product.name}
+                {cleanTitle}
               </li>
             </ol>
           </nav>
@@ -271,34 +312,53 @@ export const ProductDetailPage: React.FC = () => {
           <button
             type="button"
             onClick={handleBackToResults}
-            className="inline-flex items-center gap-1.5 text-xs font-semibold text-foreground-secondary hover:text-foreground bg-background-subtle hover:bg-surface-hover border border-surface-border py-1.5 px-3 rounded-md transition-colors self-start sm:self-auto cursor-pointer"
+            className="inline-flex items-center gap-1.5 text-xs font-semibold text-foreground-secondary hover:text-foreground bg-background-subtle hover:bg-surface-hover border border-surface-border py-1.5 px-3 rounded-md transition-colors self-start sm:self-auto cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F2328]"
           >
             <ArrowLeft className="w-3.5 h-3.5" />
             <span>Wróć do wyników</span>
           </button>
         </div>
 
+        {/* 2. HIERARCHIA: H1 na pełną szerokość nad obiema kolumnami */}
+        <header className="mb-8 space-y-2">
+          <div className="flex flex-wrap items-center gap-3">
+            <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-foreground tracking-tight leading-tight">
+              {cleanTitle}
+            </h1>
+            {hasItsCert && (
+              <span className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200 shrink-0">
+                <CheckCircle2 className="w-3.5 h-3.5 text-emerald-600" />
+                Atest ITS dla SKP
+              </span>
+            )}
+          </div>
+          {productTypeSubtitle && (
+            <p className="text-[15px] sm:text-[16px] text-foreground-secondary font-normal">
+              {productTypeSubtitle}
+            </p>
+          )}
+        </header>
+
         {/*
           Siatka produktu:
-          Na desktopie (lg): 12 kolumn (Lewa kolumna 7/12, Prawa kolumna 5/12).
-          Na mobile (390): kolejność H1 → obrazek → panel → opis → dane → opcje → podobne.
+          - Kolumna główna: elastyczna minmax(0, 1fr)
+          - Panel zakupu: stała szerokość 380px (clamp 340-400)
+          - Odstęp między kolumnami: 56-64px
+          - Panel sticky z top = header + 24px (top-24)
         */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-y-10 lg:gap-x-14 items-start">
-          {/* Mobile H1 (widoczny tylko na mobile przed zdjęciem) */}
-          <div className="lg:hidden col-span-1 order-1">
-            <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight leading-snug">
-              {meta?.model || product.name}
-            </h1>
-          </div>
-
-          {/* Lewa kolumna: Na desktopie block 7 kolumn; na mobile 'contents' umożliwiający zachowanie ścisłej kolejności */}
-          <div className="contents lg:block lg:col-span-7 space-y-10">
-            {/* Duże zdjęcie z narożnikami pomiarowymi */}
-            <div className="order-2 col-span-1">
-              <div className="relative aspect-[4/3] w-full rounded-[16px] bg-[#F7F7F5] border border-surface-border p-6 sm:p-8 flex items-center justify-center overflow-hidden">
-                <CornerBrackets size={16} color="#EE9D16" />
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1fr)_380px] gap-10 lg:gap-14 xl:gap-16">
+          {/* LEWA KOLUMNA: Galeria zdjęć, Opis, Dane techniczne, Opcje i wyposażenie */}
+          <div className="space-y-10 order-1">
+            {/* 6. Galeria produktu: kontener 4:3 na #F7F7F5 */}
+            <div className="space-y-3">
+              <div
+                className={`relative aspect-[4/3] w-full rounded-[16px] bg-[#F7F7F5] border border-surface-border flex items-center justify-center overflow-hidden ${
+                  isContain ? 'p-6 sm:p-8' : 'p-0'
+                }`}
+              >
+                {isContain && <CornerBrackets size={16} color="#EE9D16" />}
                 <SiteImage
-                  name={product.slug}
+                  name={galleryImages[activeImageIndex] || product.slug}
                   fit={isContain ? 'contain' : 'cover'}
                   aspectRatio="4/3"
                   alt={product.name}
@@ -309,58 +369,96 @@ export const ProductDetailPage: React.FC = () => {
                   }`}
                 />
               </div>
+
+              {/* Miniatury pod spodem (gdy produkt ma więcej niż jedno zdjęcie) */}
+              {galleryImages.length > 1 && (
+                <div className="flex items-center gap-2 overflow-x-auto pb-1">
+                  {galleryImages.map((imgName, idx) => (
+                    <button
+                      key={idx}
+                      type="button"
+                      onClick={() => setActiveImageIndex(idx)}
+                      className={`relative w-20 h-16 rounded-[8px] bg-[#F7F7F5] border overflow-hidden transition-all cursor-pointer shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F2328] ${
+                        activeImageIndex === idx
+                          ? 'border-[#1F2328] ring-2 ring-[#1F2328]'
+                          : 'border-surface-border hover:border-surface-border/80'
+                      }`}
+                    >
+                      <SiteImage
+                        name={imgName}
+                        fit={isContain ? 'contain' : 'cover'}
+                        aspectRatio="4/3"
+                        alt={`${product.name} - miniatura ${idx + 1}`}
+                        plain={true}
+                        className="w-full h-full object-cover"
+                      />
+                    </button>
+                  ))}
+                </div>
+              )}
             </div>
 
-            {/* 4. Sekcja Opis: od razu pod obrazkiem, krócej (pierwszy akapit, reszta w <details>) */}
+            {/* 4. Sekcja Opis: akapit wprowadzający + wyraźny przycisk pełnego opisu */}
             {(product.shortDescription || (product.details && product.details.length > 0)) && (
-              <div className="order-4 col-span-1 space-y-4 pt-4 border-t border-surface-border">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
-                    Opis
-                  </h2>
-                </div>
+              <section aria-labelledby="product-desc-heading" className="space-y-3 pt-4 border-t border-surface-border">
+                <h2 id="product-desc-heading" className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+                  Opis
+                </h2>
 
-                <div className="space-y-3.5 text-[15px] sm:text-[16px] text-foreground-secondary leading-relaxed max-w-[68ch]">
+                <div className="space-y-3 text-[15px] sm:text-[16px] text-foreground-secondary leading-relaxed max-w-[68ch]">
                   {product.shortDescription && (
-                    <p className="text-foreground font-medium text-[16px] sm:text-[17px] leading-snug line-clamp-4">
+                    <p className="text-foreground font-medium text-[16px] sm:text-[17px] leading-snug">
                       {formatPolishTypography(product.shortDescription)}
                     </p>
                   )}
 
                   {product.details && product.details.length > 0 && (
-                    <details className="group pt-2">
-                      <summary className="cursor-pointer text-[14px] font-semibold text-accent-text hover:text-foreground inline-flex items-center gap-1 select-none list-none">
-                        <span>Pełny opis</span>
-                        <ChevronDown className="w-4 h-4 transition-transform duration-200 group-open:rotate-180" />
-                      </summary>
-                      <div className="mt-3 space-y-3 text-[15px] text-foreground-secondary leading-relaxed border-l-2 border-surface-border pl-4">
+                    <div className="pt-1">
+                      <button
+                        type="button"
+                        onClick={() => setIsDescriptionOpen(!isDescriptionOpen)}
+                        aria-expanded={isDescriptionOpen}
+                        aria-controls="full-product-description"
+                        className="min-h-[44px] inline-flex items-center gap-1.5 text-[14px] font-semibold text-[#A15C00] hover:text-[#7A4500] transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F2328] focus-visible:ring-offset-2 rounded"
+                      >
+                        <span>{isDescriptionOpen ? 'Zwiń pełny opis' : 'Pełny opis'}</span>
+                        <ChevronDown
+                          className={`w-4 h-4 transition-transform duration-200 ${
+                            isDescriptionOpen ? 'rotate-180' : ''
+                          }`}
+                        />
+                      </button>
+
+                      {/* Pełny opis w DOM dla SEO */}
+                      <div
+                        id="full-product-description"
+                        className={`space-y-3 text-[15px] text-foreground-secondary leading-relaxed border-l-2 border-surface-border pl-4 mt-2 ${
+                          isDescriptionOpen ? 'block' : 'hidden'
+                        }`}
+                      >
                         {product.details.map((paragraph, idx) => (
                           <p key={idx}>{formatPolishTypography(paragraph)}</p>
                         ))}
                       </div>
-                    </details>
+                    </div>
                   )}
                 </div>
-              </div>
+              </section>
             )}
 
-            {/* 5. Dane techniczne: 2 kolumny, label ~35% po lewej, wartość po lewej, Inter 16px, tabular-nums */}
+            {/* 4 & 5. Dane techniczne: N <= 12 wszystko widoczne; powyżej 10 + przycisk */}
             {filteredSpecs.length > 0 && (
-              <div className="order-5 col-span-1 space-y-5 pt-4 border-t border-surface-border">
+              <section aria-labelledby="product-specs-heading" className="space-y-5 pt-4 border-t border-surface-border">
                 <div className="flex items-center justify-between">
-                  <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+                  <h2 id="product-specs-heading" className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
                     Dane techniczne
                   </h2>
-                  {product.categorySlug === 'geometria' && (
-                    <span className="text-[12px] font-semibold text-accent-text flex items-center gap-1">
-                      <CheckCircle2 className="w-3.5 h-3.5" /> Atest ITS dla SKP
-                    </span>
-                  )}
                 </div>
 
                 <div className="divide-y divide-surface-border border-y border-surface-border">
                   {filteredSpecs.map((spec, idx) => {
-                    const isHidden = !showAllSpecs && idx >= 8;
+                    const isBeyondLimit = filteredSpecs.length > 12 && idx >= 10;
+                    const isHidden = isBeyondLimit && !showAllSpecs;
                     return (
                       <div
                         key={`${spec.label}-${idx}`}
@@ -379,11 +477,11 @@ export const ProductDetailPage: React.FC = () => {
                   })}
                 </div>
 
-                {filteredSpecs.length > 8 && (
+                {filteredSpecs.length > 12 && (
                   <button
                     type="button"
                     onClick={() => setShowAllSpecs(!showAllSpecs)}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-text hover:text-foreground py-2 transition-colors cursor-pointer"
+                    className="min-h-[44px] inline-flex items-center gap-1.5 text-xs font-semibold text-accent-text hover:text-foreground py-2 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F2328] focus-visible:ring-offset-2 rounded"
                     aria-expanded={showAllSpecs}
                   >
                     <span>
@@ -398,131 +496,142 @@ export const ProductDetailPage: React.FC = () => {
                     />
                   </button>
                 )}
-              </div>
+              </section>
             )}
 
-            {/* 3. Opcje i wyposażenie dodatkowe: tabela widoczna bez accordiona */}
+            {/* 5. Tabela opcji: odszumiona, z kotwicą #opcje i scroll-margin-top */}
             {parsedModel.options.length > 0 && (
-              <div className="order-6 col-span-1 space-y-5 pt-4 border-t border-surface-border">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
+              <section
+                id="opcje"
+                aria-labelledby="product-options-heading"
+                className="space-y-4 pt-4 border-t border-surface-border scroll-mt-28"
+              >
+                <div>
+                  <h2 id="product-options-heading" className="text-xl sm:text-2xl font-bold text-foreground tracking-tight">
                     Opcje i wyposażenie dodatkowe ({parsedModel.options.length})
                   </h2>
+                  <p className="text-[13px] sm:text-[14px] text-foreground-secondary mt-1">
+                    Zaznacz opcje, które chcesz uwzględnić w zapytaniu
+                  </p>
+                  {!hasAnyOptionPrice && (
+                    <p className="text-[13px] text-foreground-muted mt-0.5 font-medium">
+                      Ceny opcji na zapytanie
+                    </p>
+                  )}
                 </div>
 
                 <div className="divide-y divide-surface-border border-y border-surface-border">
                   {parsedModel.options.map((option, idx) => {
                     const isChecked = selectedOptionIds.has(option.id);
-                    const isHidden = !showAllOptions && idx >= 8;
+                    const isBeyondLimit = parsedModel.options.length > 12 && idx >= 10;
+                    const isHidden = isBeyondLimit && !showAllOptions && !isChecked;
 
                     return (
-                      <div
+                      <label
                         key={option.id}
-                        className={`py-3 transition-colors ${
-                          isChecked ? 'bg-surface-subtle/40' : ''
+                        className={`block py-3 px-2 sm:px-3 rounded-[8px] transition-colors cursor-pointer select-none ${
+                          isChecked ? 'bg-[#F7F7F5]' : 'hover:bg-[#F7F7F5]/50'
                         } ${isHidden ? 'hidden' : ''}`}
                       >
-                        {/* Desktop (sm+) layout: 4 kolumny w gridzie */}
+                        {/* Desktop (sm+) layout */}
                         <div className="hidden sm:grid sm:grid-cols-12 sm:items-center sm:gap-4">
+                          {/* Checkbox 24px z polem dotykowym 44px */}
                           <div className="sm:col-span-1 flex items-center justify-center">
-                            <label className="w-11 h-11 flex items-center justify-center cursor-pointer">
+                            <div className="w-11 h-11 flex items-center justify-center">
                               <input
                                 type="checkbox"
+                                value={option.id}
                                 checked={isChecked}
                                 onChange={() => handleToggleOption(option.id)}
-                                className="w-5 h-5 rounded border-surface-border text-accent-primary focus:ring-accent-primary cursor-pointer"
+                                className="w-6 h-6 rounded border-surface-border text-accent-primary focus:ring-accent-primary focus-visible:ring-2 focus-visible:ring-[#1F2328] focus-visible:ring-offset-2 cursor-pointer"
                               />
-                              <span className="sr-only">Wybierz {option.name}</span>
-                            </label>
+                            </div>
                           </div>
 
-                          <div className="sm:col-span-6 flex flex-col justify-center">
-                            <span className="text-[15px] font-medium text-foreground leading-snug">
+                          {/* Nazwa + nr kat w 2. linii */}
+                          <div className={hasAnyOptionPrice ? 'sm:col-span-8' : 'sm:col-span-11'}>
+                            <span className="text-[15px] font-medium text-foreground leading-snug block">
                               {option.name}
                             </span>
+                            {option.catalogNo && (
+                              <span className="font-mono text-[14px] text-[#4B5563] block mt-0.5">
+                                nr {option.catalogNo}
+                              </span>
+                            )}
                             {option.spec && (
-                              <span className="text-[13px] text-foreground-secondary mt-0.5 leading-tight">
+                              <span className="text-[13px] text-foreground-secondary mt-0.5 block leading-tight">
                                 {option.spec}
                               </span>
                             )}
                           </div>
 
-                          <div className="sm:col-span-2 text-left">
-                            {option.catalogNo ? (
-                              <span className="font-mono text-[12px] text-foreground-secondary whitespace-nowrap">
-                                {option.catalogNo}
-                              </span>
-                            ) : (
-                              <span className="text-foreground-muted text-[12px]">—</span>
-                            )}
-                          </div>
-
-                          <div className="sm:col-span-3 text-right">
-                            {showPrices && option.price !== null ? (
-                              <span className="text-[14px] font-bold text-foreground font-sans tabular-nums whitespace-nowrap">
-                                {formatPrice(option.price, '+')}
-                              </span>
-                            ) : (
-                              <span className="text-[13px] font-medium text-foreground-secondary whitespace-nowrap">
-                                Wycena na zapytanie
-                              </span>
-                            )}
-                          </div>
+                          {/* Kolumna ceny (tylko gdy co najmniej jedna opcja ma cenę) */}
+                          {hasAnyOptionPrice && (
+                            <div className="sm:col-span-3 text-right">
+                              {showPrices && option.price !== null ? (
+                                <span className="text-[15px] font-bold text-foreground font-sans tabular-nums whitespace-nowrap">
+                                  {formatPrice(option.price, '+')}
+                                </span>
+                              ) : (
+                                <span className="text-[13px] sm:text-[14px] font-normal text-foreground-secondary whitespace-nowrap">
+                                  na zapytanie
+                                </span>
+                              )}
+                            </div>
+                          )}
                         </div>
 
-                        {/* Mobile (390) layout: checkbox 44px + nazwa, pod spodem nr kat po lewej, cena po prawej */}
-                        <div className="sm:hidden space-y-2">
-                          <label className="flex items-start gap-3 cursor-pointer select-none">
+                        {/* Mobile (390 px) layout */}
+                        <div className="sm:hidden space-y-1.5">
+                          <div className="flex items-start gap-2">
                             <div className="w-11 h-11 -ml-2 -mt-1 flex items-center justify-center shrink-0">
                               <input
                                 type="checkbox"
+                                value={option.id}
                                 checked={isChecked}
                                 onChange={() => handleToggleOption(option.id)}
-                                className="w-5 h-5 rounded border-surface-border text-accent-primary focus:ring-accent-primary cursor-pointer"
+                                className="w-6 h-6 rounded border-surface-border text-accent-primary focus:ring-accent-primary cursor-pointer"
                               />
                             </div>
                             <div className="flex-1 pt-1 min-w-0">
                               <span className="text-[14px] font-medium text-foreground leading-snug block">
                                 {option.name}
                               </span>
-                              {option.spec && (
-                                <span className="text-[12px] text-foreground-secondary mt-0.5 block leading-tight">
-                                  {option.spec}
-                                </span>
-                              )}
                             </div>
-                          </label>
+                          </div>
 
-                          <div className="flex items-center justify-between pl-9 text-[12px]">
+                          <div className="flex items-center justify-between pl-9 text-[13px]">
                             {option.catalogNo ? (
-                              <span className="font-mono text-foreground-secondary whitespace-nowrap">
+                              <span className="font-mono text-[#4B5563] whitespace-nowrap">
                                 nr {option.catalogNo}
                               </span>
                             ) : (
-                              <span className="text-foreground-muted">—</span>
+                              <span />
                             )}
 
-                            {showPrices && option.price !== null ? (
-                              <span className="font-bold text-foreground font-sans tabular-nums whitespace-nowrap">
-                                {formatPrice(option.price, '+')}
-                              </span>
-                            ) : (
-                              <span className="font-medium text-foreground-secondary whitespace-nowrap">
-                                Wycena na zapytanie
-                              </span>
+                            {hasAnyOptionPrice && (
+                              showPrices && option.price !== null ? (
+                                <span className="font-bold text-foreground font-sans tabular-nums whitespace-nowrap">
+                                  {formatPrice(option.price, '+')}
+                                </span>
+                              ) : (
+                                <span className="font-normal text-foreground-secondary whitespace-nowrap">
+                                  na zapytanie
+                                </span>
+                              )
                             )}
                           </div>
                         </div>
-                      </div>
+                      </label>
                     );
                   })}
                 </div>
 
-                {parsedModel.options.length > 8 && (
+                {parsedModel.options.length > 12 && (
                   <button
                     type="button"
                     onClick={() => setShowAllOptions(!showAllOptions)}
-                    className="inline-flex items-center gap-1.5 text-xs font-semibold text-accent-text hover:text-foreground py-2 transition-colors cursor-pointer"
+                    className="min-h-[44px] inline-flex items-center gap-1.5 text-xs font-semibold text-accent-text hover:text-foreground py-2 transition-colors cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F2328] focus-visible:ring-offset-2 rounded"
                     aria-expanded={showAllOptions}
                   >
                     <span>
@@ -537,48 +646,20 @@ export const ProductDetailPage: React.FC = () => {
                     />
                   </button>
                 )}
-              </div>
+              </section>
             )}
           </div>
 
-          {/* 2. Prawa kolumna: Krótki panel produktu */}
-          <div className="col-span-1 lg:col-span-5 order-3 w-full self-start">
-            <div
-              ref={panelRef}
-              className={`p-6 sm:p-7 rounded-[14px] bg-background-subtle border border-surface-border space-y-6 ${
-                canStick ? 'lg:sticky lg:top-24' : ''
-              } self-start`}
-            >
-              {/* Desktop H1 (w panelu na dużych ekranach) */}
-              <div className="hidden lg:block">
-                <h1 className="text-2xl sm:text-3xl font-bold text-foreground tracking-tight leading-snug">
-                  {meta?.model || product.name}
-                </h1>
-              </div>
-
-              {/* 3 kluczowe parametry: rozdzielone cienką linią, bez boxów w boxie */}
-              {topThreeSpecs.length > 0 && (
-                <div className="divide-y divide-surface-border border-y border-surface-border">
-                  {topThreeSpecs.map((spec) => (
-                    <div
-                      key={spec.label}
-                      className="py-2.5 flex items-baseline justify-between gap-4"
-                    >
-                      <span className="text-[14px] sm:text-[15px] text-foreground-secondary">
-                        {spec.label}
-                      </span>
-                      <span className="text-[18px] sm:text-[20px] font-bold text-foreground font-sans tabular-nums text-right">
-                        {spec.value}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
-              {/* Blok ceny bazowej */}
+          {/* PRAWA KOLUMNA: Krótki panel produktu (stała szerokość 380px, sticky top-24) */}
+          <aside
+            ref={panelRef}
+            aria-label="Panel zakupu urządzenia"
+            className="order-2 w-full lg:w-[380px] lg:shrink-0 p-6 sm:p-7 rounded-[14px] bg-background-subtle border border-surface-border space-y-5 lg:sticky lg:top-24 self-start"
+          >
+              {/* 3. Blok ceny: etykieta "Cena katalogowa", wartość "X zł netto" */}
               <div className="space-y-1">
-                <span className="text-[14px] text-foreground-secondary block">
-                  Cena katalogowa netto
+                <span className="text-[13px] sm:text-[14px] text-foreground-secondary block font-normal">
+                  Cena katalogowa
                 </span>
                 <div>
                   {showPrices && basePrice !== null ? (
@@ -593,11 +674,11 @@ export const ProductDetailPage: React.FC = () => {
                 </div>
               </div>
 
-              {/* Wybór wersji (jeśli >= 2): karty-radio min. 48px */}
+              {/* 3. Wybór wersji (jeśli >= 2): karty-radio z obrysem 2px #1F2328 i tłem #F7F7F5 */}
               {parsedModel.variants.length >= 2 && (
-                <div className="space-y-2.5 pt-2 border-t border-surface-border">
+                <div className="space-y-2 pt-2 border-t border-surface-border">
                   <span className="text-[13px] font-semibold text-foreground-secondary block">
-                    Wersja urządzenia:
+                    Wybierz wersję urządzenia:
                   </span>
                   <div className="space-y-2">
                     {parsedModel.variants.map((variant) => {
@@ -605,10 +686,10 @@ export const ProductDetailPage: React.FC = () => {
                       return (
                         <label
                           key={variant.id}
-                          className={`flex items-start gap-3 p-3 rounded-[10px] border cursor-pointer min-h-[48px] transition-colors select-none ${
+                          className={`flex items-start gap-3 p-3.5 rounded-[10px] cursor-pointer min-h-[48px] transition-all select-none focus-within:ring-2 focus-within:ring-[#1F2328] focus-within:ring-offset-2 ${
                             isSelected
-                              ? 'border-accent-primary bg-background shadow-xs ring-1 ring-accent-primary'
-                              : 'border-surface-border bg-background hover:border-surface-border/80'
+                              ? 'border-2 border-[#1F2328] bg-[#F7F7F5] shadow-xs'
+                              : 'border border-surface-border bg-white hover:border-surface-border/80'
                           }`}
                         >
                           <input
@@ -619,10 +700,11 @@ export const ProductDetailPage: React.FC = () => {
                             onChange={() => handleSelectVariant(variant.id)}
                             className="sr-only"
                           />
+                          {/* Wypełniona kropka radio */}
                           <div
-                            className={`w-4 h-4 rounded-full border mt-0.5 flex items-center justify-center shrink-0 ${
+                            className={`w-4 h-4 rounded-full border mt-0.5 flex items-center justify-center shrink-0 transition-colors ${
                               isSelected
-                                ? 'border-accent-primary bg-accent-primary text-white'
+                                ? 'border-[#1F2328] bg-[#1F2328]'
                                 : 'border-surface-border bg-white'
                             }`}
                           >
@@ -630,17 +712,17 @@ export const ProductDetailPage: React.FC = () => {
                           </div>
                           <div className="flex-1 min-w-0">
                             <div className="flex items-baseline justify-between gap-2">
-                              <span className="text-[14px] font-semibold text-foreground tracking-tight">
+                              <span className="text-[16px] font-semibold text-foreground tracking-tight">
                                 {variant.label}
                               </span>
                               {showPrices && variant.price !== null && (
-                                <span className="text-[13px] font-bold text-foreground whitespace-nowrap tabular-nums">
+                                <span className="text-[16px] sm:text-[17px] font-bold text-foreground whitespace-nowrap tabular-nums shrink-0">
                                   {formatPrice(variant.price)}
                                 </span>
                               )}
                             </div>
                             {variant.description && (
-                              <p className="text-[12px] text-foreground-secondary mt-0.5 leading-snug">
+                              <p className="text-[15px] text-foreground-secondary mt-1 leading-snug">
                                 {variant.description}
                               </p>
                             )}
@@ -652,19 +734,31 @@ export const ProductDetailPage: React.FC = () => {
                 </div>
               )}
 
-              {/* Podsumowanie wybranych opcji */}
-              {parsedModel.options.length > 0 && (
-                <div className="pt-3 border-t border-surface-border space-y-1.5 text-[13px]">
-                  <div className="flex items-center justify-between text-foreground font-medium">
-                    <span>Wybrane opcje:</span>
-                    <span className="tabular-nums font-semibold">{selectedCount}</span>
+              {/* 3. Podsumowanie opcji */}
+              <div className="pt-2 border-t border-surface-border text-[13px] sm:text-[14px]">
+                {selectedCount === 0 ? (
+                  <div className="flex flex-col gap-1 text-foreground-secondary">
+                    <span>Opcje dodatkowe wybierzesz poniżej</span>
+                    {parsedModel.options.length > 0 && (
+                      <a
+                        href="#opcje"
+                        className="text-accent-text hover:text-foreground font-semibold inline-flex items-center gap-1 transition-colors self-start"
+                      >
+                        Przejdź do opcji ({parsedModel.options.length})
+                      </a>
+                    )}
                   </div>
-                  {selectedCount > 0 && (
-                    <div className="text-[13px] text-foreground-secondary">
+                ) : (
+                  <div className="space-y-1.5">
+                    <div className="flex items-center justify-between text-foreground font-medium">
+                      <span>Wybrane opcje:</span>
+                      <span className="tabular-nums font-semibold">{selectedCount}</span>
+                    </div>
+                    <div className="text-foreground-secondary">
                       {showPrices && allSelectedPriced && totalCatalogPrice !== null ? (
                         <p>
                           Orientacyjnie:{' '}
-                          <strong className="text-foreground font-semibold whitespace-nowrap tabular-nums">
+                          <strong className="text-foreground font-bold whitespace-nowrap tabular-nums">
                             {formatPrice(totalCatalogPrice)}
                           </strong>{' '}
                           (cena katalogowa)
@@ -673,12 +767,12 @@ export const ProductDetailPage: React.FC = () => {
                         <p>oraz opcje wg wyceny</p>
                       )}
                     </div>
-                  )}
-                </div>
-              )}
+                  </div>
+                )}
+              </div>
 
               {/* Przycisk CTA: Zapytaj o ofertę */}
-              <div className="pt-2">
+              <div className="pt-1">
                 <Button
                   to={offerHref}
                   variant="primary"
@@ -689,14 +783,14 @@ export const ProductDetailPage: React.FC = () => {
                 </Button>
               </div>
 
-              {/* Telefon informacji handlowej pod CTA */}
-              <div className="pt-4 border-t border-surface-border flex items-center gap-3">
+              {/* 3. Telefon informacji handlowej: etykieta dokładnie "Informacja handlowa" */}
+              <div className="pt-3 border-t border-surface-border flex items-center gap-3">
                 <div className="w-9 h-9 rounded-full bg-white border border-surface-border flex items-center justify-center text-foreground-secondary shrink-0">
                   <Phone className="w-4 h-4 text-accent-text" />
                 </div>
                 <div>
                   <span className="text-[12px] text-foreground-secondary block">
-                    Informacja handlowa i dobór:
+                    Informacja handlowa:
                   </span>
                   <a
                     href={cleanTelHref(COMPANY_DATA.phones.salesInfo.raw)}
@@ -706,16 +800,15 @@ export const ProductDetailPage: React.FC = () => {
                   </a>
                 </div>
               </div>
-            </div>
-          </div>
+            </aside>
         </div>
 
         {/* 6. Podobne urządzenia (pokazywane TYLKO gdy >= 2) */}
         {similarProducts.length >= 2 && (
-          <div className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-surface-border">
+          <section aria-labelledby="similar-products-heading" className="mt-12 sm:mt-16 pt-8 sm:pt-12 border-t border-surface-border">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4 sm:mb-6">
               <div>
-                <h2 className="text-lg sm:text-2xl font-bold text-foreground tracking-tight">
+                <h2 id="similar-products-heading" className="text-lg sm:text-2xl font-bold text-foreground tracking-tight">
                   Podobne urządzenia
                 </h2>
                 <p className="text-xs sm:text-sm text-foreground-secondary mt-0.5">
@@ -739,9 +832,13 @@ export const ProductDetailPage: React.FC = () => {
                   <Link
                     key={simProd.slug}
                     to={`/produkty/${simProd.categorySlug}/${simProd.slug}`}
-                    className="w-[165px] sm:w-auto shrink-0 snap-start group flex flex-col bg-background border border-surface-border rounded-[10px] overflow-hidden hover:border-accent transition-all duration-150 hover:shadow-xs"
+                    className="w-[165px] sm:w-auto shrink-0 snap-start group flex flex-col bg-background border border-surface-border rounded-[10px] overflow-hidden hover:border-accent transition-all duration-150 hover:shadow-xs focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#1F2328]"
                   >
-                    <div className="relative aspect-square w-full bg-[#F7F7F5] overflow-hidden flex items-center justify-center p-2.5 sm:p-4">
+                    <div
+                      className={`relative aspect-square w-full bg-[#F7F7F5] overflow-hidden flex items-center justify-center ${
+                        simContain ? 'p-2.5 sm:p-4' : 'p-0'
+                      }`}
+                    >
                       <SiteImage
                         name={simProd.slug}
                         alt={simProd.name}
@@ -766,12 +863,12 @@ export const ProductDetailPage: React.FC = () => {
                     </div>
 
                     <div className="p-2.5 sm:p-4 flex flex-col flex-1 justify-between gap-1 border-t border-surface-border bg-background">
-                      <h4
+                      <h3
                         className="text-[13px] sm:text-[15px] font-semibold text-foreground tracking-tight leading-snug line-clamp-2 group-hover:text-accent-text transition-colors"
                         title={simProd.name}
                       >
                         {simMeta.model}
-                      </h4>
+                      </h3>
                       <p className="text-[11px] sm:text-[12px] text-foreground-secondary truncate">
                         {simMeta.typ ? `${simMeta.typ}` : ''}
                         {simMeta.typ && simMeta.seria ? ' · ' : ''}
@@ -782,13 +879,13 @@ export const ProductDetailPage: React.FC = () => {
                 );
               })}
             </div>
-          </div>
+          </section>
         )}
       </div>
 
       {/* Floating Sticky Bottom Bar dla urządzeń mobilnych (gdy panel przewinięty) */}
       {showMobileBar && (
-        <div
+        <aside
           role="region"
           aria-label="Szybki wybór oferty"
           className="fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-md border-t border-surface-border p-3 sm:hidden shadow-lg animate-fade-in"
@@ -797,7 +894,7 @@ export const ProductDetailPage: React.FC = () => {
           <div className="flex items-center justify-between gap-3">
             <div className="min-w-0">
               <span className="text-[11px] text-foreground-secondary block truncate">
-                {meta?.model || product.name}
+                {cleanTitle}
               </span>
               <div className="text-[15px] font-extrabold text-foreground tabular-nums whitespace-nowrap">
                 {showPrices && basePrice !== null ? (
@@ -820,7 +917,7 @@ export const ProductDetailPage: React.FC = () => {
               Zapytaj o ofertę
             </Button>
           </div>
-        </div>
+        </aside>
       )}
     </div>
   );

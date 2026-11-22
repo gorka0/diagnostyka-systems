@@ -186,13 +186,13 @@ export function parseProductModel(product: ProductItem): ParsedProductModel {
     variants = [
       {
         id: 'qb4-2200',
-        label: 'QB.4 2200 mm | 3,7 kW',
+        label: 'QB 4 2200 mm · 3,7 kW',
         description: 'tablet 10,1", nacisk 4\u00A0t, rozstaw 800–2200\u00A0mm',
         price: 49600,
       },
       {
         id: 'qb4-2800',
-        label: 'QB.4 2800 mm | 5,0 kW',
+        label: 'QB 4 2800 mm · 5,0 kW',
         description: 'tablet 10,1", nacisk 4\u00A0t, rozstaw 800–2800\u00A0mm',
         price: 59700,
       },

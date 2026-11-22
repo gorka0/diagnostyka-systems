@@ -35,6 +35,8 @@ export interface ProductItem {
   variants?: ProductVariant[];
   options?: ProductOption[];
   specs?: ProductSpecItem[];
+  imageFit?: 'contain' | 'cover';
+  galleryImages?: string[];
 }
 
 export const PRODUCTS_DATA: ProductItem[] = [

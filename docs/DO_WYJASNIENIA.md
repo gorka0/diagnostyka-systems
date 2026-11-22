@@ -199,3 +199,7 @@ Wdrożono silnik parsowania i normalizacji danych `/src/data/parse-rules.ts`, kt
 4. **Flaga globalna cen:**
    - W pliku `src/data/company.ts` wdrożono flagę `showPrices: true`.
    - W przypadku podjęcia decyzji przez klienta o ukryciu wszystkich cen katalogowych, zmiana flagi na `false` natychmiastowo przełącza wszystkie karty w tryb "Cena na zapytanie".
+
+5. **Ujednolicenie zapisu nazwy 'QB 4' vs 'QB.4':**
+   - W nagłówkach i oficjalnych materiałach Beissbarth linia diagnostyczna figuruje jako `QB 4` (ze spacją), natomiast w niektórych roboczych wariantach pojawił się zapis `QB.4`.
+   - Ujednolicono wszystkie etykiety do oficjalnego zapisu: `QB 4 2200 mm · 3,7 kW` oraz `QB 4 2800 mm · 5,0 kW`. W przypadku, gdyby klient wymagał zapisu z kropką, zmiana dotyczy wyłącznie pliku `/src/data/parse-rules.ts`.

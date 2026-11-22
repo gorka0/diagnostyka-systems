@@ -82,12 +82,16 @@ export const FACET_OEM_BRANDS = [
 
 // Obrazy wycinków na jasnym/białym tle dostają 'contain' + mix-blend-mode: multiply.
 // Obrazy z pełnym tłem dostają 'cover'.
+export const COVER_IMAGE_SLUGS = new Set<string>([
+  'qlign-t-series',
+  'beissbarth-qlign-t41',
+]);
+
 export const CONTAIN_IMAGE_SLUGS = new Set<string>([
   'ml-1800-8r',
   'ml-easy-3d',
   'ml-8-easy-ccd-excellence',
   'qlign-compact',
-  'qlign-t-series',
   'wywazarka-beissbarth-mt-zero-6-lcd-aw-detail',
   'wywazarka-beissbarth-mt-zero-6-touch-awlp-detail',
   'wywazarka-beissbarth-mt-zero-6-lcd-awl-detail',
@@ -287,8 +291,15 @@ export function extractProductMetadata(product: ProductItem): ProductMetadata {
     model = model.slice(6).trim();
   }
 
-  // 7. Dopasowanie grafiki
-  const imageFit: ProductMetadata['imageFit'] = 'contain';
+  // 7. Dopasowanie grafiki (contain dla wycinków/renderów, cover dla zdjęć z tłem)
+  let imageFit: ProductMetadata['imageFit'] = 'contain';
+  if (product.imageFit) {
+    imageFit = product.imageFit;
+  } else if (COVER_IMAGE_SLUGS.has(slug)) {
+    imageFit = 'cover';
+  } else if (CONTAIN_IMAGE_SLUGS.has(slug)) {
+    imageFit = 'contain';
+  }
 
   return {
     slug,
