@@ -148,7 +148,7 @@ export const CategoryPage: React.FC = () => {
             >
               {meta.model}
             </h4>
-            <p className="text-[12px] text-foreground-secondary mt-1 truncate">
+            <p className="text-[12px] text-foreground-secondary mt-1 line-clamp-1">
               {meta.typ ? `${meta.typ}` : ''}
               {meta.typ && meta.seria ? ' · ' : ''}
               {meta.seria ? `${meta.seria}` : ''}
@@ -196,7 +196,7 @@ export const CategoryPage: React.FC = () => {
 
           <div className="min-w-0">
             <div className="flex items-center gap-2 flex-wrap">
-              <h4 className="text-[14px] sm:text-[15px] font-semibold text-foreground truncate group-hover:text-accent-text transition-colors leading-snug">
+              <h4 className="text-[14px] sm:text-[15px] font-semibold text-foreground line-clamp-2 group-hover:text-accent-text transition-colors leading-snug">
                 {meta.model}
               </h4>
               {isUsed && (
@@ -205,7 +205,7 @@ export const CategoryPage: React.FC = () => {
                 </span>
               )}
             </div>
-            <p className="text-[12px] sm:text-[13px] text-foreground-secondary truncate mt-0.5">
+            <p className="text-[12px] sm:text-[13px] text-foreground-secondary line-clamp-1 mt-0.5">
               {meta.typ ? `${meta.typ}` : ''}
               {meta.typ && meta.seria ? ' · ' : ''}
               {meta.seria ? `${meta.seria}` : ''}
