@@ -256,14 +256,23 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
   },
 
   // Realizacje u klientów (ASO / SKP)
+  'bmw-sikora-budynek': {
+    fileName: 'bmw-sikora-budynek.webp',
+    path: '/images/bmw-sikora-budynek.webp',
+    dimensions: '1024x374',
+    aspectRatio: '16/9',
+    label: 'Autoryzowany Salon i Serwis BMW M Sikora',
+    category: 'realizations',
+    alt: 'Autoryzowany Salon i Serwis BMW M Sikora nocą z podświetloną fasadą',
+  },
   'bmw-sikora': {
     fileName: 'bmw-sikora.webp',
     path: '/images/bmw-sikora.webp',
     dimensions: '600x475',
     aspectRatio: '3/2',
-    label: 'Wdrożenie geometrii i linii Beissbarth w ASO BMW Sikora',
+    label: 'Stanowisko pomiarowe Beissbarth KDS 3D w ASO BMW Sikora',
     category: 'realizations',
-    alt: 'Autoryzowany serwis BMW Sikora wyposażony w aparaturę Beissbarth',
+    alt: 'Stanowisko pomiaru geometrii kół Beissbarth KDS 3D w autoryzowanym serwisie BMW Sikora',
   },
   'bmw-dobrzanscy-krakow': {
     fileName: 'bmw-dobrzanscy-krakow.webp',

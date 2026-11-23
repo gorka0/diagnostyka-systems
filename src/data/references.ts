@@ -43,8 +43,8 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     name: 'BMW Sikora',
     brand: 'BMW',
     url: 'https://www.bmw-sikora.pl',
-    cover: 'bmw-sikora',
-    objectPosition: 'center 45%',
+    cover: 'bmw-sikora-budynek',
+    objectPosition: '55% center',
     equipment: [
       {
         photo: 'bmw-sikora',
