@@ -123,13 +123,8 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     equipment: [
       {
         photo: 'realizacja-zs1-kutno-warsztat',
-        name: 'Beissbarth G.50P',
-        caption: 'Wyważarka Beissbarth G.50P w szkolnej pracowni wulkanizacji i wyważania kół ZS1 Kutno',
-      },
-      {
-        photo: 'realizacja-zs1-kutno-warsztat',
-        name: 'Beissbarth TC45 Pro 2',
-        caption: 'Demontażownica do kół Beissbarth TC45 Pro 2 z ramieniem pomocniczym Tecnoroller w pracowni ZS1 Kutno',
+        name: 'G.50P + TC45 Pro 2',
+        caption: 'Stanowisko wulkanizacji i wyważania kół: wyważarka Beissbarth G.50P oraz montażownica Beissbarth TC45 Pro 2 z ramieniem pomocniczym Tecnoroller',
       },
     ],
   },
