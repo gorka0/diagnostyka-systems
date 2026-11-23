@@ -61,7 +61,23 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     url: 'https://www.bmw-dobrzanski.pl',
     cover: 'bmw-dobrzanscy-krakow',
     objectPosition: 'center',
-    equipment: [],
+    equipment: [
+      {
+        photo: 'realizacja-qlign-stanowisko',
+        name: 'Beissbarth Q.Lign',
+        caption: 'Stanowisko pomiarowe geometrii 3D Beissbarth Q.Lign z technologią Stream-to-X',
+      },
+      {
+        photo: 'realizacja-qlign-lexus-przod',
+        name: 'Stanowisko 3D Q.Lign',
+        caption: 'Stanowisko pomiaru geometrii zawieszenia Beissbarth Q.Lign 3D na kanale diagnostycznym',
+      },
+      {
+        photo: 'realizacja-qlign-lexus-bok',
+        name: 'Głowice Q.Lign',
+        caption: 'Głowice pomiarowe i tarcze Beissbarth Q.Lign zamontowane na pojeździe',
+      },
+    ],
   },
   {
     slug: 'vw-watarski',
@@ -89,9 +105,19 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     cover: undefined, // Brak zdjęcia obiektu – okładka typograficzna
     equipment: [
       {
+        photo: 'realizacja-mercedes-wrobel-warsztat',
+        name: 'Microline 81 R Tech',
+        caption: 'Zestaw do pomiaru geometrii kół Beissbarth Microline 81 R Tech w hali ASO Mercedes-Benz Wróbel Lubin',
+      },
+      {
+        photo: 'realizacja-mercedes-wrobel-warsztat',
+        name: 'Beissbarth MLD',
+        caption: 'Cyfrowy przyrząd do kontroli i ustawiania reflektorów Beissbarth MLD w hali ASO Mercedes',
+      },
+      {
         photo: 'mercedes',
         name: 'Microline 81 Tech',
-        caption: 'Urządzenie z oznaczeniem Microline 81 Tech',
+        caption: 'Urządzenie pomiarowe z oznaczeniem Microline 81 Tech',
       },
     ],
   },
@@ -105,8 +131,18 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     objectPosition: 'center',
     equipment: [
       {
+        photo: 'realizacja-zs1-kutno-warsztat',
+        name: 'Beissbarth G.50P',
+        caption: 'Wyważarka Beissbarth G.50P w szkolnej pracowni wulkanizacji i wyważania kół ZS1 Kutno',
+      },
+      {
+        photo: 'realizacja-zs1-kutno-warsztat',
+        name: 'Beissbarth TC45 Pro 2',
+        caption: 'Demontażownica do kół Beissbarth TC45 Pro 2 z ramieniem pomocniczym Tecnoroller w pracowni ZS1 Kutno',
+      },
+      {
         photo: 'stanowisko-diagnostyczne-hero',
-        name: 'Linia diagnostyczna Beissbarth',
+        name: 'Linia diagnostyczna',
         caption: 'Stanowisko kontroli pojazdów z linią diagnostyczną i rolkami hamulcowymi Beissbarth',
       },
     ],
@@ -120,6 +156,11 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     cover: undefined, // Brak zdjęcia obiektu – okładka typograficzna
     gallery: ['skoda-bieranowski'],
     equipment: [
+      {
+        photo: 'realizacja-skoda-vag-g50p',
+        name: 'Beissbarth G.50P (V.A.G)',
+        caption: 'Wyważarka Beissbarth G.50P z oficjalnym oznaczeniem homologacji Grupy V.A.G',
+      },
       {
         photo: 'vag',
         name: 'Montażownica VAS 6279',
