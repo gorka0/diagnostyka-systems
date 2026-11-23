@@ -102,7 +102,8 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     brand: 'Mercedes-Benz',
     city: 'Lubin',
     url: 'https://wrobel.mercedes-benz.pl',
-    cover: undefined, // Brak zdjęcia obiektu – okładka typograficzna
+    cover: 'mercedes-wrobel-budynek',
+    objectPosition: 'center 40%',
     equipment: [
       {
         photo: 'realizacja-mercedes-wrobel-warsztat',

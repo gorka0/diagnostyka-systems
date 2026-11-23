@@ -222,10 +222,10 @@ Wdrożono rozdzielenie ról fotografii w sekcji `/realizacje`: okładka (`cover`
 *Rekomendacja dla klienta:* Dostarczenie fotografii obiektów w proporcji 3:2 o minimalnej rozdzielczości 1600 × 1067 px oraz zdjęć wyposażenia min. 800 × 800 px.
 
 ### C. Obiekty z okładką typograficzną (brak zdjęcia miejsca):
-1. **Skoda Bieranowski** (Bydgoszcz) – brak fotografii obiektu / salonu.
-2. **MB Professional ASO Mercedes Wróbel Lubin** (Lubin) – brak fotografii obiektu (zdjęcie maszyny przeniesione do wyposażenia).
-Oba wdrożenia wyświetlają estetyczną, techniczną okładkę typograficzną (panel `#F7F7F5`, siatka Crosshair 6%, pomarańczowe CornerBrackets, nazwa klienta 24 px / 600 oraz marka i miasto).
+1. **Skoda Bieranowski** (Bydgoszcz) – brak fotografii obiektu / salonu (wyświetla techniczną okładkę typograficzną #F7F7F5).
+2. **MB Professional ASO Mercedes Wróbel Lubin** oraz **BMW Sikora** – otrzymały już oficjalne fotografie fasad budynków dostarczone przez klienta (`mercedes-wrobel-budynek.webp` oraz `bmw-sikora-budynek.webp`).
 
-### D. Status wyposażenia pozostałych realizacji:
-- Zgodnie z zasadą zero założeń, dla pozostałych realizacji (`BMW Dobrzańscy Kraków`, `BMW Sikora`, `VW Wątarski`, `Skoda Bieranowski`, `Zespół Szkół Nr 1 w Kutnie`) tablica `equipment` pozostaje pusta (`[]`), a sekcja "Wyposażenie" nie renderuje się na karcie do momentu otrzymania oficjalnej listy wdrożonych maszyn od klienta.
+### D. Zdjęcia poniżej 800 px i ujęcia dostarczone:
+1. `mercedes-wrobel-budynek.webp` – plik źródłowy dostarczony w rozdzielczości 680 × 510 px (zreinterpolowany algorytmem Lanczos do 1024 × 768 px). Wskazane dostarczenie ujęcia w wyższej rozdzielczości (min. 1600 × 1067 px), jeśli klient dysponuje oryginałem.
+2. `bmw-sikora-budynek.webp` – 1024 × 374 px (ujęcie panoramiczne, wykadrowane z fokusem 55% center na pylon BMW M Sikora).
 

@@ -283,6 +283,15 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
     category: 'realizations',
     alt: 'Autoryzowany salon i serwis BMW Dobrzańscy w Krakowie',
   },
+  'mercedes-wrobel-budynek': {
+    fileName: 'mercedes-wrobel-budynek.webp',
+    path: '/images/mercedes-wrobel-budynek.webp',
+    dimensions: '1024x768',
+    aspectRatio: '4/3',
+    label: 'Autoryzowany Salon i Serwis Mercedes-Benz Grupa Wróbel Lubin',
+    category: 'realizations',
+    alt: 'Autoryzowany Salon i Serwis Mercedes-Benz Grupa Wróbel Lubin',
+  },
   'mercedes': {
     fileName: 'mercedes.webp',
     path: '/images/mercedes.webp',
