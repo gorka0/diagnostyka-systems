@@ -60,11 +60,6 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     productCount: 2,
     featured: false,
     imageKey: 'product-mld-815',
-    subcategories: [
-      'Przyrządy z kamerą CMOS (MLD 815, MLD 9000)',
-      'Badanie świateł Matrix LED i Matrix beam 2',
-      'Opcjonalne szyny i transmisja ASA Network / WiFi',
-    ],
   },
   {
     id: 'serwis-klimatyzacji',
@@ -84,11 +79,6 @@ export const PRODUCT_CATEGORIES: ProductCategory[] = [
     productCount: 11,
     featured: false,
     imageKey: 'product-servomat-ms70',
-    subcategories: [
-      'Wyważarki do kół ciężarowe',
-      'Demontażownice ciężarowe (Servomat)',
-      'Geometria ciężarowe',
-    ],
   },
   {
     id: 'produkty-uzywane',

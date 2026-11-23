@@ -18,7 +18,6 @@ import { ArrowLeft, ArrowRight, LayoutGrid, List, SlidersHorizontal, Search, X }
 
 export const CategoryPage: React.FC = () => {
   const { kategoria } = useParams<{ kategoria: string }>();
-  const [activeSubcategory, setActiveSubcategory] = useState<string>('all');
   const [searchQuery, setSearchQuery] = useState('');
   const [viewMode, setViewMode] = useState<'grid' | 'list'>('grid');
 
@@ -38,50 +37,14 @@ export const CategoryPage: React.FC = () => {
     }));
   }, [kategoria]);
 
-  const subcategories = useMemo(() => {
-    if (!category?.subcategories) return [];
-    return category.subcategories;
-  }, [category]);
-
   const filteredProducts = useMemo(() => {
     return categoryProductsWithMeta.filter(({ product, meta }) => {
-      // 1. Wyszukiwarka tekstowa
       if (searchQuery && !matchesProductSearch(product, meta, searchQuery)) {
         return false;
       }
-
-      // 2. Podkategoria
-      if (activeSubcategory === 'all') return true;
-
-      if (product.subcategory) return product.subcategory === activeSubcategory;
-      const subLower = activeSubcategory.toLowerCase();
-      if (subLower.includes('wyważarki')) {
-        return (
-          meta.typ === 'Wyważarka do kół' ||
-          product.name.toLowerCase().includes('wyważarka') ||
-          product.originalUrl.includes('wywazarki')
-        );
-      }
-      if (subLower.includes('demontażownice')) {
-        return (
-          meta.typ === 'Demontażownica' ||
-          product.name.toLowerCase().includes('demontażownica') ||
-          product.originalUrl.includes('demontazownice')
-        );
-      }
-      if (subLower.includes('geometria')) {
-        return (
-          meta.typ === 'Geometria kół' ||
-          product.name.toLowerCase().includes('geometria') ||
-          product.originalUrl.includes('geometria')
-        );
-      }
-      return (
-        product.name.toLowerCase().includes(subLower) ||
-        product.shortDescription.toLowerCase().includes(subLower)
-      );
+      return true;
     });
-  }, [categoryProductsWithMeta, activeSubcategory, searchQuery]);
+  }, [categoryProductsWithMeta, searchQuery]);
 
   if (!category) {
     return (
@@ -263,45 +226,15 @@ export const CategoryPage: React.FC = () => {
         badge="Kategoria urządzeń"
       />
 
-      {/* Pasek narzędziowy: podkategorie, wyszukiwarka, widok siatka/lista */}
+      {/* Pasek narzędziowy: liczba pozycji, wyszukiwarka, widok siatka/lista */}
       <div className="border-b border-surface-border bg-background sticky top-[72px] z-20 py-3 shadow-xs">
         <Container>
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
-            {/* Pigułki podkategorii (jeśli istnieją) */}
-            {subcategories.length > 0 ? (
-              <div className="flex items-center gap-2 overflow-x-auto no-scrollbar py-1">
-                <button
-                  type="button"
-                  onClick={() => setActiveSubcategory('all')}
-                  className={`min-h-[38px] px-3.5 rounded-full border text-xs font-medium whitespace-nowrap transition-colors flex items-center ${
-                    activeSubcategory === 'all'
-                      ? 'bg-foreground text-background border-foreground font-semibold'
-                      : 'bg-background border-surface-border text-foreground hover:bg-surface-hover'
-                  }`}
-                >
-                  Wszystkie ({categoryProductsWithMeta.length})
-                </button>
-                {subcategories.map((sub) => (
-                  <button
-                    key={sub}
-                    type="button"
-                    onClick={() => setActiveSubcategory(sub)}
-                    className={`min-h-[38px] px-3.5 rounded-full border text-xs font-medium whitespace-nowrap transition-colors flex items-center ${
-                      activeSubcategory === sub
-                        ? 'bg-accent text-white border-accent font-semibold'
-                        : 'bg-background border-surface-border text-foreground hover:bg-surface-hover'
-                    }`}
-                  >
-                    {sub}
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <div className="text-xs text-foreground-secondary font-mono">
-                Liczba pozycji:{' '}
-                <strong className="text-foreground">{categoryProductsWithMeta.length}</strong>
-              </div>
-            )}
+            {/* Liczba pozycji (zgodnie ze standardem na geometrii kół) */}
+            <div className="text-xs text-foreground-secondary font-mono">
+              Liczba pozycji:{' '}
+              <strong className="text-foreground">{filteredProducts.length}</strong>
+            </div>
 
             {/* Prawa strona paska narzędziowego */}
             <div className="flex items-center gap-2 self-end md:self-auto">
@@ -384,11 +317,10 @@ export const CategoryPage: React.FC = () => {
                 variant="outline"
                 size="sm"
                 onClick={() => {
-                  setActiveSubcategory('all');
                   setSearchQuery('');
                 }}
               >
-                Resetuj filtry
+                Resetuj filtr
               </Button>
               <Button
                 to={`/kontakt?typ=oferta&produkt=${encodeURIComponent(category.name)}`}
