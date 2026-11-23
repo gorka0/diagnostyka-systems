@@ -136,6 +136,38 @@ def generate_redirects_and_sitemap(routes):
     for oem_s in oem_slugs:
         sl_redirects.append((f'produkty/urzadzenia-oem/{oem_s}', 'produkty/urzadzenia-do-swiatel'))
         sl_redirects.append((f'produkty/urzadzenia-oem/{oem_s}.html', 'produkty/urzadzenia-do-swiatel'))
+
+    # Redirects dla 9 produktów usuniętych decyzją klienta ze starego serwisu
+    removed_slugs_redirects = [
+        ('produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-795t-detail', 'produkty/wywazarki-do-kol/wywazarka-beissbarth-g-90-hd-detail'),
+        ('produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-795t-detail.html', 'produkty/wywazarki-do-kol/wywazarka-beissbarth-g-90-hd-detail'),
+        ('produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe/wywazarka-beissbarth-mt-795t-detail.html', 'produkty/wywazarki-do-kol/wywazarka-beissbarth-g-90-hd-detail'),
+        ('produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-788-detail', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-788-detail.html', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe/wywazarka-beissbarth-mt-788-detail.html', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail.html', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/geometria-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail.html', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail.html', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-70-detail', 'produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-850-hd-detail'),
+        ('produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-70-detail.html', 'produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-850-hd-detail'),
+        ('produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-70-detail.html', 'produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-850-hd-detail'),
+        ('produkty/pojazdy-ciezarowe/demontazownica-beissbarth-ms-75-detail', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/demontazownica-beissbarth-ms-75-detail.html', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-beissbarth-ms-75-detail.html', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-78-detail', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-78-detail.html', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-78-detail.html', 'produkty/pojazdy-ciezarowe'),
+        ('produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-80-detail', 'produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-1150-hd-detail'),
+        ('produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-80-detail.html', 'produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-1150-hd-detail'),
+        ('produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-80-detail.html', 'produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-1150-hd-detail'),
+        ('produkty/produkty-uzywane/geometria-beissbarth-microline-4000-windows-detail', 'produkty-uzywane'),
+        ('produkty/produkty-uzywane/geometria-beissbarth-microline-4000-windows-detail.html', 'produkty-uzywane'),
+        ('produkty/produkty-uzywane/linia-diagnostyczna-beissbarth-stl-7000-detail', 'produkty-uzywane'),
+        ('produkty/produkty-uzywane/linia-diagnostyczna-beissbarth-stl-7000-detail.html', 'produkty-uzywane'),
+    ]
+    sl_redirects.extend(removed_slugs_redirects)
     for old_r, new_r in sl_redirects:
         target_dir = os.path.join(DIST_DIR, old_r)
         if old_r.endswith('.html'):

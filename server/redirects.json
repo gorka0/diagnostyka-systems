@@ -242,7 +242,7 @@
   {
     "fromUrl": "https://www.beissbarth-service.pl/produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
     "fromPath": "/produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
-    "toPath": "/produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe",
     "statusCode": 301
   },
   {
@@ -308,7 +308,7 @@
   {
     "fromUrl": "https://www.beissbarth-service.pl/produkty/produkty-uzywane/geometria-beissbarth-microline-4000-windows-detail.html",
     "fromPath": "/produkty/produkty-uzywane/geometria-beissbarth-microline-4000-windows-detail.html",
-    "toPath": "/produkty/produkty-uzywane/geometria-beissbarth-microline-4000-windows-detail",
+    "toPath": "/produkty-uzywane",
     "statusCode": 301
   },
   {
@@ -320,7 +320,7 @@
   {
     "fromUrl": "https://www.beissbarth-service.pl/produkty/produkty-uzywane/linia-diagnostyczna-beissbarth-stl-7000-detail.html",
     "fromPath": "/produkty/produkty-uzywane/linia-diagnostyczna-beissbarth-stl-7000-detail.html",
-    "toPath": "/produkty/produkty-uzywane/linia-diagnostyczna-beissbarth-stl-7000-detail",
+    "toPath": "/produkty-uzywane",
     "statusCode": 301
   },
   {
@@ -476,43 +476,103 @@
   {
     "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe/wywazarka-beissbarth-mt-788-detail.html",
     "fromPath": "/produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe/wywazarka-beissbarth-mt-788-detail.html",
-    "toPath": "/produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-788-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe",
     "statusCode": 301
   },
   {
     "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe/wywazarka-beissbarth-mt-795t-detail.html",
     "fromPath": "/produkty/pojazdy-ciezarowe/wywazarki-do-kol-ciezarowe/wywazarka-beissbarth-mt-795t-detail.html",
-    "toPath": "/produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-795t-detail",
+    "toPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-g-90-hd-detail",
     "statusCode": 301
   },
   {
     "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-70-detail.html",
     "fromPath": "/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-70-detail.html",
-    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-70-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-850-hd-detail",
     "statusCode": 301
   },
   {
     "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-beissbarth-ms-75-detail.html",
     "fromPath": "/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-beissbarth-ms-75-detail.html",
-    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-beissbarth-ms-75-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe",
     "statusCode": 301
   },
   {
     "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-78-detail.html",
     "fromPath": "/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-78-detail.html",
-    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-78-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe",
     "statusCode": 301
   },
   {
     "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-80-detail.html",
     "fromPath": "/produkty/pojazdy-ciezarowe/demontazownice-ciezarowe/demontazownica-servomat-ms-80-detail.html",
-    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-80-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-1150-hd-detail",
     "statusCode": 301
   },
   {
     "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/geometria-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
     "fromPath": "/produkty/pojazdy-ciezarowe/geometria-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail.html",
-    "toPath": "/produkty/pojazdy-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-795t-detail",
+    "fromPath": "/produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-795t-detail",
+    "toPath": "/produkty/wywazarki-do-kol/wywazarka-beissbarth-g-90-hd-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-788-detail",
+    "fromPath": "/produkty/pojazdy-ciezarowe/wywazarka-beissbarth-mt-788-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail",
+    "fromPath": "/produkty/pojazdy-ciezarowe/geometria-beissbarth-ml-8-r-tech-awb-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail",
+    "fromPath": "/produkty/geometria/geometria-beissbarth-ml-8-r-tech-awb-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-70-detail",
+    "fromPath": "/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-70-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-850-hd-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownica-beissbarth-ms-75-detail",
+    "fromPath": "/produkty/pojazdy-ciezarowe/demontazownica-beissbarth-ms-75-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-78-detail",
+    "fromPath": "/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-78-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-80-detail",
+    "fromPath": "/produkty/pojazdy-ciezarowe/demontazownica-servomat-ms-80-detail",
+    "toPath": "/produkty/pojazdy-ciezarowe/demontazownica-beissbarth-tc-1150-hd-detail",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/produkty-uzywane/geometria-beissbarth-microline-4000-windows-detail",
+    "fromPath": "/produkty/produkty-uzywane/geometria-beissbarth-microline-4000-windows-detail",
+    "toPath": "/produkty-uzywane",
+    "statusCode": 301
+  },
+  {
+    "fromUrl": "https://www.beissbarth-service.pl/produkty/produkty-uzywane/linia-diagnostyczna-beissbarth-stl-7000-detail",
+    "fromPath": "/produkty/produkty-uzywane/linia-diagnostyczna-beissbarth-stl-7000-detail",
+    "toPath": "/produkty-uzywane",
     "statusCode": 301
   }
 ]
