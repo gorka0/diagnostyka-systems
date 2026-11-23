@@ -45,7 +45,13 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     url: 'https://www.bmw-sikora.pl',
     cover: 'bmw-sikora',
     objectPosition: 'center 45%',
-    equipment: [],
+    equipment: [
+      {
+        photo: 'bmw-sikora',
+        name: 'Beissbarth KDS 3D',
+        caption: 'Aparatura do pomiaru geometrii kół Beissbarth KDS 3D w ASO BMW Sikora',
+      },
+    ],
   },
   {
     slug: 'bmw-dobrzanscy-krakow',
@@ -65,7 +71,14 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     url: 'https://watarski.dealer.volkswagen.pl/osobowe',
     cover: 'vw-watarski',
     objectPosition: 'center',
-    equipment: [],
+    gallery: ['vw-watarski-stare-warsztat'],
+    equipment: [
+      {
+        photo: 'vw-watarski-stare-warsztat',
+        name: 'Geometria kół Beissbarth',
+        caption: 'Stanowisko pomiaru geometrii kół z podnośnikiem nożycowym w ASO Volkswagen Wątarski',
+      },
+    ],
   },
   {
     slug: 'aso-mercedes-wrobel-lubin',
@@ -77,7 +90,7 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     equipment: [
       {
         photo: 'mercedes',
-        name: '', // Model niejednoznaczny (Microline 81 Tech, brak w katalogu) -> DO_WYJASNIENIA.md
+        name: 'Microline 81 Tech',
         caption: 'Urządzenie z oznaczeniem Microline 81 Tech',
       },
     ],
@@ -90,7 +103,13 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     url: 'https://staszickutno.pl',
     cover: 'zs1-kutno',
     objectPosition: 'center',
-    equipment: [],
+    equipment: [
+      {
+        photo: 'stanowisko-diagnostyczne-hero',
+        name: 'Linia diagnostyczna Beissbarth',
+        caption: 'Stanowisko kontroli pojazdów z linią diagnostyczną i rolkami hamulcowymi Beissbarth',
+      },
+    ],
   },
   {
     slug: 'skoda-bieranowski',
@@ -99,6 +118,13 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     city: 'Bydgoszcz',
     url: 'https://bieranowski.pl',
     cover: undefined, // Brak zdjęcia obiektu – okładka typograficzna
-    equipment: [],
+    gallery: ['skoda-bieranowski'],
+    equipment: [
+      {
+        photo: 'vag',
+        name: 'Montażownica VAS 6279',
+        caption: 'Montażownica do opon z homologacją Grupy VAG (VAS 6279)',
+      },
+    ],
   },
 ];
