@@ -110,16 +110,6 @@ export const REFERENCES_DATA: ReferenceItem[] = [
         name: 'Microline 81 R Tech',
         caption: 'Zestaw do pomiaru geometrii kół Beissbarth Microline 81 R Tech w hali ASO Mercedes-Benz Wróbel Lubin',
       },
-      {
-        photo: 'realizacja-mercedes-wrobel-warsztat',
-        name: 'Beissbarth MLD',
-        caption: 'Cyfrowy przyrząd do kontroli i ustawiania reflektorów Beissbarth MLD w hali ASO Mercedes',
-      },
-      {
-        photo: 'mercedes',
-        name: 'Microline 81 Tech',
-        caption: 'Urządzenie pomiarowe z oznaczeniem Microline 81 Tech',
-      },
     ],
   },
   {
