@@ -131,11 +131,6 @@ export const REFERENCES_DATA: ReferenceItem[] = [
         name: 'Beissbarth TC45 Pro 2',
         caption: 'Demontażownica do kół Beissbarth TC45 Pro 2 z ramieniem pomocniczym Tecnoroller w pracowni ZS1 Kutno',
       },
-      {
-        photo: 'stanowisko-diagnostyczne-hero',
-        name: 'Linia diagnostyczna',
-        caption: 'Stanowisko kontroli pojazdów z linią diagnostyczną i rolkami hamulcowymi Beissbarth',
-      },
     ],
   },
   {
@@ -152,11 +147,6 @@ export const REFERENCES_DATA: ReferenceItem[] = [
         photo: 'realizacja-skoda-vag-g50p',
         name: 'Beissbarth G.50P (V.A.G)',
         caption: 'Wyważarka Beissbarth G.50P z oficjalnym oznaczeniem homologacji Grupy V.A.G',
-      },
-      {
-        photo: 'vag',
-        name: 'Montażownica VAS 6279',
-        caption: 'Montażownica do opon z homologacją Grupy VAG (VAS 6279)',
       },
     ],
   },
