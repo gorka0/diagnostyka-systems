@@ -203,3 +203,29 @@ Wdrożono silnik parsowania i normalizacji danych `/src/data/parse-rules.ts`, kt
 5. **Ujednolicenie zapisu nazwy 'QB 4' vs 'QB.4':**
    - W nagłówkach i oficjalnych materiałach Beissbarth linia diagnostyczna figuruje jako `QB 4` (ze spacją), natomiast w niektórych roboczych wariantach pojawił się zapis `QB.4`.
    - Ujednolicono wszystkie etykiety do oficjalnego zapisu: `QB 4 2200 mm · 3,7 kW` oraz `QB 4 2800 mm · 5,0 kW`. W przypadku, gdyby klient wymagał zapisu z kropką, zmiana dotyczy wyłącznie pliku `/src/data/parse-rules.ts`.
+
+---
+
+## 11. Realizacje: Podział Obiekt + Wyposażenie (KROK: REALIZACJE)
+
+Wdrożono rozdzielenie ról fotografii w sekcji `/realizacje`: okładka (`cover`) prezentuje wyłącznie budynek lub wnętrze obiektu wdrożeniowego, natomiast miniatury (`equipment[]`) prezentują zainstalowane urządzenia i aparaturę pomiarową.
+
+### A. Migracja zdjęcia maszyny Mercedes Lubin:
+- **Plik `mercedes.webp` (522 × 709 px):** Zdjęcie dotychczas błędnie przypisane jako okładka obiektu `MB Professional ASO Mercedes Wróbel Lubin` zostało przeniesione do sekcji wyposażenia (`equipment`). Na obudowie urządzenia widnieje oznaczenie **"Microline 81 Tech"**.
+- Ponieważ model ten nie figuruje w bieżącym katalogu urządzeń (pochodzi z archiwalnej linii OEM), zgodnie z wytycznymi pole `name` pozostawiono puste, a podpis techniczny zapisano w `caption: "Urządzenie z oznaczeniem Microline 81 Tech"`. Miniatura otwiera dedykowany Lightbox.
+- **Pytanie do klienta:** Czy dodać oficjalną archiwalną kartę produktu dla geometrii Beissbarth Microline 81 Tech, czy podpiąć inne urządzenie z aktualnego katalogu?
+
+### B. Zdjęcia poniżej 800 px i ujęcia wymagające aktualizacji:
+1. `bmw-sikora.webp` – **600 × 475 px** (rozdzielczość poniżej zalecanego standardu 800 px, ujęcie archiwalne wnętrza z geometrią)
+2. `bmw-dobrzanscy-krakow.webp` – **600 × 364 px** (rozdzielczość poniżej 800 px, ujęcie z zewnątrz salonu)
+3. `mercedes.webp` – **522 × 709 px** (rozdzielczość poniżej 800 px, kadr pionowy urządzenia diagnostycznego)
+*Rekomendacja dla klienta:* Dostarczenie fotografii obiektów w proporcji 3:2 o minimalnej rozdzielczości 1600 × 1067 px oraz zdjęć wyposażenia min. 800 × 800 px.
+
+### C. Obiekty z okładką typograficzną (brak zdjęcia miejsca):
+1. **Skoda Bieranowski** (Bydgoszcz) – brak fotografii obiektu / salonu.
+2. **MB Professional ASO Mercedes Wróbel Lubin** (Lubin) – brak fotografii obiektu (zdjęcie maszyny przeniesione do wyposażenia).
+Oba wdrożenia wyświetlają estetyczną, techniczną okładkę typograficzną (panel `#F7F7F5`, siatka Crosshair 6%, pomarańczowe CornerBrackets, nazwa klienta 24 px / 600 oraz marka i miasto).
+
+### D. Status wyposażenia pozostałych realizacji:
+- Zgodnie z zasadą zero założeń, dla pozostałych realizacji (`BMW Dobrzańscy Kraków`, `BMW Sikora`, `VW Wątarski`, `Skoda Bieranowski`, `Zespół Szkół Nr 1 w Kutnie`) tablica `equipment` pozostaje pusta (`[]`), a sekcja "Wyposażenie" nie renderuje się na karcie do momentu otrzymania oficjalnej listy wdrożonych maszyn od klienta.
+

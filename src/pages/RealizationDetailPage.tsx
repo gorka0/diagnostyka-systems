@@ -3,7 +3,7 @@ import { useParams, Navigate, Link } from 'react-router-dom';
 import { Seo } from '@/components/common/Seo';
 import { Container } from '@/components/ui/Container';
 import { SiteImage } from '@/components/common/SiteImage';
-import { CornerBrackets } from '@/components/ui/MeasurementMarks';
+import { CornerBrackets, Crosshair } from '@/components/ui/MeasurementMarks';
 import { Button } from '@/components/ui/Button';
 import { REFERENCES_DATA } from '@/data/references';
 import { PRODUCTS_DATA } from '@/data/products';
@@ -67,20 +67,33 @@ export const RealizationDetailPage: React.FC = () => {
           <div className="lg:col-span-7 space-y-6">
             <div className="relative aspect-[3/2] w-full rounded-[16px] overflow-hidden bg-[#F7F7F5] border border-surface-border p-4">
               <CornerBrackets size={16} color="#EE9D16" />
-              <div className="w-full h-full rounded-[12px] overflow-hidden">
-                <SiteImage
-                  name={realization.photo}
-                  fit="cover"
-                  aspectRatio="3/2"
-                  plain={true}
-                  alt={`Realizacja: ${realization.name}`}
-                  className="w-full h-full object-cover"
-                  style={{
-                    objectPosition: realization.objectPosition || 'center',
-                    filter: 'contrast(0.95) saturate(0.95)',
-                  }}
-                />
-              </div>
+              {realization.cover ? (
+                <div className="w-full h-full rounded-[12px] overflow-hidden">
+                  <SiteImage
+                    name={realization.cover}
+                    fit="cover"
+                    aspectRatio="3/2"
+                    plain={true}
+                    alt={`Realizacja: ${realization.name}`}
+                    className="w-full h-full object-cover"
+                    style={{
+                      objectPosition: realization.objectPosition || 'center',
+                      filter: 'contrast(0.95) saturate(0.95)',
+                    }}
+                  />
+                </div>
+              ) : (
+                <div className="relative w-full h-full rounded-[12px] overflow-hidden bg-[#F7F7F5] flex flex-col items-center justify-center p-6 text-center select-none">
+                  <Crosshair size={48} opacity={0.06} className="text-foreground" />
+                  <span className="relative z-10 text-2xl font-semibold text-foreground tracking-tight max-w-md">
+                    {realization.name}
+                  </span>
+                  <span className="relative z-10 text-[15px] text-[#4B5563] mt-2">
+                    {realization.brand === 'inne' ? 'Edukacja techniczna' : realization.brand}
+                    {realization.city ? ` · ${realization.city}` : ''}
+                  </span>
+                </div>
+              )}
             </div>
 
             {realization.gallery && realization.gallery.length > 0 && (
@@ -148,17 +161,27 @@ export const RealizationDetailPage: React.FC = () => {
                   Zainstalowane urządzenia
                 </h2>
                 <div className="flex flex-col gap-2">
-                  {realization.equipment.map((eqSlug) => {
-                    const prod = PRODUCTS_DATA.find((p) => p.slug === eqSlug);
-                    return (
+                  {realization.equipment.map((eq, idx) => {
+                    const prod = eq.productSlug ? PRODUCTS_DATA.find((p) => p.slug === eq.productSlug) : undefined;
+                    const eqName = prod?.name || eq.name || eq.caption || 'Zainstalowane urządzenie';
+                    const targetUrl = prod ? `/produkty/${prod.categorySlug}/${prod.slug}` : undefined;
+
+                    return targetUrl ? (
                       <Link
-                        key={eqSlug}
-                        to={prod ? `/produkty/${prod.categorySlug}/${prod.slug}` : `/produkty`}
+                        key={idx}
+                        to={targetUrl}
                         className="flex items-center justify-between p-3 bg-background-subtle border border-surface-border rounded-md hover:border-accent hover:text-accent-text transition-colors text-xs font-medium"
                       >
-                        <span>{prod ? prod.name : eqSlug}</span>
+                        <span>{eqName}</span>
                         <ArrowRight className="w-3.5 h-3.5" />
                       </Link>
+                    ) : (
+                      <div
+                        key={idx}
+                        className="flex items-center justify-between p-3 bg-background-subtle border border-surface-border rounded-md text-xs font-medium text-foreground"
+                      >
+                        <span>{eqName}</span>
+                      </div>
                     );
                   })}
                 </div>

@@ -256,6 +256,33 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
   },
 
   // Realizacje u klientów (ASO / SKP)
+  'bmw-sikora': {
+    fileName: 'bmw-sikora.webp',
+    path: '/images/bmw-sikora.webp',
+    dimensions: '600x475',
+    aspectRatio: '3/2',
+    label: 'Wdrożenie geometrii i linii Beissbarth w ASO BMW Sikora',
+    category: 'realizations',
+    alt: 'Autoryzowany serwis BMW Sikora wyposażony w aparaturę Beissbarth',
+  },
+  'bmw-dobrzanscy-krakow': {
+    fileName: 'bmw-dobrzanscy-krakow.webp',
+    path: '/images/bmw-dobrzanscy-krakow.webp',
+    dimensions: '600x364',
+    aspectRatio: '3/2',
+    label: 'Autoryzowany Serwis i Salon BMW Dobrzańscy Kraków',
+    category: 'realizations',
+    alt: 'Autoryzowany salon i serwis BMW Dobrzańscy w Krakowie',
+  },
+  'mercedes': {
+    fileName: 'mercedes.webp',
+    path: '/images/mercedes.webp',
+    dimensions: '522x709',
+    aspectRatio: '3/4',
+    label: 'Urządzenie pomiarowe Microline 81 Tech',
+    category: 'realizations',
+    alt: 'Aparatura pomiarowa Beissbarth Microline 81 Tech w serwisie MB Wróbel Lubin',
+  },
   'realization-bmw-sikora': {
     fileName: 'realizacja-bmw-sikora.jpg',
     path: '/images/realizacja-bmw-sikora.jpg',

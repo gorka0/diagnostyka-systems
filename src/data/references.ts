@@ -11,19 +11,28 @@ export interface ReferenceQuote {
   role?: string;
 }
 
+export interface ReferenceEquipment {
+  productSlug?: string;
+  name?: string;
+  photo?: string;
+  caption?: string;
+}
+
 export interface ReferenceItem {
   slug: string;
   name: string;
   brand: 'BMW' | 'Volkswagen' | 'Mercedes-Benz' | 'Skoda' | 'inne';
   city?: string;
   url: string;
-  photo: string;
+  cover?: string; // zdjęcie MIEJSCA (budynek lub wnętrze warsztatu), opcjonalne
   objectPosition?: string; // punkt ogniskowania kadru 3:2
+
+  // Wyposażenie (aparatura wdrożona w obiekcie)
+  equipment?: ReferenceEquipment[];
 
   // Pola opcjonalne - renderowane wyłącznie, gdy są dostarczone i wypełnione
   year?: number | string;
   scope?: string;
-  equipment?: string[]; // lista slugów produktów z katalogu (np. ['beissbarth-qlign', 'product-tc-22'])
   quote?: ReferenceQuote;
   gallery?: string[]; // dodatkowe zdjęcia wdrożenia
 }
@@ -34,8 +43,9 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     name: 'BMW Sikora',
     brand: 'BMW',
     url: 'https://www.bmw-sikora.pl',
-    photo: 'bmw-sikora',
+    cover: 'bmw-sikora',
     objectPosition: 'center 45%',
+    equipment: [],
   },
   {
     slug: 'bmw-dobrzanscy-krakow',
@@ -43,8 +53,9 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     brand: 'BMW',
     city: 'Kraków',
     url: 'https://www.bmw-dobrzanski.pl',
-    photo: 'bmw-dobrzanscy-krakow',
+    cover: 'bmw-dobrzanscy-krakow',
     objectPosition: 'center',
+    equipment: [],
   },
   {
     slug: 'vw-watarski',
@@ -52,8 +63,9 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     brand: 'Volkswagen',
     city: 'Włocławek',
     url: 'https://watarski.dealer.volkswagen.pl/osobowe',
-    photo: 'vw-watarski',
+    cover: 'vw-watarski',
     objectPosition: 'center',
+    equipment: [],
   },
   {
     slug: 'aso-mercedes-wrobel-lubin',
@@ -61,8 +73,14 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     brand: 'Mercedes-Benz',
     city: 'Lubin',
     url: 'https://wrobel.mercedes-benz.pl',
-    photo: 'mercedes',
-    objectPosition: 'center',
+    cover: undefined, // Brak zdjęcia obiektu – okładka typograficzna
+    equipment: [
+      {
+        photo: 'mercedes',
+        name: '', // Model niejednoznaczny (Microline 81 Tech, brak w katalogu) -> DO_WYJASNIENIA.md
+        caption: 'Urządzenie z oznaczeniem Microline 81 Tech',
+      },
+    ],
   },
   {
     slug: 'zs1-kutno',
@@ -70,8 +88,9 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     brand: 'inne',
     city: 'Kutno',
     url: 'https://staszickutno.pl',
-    photo: 'zs1-kutno',
+    cover: 'zs1-kutno',
     objectPosition: 'center',
+    equipment: [],
   },
   {
     slug: 'skoda-bieranowski',
@@ -79,7 +98,7 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     brand: 'Skoda',
     city: 'Bydgoszcz',
     url: 'https://bieranowski.pl',
-    photo: 'skoda-bieranowski',
-    objectPosition: 'center',
+    cover: undefined, // Brak zdjęcia obiektu – okładka typograficzna
+    equipment: [],
   },
 ];
