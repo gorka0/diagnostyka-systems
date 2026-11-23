@@ -346,6 +346,15 @@ export const IMAGE_CONFIG: Record<string, ImageSpec> = {
     category: 'realizations',
     alt: 'Demontażownica opon Beissbarth z homologacją OEM VAS 6279',
   },
+  'skoda-bieranowski-budynek': {
+    fileName: 'skoda-bieranowski-budynek.webp',
+    path: '/images/skoda-bieranowski-budynek.webp',
+    dimensions: '1200x600',
+    aspectRatio: '2/1',
+    label: 'Autoryzowany Salon i Serwis Skoda Bieranowski Bydgoszcz',
+    category: 'realizations',
+    alt: 'Autoryzowany Salon i Serwis Skoda Bieranowski w Bydgoszczy nocą z podświetlaną fasadą',
+  },
   'realization-skoda-bieranowski': {
     fileName: 'skoda-bieranowski.webp',
     path: '/images/skoda-bieranowski.webp',

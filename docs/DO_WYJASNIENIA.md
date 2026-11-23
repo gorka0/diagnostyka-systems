@@ -221,11 +221,18 @@ Wdrożono rozdzielenie ról fotografii w sekcji `/realizacje`: okładka (`cover`
 3. `mercedes.webp` – **522 × 709 px** (rozdzielczość poniżej 800 px, kadr pionowy urządzenia diagnostycznego)
 *Rekomendacja dla klienta:* Dostarczenie fotografii obiektów w proporcji 3:2 o minimalnej rozdzielczości 1600 × 1067 px oraz zdjęć wyposażenia min. 800 × 800 px.
 
-### C. Obiekty z okładką typograficzną (brak zdjęcia miejsca):
-1. **Skoda Bieranowski** (Bydgoszcz) – brak fotografii obiektu / salonu (wyświetla techniczną okładkę typograficzną #F7F7F5).
-2. **MB Professional ASO Mercedes Wróbel Lubin** oraz **BMW Sikora** – otrzymały już oficjalne fotografie fasad budynków dostarczone przez klienta (`mercedes-wrobel-budynek.webp` oraz `bmw-sikora-budynek.webp`).
+### C. Status okładek obiektów (100% zrealizowane):
+Wszystkie 6 wdrożeń posiada obecnie autentyczne fotografie budynków i salonów dostarczone przez klienta:
+1. **BMW Sikora** – `bmw-sikora-budynek.webp` (nocna panorama salonu z pylonem BMW M Sikora)
+2. **BMW Dobrzańscy Kraków** – `bmw-dobrzanscy-krakow.webp` (salon i serwis w Krakowie)
+3. **VW Wątarski** – `vw-watarski.webp` (autoryzowany serwis i salon we Włocławku)
+4. **MB Professional ASO Mercedes Wróbel Lubin** – `mercedes-wrobel-budynek.webp` (przeszklony salon Grupa Wróbel)
+5. **Skoda Bieranowski** – `skoda-bieranowski-budynek.webp` (salon w Bydgoszczy z neonem i podświetlanym logo)
+6. **Zespół Szkół Nr 1 w Kutnie** – `zs1-kutno.webp` (budynek szkoły)
+Żadna realizacja nie wymaga już awaryjnej okładki typograficznej.
 
 ### D. Zdjęcia poniżej 800 px i ujęcia dostarczone:
 1. `mercedes-wrobel-budynek.webp` – plik źródłowy dostarczony w rozdzielczości 680 × 510 px (zreinterpolowany algorytmem Lanczos do 1024 × 768 px). Wskazane dostarczenie ujęcia w wyższej rozdzielczości (min. 1600 × 1067 px), jeśli klient dysponuje oryginałem.
-2. `bmw-sikora-budynek.webp` – 1024 × 374 px (ujęcie panoramiczne, wykadrowane z fokusem 55% center na pylon BMW M Sikora).
+2. `skoda-bieranowski-budynek.webp` – 783 × 391 px (zreinterpolowany algorytmem Lanczos do 1200 × 600 px).
+3. `bmw-sikora-budynek.webp` – 1024 × 374 px (ujęcie panoramiczne, wykadrowane z fokusem 55% center na pylon BMW M Sikora).
 

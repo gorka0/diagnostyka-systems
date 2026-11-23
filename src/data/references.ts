@@ -154,8 +154,9 @@ export const REFERENCES_DATA: ReferenceItem[] = [
     brand: 'Skoda',
     city: 'Bydgoszcz',
     url: 'https://bieranowski.pl',
-    cover: undefined, // Brak zdjęcia obiektu – okładka typograficzna
-    gallery: ['skoda-bieranowski'],
+    cover: 'skoda-bieranowski-budynek',
+    objectPosition: '60% center',
+    gallery: ['skoda-bieranowski-budynek'],
     equipment: [
       {
         photo: 'realizacja-skoda-vag-g50p',
