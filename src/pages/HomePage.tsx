@@ -112,13 +112,13 @@ export const HomePage: React.FC = () => {
 
               {/* H1: proporcjonalny rytm na mobile i desktop */}
               <h1 className="text-[29px] min-[420px]:text-[34px] sm:text-[46px] lg:text-[54px] xl:text-[58px] font-semibold text-white tracking-[-0.025em] leading-[1.08] text-balance">
-                Sprzęt diagnostyczny i serwis Beissbarth dla warsztatów i SKP – Bydgoszcz, Łochowo
+                Sprzęt diagnostyczny i serwis Beissbarth dla warsztatów i stacji kontroli pojazdów
               </h1>
 
               {/* 1 zdanie opisu, 16-20 px */}
               <p className="text-[16px] sm:text-[19px] lg:text-[20px] text-white/75 leading-relaxed max-w-[56ch] text-pretty">
                 {formatPolishTypography(
-                  'Siedziba i magazyn w Lisim Ogonie k. Bydgoszczy, rejestracja w Łochowie. Obsługujemy stacje kontroli pojazdów, ASO i serwisy w całej Polsce.'
+                  'Siedziba i magazyn w Lisim Ogonie k. Bydgoszczy, rejestracja w Łochowie. Obsługujemy SKP, ASO i serwisy w całej Polsce.'
                 )}
               </p>
 
