@@ -41,13 +41,13 @@ export const ServicePage: React.FC = () => {
             >
               Zgłoszenie serwisowe
             </Button>
-            <div className="flex items-center gap-3 text-white">
-              <span className="text-[13px] text-white/60 uppercase tracking-wider block font-mono">
+            <div className="space-y-1 text-white">
+              <span className="text-[13px] text-white/65 block font-mono">
                 Informacja techniczna:
               </span>
               <a
                 href={cleanTelHref(COMPANY_DATA.phones.techInfo.raw)}
-                className="text-2xl sm:text-[26px] font-bold font-mono text-white hover:text-accent-text transition-colors tabular-nums"
+                className="text-2xl sm:text-[26px] font-bold font-mono text-white hover:text-accent-light transition-colors tabular-nums block"
               >
                 {formatPhoneWithNbsp(COMPANY_DATA.phones.techInfo.display)}
               </a>
@@ -60,7 +60,7 @@ export const ServicePage: React.FC = () => {
         {/* Usługi pogrupowane w 3 kolumnach tematycznych z bezpośrednim specjalistą */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-10">
           {/* Kolumna 1: Geometria, wyważanie i diagnostyka (Beissbarth) */}
-          <div className="flex flex-col justify-between bg-white border border-surface-border rounded-[16px] p-7 sm:p-8 space-y-8">
+          <div className="flex flex-col justify-between bg-white border border-surface-border rounded-[16px] p-7 sm:p-8 space-y-8 shadow-2xs transition-colors duration-200 hover:border-foreground/25">
             <div className="space-y-6">
               <div className="flex items-start gap-3">
                 <Wrench className="w-6 h-6 shrink-0 text-foreground stroke-[1.5] mt-0.5" />
@@ -98,7 +98,7 @@ export const ServicePage: React.FC = () => {
             </div>
 
             <div className="pt-6 border-t border-surface-border space-y-1">
-              <span className="text-[12px] font-mono text-foreground-secondary uppercase tracking-wider block">
+              <span className="text-[13px] font-mono text-foreground-secondary block">
                 {COMPANY_DATA.phones.techInfo.label}
               </span>
               <a
@@ -111,7 +111,7 @@ export const ServicePage: React.FC = () => {
           </div>
 
           {/* Kolumna 2: Klimatyzacja (Valeo, SPX) */}
-          <div className="flex flex-col justify-between bg-white border border-surface-border rounded-[16px] p-7 sm:p-8 space-y-8">
+          <div className="flex flex-col justify-between bg-white border border-surface-border rounded-[16px] p-7 sm:p-8 space-y-8 shadow-2xs transition-colors duration-200 hover:border-foreground/25">
             <div className="space-y-6">
               <div className="flex items-start gap-3">
                 <ThermometerSnowflake className="w-6 h-6 shrink-0 text-foreground stroke-[1.5] mt-0.5" />
@@ -149,7 +149,7 @@ export const ServicePage: React.FC = () => {
             </div>
 
             <div className="pt-6 border-t border-surface-border space-y-1">
-              <span className="text-[12px] font-mono text-foreground-secondary uppercase tracking-wider block">
+              <span className="text-[13px] font-mono text-foreground-secondary block">
                 {COMPANY_DATA.phones.salesInfo.label}
               </span>
               <a
@@ -162,7 +162,7 @@ export const ServicePage: React.FC = () => {
           </div>
 
           {/* Kolumna 3: Części zamienne */}
-          <div className="flex flex-col justify-between bg-white border border-surface-border rounded-[16px] p-7 sm:p-8 space-y-8">
+          <div className="flex flex-col justify-between bg-white border border-surface-border rounded-[16px] p-7 sm:p-8 space-y-8 shadow-2xs transition-colors duration-200 hover:border-foreground/25">
             <div className="space-y-6">
               <div className="flex items-start gap-3">
                 <Package className="w-6 h-6 shrink-0 text-foreground stroke-[1.5] mt-0.5" />
@@ -200,7 +200,7 @@ export const ServicePage: React.FC = () => {
             </div>
 
             <div className="pt-6 border-t border-surface-border space-y-1">
-              <span className="text-[12px] font-mono text-foreground-secondary uppercase tracking-wider block">
+              <span className="text-[13px] font-mono text-foreground-secondary block">
                 {COMPANY_DATA.phones.techInfo.label}
               </span>
               <a
@@ -214,7 +214,7 @@ export const ServicePage: React.FC = () => {
         </div>
 
         {/* Pasek CTA na końcu strony */}
-        <div className="mt-14 rounded-[14px] bg-background-subtle border border-surface-border p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+        <div className="mt-14 rounded-[14px] bg-background-subtle border border-surface-border p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
           <div className="space-y-1">
             <h3 className="text-xl font-semibold text-foreground tracking-tight">
               Potrzebujesz serwisu, kalibracji lub części zamiennych?
@@ -223,7 +223,7 @@ export const ServicePage: React.FC = () => {
               Wypełnij formularz zgłoszenia serwisowego lub skontaktuj się bezpośrednio z inżynierem serwisu.
             </p>
           </div>
-          <div className="flex items-center gap-4 shrink-0">
+          <div className="flex flex-wrap items-center gap-3 sm:gap-4 sm:shrink-0">
             <Button to="/kontakt?typ=serwis" variant="primary" size="md">
               Zgłoszenie serwisowe
             </Button>

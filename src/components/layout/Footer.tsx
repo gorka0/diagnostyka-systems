@@ -137,7 +137,7 @@ export const Footer: React.FC = () => {
                 href="https://www.studiowzrostu.pl"
                 target="_blank"
                 rel="noopener"
-                className="text-white/80 hover:text-accent-light underline underline-offset-2 decoration-white/35 hover:decoration-accent-light transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent-light rounded-xs"
+                className="text-white/80 hover:text-accent-light underline underline-offset-2 decoration-white/35 hover:decoration-accent-light transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-accent-light rounded"
               >
                 Studio Wzrostu
               </a>

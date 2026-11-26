@@ -308,7 +308,7 @@ export const ProductsPage: React.FC = () => {
     <div className="space-y-6">
       {/* 1. Kategoria */}
       <div>
-        <h3 className="text-xs font-semibold uppercase tracking-wider text-foreground-secondary mb-3">
+        <h3 className="text-[13px] font-semibold text-foreground-secondary mb-3">
           Kategoria
         </h3>
         <div className="space-y-1.5">
@@ -334,11 +334,11 @@ export const ProductsPage: React.FC = () => {
                     checked={isChecked}
                     disabled={isDisabled}
                     onChange={() => toggleArrayParam('kat', selectedCategories, cat.slug)}
-                    className="w-4 h-4 rounded border-surface-border text-accent focus:ring-accent accent-accent shrink-0 cursor-pointer disabled:cursor-not-allowed"
+                    className="w-4 h-4 rounded border-gray-300 text-foreground focus:ring-foreground accent-[#1F2328] shrink-0 cursor-pointer disabled:cursor-not-allowed"
                   />
                   <span className="truncate text-[13px]">{cat.name}</span>
                 </div>
-                <span className="text-xs font-mono text-foreground-secondary shrink-0">
+                <span className="text-xs font-mono tabular-nums text-foreground-secondary shrink-0">
                   {count}
                 </span>
               </label>
@@ -349,7 +349,7 @@ export const ProductsPage: React.FC = () => {
 
       {/* 2. Typ urządzenia */}
       <details className="group border-t border-surface-border pt-4" open>
-        <summary className="flex items-center justify-between cursor-pointer select-none text-xs font-semibold uppercase tracking-wider text-foreground-secondary py-1 list-none">
+        <summary className="flex items-center justify-between cursor-pointer select-none text-[13px] font-semibold text-foreground-secondary py-1 list-none">
           <span>Typ urządzenia</span>
           <ChevronDown className="w-4 h-4 text-foreground-secondary transition-transform group-open:rotate-180" />
         </summary>
@@ -376,11 +376,11 @@ export const ProductsPage: React.FC = () => {
                     checked={isChecked}
                     disabled={isDisabled}
                     onChange={() => toggleArrayParam('typ', selectedTypes, typ)}
-                    className="w-4 h-4 rounded border-surface-border text-accent focus:ring-accent accent-accent shrink-0 cursor-pointer disabled:cursor-not-allowed"
+                    className="w-4 h-4 rounded border-gray-300 text-foreground focus:ring-foreground accent-[#1F2328] shrink-0 cursor-pointer disabled:cursor-not-allowed"
                   />
                   <span className="truncate text-[13px]">{typ}</span>
                 </div>
-                <span className="text-xs font-mono text-foreground-secondary shrink-0">
+                <span className="text-xs font-mono tabular-nums text-foreground-secondary shrink-0">
                   {count}
                 </span>
               </label>
@@ -391,7 +391,7 @@ export const ProductsPage: React.FC = () => {
 
       {/* 3. Seria */}
       <details className="group border-t border-surface-border pt-4" open>
-        <summary className="flex items-center justify-between cursor-pointer select-none text-xs font-semibold uppercase tracking-wider text-foreground-secondary py-1 list-none">
+        <summary className="flex items-center justify-between cursor-pointer select-none text-[13px] font-semibold text-foreground-secondary py-1 list-none">
           <span>Seria</span>
           <ChevronDown className="w-4 h-4 text-foreground-secondary transition-transform group-open:rotate-180" />
         </summary>
@@ -418,11 +418,11 @@ export const ProductsPage: React.FC = () => {
                     checked={isChecked}
                     disabled={isDisabled}
                     onChange={() => toggleArrayParam('seria', selectedSeries, seria)}
-                    className="w-4 h-4 rounded border-surface-border text-accent focus:ring-accent accent-accent shrink-0 cursor-pointer disabled:cursor-not-allowed"
+                    className="w-4 h-4 rounded border-gray-300 text-foreground focus:ring-foreground accent-[#1F2328] shrink-0 cursor-pointer disabled:cursor-not-allowed"
                   />
                   <span className="truncate text-[13px]">{seria}</span>
                 </div>
-                <span className="text-xs font-mono text-foreground-secondary shrink-0">
+                <span className="text-xs font-mono tabular-nums text-foreground-secondary shrink-0">
                   {count}
                 </span>
               </label>
@@ -433,7 +433,7 @@ export const ProductsPage: React.FC = () => {
 
       {/* 4. Zastosowanie */}
       <details className="group border-t border-surface-border pt-4" open>
-        <summary className="flex items-center justify-between cursor-pointer select-none text-xs font-semibold uppercase tracking-wider text-foreground-secondary py-1 list-none">
+        <summary className="flex items-center justify-between cursor-pointer select-none text-[13px] font-semibold text-foreground-secondary py-1 list-none">
           <span>Zastosowanie</span>
           <ChevronDown className="w-4 h-4 text-foreground-secondary transition-transform group-open:rotate-180" />
         </summary>
@@ -460,11 +460,11 @@ export const ProductsPage: React.FC = () => {
                     checked={isChecked}
                     disabled={isDisabled}
                     onChange={() => toggleArrayParam('zast', selectedApplications, zast)}
-                    className="w-4 h-4 rounded border-surface-border text-accent focus:ring-accent accent-accent shrink-0 cursor-pointer disabled:cursor-not-allowed"
+                    className="w-4 h-4 rounded border-gray-300 text-foreground focus:ring-foreground accent-[#1F2328] shrink-0 cursor-pointer disabled:cursor-not-allowed"
                   />
                   <span className="truncate text-[13px] capitalize">{zast}</span>
                 </div>
-                <span className="text-xs font-mono text-foreground-secondary shrink-0">
+                <span className="text-xs font-mono tabular-nums text-foreground-secondary shrink-0">
                   {count}
                 </span>
               </label>
@@ -475,7 +475,7 @@ export const ProductsPage: React.FC = () => {
 
       {/* 5. Stan (Nowe / Używane) */}
       <details className="group border-t border-surface-border pt-4">
-        <summary className="flex items-center justify-between cursor-pointer select-none text-xs font-semibold uppercase tracking-wider text-foreground-secondary py-1 list-none">
+        <summary className="flex items-center justify-between cursor-pointer select-none text-[13px] font-semibold text-foreground-secondary py-1 list-none">
           <span>Stan urządzenia</span>
           <ChevronDown className="w-4 h-4 text-foreground-secondary transition-transform group-open:rotate-180" />
         </summary>
@@ -502,11 +502,11 @@ export const ProductsPage: React.FC = () => {
                     checked={isChecked}
                     disabled={isDisabled}
                     onChange={() => toggleArrayParam('stan', selectedConditions, cond)}
-                    className="w-4 h-4 rounded border-surface-border text-accent focus:ring-accent accent-accent shrink-0 cursor-pointer disabled:cursor-not-allowed"
+                    className="w-4 h-4 rounded border-gray-300 text-foreground focus:ring-foreground accent-[#1F2328] shrink-0 cursor-pointer disabled:cursor-not-allowed"
                   />
                   <span className="truncate text-[13px] capitalize">{cond}</span>
                 </div>
-                <span className="text-xs font-mono text-foreground-secondary shrink-0">
+                <span className="text-xs font-mono tabular-nums text-foreground-secondary shrink-0">
                   {count}
                 </span>
               </label>
@@ -517,7 +517,7 @@ export const ProductsPage: React.FC = () => {
 
       {/* 6. Marka OEM */}
       <details className="group border-t border-surface-border pt-4">
-        <summary className="flex items-center justify-between cursor-pointer select-none text-xs font-semibold uppercase tracking-wider text-foreground-secondary py-1 list-none">
+        <summary className="flex items-center justify-between cursor-pointer select-none text-[13px] font-semibold text-foreground-secondary py-1 list-none">
           <span>Homologacja OEM</span>
           <ChevronDown className="w-4 h-4 text-foreground-secondary transition-transform group-open:rotate-180" />
         </summary>
@@ -544,11 +544,11 @@ export const ProductsPage: React.FC = () => {
                     checked={isChecked}
                     disabled={isDisabled}
                     onChange={() => toggleArrayParam('oem', selectedOemBrands, brand)}
-                    className="w-4 h-4 rounded border-surface-border text-accent focus:ring-accent accent-accent shrink-0 cursor-pointer disabled:cursor-not-allowed"
+                    className="w-4 h-4 rounded border-gray-300 text-foreground focus:ring-foreground accent-[#1F2328] shrink-0 cursor-pointer disabled:cursor-not-allowed"
                   />
                   <span className="truncate text-[13px]">{brand}</span>
                 </div>
-                <span className="text-xs font-mono text-foreground-secondary shrink-0">
+                <span className="text-xs font-mono tabular-nums text-foreground-secondary shrink-0">
                   {count}
                 </span>
               </label>
@@ -582,11 +582,15 @@ export const ProductsPage: React.FC = () => {
       <Link
         key={product.slug}
         to={`/produkty/${product.categorySlug}/${product.slug}`}
-        className="group flex flex-col bg-background border border-surface-border rounded-[10px] overflow-hidden hover:border-accent transition-all duration-150 hover:shadow-sm"
+        className="group flex flex-col bg-background border border-surface-border rounded-[10px] overflow-hidden hover:border-foreground/35 transition-[border-color,box-shadow] duration-150 hover:shadow-sm"
         style={{ contentVisibility: 'auto', containIntrinsicSize: '360px' }}
       >
         {/* Kontener zdjęcia 1:1 na #F7F7F5 */}
-        <div className="relative aspect-square w-full bg-[#F7F7F5] overflow-hidden flex items-center justify-center p-4">
+        <div
+          className={`relative aspect-square w-full bg-[#F7F7F5] overflow-hidden flex items-center justify-center ${
+            isContain ? 'p-4' : 'p-0'
+          }`}
+        >
           <SiteImage
             name={product.slug}
             alt={product.name}
@@ -596,20 +600,20 @@ export const ProductsPage: React.FC = () => {
             loading="lazy"
             className={`w-full h-full ${
               isContain
-                ? 'object-contain mix-blend-multiply transition-transform duration-200 group-hover:scale-105'
-                : 'object-cover transition-transform duration-200 group-hover:scale-105'
+                ? 'object-contain mix-blend-multiply transition-transform duration-200 group-hover:scale-[1.03]'
+                : 'object-cover transition-transform duration-200 group-hover:scale-[1.03]'
             }`}
           />
 
           {/* Oznaczenie "Używane" */}
           {isUsed && (
-            <span className="absolute top-2.5 left-2.5 bg-neutral-900 text-white text-[11px] font-semibold px-2 py-0.5 rounded tracking-wide uppercase">
+            <span className="absolute top-2.5 left-2.5 bg-foreground text-white text-[12px] font-medium px-2.5 py-0.5 rounded-[6px]">
               Używane
             </span>
           )}
 
           {/* Strzałka hover w prawym górnym rogu */}
-          <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/90 border border-surface-border flex items-center justify-center text-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shadow-xs">
+          <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/95 border border-surface-border flex items-center justify-center text-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-[opacity,transform] duration-150 shadow-xs">
             <ArrowRight className="w-3.5 h-3.5" />
           </div>
         </div>
@@ -759,7 +763,7 @@ export const ProductsPage: React.FC = () => {
       </div>
 
       {/* Mobile: Sticky pasek pod headerem z wyszukiwarką i jednym dużym przyciskiem filtrów */}
-      <div className="lg:hidden sticky top-[72px] z-30 bg-background/95 backdrop-blur-md border-b border-surface-border px-4 py-3 space-y-2.5 shadow-xs">
+      <div className="lg:hidden sticky top-20 z-30 bg-background/95 backdrop-blur-md border-b border-surface-border px-4 py-3 space-y-2.5 shadow-xs">
         {/* Wyszukiwarka na pełną szerokość */}
         <div className="relative w-full">
           <Search className="w-4 h-4 absolute left-3.5 top-1/2 -translate-y-1/2 text-foreground-secondary pointer-events-none" />
@@ -767,8 +771,8 @@ export const ProductsPage: React.FC = () => {
             type="text"
             value={queryParam}
             onChange={(e) => updateParams({ q: e.target.value || null })}
-            placeholder="Szukaj modelu, serii (np. Q.Lign, ML, MS)..."
-            className="w-full h-11 pl-10 pr-9 text-[14px] bg-background border border-surface-border rounded-[8px] text-foreground placeholder:text-foreground-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all"
+            placeholder="Szukaj modelu, serii (np. Q.Lign, ML, MS)"
+            className="w-full h-11 pl-10 pr-9 text-[14px] bg-background border border-surface-border rounded-[8px] text-foreground placeholder:text-foreground-secondary focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-colors"
           />
           {queryParam && (
             <button
@@ -821,7 +825,7 @@ export const ProductsPage: React.FC = () => {
               <div>
                 <label
                   htmlFor="desktop-search"
-                  className="block text-xs font-semibold uppercase tracking-wider text-foreground-secondary mb-2"
+                  className="block text-[13px] font-semibold text-foreground-secondary mb-2"
                 >
                   Wyszukiwarka
                 </label>
@@ -1072,7 +1076,7 @@ export const ProductsPage: React.FC = () => {
                   </button>
                   <a
                     href="tel:507073919"
-                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold bg-accent text-white rounded-md hover:bg-accent-hover transition-colors"
+                    className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 text-xs font-semibold bg-accent text-foreground rounded-md hover:bg-accent-hover transition-colors"
                   >
                     <Phone className="w-3.5 h-3.5" />
                     Informacja handlowa: 507 073 919
@@ -1176,7 +1180,7 @@ export const ProductsPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => setIsMobileFiltersOpen(false)}
-                className="flex-[2] py-3 px-4 text-xs font-semibold text-white bg-accent rounded-lg text-center hover:bg-accent-hover transition-colors"
+                className="flex-[2] py-3 px-4 text-xs font-semibold text-foreground bg-accent rounded-lg text-center hover:bg-accent-hover transition-colors min-h-[44px]"
               >
                 Pokaż urządzenia ({filteredProducts.length})
               </button>

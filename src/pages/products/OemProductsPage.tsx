@@ -93,10 +93,10 @@ export const OemProductsPage: React.FC = () => {
       />
 
       {/* Sticky nawigacja kotwicowa dla 4 marek OEM */}
-      <nav aria-label="Nawigacja marek OEM" className="sticky top-16 z-30 bg-white/95 backdrop-blur border-b border-surface-border">
+      <nav aria-label="Nawigacja marek OEM" className="sticky top-20 z-30 bg-white/95 backdrop-blur border-b border-surface-border shadow-xs">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center gap-2 sm:gap-6 overflow-x-auto py-3 no-scrollbar">
-            <span className="text-[13px] font-mono text-foreground-secondary uppercase tracking-wider shrink-0 mr-2">
+            <span className="text-[13px] font-medium text-foreground-secondary shrink-0 mr-2">
               Marki OEM:
             </span>
             {brandGroups.map((brand) => (

@@ -24,8 +24,8 @@ export const Button: React.FC<ButtonProps> = ({
   disabled,
   ...props
 }) => {
-  // Jednolita wysokość (48-52 px), radius 10 px, font 16-17 px, weight 600, active:scale .98
-  const baseClasses = 'inline-flex items-center justify-center font-semibold whitespace-nowrap transition-all duration-200 select-none rounded-[10px] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
+  // Jednolita wysokość (44-52 px), radius 10 px, font 15-17 px, weight 600, active:scale .98
+  const baseClasses = 'inline-flex items-center justify-center font-semibold whitespace-nowrap transition-[background-color,border-color,color,transform,box-shadow] duration-150 ease-out select-none rounded-[10px] active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 disabled:opacity-50 disabled:pointer-events-none';
 
   const sizeClasses = {
     sm: 'text-[15px] px-4 h-11 gap-2 min-h-[44px]',

@@ -45,7 +45,7 @@ export const PublicationsPage: React.FC = () => {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
               <div className="lg:col-span-8 space-y-5">
                 <div className="flex items-center gap-3 text-[13px] font-mono text-foreground-secondary flex-wrap">
-                  <span className="uppercase tracking-wider font-semibold text-accent-text">
+                  <span className="font-semibold text-accent-text">
                     Wyróżniona publikacja
                   </span>
                   <span>·</span>
@@ -142,7 +142,7 @@ export const PublicationsPage: React.FC = () => {
                 >
                   <div className="flex items-start sm:items-center gap-4 max-w-[70ch]">
                     {/* Miniaturka skanu w wierszu */}
-                    <div className="w-16 h-20 sm:w-20 sm:h-24 shrink-0 rounded-[6px] overflow-hidden border border-surface-border bg-neutral-100 shadow-sm hidden xs:block">
+                    <div className="w-16 h-20 sm:w-20 sm:h-24 shrink-0 rounded-[6px] overflow-hidden border border-surface-border bg-neutral-100 shadow-2xs hidden sm:block">
                       <picture>
                         <source srcSet={item.scanImage} type="image/webp" />
                         <img

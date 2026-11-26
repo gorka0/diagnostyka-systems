@@ -16,16 +16,16 @@ export const Badge: React.FC<BadgeProps> = ({
   className = '',
   ...props
 }) => {
-  const baseClasses = 'inline-flex items-center font-medium rounded-sm tracking-wide select-none';
+  const baseClasses = 'inline-flex items-center font-medium rounded-[6px] select-none';
 
   const sizeClasses = {
-    sm: 'text-[14px] px-2.5 py-0.5 gap-1 font-medium',
-    md: 'text-[15px] px-3 py-1 gap-1.5',
+    sm: 'text-[13px] px-2.5 py-0.5 gap-1 font-medium',
+    md: 'text-[14px] px-3 py-1 gap-1.5',
   }[size];
 
   const variantClasses = {
     neutral: 'bg-surface-muted text-foreground-muted border border-surface-border',
-    accent: 'bg-accent-subtle text-foreground border border-accent-border font-semibold',
+    accent: 'bg-accent-subtle text-accent-text border border-accent/30 font-semibold',
     partner: 'bg-white text-foreground border border-surface-border shadow-subtle',
     success: 'bg-[#EBF7EE] text-[#1B7F37] border border-[#BCE4C7]',
     outline: 'bg-transparent text-foreground border border-surface-border',

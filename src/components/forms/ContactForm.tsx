@@ -804,7 +804,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
                   checked={formData.zgodaRODO}
                   onChange={handleInputChange}
                   aria-required="true"
-                  className="w-5 h-5 mt-0.5 rounded border-[#D9DDE1] text-foreground focus:ring-accent-primary shrink-0 cursor-pointer"
+                  className="w-5 h-5 mt-0.5 rounded border-[#D9DDE1] accent-[#1F2328] text-foreground focus-visible:ring-2 focus-visible:ring-foreground shrink-0 cursor-pointer"
                 />
                 <span className="text-[13px] text-foreground-secondary leading-relaxed">
                   Wyrażam zgodę na przetwarzanie moich danych osobowych przez Diagnostyka-Systems s.c. w celu odpowiedzi na przesłane zapytanie.{' '}
@@ -826,7 +826,7 @@ export const ContactForm: React.FC<ContactFormProps> = ({
               <button
                 type="submit"
                 disabled={status === 'submitting'}
-                className="w-full h-12 px-4 rounded-[10px] bg-accent text-foreground hover:bg-accent-hover active:bg-accent-active font-bold text-[15px] sm:text-[16px] shadow-sm transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2 cursor-pointer"
+                className="w-full h-12 px-4 rounded-[10px] bg-accent text-foreground hover:bg-accent-hover active:bg-accent-active font-bold text-[15px] sm:text-[16px] shadow-sm transition-[background-color,box-shadow,transform] duration-150 ease-out active:scale-[0.99] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 cursor-pointer"
               >
                 {status === 'submitting' ? (
                   <>

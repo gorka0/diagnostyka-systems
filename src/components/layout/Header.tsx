@@ -208,7 +208,7 @@ export const Header: React.FC = () => {
               to="/kontakt?typ=serwis"
               variant="primary"
               size="md"
-              className={!isLightMode ? 'shadow-[0_2px_12px_rgba(245,165,36,0.3)]' : ''}
+              className={!isLightMode ? 'border-white/20 shadow-sm' : ''}
             >
               {LABELS.cta.serviceTicket}
             </Button>
@@ -219,10 +219,10 @@ export const Header: React.FC = () => {
             <button
               type="button"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2.5 rounded-[8px] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors duration-200 ${
+              className={`p-2.5 rounded-[8px] focus-visible:outline-none focus-visible:ring-2 min-w-[44px] min-h-[44px] flex items-center justify-center transition-colors duration-200 ${
                 !isLightMode
-                  ? 'text-white hover:bg-white/10'
-                  : 'text-foreground hover:bg-background-subtle'
+                  ? 'text-white hover:bg-white/10 focus-visible:ring-accent-light'
+                  : 'text-foreground hover:bg-background-subtle focus-visible:ring-foreground'
               }`}
               aria-label={mobileMenuOpen ? 'Zamknij menu' : 'Otwórz menu'}
               aria-expanded={mobileMenuOpen}
@@ -235,7 +235,7 @@ export const Header: React.FC = () => {
 
       {/* Menu Mobilne (Pełny overlay) */}
       {mobileMenuOpen && (
-        <div className="lg:hidden bg-white text-foreground border-b border-surface-border animate-in slide-in-from-top-4 duration-200 shadow-xl">
+        <div className="lg:hidden bg-white text-foreground border-b border-surface-border animate-fade-in shadow-xl">
           <nav className="max-w-[1200px] mx-auto px-4 py-6 space-y-2">
             {LABELS.nav.map((link) => (
               <NavLink

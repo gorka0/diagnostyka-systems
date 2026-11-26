@@ -16,10 +16,10 @@ type Props = {
 };
 
 const btn =
-  "inline-flex h-11 sm:h-12 items-center justify-center rounded-[10px] px-5 text-[15px] sm:text-[16px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 select-none cursor-pointer";
+  "inline-flex h-10 sm:h-11 items-center justify-center rounded-[10px] px-4 sm:px-5 text-[14px] sm:text-[15px] font-semibold transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 select-none cursor-pointer min-h-[44px]";
 const btnPrimary = `${btn} bg-accent text-foreground hover:bg-[#F5A524] active:bg-[#D98908] shadow-xs`;
 const btnSecondary = `${btn} border border-[#D9DDE1] bg-white text-foreground hover:bg-[#F7F7F5]`;
-const btnGhost = `${btn} text-foreground underline underline-offset-4 hover:bg-[#F1F3F5]`;
+const btnGhost = `${btn} border border-transparent text-foreground underline underline-offset-4 hover:bg-[#F1F3F5]`;
 const link =
   "text-accent-text underline underline-offset-2 hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground";
 
@@ -82,29 +82,29 @@ function Bar({ policyHref }: { policyHref: string }) {
         paddingBottom: "max(0.75rem, env(safe-area-inset-bottom))",
       }}
     >
-      <div className="mx-auto flex max-w-[1200px] flex-col gap-5 rounded-2xl border border-[#D9DDE1] bg-white p-5 shadow-[0_12px_40px_rgba(20,23,26,0.16)] md:flex-row md:items-center md:justify-between md:gap-8 md:p-6">
+      <div className="mx-auto flex max-w-[1200px] flex-col gap-3.5 sm:gap-5 rounded-2xl border border-[#D9DDE1] bg-white p-4 shadow-[0_12px_40px_rgba(20,23,26,0.14)] md:flex-row md:items-center md:justify-between md:gap-8 md:p-6">
         <div className="max-w-[640px]">
-          <h2 className="text-[18px] font-semibold leading-snug text-foreground tracking-tight">
+          <h2 className="text-[16px] sm:text-[18px] font-semibold leading-snug text-foreground tracking-tight">
             Pliki cookie i treści zewnętrzne
           </h2>
-          <p className="mt-2 text-[15px] sm:text-[16px] leading-relaxed text-foreground-secondary">
+          <p className="mt-1 sm:mt-2 text-[13px] sm:text-[15px] leading-snug sm:leading-relaxed text-foreground-secondary">
             Do działania strony wystarczą dane niezbędne. Za Twoją zgodą załadujemy też mapę
-            Google, która może zapisywać własne pliki cookie. Szczegóły:{" "}
+            Google, która może zapisywać własne pliki cookie.{" "}
             <a href={policyHref} className={link}>
-              Polityka prywatności i cookies
+              Polityka prywatności
             </a>
             .
           </p>
         </div>
 
-        <div className="flex flex-col gap-3 sm:flex-row md:shrink-0">
+        <div className="grid grid-cols-2 gap-2 sm:flex sm:flex-row sm:items-center sm:gap-3 md:shrink-0">
           <button type="button" onClick={rejectAll} className={btnSecondary}>
             Tylko niezbędne
           </button>
           <button type="button" onClick={openCookieSettings} className={btnGhost}>
             Ustawienia
           </button>
-          <button type="button" onClick={acceptAll} className={btnPrimary}>
+          <button type="button" onClick={acceptAll} className={`${btnPrimary} col-span-2 sm:col-auto`}>
             Zaakceptuj wszystkie
           </button>
         </div>

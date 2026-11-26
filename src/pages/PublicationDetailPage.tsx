@@ -169,7 +169,7 @@ export const PublicationDetailPage: React.FC = () => {
             {/* Kluczowy wniosek inżynierski */}
             {publication.keyTakeaway && (
               <div className="p-6 sm:p-7 bg-foreground text-white rounded-[14px] space-y-2">
-                <div className="flex items-center gap-2 text-accent-primary text-[12px] font-mono uppercase tracking-wider font-semibold">
+                <div className="flex items-center gap-2 text-accent-light text-[13px] font-mono font-semibold">
                   <ShieldCheck className="w-4 h-4" />
                   <span>Wniosek ekspertów Diagnostyka-Systems</span>
                 </div>
@@ -244,7 +244,7 @@ export const PublicationDetailPage: React.FC = () => {
                     onClick={() => setIsLightboxOpen(true)}
                     className="w-full h-10 px-4 rounded-[8px] bg-foreground text-white hover:bg-foreground/90 font-semibold text-[14px] transition-colors flex items-center justify-center gap-2"
                   >
-                    <Maximize2 className="w-4 h-4 text-accent-primary" />
+                    <Maximize2 className="w-4 h-4 text-accent-light" />
                     <span>Zobacz pełny skan strony</span>
                   </button>
 

@@ -80,7 +80,7 @@ export const ContactPage: React.FC = () => {
                     </span>
                     <a
                       href={cleanTelHref(item.phone.raw)}
-                      className="text-[26px] sm:text-[28px] font-bold font-mono text-white hover:text-accent-text transition-colors tracking-tight tabular-nums block"
+                      className="text-[26px] sm:text-[28px] font-bold font-mono text-white hover:text-accent-light transition-colors tracking-tight tabular-nums block"
                     >
                       {formatPhoneWithNbsp(item.phone.display)}
                     </a>
@@ -118,7 +118,7 @@ export const ContactPage: React.FC = () => {
                     <span className="text-white/60">Centrala tel./fax: </span>
                     <a
                       href={cleanTelHref(COMPANY_DATA.phones.mainFax.raw)}
-                      className="text-white hover:text-accent-text underline underline-offset-2"
+                      className="text-white hover:text-accent-light transition-colors underline underline-offset-2"
                     >
                       {formatPhoneWithNbsp(COMPANY_DATA.phones.mainFax.display)}
                     </a>
@@ -127,7 +127,7 @@ export const ContactPage: React.FC = () => {
                     <span className="text-white/60">E-mail: </span>
                     <a
                       href={`mailto:${COMPANY_DATA.email}`}
-                      className="text-white hover:text-accent-text underline underline-offset-2"
+                      className="text-white hover:text-accent-light transition-colors underline underline-offset-2"
                     >
                       {COMPANY_DATA.email}
                     </a>
@@ -166,12 +166,6 @@ export const ContactPage: React.FC = () => {
                 <h3 className="text-xl font-semibold text-foreground tracking-tight">
                   Lokalizacja i dojazd
                 </h3>
-                {!mapLoaded && (
-                  <span className="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-surface-subtle text-foreground-secondary text-[12px] font-medium border border-surface-border">
-                    <MousePointer2 className="w-3.5 h-3.5 text-accent-text" />
-                    <span>Aktywacja po najechaniu kursorem</span>
-                  </span>
-                )}
               </div>
               <p className="text-[14px] text-foreground-secondary mt-1">
                 Lisi Ogon k. Bydgoszczy, ul. Potulicka 38 (przy drodze krajowej S10/S5)

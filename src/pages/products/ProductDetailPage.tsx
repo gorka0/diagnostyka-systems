@@ -521,8 +521,10 @@ export const ProductDetailPage: React.FC = () => {
                     return (
                       <label
                         key={option.id}
-                        className={`block py-3 px-2 sm:px-3 rounded-[8px] transition-colors cursor-pointer select-none ${
-                          isChecked ? 'bg-[#F7F7F5]' : 'hover:bg-[#F7F7F5]/50'
+                        className={`block py-3 px-2 sm:px-3 rounded-[8px] transition-colors cursor-pointer select-none border-l-2 ${
+                          isChecked
+                            ? 'bg-background-subtle border-l-accent'
+                            : 'border-l-transparent hover:bg-background-subtle/60'
                         } ${isHidden ? 'hidden' : ''}`}
                       >
                         <div className="flex items-start gap-3">
@@ -533,7 +535,7 @@ export const ProductDetailPage: React.FC = () => {
                               value={option.id}
                               checked={isChecked}
                               onChange={() => handleToggleOption(option.id)}
-                              className="w-6 h-6 rounded border-surface-border text-accent-primary focus:ring-accent-primary focus-visible:ring-2 focus-visible:ring-[#1F2328] focus-visible:ring-offset-2 cursor-pointer"
+                              className="w-5 h-5 rounded border-gray-300 text-foreground accent-[#1F2328] focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2 cursor-pointer"
                             />
                           </div>
 
@@ -634,10 +636,10 @@ export const ProductDetailPage: React.FC = () => {
                       return (
                         <label
                           key={variant.id}
-                          className={`flex items-start gap-3 p-3.5 rounded-[10px] cursor-pointer min-h-[48px] transition-all select-none focus-within:ring-2 focus-within:ring-[#1F2328] focus-within:ring-offset-2 ${
+                          className={`flex items-start gap-3 p-3.5 rounded-[10px] cursor-pointer min-h-[48px] transition-[border-color,background-color,box-shadow] duration-150 select-none focus-within:ring-2 focus-within:ring-foreground focus-within:ring-offset-2 ${
                             isSelected
-                              ? 'border-2 border-[#1F2328] bg-[#F7F7F5] shadow-xs'
-                              : 'border border-surface-border bg-white hover:border-surface-border/80'
+                              ? 'border-2 border-foreground bg-white shadow-xs'
+                              : 'border border-surface-border bg-white/65 hover:bg-white hover:border-gray-300'
                           }`}
                         >
                           <input

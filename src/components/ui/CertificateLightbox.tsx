@@ -126,24 +126,22 @@ export const CertificateLightbox: React.FC = () => {
             key={cert.id}
             type="button"
             onClick={() => setActiveIndex(index)}
-            className="group relative flex flex-col text-left bg-white border border-surface-border rounded-[12px] p-4 transition-all duration-200 hover:border-accent hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
+            className="group relative flex flex-col text-left bg-white border border-surface-border rounded-[12px] p-4 transition-[border-color,box-shadow] duration-200 hover:border-foreground/30 hover:shadow-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground"
             aria-label={`${cert.title} – powiększ skan dokumentu`}
           >
             {/* Ramka z miniaturą A4 (3:4) */}
-            <div className="relative aspect-[3/4] w-full rounded-[8px] overflow-hidden bg-background-subtle border border-surface-border flex items-center justify-center p-3 select-none">
-              <CornerBrackets size={12} color="#EE9D16" className="opacity-75 z-10" />
-
+            <div className="relative aspect-[3/4] w-full rounded-[8px] overflow-hidden bg-background-subtle border border-surface-border/70 flex items-center justify-center p-3 select-none">
               {/* Prawdziwy skan dokumentu certyfikatu */}
               <img
                 src={cert.imageSrc}
                 alt={cert.title}
-                className="w-full h-full object-contain shadow-sm rounded-[4px] bg-white group-hover:scale-[1.02] transition-transform duration-200"
+                className="w-full h-full object-contain shadow-xs border border-black/[0.08] rounded-[4px] bg-white group-hover:scale-[1.015] transition-transform duration-200"
                 decoding="async"
               />
 
               {/* Ikona powiększenia przy hoverze */}
-              <div className="absolute inset-0 bg-graphite-900/0 group-hover:bg-graphite-900/30 transition-colors flex items-center justify-center pointer-events-none">
-                <div className="w-10 h-10 rounded-full bg-white/95 shadow-md flex items-center justify-center text-graphite-900 opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:scale-105 duration-200">
+              <div className="absolute inset-0 bg-graphite-900/0 group-hover:bg-graphite-900/15 transition-colors flex items-center justify-center pointer-events-none">
+                <div className="w-10 h-10 rounded-full bg-white/95 border border-black/10 shadow-md flex items-center justify-center text-graphite-900 opacity-0 group-hover:opacity-100 transition-opacity duration-200">
                   <ZoomIn className="w-5 h-5 text-accent-text" />
                 </div>
               </div>
@@ -175,7 +173,7 @@ export const CertificateLightbox: React.FC = () => {
         >
           {/* Kontener modalny z zatrzymaniem propagacji kliku */}
           <div
-            className="relative max-w-[560px] w-full bg-white rounded-[16px] shadow-2xl overflow-hidden border border-white/20 animate-in fade-in zoom-in-95 duration-200"
+            className="relative max-w-[560px] w-full bg-white rounded-[16px] shadow-2xl overflow-hidden border border-white/20 animate-fade-in"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Narożniki-nawiasy w motywie marki */}
@@ -184,7 +182,7 @@ export const CertificateLightbox: React.FC = () => {
             {/* Pasek nagłówka */}
             <div className="flex items-center justify-between p-4 sm:p-5 border-b border-surface-border">
               <div>
-                <span className="text-[13px] font-semibold text-accent-text uppercase tracking-wider block">
+                <span className="text-[13px] font-semibold text-accent-text block">
                   Dokumentacja fabryczna ({activeIndex + 1} z {CERTIFICATES_LIST.length})
                 </span>
                 <h3 className="text-[18px] sm:text-[20px] font-semibold text-foreground leading-snug">

@@ -46,10 +46,10 @@ export const ServiceTicketPage: React.FC = () => {
           </div>
           <a
             href={`tel:${COMPANY_DATA.phones.techInfo.raw}`}
-            className="h-10 px-4 rounded-[8px] bg-foreground text-white hover:bg-foreground/90 font-semibold text-[14px] transition-colors inline-flex items-center gap-2 shrink-0"
+            className="h-10 px-4 rounded-[8px] bg-foreground text-white hover:bg-foreground/90 font-semibold text-[14px] transition-colors inline-flex items-center gap-2 shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground focus-visible:ring-offset-2"
           >
-            <Phone className="w-4 h-4 text-accent-primary" />
-            <span>{formatPhoneWithNbsp(COMPANY_DATA.phones.techInfo.display)}</span>
+            <Phone className="w-4 h-4 text-accent-light" />
+            <span className="tabular-nums">{formatPhoneWithNbsp(COMPANY_DATA.phones.techInfo.display)}</span>
           </a>
         </div>
 

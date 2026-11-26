@@ -168,12 +168,12 @@ export const PageHero: React.FC<PageHeroProps> = ({
             {/* Prawa kolumna: Zdjęcie z pomarańczowymi narożnikami */}
             {image && (
               <div className="lg:col-span-5">
-                <div className="relative rounded-[16px] overflow-hidden border border-surface-border bg-white shadow-sm">
-                  <CornerBrackets size={18} color="#EE9D16" />
+                <div className="relative rounded-[14px] overflow-hidden border border-surface-border bg-white shadow-sm">
+                  <CornerBrackets size={16} color="#EE9D16" />
                   <img
                     src={image.src}
                     alt={image.alt}
-                    className="w-full aspect-[1024/338] object-cover object-center block"
+                    className="w-full aspect-[16/10] object-cover object-center block"
                     loading="eager"
                   />
                 </div>

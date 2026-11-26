@@ -112,7 +112,7 @@ export const RealizationLightbox: React.FC<RealizationLightboxProps> = ({
       onTouchEnd={handleTouchEnd}
     >
       <div
-        className="relative max-w-[620px] w-full bg-white rounded-[16px] shadow-2xl overflow-hidden border border-white/20 animate-in fade-in zoom-in-95 duration-200"
+        className="relative max-w-[620px] w-full bg-white rounded-[16px] shadow-2xl overflow-hidden border border-white/20 animate-fade-in"
         onClick={(e) => e.stopPropagation()}
       >
         <CornerBrackets size={16} color="#EE9D16" />
@@ -120,7 +120,7 @@ export const RealizationLightbox: React.FC<RealizationLightboxProps> = ({
         {/* Pasek nagłówka */}
         <div className="flex items-center justify-between p-4 sm:p-5 border-b border-surface-border">
           <div className="pr-4">
-            <span className="text-[13px] font-semibold text-accent-text uppercase tracking-wider block">
+            <span className="text-[13px] font-semibold text-accent-text block">
               {clientName ? `Wyposażenie: ${clientName}` : 'Wyposażenie obiektu'}
               {total > 1 ? ` (${activeIndex + 1} z ${total})` : ''}
             </span>

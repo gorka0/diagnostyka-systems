@@ -49,13 +49,13 @@ export const UsedProductsPage: React.FC = () => {
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 shrink-0">
-            <span className="text-[13px] font-mono text-foreground-secondary uppercase tracking-wider block">
+          <div className="flex flex-col items-start md:items-end gap-0.5 shrink-0">
+            <span className="text-[13px] text-foreground-secondary block">
               Dział handlowy:
             </span>
             <a
               href={cleanTelHref(COMPANY_DATA.phones.salesInfo.raw)}
-              className="text-xl sm:text-2xl font-bold font-mono text-foreground hover:text-accent-text transition-colors tabular-nums"
+              className="text-xl sm:text-2xl font-bold font-mono text-foreground hover:text-accent-text transition-colors tabular-nums whitespace-nowrap"
             >
               {formatPhoneWithNbsp(COMPANY_DATA.phones.salesInfo.display)}
             </a>

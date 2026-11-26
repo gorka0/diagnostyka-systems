@@ -75,10 +75,14 @@ export const CategoryPage: React.FC = () => {
       <Link
         key={product.slug}
         to={`/produkty/${category.slug}/${product.slug}`}
-        className="group flex flex-col bg-background border border-surface-border rounded-[10px] overflow-hidden hover:border-accent transition-all duration-150 hover:shadow-sm"
+        className="group flex flex-col bg-background border border-surface-border rounded-[10px] overflow-hidden hover:border-foreground/35 transition-[border-color,box-shadow] duration-150 hover:shadow-sm"
         style={{ contentVisibility: 'auto', containIntrinsicSize: '360px' }}
       >
-        <div className="relative aspect-square w-full bg-[#F7F7F5] overflow-hidden flex items-center justify-center p-4">
+        <div
+          className={`relative aspect-square w-full bg-[#F7F7F5] overflow-hidden flex items-center justify-center ${
+            isContain ? 'p-4' : 'p-0'
+          }`}
+        >
           <SiteImage
             name={product.slug}
             alt={product.name}
@@ -88,18 +92,18 @@ export const CategoryPage: React.FC = () => {
             loading="lazy"
             className={`w-full h-full ${
               isContain
-                ? 'object-contain mix-blend-multiply transition-transform duration-200 group-hover:scale-105'
-                : 'object-cover transition-transform duration-200 group-hover:scale-105'
+                ? 'object-contain mix-blend-multiply transition-transform duration-200 group-hover:scale-[1.03]'
+                : 'object-cover transition-transform duration-200 group-hover:scale-[1.03]'
             }`}
           />
 
           {isUsed && (
-            <span className="absolute top-2.5 left-2.5 bg-neutral-900 text-white text-[11px] font-semibold px-2 py-0.5 rounded tracking-wide uppercase">
+            <span className="absolute top-2.5 left-2.5 bg-foreground text-white text-[12px] font-medium px-2.5 py-0.5 rounded-[6px]">
               Używane
             </span>
           )}
 
-          <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/90 border border-surface-border flex items-center justify-center text-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-all shadow-xs">
+          <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-white/95 border border-surface-border flex items-center justify-center text-foreground opacity-0 group-hover:opacity-100 group-hover:translate-x-0.5 transition-[opacity,transform] duration-150 shadow-xs">
             <ArrowRight className="w-3.5 h-3.5" />
           </div>
         </div>
@@ -227,7 +231,7 @@ export const CategoryPage: React.FC = () => {
       />
 
       {/* Pasek narzędziowy: liczba pozycji, wyszukiwarka, widok siatka/lista */}
-      <div className="border-b border-surface-border bg-background sticky top-[72px] z-20 py-3 shadow-xs">
+      <div className="border-b border-surface-border bg-background/95 backdrop-blur-md sticky top-20 z-20 py-3 shadow-xs">
         <Container>
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-3">
             {/* Liczba pozycji (zgodnie ze standardem na geometrii kół) */}
