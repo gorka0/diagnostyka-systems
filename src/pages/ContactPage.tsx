@@ -44,8 +44,8 @@ export const ContactPage: React.FC = () => {
   return (
     <div className="bg-background min-h-[100dvh]">
       <Seo
-        title="Kontakt i Serwis Bydgoszcz – Diagnostyka-Systems s.c."
-        description="Skontaktuj się z autoryzowanym dystrybutorem i serwisem Beissbarth: formularz z wyborem celu, bezpośrednie telefony do inżynierów, magazyn Lisi Ogon k. Bydgoszczy."
+        title="Kontakt i Serwis Bydgoszcz, Łochowo – Diagnostyka-Systems s.c."
+        description="Kontakt i dojazd: magazyn Lisi Ogon k. Bydgoszczy (ul. Potulicka 38) oraz siedziba rejestrowa Łochowo (ul. Piaskowa 6). Telefony serwisowe i formularz."
         canonicalPath="/kontakt"
         jsonLd={getLocalBusinessJsonLd()}
         breadcrumbs={[
@@ -168,7 +168,7 @@ export const ContactPage: React.FC = () => {
                 </h3>
               </div>
               <p className="text-[14px] text-foreground-secondary mt-1">
-                Lisi Ogon k. Bydgoszczy, ul. Potulicka 38 (przy drodze krajowej S10/S5)
+                Lisi Ogon k. Bydgoszczy i Łochowa, ul. Potulicka 38 (przy drodze krajowej S10/S5)
               </p>
             </div>
             <a

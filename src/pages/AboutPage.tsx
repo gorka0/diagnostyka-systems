@@ -13,8 +13,8 @@ export const AboutPage: React.FC = () => {
   return (
     <div className="bg-background min-h-[100dvh]">
       <Seo
-        title="O firmie – Autoryzacja Beissbarth od 2005 r. | Diagnostyka-Systems"
-        description="Historia Diagnostyka-Systems od 2004 r. Autoryzacja fabryczna Beissbarth GmbH od 2005 r., certyfikacja ITS dla SKP, serwis stacji Valeo."
+        title="O firmie – Autoryzacja Beissbarth, Bydgoszcz i Łochowo | Diagnostyka-Systems"
+        description="Historia Diagnostyka-Systems od 2004 r. (Bydgoszcz, Lisi Ogon, Łochowo). Autoryzacja fabryczna Beissbarth GmbH od 2005 r., atesty ITS dla SKP i serwis Valeo."
         canonicalPath="/o-nas"
         breadcrumbs={[
           { label: 'Strona główna', path: '/' },

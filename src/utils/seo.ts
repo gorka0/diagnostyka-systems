@@ -11,7 +11,7 @@ export function getLocalBusinessJsonLd() {
     '@id': `${BASE_URL}/#localbusiness`,
     'name': `${COMPANY_DATA.name} - Autoryzowany Dystrybutor i Serwis Beissbarth`,
     'legalName': COMPANY_DATA.legalAddress.companyName,
-    'description': `${COMPANY_DATA.tagline}. Kompleksowe wyposażenie i autoryzowany serwis SKP, ASO oraz warsztatów mechanicznych i oponiarskich w Polsce. Geometria 3D, linie diagnostyczne, wyważarki, demontażownice kół oraz serwis klimatyzacji Valeo.`,
+    'description': `${COMPANY_DATA.tagline}. Siedziba w Lisim Ogonie k. Bydgoszczy i rejestracja w Łochowie (86-065, kujawsko-pomorskie). Kompleksowe wyposażenie i autoryzowany serwis SKP, ASO oraz warsztatów w regionie Bydgoszczy, Łochowa i całej Polski.`,
     'url': BASE_URL,
     'logo': `${BASE_URL}/brand/ds-logo.svg`,
     'image': `${BASE_URL}/images/budynek-firmy-lisi-ogon.jpg`,
@@ -39,10 +39,28 @@ export function getLocalBusinessJsonLd() {
         'closes': '16:00',
       },
     ],
-    'areaServed': {
-      '@type': 'Country',
-      'name': 'Polska',
-    },
+    'areaServed': [
+      {
+        '@type': 'City',
+        'name': 'Bydgoszcz',
+      },
+      {
+        '@type': 'Place',
+        'name': 'Łochowo',
+      },
+      {
+        '@type': 'Place',
+        'name': 'Lisi Ogon',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        'name': 'kujawsko-pomorskie',
+      },
+      {
+        '@type': 'Country',
+        'name': 'Polska',
+      },
+    ],
     'priceRange': '$$$',
     'knowsAbout': [
       'Beissbarth',
@@ -65,8 +83,8 @@ export function getHomepageJsonLd() {
       '@type': 'WebSite',
       '@id': `${BASE_URL}/#website`,
       'url': BASE_URL,
-      'name': 'Diagnostyka-Systems s.c. - Beissbarth Polska',
-      'description': 'Autoryzowany dystrybutor i serwis urządzeń diagnostycznych Beissbarth w Polsce.',
+      'name': 'Diagnostyka-Systems s.c. - Beissbarth Bydgoszcz, Łochowo, Polska',
+      'description': 'Autoryzowany dystrybutor i serwis urządzeń diagnostycznych Beissbarth – Lisi Ogon k. Bydgoszczy, Łochowo i cała Polska.',
       'publisher': {
         '@id': `${BASE_URL}/#localbusiness`,
       },
@@ -158,7 +176,7 @@ export function getAboutJsonLd() {
     '@type': 'AboutPage',
     'name': 'O firmie Diagnostyka-Systems s.c.',
     'url': `${BASE_URL}/o-nas`,
-    'description': 'Historia firmy Diagnostyka-Systems od 2004 r. Autoryzacja fabryczna Beissbarth GmbH od 2005 r., certyfikaty ITS dla SKP, autoryzacja serwisu klimatyzacji Valeo.',
+    'description': 'Historia firmy Diagnostyka-Systems od 2004 r. (Lisi Ogon k. Bydgoszczy, Łochowo). Autoryzacja fabryczna Beissbarth GmbH od 2005 r., certyfikaty ITS dla SKP, serwis klimatyzacji Valeo.',
     'mainEntity': {
       '@type': 'Organization',
       'name': COMPANY_DATA.name,
@@ -182,7 +200,7 @@ export function getServiceJsonLd() {
     '@type': 'Service',
     'name': 'Autoryzowany Serwis Beissbarth i Valeo',
     'serviceType': 'Serwis aparatury diagnostycznej i stacji klimatyzacji',
-    'description': 'Serwis gwarancyjny i pogwarancyjny Beissbarth i Valeo, okresowe kalibracje dla SKP pod wymogi TDT, remonty kapitalne geometrii oraz magazyn części zamiennych w Lisim Ogonie.',
+    'description': 'Serwis gwarancyjny i pogwarancyjny Beissbarth i Valeo dla Bydgoszczy, Łochowa i całej Polski: kalibracje dla SKP pod wymogi TDT, remonty geometrii oraz magazyn części w Lisim Ogonie.',
     'url': `${BASE_URL}/serwis`,
     'provider': {
       '@type': 'AutoRepair',
@@ -197,10 +215,28 @@ export function getServiceJsonLd() {
         'addressCountry': 'PL',
       },
     },
-    'areaServed': {
-      '@type': 'Country',
-      'name': 'Polska',
-    },
+    'areaServed': [
+      {
+        '@type': 'City',
+        'name': 'Bydgoszcz',
+      },
+      {
+        '@type': 'Place',
+        'name': 'Łochowo',
+      },
+      {
+        '@type': 'Place',
+        'name': 'Lisi Ogon',
+      },
+      {
+        '@type': 'AdministrativeArea',
+        'name': 'kujawsko-pomorskie',
+      },
+      {
+        '@type': 'Country',
+        'name': 'Polska',
+      },
+    ],
   };
 }
 

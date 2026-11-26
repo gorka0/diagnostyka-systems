@@ -69,8 +69,8 @@ export const OfferPage: React.FC = () => {
   return (
     <div className="bg-background min-h-[100dvh]">
       <Seo
-        title="Oferta urządzeń diagnostycznych i wyposażenia SKP | Diagnostyka-Systems"
-        description="Oferta aparatury diagnostycznej Beissbarth i stacji klimatyzacji Valeo: geometria 3D, ścieżki hamulcowe SKP, wyważarki, demontażownice, szkolenia personelu."
+        title="Oferta urządzeń SKP i warsztatowych – Bydgoszcz, Łochowo | Diagnostyka-Systems"
+        description="Wyposażenie warsztatów i SKP w regionie Bydgoszczy i Łochowa oraz w całej Polsce: geometria 3D Beissbarth, linie hamulcowe, wyważarki, stacje Valeo."
         canonicalPath="/oferta"
       />
       <PageHero

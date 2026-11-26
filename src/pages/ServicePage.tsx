@@ -15,8 +15,8 @@ export const ServicePage: React.FC = () => {
   return (
     <div className="bg-background min-h-[100dvh]">
       <Seo
-        title="Autoryzowany Serwis Beissbarth i Valeo | Diagnostyka-Systems"
-        description="Autoryzowany serwis Beissbarth i Valeo: naprawy gwarancyjne, okresowe kalibracje geometrii dla SKP, regeneracja maszyn i oryginalne części z magazynu w Lisim Ogonie."
+        title="Autoryzowany Serwis Beissbarth Bydgoszcz, Łochowo | Diagnostyka-Systems"
+        description="Autoryzowany serwis Beissbarth i Valeo (Lisi Ogon k. Bydgoszczy, Łochowo, 86-065): naprawy, kalibracje geometrii SKP pod TDT, regeneracja i magazyn części."
         canonicalPath="/serwis"
         breadcrumbs={[
           { label: 'Strona główna', path: '/' },
@@ -30,7 +30,7 @@ export const ServicePage: React.FC = () => {
         variant="dark"
         breadcrumbs={[{ label: 'Serwis' }]}
         title="Autoryzowany serwis urządzeń warsztatowych"
-        description="Naprawy gwarancyjne i pogwarancyjne aparatury Beissbarth i stacji klimatyzacji Valeo, okresowe kalibracje dla SKP pod wymogi TDT oraz centralny magazyn części w Lisim Ogonie."
+        description="Naprawy gwarancyjne i pogwarancyjne aparatury Beissbarth i stacji klimatyzacji Valeo, okresowe kalibracje dla SKP pod wymogi TDT oraz centralny magazyn części w Lisim Ogonie k. Bydgoszczy i Łochowa."
         cta={
           <div className="flex flex-col sm:flex-row sm:items-center gap-4 sm:gap-8 pt-2">
             <Button
